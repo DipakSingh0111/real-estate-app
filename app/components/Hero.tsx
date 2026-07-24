@@ -87,7 +87,7 @@ export default function Hero({ cities }: HeroProps) {
           <div className="max-w-3xl space-y-5">
             {/* Badge */}
 
-            <motion.div variants={itemVariants}>
+            <motion.div>
               <span
                 className="
                 inline-flex
@@ -115,7 +115,6 @@ export default function Hero({ cities }: HeroProps) {
             {/* Heading */}
 
             <motion.h1
-              variants={itemVariants}
               className="
               text-3xl
               font-black
@@ -146,7 +145,6 @@ export default function Hero({ cities }: HeroProps) {
             {/* Description */}
 
             <motion.p
-              variants={itemVariants}
               className="
               max-w-2xl
               text-sm
@@ -164,7 +162,6 @@ export default function Hero({ cities }: HeroProps) {
             {/* Buttons */}
 
             <motion.div
-              variants={itemVariants}
               className="
               flex
               flex-col
@@ -231,7 +228,6 @@ export default function Hero({ cities }: HeroProps) {
             {/* Stats */}
 
             <motion.div
-              variants={itemVariants}
               className="
               grid
               grid-cols-3
