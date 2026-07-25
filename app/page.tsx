@@ -10,7 +10,6 @@ import WhoWeServe from "./components/WhoWeServe";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Testimonial from "./components/Testimonial";
-import type {} from "@/types/property";
 
 const properties = propertiesData.Properties as Property[];
 const testimonials = propertiesData.testimonials as Testimonials[];
