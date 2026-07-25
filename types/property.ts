@@ -36,7 +36,7 @@ export interface PropertyFilters {
   bhk?: string;
 }
 
-export interface Testimonial {
+export interface Testimonials {
   id: number;
   quote: string;
   name: string;
