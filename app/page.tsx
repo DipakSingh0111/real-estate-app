@@ -5,7 +5,7 @@ import Link from "next/link";
 import propertiesData from "./data/properties.json";
 import Hero from "./components/Hero";
 import PropertyCard from "./components/PropertyCard";
-import type { Property, Testimonial } from "@/types/property";
+import type { Property } from "@/types/property";
 import WhoWeServe from "./components/WhoWeServe";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -13,7 +13,7 @@ import Testimonial from "./components/Testimonial";
 import type {} from "@/types/property";
 
 const properties = propertiesData.Properties as Property[];
-const testimonials = propertiesData.testimonials as Testimonial[];
+// const testimonials = propertiesData.testimonials as Testimonial[];
 
 export default function HomePage() {
   const cities = [...new Set(properties.map((p) => p.city))].sort();
@@ -233,7 +233,7 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-      <Testimonial testimonials={testimonials} />
+      {/* <Testimonial testimonials={testimonials} /> */}
     </>
   );
 }
