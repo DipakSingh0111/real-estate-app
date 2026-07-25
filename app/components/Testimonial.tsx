@@ -2,7 +2,7 @@
 
 import { useRef, useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight, Star, Quote } from "lucide-react";
-import type { Testimonial } from "@/types/property";
+import type { Testimonials } from "@/types/property";
 
 function initials(name: string) {
   return name
@@ -16,7 +16,7 @@ function initials(name: string) {
 export default function Testimonial({
   testimonials,
 }: {
-  testimonials: Testimonial[];
+  testimonials: Testimonials[];
 }) {
   const sliderRef = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
