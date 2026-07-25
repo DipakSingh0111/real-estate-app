@@ -1,21 +1,20 @@
 import type { Metadata } from "next";
-import { Fraunces, Inter, IBM_Plex_Mono } from "next/font/google";
+import { Playfair_Display, Manrope, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
-const fraunces = Fraunces({
+const playfair = Playfair_Display({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  style: ["normal", "italic"],
-  variable: "--font-fraunces",
+  weight: ["500", "600", "700", "800", "900"],
+  variable: "--font-heading",
   display: "swap",
 });
 
-const inter = Inter({
+const manrope = Manrope({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-inter",
+  weight: ["400", "500", "600", "700", "800"],
+  variable: "--font-body",
   display: "swap",
 });
 
@@ -40,9 +39,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${fraunces.variable} ${inter.variable} ${plexMono.variable}`}
+      className={`${playfair.variable} ${manrope.variable} ${plexMono.variable}`}
     >
-      <body className="bg-paper text-char font-body antialiased">
+      <body className="bg-paper font-body text-char antialiased">
         <Navbar />
         <main className="min-h-screen">{children}</main>
         <Footer />

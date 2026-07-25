@@ -2,59 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
+@theme {
+  --font-heading: var(--font-heading);
+  --font-body: var(--font-body);
+  --font-mono: var(--font-mono);
+}
+
+:root {
+  --font-heading: "Playfair Display", serif;
+  --font-body: "Manrope", sans-serif;
+  --font-mono: "IBM Plex Mono", monospace;
+}
+
 html {
   scroll-behavior: smooth;
 }
 
-* {
-  outline-color: theme("colors.brass.DEFAULT");
-}
-
-::selection {
-  background-color: theme("colors.brass.DEFAULT");
-  color: theme("colors.ink.DEFAULT");
-}
-
-/* The "registry stamp" — a nod to the wax/ink stamps on Indian
-   property registry & stamp-paper documents. Used on price badges. */
-.stamp {
-  position: relative;
-  border: 1.5px solid theme("colors.brass.DEFAULT");
-  border-radius: 3px;
-  transform: rotate(-2deg);
-  box-shadow: 0 0 0 1px theme("colors.brass.DEFAULT" / 25%);
-}
-
-.stamp::before {
-  content: "";
-  position: absolute;
-  inset: 3px;
-  border: 1px dashed theme("colors.brass.DEFAULT" / 60%);
-  border-radius: 2px;
-  pointer-events: none;
-}
-
-.eyebrow {
-  font-family: var(--font-mono);
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  font-size: 0.7rem;
-}
-
-.blueprint-bg {
-  background-color: theme("colors.ink.DEFAULT");
-  background-image:
-    radial-gradient(ellipse 80% 60% at 15% 0%, rgba(185, 137, 62, 0.16), transparent 60%),
-    theme("backgroundImage.blueprint");
-  background-size: 100% 100%, theme("backgroundSize.grid");
-}
-
-/* Staggered entrance for hero content — a single orchestrated
-   moment on load, not scattered effects throughout the page. */
-@keyframes rise-in {
+@keyframes fadeDown {
   from {
     opacity: 0;
-    transform: translateY(14px);
+    transform: translateY(-12px);
   }
   to {
     opacity: 1;
@@ -62,20 +29,28 @@ html {
   }
 }
 
-.rise-in {
-  animation: rise-in 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+body {
+  font-family: var(--font-body);
 }
 
-.rise-in-1 { animation-delay: 0.05s; }
-.rise-in-2 { animation-delay: 0.15s; }
-.rise-in-3 { animation-delay: 0.25s; }
-.rise-in-4 { animation-delay: 0.35s; }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  letter-spacing: -0.03em;
+}
 
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
+.font-heading {
+  font-family: var(--font-heading);
+}
+
+.font-body {
+  font-family: var(--font-body);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
 }

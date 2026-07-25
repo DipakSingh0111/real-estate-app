@@ -1,46 +1,54 @@
+"use client";
+
+import { useRef, useState } from "react";
 import Link from "next/link";
-import propertiesData from "../data/properties.json";
+import propertiesData from "./data/properties.json";
 import Hero from "./components/Hero";
 import PropertyCard from "./components/PropertyCard";
-import type { Property } from "@/types/property";
+import type { Property, Testimonial } from "@/types/property";
 import WhoWeServe from "./components/WhoWeServe";
-const properties = propertiesData as Property[];
+import { X, ChevronLeft, ChevronRight } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import Testimonial from "./components/Testimonial";
+import type {} from "@/types/property";
 
-const testimonials = [
-  {
-    quote:
-      "We viewed six flats over two weekends and closed on the seventh — no back-and-forth over broker fees, just a straight number.",
-    name: "Aditi Sharma",
-    detail: "Bought a 3BHK in Bandra West",
-  },
-  {
-    quote:
-      "The RERA ID was right there on the listing before I even asked. That single detail is why I trusted the site.",
-    name: "Rahul Verma",
-    detail: "Rented a 2BHK in Koramangala",
-  },
-  {
-    quote:
-      "Our agent in Gurugram answered on the first ring, every time. That kind of responsiveness is rare in this market.",
-    name: "Sneha Iyer",
-    detail: "Bought an apartment on Sohna Road",
-  },
-];
+const properties = propertiesData.Properties as Property[];
+const testimonials = propertiesData.testimonials as Testimonial[];
 
 export default function HomePage() {
   const cities = [...new Set(properties.map((p) => p.city))].sort();
-  const featured = properties.filter((p) => p.featured);
+  const featured = properties.filter((p) => p.featured).slice(0, 6);
 
   const cityStats = cities.map((city) => ({
     city,
     count: properties.filter((p) => p.city === city).length,
   }));
 
+  const [selectedCity, setSelectedCity] = useState<string | null>(null);
+  const sliderRef = useRef<HTMLDivElement>(null);
+
+  const cityProperties = selectedCity
+    ? properties.filter((p) => p.city === selectedCity)
+    : [];
+
+  const handleCityClick = (city: string) => {
+    setSelectedCity((prev) => (prev === city ? null : city));
+  };
+
+  const scrollSlider = (direction: "left" | "right") => {
+    const el = sliderRef.current;
+    if (!el) return;
+    const amount = el.clientWidth * 0.7;
+    el.scrollBy({
+      left: direction === "left" ? -amount : amount,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <>
       <Hero cities={cities} />
-
-      <section className="mx-auto max-w-7xl px-6 py-20">
+      <section className="mx-auto max-w-7xl px-6 pb-16 pt-4">
         <div className="flex items-end justify-between">
           <div>
             <h2 className="mt-2 font-display text-3xl font-semibold text-ink">
@@ -60,7 +68,6 @@ export default function HomePage() {
             <PropertyCard key={property.id} property={property} />
           ))}
         </div>
-        <WhoWeServe />
 
         <Link
           href="/properties"
@@ -70,32 +77,135 @@ export default function HomePage() {
         </Link>
       </section>
 
-      <section className="border-t border-ink/10 bg-white py-20">
-        <div className="mx-auto max-w-7xl px-6">
-          <h2 className="mt-2 font-display text-3xl font-semibold text-ink">
-            Browse by City
-          </h2>
+      <WhoWeServe />
 
-          <div className="mt-10 grid gap-4 sm:grid-cols-2 md:grid-cols-4">
-            {cityStats.map(({ city, count }) => (
-              <Link
-                key={city}
-                href="#"
-                className="group rounded-2xl border border-ink/10 p-6 transition hover:border-brass hover:bg-paper"
+      <section className="border-t border-ink/10 bg-white py-16">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="flex items-end justify-between gap-4">
+            <div>
+              <h2 className="mt-2 font-display text-3xl font-semibold text-ink">
+                Browse by City
+              </h2>
+              <p className="mt-2 text-sm text-ink/50">
+                Tap a city to see its listings right here.
+              </p>
+            </div>
+
+            {/* Slider nav arrows */}
+            <div className="hidden flex-shrink-0 gap-2 sm:flex">
+              <button
+                type="button"
+                onClick={() => scrollSlider("left")}
+                aria-label="Scroll left"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-ink/10 text-ink/50 transition hover:border-brass hover:text-brass-dark"
               >
-                <p className="font-display text-xl font-semibold text-ink group-hover:text-brass-dark">
-                  {city}
-                </p>
-                <p className="mt-1 font-mono text-sm text-ink/50">
-                  {count} listing{count > 1 ? "s" : ""}
-                </p>
-              </Link>
-            ))}
+                <ChevronLeft size={18} />
+              </button>
+              <button
+                type="button"
+                onClick={() => scrollSlider("right")}
+                aria-label="Scroll right"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-ink/10 text-ink/50 transition hover:border-brass hover:text-brass-dark"
+              >
+                <ChevronRight size={18} />
+              </button>
+            </div>
           </div>
+
+          {/* Horizontal city slider */}
+          <div
+            ref={sliderRef}
+            className="scrollbar-hide mt-6 flex snap-x snap-mandatory gap-3 overflow-x-auto scroll-smooth"
+            style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+          >
+            {cityStats.map(({ city, count }) => {
+              const isActive = selectedCity === city;
+              return (
+                <button
+                  key={city}
+                  type="button"
+                  onClick={() => handleCityClick(city)}
+                  className={`group w-28 flex-shrink-0 snap-start rounded-xl border p-3 text-left transition sm:w-32 ${
+                    isActive
+                      ? "border-brass bg-paper shadow-sm"
+                      : "border-ink/10 hover:border-brass hover:bg-paper"
+                  }`}
+                >
+                  <p
+                    className={`font-display text-sm font-semibold transition ${
+                      isActive
+                        ? "text-brass-dark"
+                        : "text-ink group-hover:text-brass-dark"
+                    }`}
+                  >
+                    {city}
+                  </p>
+                  <p className="mt-0.5 font-mono text-[11px] text-ink/50">
+                    {count} listing{count > 1 ? "s" : ""}
+                  </p>
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Inline city detail panel */}
+          <AnimatePresence mode="wait">
+            {selectedCity && (
+              <motion.div
+                key={selectedCity}
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: "auto" }}
+                exit={{ opacity: 0, height: 0 }}
+                transition={{ duration: 0.35, ease: "easeOut" }}
+                className="overflow-hidden"
+              >
+                <div className="mt-8 rounded-3xl border border-ink/10 bg-paper p-6 sm:p-8">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <p className="text-xs font-semibold uppercase tracking-wider text-brass-dark">
+                        Showing listings in
+                      </p>
+                      <h3 className="mt-1 font-display text-2xl font-semibold text-ink">
+                        {selectedCity}
+                      </h3>
+                    </div>
+
+                    <button
+                      type="button"
+                      onClick={() => setSelectedCity(null)}
+                      aria-label="Close"
+                      className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full border border-ink/10 bg-white text-ink/50 transition hover:border-brass hover:text-brass-dark"
+                    >
+                      <X size={16} />
+                    </button>
+                  </div>
+
+                  {cityProperties.length > 0 ? (
+                    <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                      {cityProperties.map((property) => (
+                        <PropertyCard key={property.id} property={property} />
+                      ))}
+                    </div>
+                  ) : (
+                    <p className="mt-8 text-sm text-ink/50">
+                      No listings found in {selectedCity} right now.
+                    </p>
+                  )}
+
+                  <Link
+                    href={`/properties?city=${encodeURIComponent(selectedCity)}`}
+                    className="mt-8 inline-flex text-sm font-semibold text-ink underline decoration-brass decoration-2 underline-offset-4"
+                  >
+                    View all {selectedCity} properties →
+                  </Link>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-6 py-20">
+      <section className="mx-auto max-w-7xl px-6 py-16">
         <div className="grid gap-6 rounded-3xl bg-pine px-8 py-14 text-paper sm:grid-cols-3 sm:px-14">
           <div>
             <p className="font-mono text-4xl font-semibold text-brass-light">
@@ -123,31 +233,7 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
-      <section className="border-t border-ink/10 bg-white py-20">
-        <div className="mx-auto max-w-7xl px-6">
-          <h2 className="mt-2 font-display text-3xl font-semibold text-ink">
-            What Buyers &amp; Tenants Say
-          </h2>
-
-          <div className="mt-10 grid gap-6 md:grid-cols-3">
-            {testimonials.map((t) => (
-              <figure
-                key={t.name}
-                className="flex h-full flex-col justify-between rounded-2xl border border-ink/10 p-6"
-              >
-                <blockquote className="font-display text-lg italic leading-relaxed text-ink">
-                  &ldquo;{t.quote}&rdquo;
-                </blockquote>
-                <figcaption className="mt-6 border-t border-ink/10 pt-4">
-                  <p className="text-sm font-semibold text-ink">{t.name}</p>
-                  <p className="mt-0.5 text-xs text-ink/50">{t.detail}</p>
-                </figcaption>
-              </figure>
-            ))}
-          </div>
-        </div>
-      </section>
+      <Testimonial testimonials={testimonials} />
     </>
   );
 }

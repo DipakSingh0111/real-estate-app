@@ -1,5 +1,5 @@
 import Link from "next/link";
-import propertiesData from "../../data/properties.json";
+import propertiesData from "../data/properties.json";
 import type { Property } from "@/types/property";
 import { MapPin, Phone, Mail, ArrowRight } from "lucide-react";
 import {
@@ -9,33 +9,39 @@ import {
   FaXTwitter,
 } from "react-icons/fa6";
 
-const properties = propertiesData as Property[];
+const properties = propertiesData.Properties as Property[];
 
 export default function Footer() {
   const cities = [...new Set(properties.map((p) => p.city))].sort();
 
   return (
-    <footer className="relative mt-24 overflow-hidden bg-slate-950 text-white">
-      {/* Background Blur */}
-      <div className="absolute -left-32 top-0 h-96 w-96 rounded-full bg-cyan-500/10 blur-[120px]" />
-      <div className="absolute -right-32 bottom-0 h-96 w-96 rounded-full bg-blue-600/10 blur-[120px]" />
+    <footer className="relative overflow-hidden border-t border-ink/10 bg-paper text-ink">
+      {/* Soft warm accent glow, subtle */}
+      <div className="pointer-events-none absolute -left-32 top-0 h-96 w-96 rounded-full bg-brass/10 blur-[120px]" />
+      <div className="pointer-events-none absolute -right-32 bottom-0 h-96 w-96 rounded-full bg-pine/10 blur-[120px]" />
 
-      <div className="relative mx-auto max-w-7xl px-6 py-16">
+      <div className="relative mx-auto max-w-7xl px-6 py-16 sm:py-20">
         {/* Top */}
         <div className="grid gap-12 lg:grid-cols-4">
           {/* Logo */}
           <div>
             <Link href="/">
-              <h2 className="cursor-pointer text-3xl font-bold">
-                Elite<span className="text-cyan-400">Estates</span>
+              <h2 className="cursor-pointer font-display text-3xl font-semibold text-ink">
+                Elite<span className="text-brass-dark">Estates</span>
               </h2>
             </Link>
 
-            <p className="mt-5 leading-7 text-gray-400">
+            <p className="mt-5 leading-7 text-ink/60">
               Find your dream home with verified listings across India. Buy,
               Rent & Invest confidently with trusted agents and transparent
               pricing.
             </p>
+
+            {/* Trust badge */}
+            <div className="mt-6 inline-flex items-center gap-2 rounded-full border border-brass/30 bg-brass/10 px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-brass-dark">
+              <span className="h-1.5 w-1.5 rounded-full bg-brass" />
+              RERA-verified listings
+            </div>
 
             {/* Social */}
 
@@ -45,9 +51,9 @@ export default function Footer() {
                   <a
                     key={index}
                     href="#"
-                    className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 transition duration-300 hover:-translate-y-1 hover:bg-cyan-500"
+                    className="flex h-11 w-11 items-center justify-center rounded-full border border-ink/10 bg-white text-ink/60 transition duration-300 hover:-translate-y-1 hover:border-brass hover:bg-brass hover:text-white"
                   >
-                    <Icon size={18} />
+                    <Icon size={16} />
                   </a>
                 ),
               )}
@@ -57,14 +63,16 @@ export default function Footer() {
           {/* Cities */}
 
           <div>
-            <h3 className="mb-6 text-lg font-semibold">Popular Cities</h3>
+            <h3 className="mb-6 font-display text-sm font-semibold uppercase tracking-wider text-ink">
+              Popular Cities
+            </h3>
 
             <ul className="space-y-3">
               {cities.slice(0, 8).map((city) => (
                 <li key={city}>
                   <Link
                     href={`/properties?city=${encodeURIComponent(city)}`}
-                    className="text-gray-400 transition hover:pl-2 hover:text-cyan-400"
+                    className="text-ink/60 transition hover:pl-2 hover:text-brass-dark"
                   >
                     {city}
                   </Link>
@@ -76,9 +84,11 @@ export default function Footer() {
           {/* Company */}
 
           <div>
-            <h3 className="mb-6 text-lg font-semibold">Company</h3>
+            <h3 className="mb-6 font-display text-sm font-semibold uppercase tracking-wider text-ink">
+              Company
+            </h3>
 
-            <ul className="space-y-3 text-gray-400">
+            <ul className="space-y-3 text-ink/60">
               {[
                 "About Us",
                 "Properties",
@@ -91,7 +101,7 @@ export default function Footer() {
                 <li key={item}>
                   <Link
                     href="#"
-                    className="transition hover:pl-2 hover:text-cyan-400"
+                    className="transition hover:pl-2 hover:text-brass-dark"
                   >
                     {item}
                   </Link>
@@ -103,13 +113,17 @@ export default function Footer() {
           {/* Contact */}
 
           <div>
-            <h3 className="mb-6 text-lg font-semibold">Contact Us</h3>
+            <h3 className="mb-6 font-display text-sm font-semibold uppercase tracking-wider text-ink">
+              Contact Us
+            </h3>
 
-            <div className="space-y-5 text-gray-400">
+            <div className="space-y-5 text-ink/60">
               <div className="flex items-start gap-3">
-                <MapPin size={20} className="mt-1 text-cyan-400" />
+                <span className="mt-0.5 flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg bg-brass/10">
+                  <MapPin size={16} className="text-brass-dark" />
+                </span>
 
-                <p>
+                <p className="pt-1.5">
                   Sector 62, Noida
                   <br />
                   Uttar Pradesh, India
@@ -117,12 +131,16 @@ export default function Footer() {
               </div>
 
               <div className="flex items-center gap-3">
-                <Phone size={18} className="text-cyan-400" />
+                <span className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg bg-brass/10">
+                  <Phone size={15} className="text-brass-dark" />
+                </span>
                 +91 98765 43210
               </div>
 
               <div className="flex items-center gap-3">
-                <Mail size={18} className="text-cyan-400" />
+                <span className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg bg-brass/10">
+                  <Mail size={15} className="text-brass-dark" />
+                </span>
                 hello@elitestates.com
               </div>
             </div>
@@ -130,18 +148,18 @@ export default function Footer() {
             {/* Newsletter */}
 
             <div className="mt-8">
-              <p className="mb-3 text-sm text-gray-300">
+              <p className="mb-3 text-sm text-ink/70">
                 Subscribe for latest property updates
               </p>
 
-              <div className="flex overflow-hidden rounded-xl border border-white/10">
+              <div className="flex overflow-hidden rounded-xl border border-ink/10 bg-white transition focus-within:border-brass">
                 <input
                   type="email"
                   placeholder="Enter your email"
-                  className="w-full bg-white/5 px-4 py-3 text-sm outline-none placeholder:text-gray-500"
+                  className="w-full bg-transparent px-4 py-3 text-sm text-ink outline-none placeholder:text-ink/40"
                 />
 
-                <button className="bg-cyan-500 px-5 transition hover:bg-cyan-600">
+                <button className="bg-brass px-5 text-white transition hover:bg-brass-dark active:scale-95">
                   <ArrowRight size={18} />
                 </button>
               </div>
@@ -151,27 +169,27 @@ export default function Footer() {
 
         {/* Divider */}
 
-        <div className="my-10 h-px bg-white/10" />
+        <div className="my-10 h-px bg-ink/10" />
 
         {/* Bottom */}
 
-        <div className="flex flex-col items-center justify-between gap-5 text-sm text-gray-500 md:flex-row">
-          <p>© {new Date().getFullYear()} GharNivas. All Rights Reserved.</p>
+        <div className="flex flex-col items-center justify-between gap-5 text-sm text-ink/50 md:flex-row">
+          <p>© {new Date().getFullYear()} Real Estate. All Rights Reserved.</p>
 
           <div className="flex flex-wrap items-center gap-6">
-            <Link href="#" className="transition hover:text-cyan-400">
+            <Link href="#" className="transition hover:text-brass-dark">
               Privacy
             </Link>
 
-            <Link href="#" className="transition hover:text-cyan-400">
+            <Link href="#" className="transition hover:text-brass-dark">
               Terms
             </Link>
 
-            <Link href="#" className="transition hover:text-cyan-400">
+            <Link href="#" className="transition hover:text-brass-dark">
               Sitemap
             </Link>
 
-            <Link href="#" className="transition hover:text-cyan-400">
+            <Link href="#" className="transition hover:text-brass-dark">
               Support
             </Link>
           </div>

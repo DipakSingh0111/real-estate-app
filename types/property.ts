@@ -35,3 +35,11 @@ export interface PropertyFilters {
   listingType?: string;
   bhk?: string;
 }
+
+export interface Testimonial {
+  id: number;
+  quote: string;
+  name: string;
+  detail: string;
+  rating: number;
+}

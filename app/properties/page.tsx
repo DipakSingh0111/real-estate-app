@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import propertiesData from "../../data/properties.json";
+import propertiesData from "../data/properties.json";
 import PropertyCard from "../components/PropertyCard";
 import type { Property } from "@/types/property";
 
-const properties = propertiesData as Property[];
+const properties = propertiesData.Properties as Property[];
 
 export const metadata: Metadata = {
   title: "All Properties — Real Estate",

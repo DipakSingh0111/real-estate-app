@@ -4,112 +4,166 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
-const services = [
-  "Residential Real Estate",
-  "Commercial Real Estate",
-  "Real Estate Teams & Brokerages",
-  "Property Management",
-  "Single-Family Rentals",
-  "Vacation Rentals",
-  "Home Builders and Developers",
+const stats = [
+  { value: "15+", label: "Years in Business" },
+  { value: "2,400+", label: "Properties Closed" },
+  { value: "20+", label: "Cities Served" },
 ];
 
-export default function WhoWeServe() {
+export default function AboutUs() {
   return (
-    <section className="overflow-hidden bg-white py-8 lg:py-5 mt-3 w-full">
-      <div className="grid w-full items-center gap-10 px-6 lg:grid-cols-2 lg:px-12 xl:px-20">
-        {/* LEFT IMAGE COLLAGE */}
+    <section className="relative left-1/2 right-1/2 mt-[3px] w-screen -translate-x-1/2 overflow-hidden bg-[#F3EEE4]">
+      <div className="mx-auto grid w-full max-w-7xl items-center gap-12 px-6 lg:grid-cols-2 lg:gap-16 lg:px-12 xl:px-20">
+        {/* LEFT — SINGLE FRAMED IMAGE */}
         <motion.div
-          initial={{ opacity: 0, x: -40 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6 }}
+          initial={{ opacity: 0, scale: 0.97 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
           viewport={{ once: true }}
-          className="relative h-[330px] sm:h-[380px]"
+          className="group relative mx-auto w-full max-w-md"
         >
-          {/* Orange Block */}
-          <div className="absolute left-0 top-0 h-10 w-28 rounded-r-md bg-[#ff6b55]" />
-
-          {/* Green Block */}
-          <div className="absolute bottom-0 right-0 h-20 w-48 rounded-md bg-[#35c3b5]" />
-
-          {/* Image 1 */}
-          <div className="absolute left-3 top-8 h-28 w-60 overflow-hidden sm:h-60 sm:w-72 bottom-6">
+          <div className="relative aspect-[4/3] w-full overflow-hidden rounded-sm shadow-xl">
             <Image
-              src="/images/serve_1.jpg"
-              alt="Real Estate"
+              src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=900&q=80"
+              alt="Luxury modern house exterior"
               fill
-              className="object-cover"
+              sizes="(max-width: 1024px) 90vw, 450px"
+              className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
             />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent" />
           </div>
-          {/* Main Image */}
-          <div className="absolute bottom-4 right-4 h-56 w-64 overflow-hidden sm:h-72 sm:w-80">
-            <Image
-              src="/images/serve_3.jpeg"
-              alt="Client Meeting"
-              fill
-              className="object-cover h-[60px]"
-              style={{ top: "86px", left: "59px" }}
-            />
+
+          {/* gold corner brackets — animate in as if being drawn */}
+          <motion.div
+            initial={{ opacity: 0, x: -8, y: -8 }}
+            whileInView={{ opacity: 1, x: 0, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            viewport={{ once: true }}
+            className="pointer-events-none absolute -left-3 -top-3 h-10 w-10 border-l-[1.5px] border-t-[1.5px] border-[#B08D2E]"
+          />
+          <motion.div
+            initial={{ opacity: 0, x: 8, y: 8 }}
+            whileInView={{ opacity: 1, x: 0, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.5 }}
+            viewport={{ once: true }}
+            className="pointer-events-none absolute -bottom-3 -right-3 h-10 w-10 border-b-[1.5px] border-r-[1.5px] border-[#B08D2E]"
+          />
+
+          {/* caption plate */}
+          <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between border-t border-white/25 pt-2.5">
+            <span className="text-[10px] uppercase tracking-[3px] text-white/85">
+              Since 2011
+            </span>
+            <span className="text-[10px] uppercase tracking-[3px] text-[#E8C766]">
+              EliteEstates
+            </span>
           </div>
         </motion.div>
 
-        {/* RIGHT CONTENT */}
+        {/* RIGHT — CONTENT */}
         <motion.div
-          initial={{ opacity: 0, x: 40 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6 }}
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease: "easeOut", delay: 0.1 }}
           viewport={{ once: true }}
           className="max-w-xl"
         >
-          <p className="mb-3 text-xs font-bold uppercase tracking-[4px] text-slate-900">
-            Our Clients
-          </p>
+          <motion.div
+            initial={{ opacity: 0, width: 0 }}
+            whileInView={{ opacity: 1, width: 40 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="mb-4 flex items-center gap-3"
+          >
+            <span className=" bg-[#B08D2E]" />
+            <p className="text-xs font-semibold uppercase tracking-[4px] text-[#B08D2E]">
+              About the Firm
+            </p>
+          </motion.div>
 
-          <h2 className="text-3xl font-extrabold leading-tight text-[#181526] sm:text-5xl">
-            Who we service
+          <h2 className="font-serif text-3xl font-medium leading-[1.15] text-[#211D18] sm:text-4xl">
+            Real estate,
+            <br />
+            <span className="text-[#B08D2E]">handled with distinction.</span>
           </h2>
 
-          <p className="mt-4 text-sm leading-6 text-slate-500">
-            EliteEstates is dedicated to empowering real estate professionals
-            across all industry verticals. Our clients include:
+          <p className="mt-5 text-[15px] leading-7 text-[#7A6F5D]">
+            EliteEstates has spent over a decade helping families, investors,
+            and businesses find the right property. From private residences to
+            large commercial portfolios, we combine deep market expertise with a
+            discreet, personal approach.
           </p>
 
-          <ul className="mt-5 grid gap-3">
-            {services.map((item) => (
-              <li
-                key={item}
-                className="flex items-center gap-3 text-base text-slate-600"
-              >
-                <span className="h-1.5 w-1.5 rounded-full bg-slate-500" />
-                {item}
-              </li>
-            ))}
-          </ul>
+          <p className="mt-3 text-[15px] leading-7 text-[#7A6F5D]">
+            Our licensed agents and advisors are committed to one thing: helping
+            you make confident decisions, backed by data, experience, and honest
+            guidance — never sales pressure.
+          </p>
 
-          <Link
-            href="/contact"
-            className="
-              mt-7
-              inline-flex
-              w-full
-              items-center
-              justify-center
-              rounded-md
-              bg-[#ff6b55]
-              px-7
-              py-4
-              text-sm
-              font-bold
-              uppercase
-              tracking-wider
-              text-white
-              transition
-              hover:bg-[#ff5a43]
-              sm:w-auto
-            "
+          {/* Stat row — staggered reveal */}
+          <div className="mt-8 grid grid-cols-3 border-t border-[#211D18]/10 pt-5">
+            {stats.map((stat, i) => (
+              <motion.div
+                key={stat.label}
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.3 + i * 0.12 }}
+                viewport={{ once: true }}
+                className={
+                  i !== stats.length - 1
+                    ? "border-r border-[#211D18]/10 pr-4"
+                    : "pl-4"
+                }
+              >
+                <p className="font-serif text-2xl font-semibold text-[#211D18] sm:text-3xl">
+                  {stat.value}
+                </p>
+                <p className="mt-1 text-xs leading-4 text-[#7A6F5D]">
+                  {stat.label}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.7 }}
+            viewport={{ once: true }}
           >
-            Learn More About EliteEstates
-          </Link>
+            <Link
+              href="/contact"
+              className="
+                mt-8
+                inline-flex
+                w-full
+                items-center
+                justify-center
+                gap-2
+                border
+                border-[#B08D2E]
+                bg-[#B08D2E]
+                px-7
+                py-3.5
+                text-sm
+                font-semibold
+                uppercase
+                tracking-wider
+                text-[#F3EEE4]
+                transition
+                duration-300
+                hover:bg-transparent
+                hover:text-[#B08D2E]
+                hover:gap-3
+                sm:w-auto
+              "
+            >
+              Get in Touch
+              <span aria-hidden className="transition-transform">
+                →
+              </span>
+            </Link>
+          </motion.div>
         </motion.div>
       </div>
     </section>

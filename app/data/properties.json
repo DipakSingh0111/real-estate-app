@@ -1,0 +1,597 @@
+{
+  "Properties": [
+    {
+      "id": "gn-1001",
+      "title": "Prithvi Heights",
+      "type": "Apartment",
+      "listingType": "Sale",
+      "bhk": 3,
+      "city": "Mumbai",
+      "locality": "Bandra West",
+      "state": "Maharashtra",
+      "price": 32500000,
+      "priceLabel": "₹3.25 Cr",
+      "areaSqft": 1450,
+      "furnishing": "Semi-Furnished",
+      "floor": "12th of 22",
+      "facing": "Sea Facing",
+      "possession": "Ready to Move",
+      "reraId": "P51800012345",
+      "rating": 4.6,
+      "description": "A 3BHK in one of Bandra's most premium towers, with an unobstructed view of the Arabian Sea. High-speed elevators, imported marble flooring, and a rooftop infinity pool — this home is a statement, not just a place to live.",
+      "amenities": [
+        "Infinity Pool",
+        "Gym",
+        "Clubhouse",
+        "24x7 Security",
+        "Covered Parking",
+        "Power Backup"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1560184897-ae75f418493e?q=80&w=1600",
+        "https://images.unsplash.com/photo-1560185127-6ed189bf02f4?q=80&w=1600",
+        "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1600"
+      ],
+      "agent": {
+        "name": "Rohan Mehta",
+        "phone": "+91 98200 11223",
+        "agency": "GharNivas Bandra"
+      },
+      "featured": true
+    },
+    {
+      "id": "gn-1002",
+      "title": "Vasant Kunj Residency",
+      "type": "Villa",
+      "listingType": "Sale",
+      "bhk": 4,
+      "city": "New Delhi",
+      "locality": "Vasant Kunj",
+      "state": "Delhi",
+      "price": 48000000,
+      "priceLabel": "₹4.8 Cr",
+      "areaSqft": 3200,
+      "furnishing": "Unfurnished",
+      "floor": "Independent",
+      "facing": "East Facing",
+      "possession": "Ready to Move",
+      "reraId": "DLRERA2021P0091",
+      "rating": 4.8,
+      "description": "This independent villa sits on one of Vasant Kunj's leafiest streets, with a private garden, a terrace deck, and a double-height living room. The Vastu-compliant layout makes it well suited to a joint family.",
+      "amenities": [
+        "Private Garden",
+        "Terrace",
+        "Servant Quarter",
+        "4 Car Parking",
+        "Power Backup",
+        "Modular Kitchen"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=1600",
+        "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=1600",
+        "https://images.unsplash.com/photo-1613977257363-707ba9348227?q=80&w=1600"
+      ],
+      "agent": {
+        "name": "Anjali Kapoor",
+        "phone": "+91 98110 44556",
+        "agency": "GharNivas Delhi"
+      },
+      "featured": true
+    },
+    {
+      "id": "gn-1003",
+      "title": "Koramangala Skyline",
+      "type": "Apartment",
+      "listingType": "Rent",
+      "bhk": 2,
+      "city": "Bengaluru",
+      "locality": "Koramangala",
+      "state": "Karnataka",
+      "price": 55000,
+      "priceLabel": "₹55,000/month",
+      "areaSqft": 1150,
+      "furnishing": "Fully-Furnished",
+      "floor": "7th of 14",
+      "facing": "North Facing",
+      "possession": "Immediate",
+      "reraId": "PRM/KA/RERA/1251/446/PR/210318/003371",
+      "rating": 4.4,
+      "description": "Built for the tech crowd — a fully furnished 2BHK right in the middle of Koramangala, with cafes and tech parks just 10 minutes away. Move-in ready; bring nothing but a suitcase.",
+      "amenities": [
+        "Wi-Fi Ready",
+        "Modular Kitchen",
+        "Gym",
+        "Lift",
+        "CCTV",
+        "Covered Parking"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?q=80&w=1600",
+        "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?q=80&w=1600",
+        "https://images.unsplash.com/photo-1484154218962-a197022b5858?q=80&w=1600"
+      ],
+      "agent": {
+        "name": "Vivek Shetty",
+        "phone": "+91 90360 77889",
+        "agency": "GharNivas Bengaluru"
+      },
+      "featured": true
+    },
+    {
+      "id": "gn-1004",
+      "title": "Baner Greens",
+      "type": "Apartment",
+      "listingType": "Sale",
+      "bhk": 2,
+      "city": "Pune",
+      "locality": "Baner",
+      "state": "Maharashtra",
+      "price": 8900000,
+      "priceLabel": "₹89 Lakh",
+      "areaSqft": 980,
+      "furnishing": "Unfurnished",
+      "floor": "4th of 9",
+      "facing": "West Facing",
+      "possession": "Under Construction (Dec 2027)",
+      "reraId": "P52100029876",
+      "rating": 4.2,
+      "description": "A budget-friendly 2BHK for first-time buyers, just 5 minutes from the Baner-Pashan link road. The builder offers a flexible payment plan — book with as little as 10% down.",
+      "amenities": [
+        "Kids Play Area",
+        "Garden",
+        "Rainwater Harvesting",
+        "Solar Panels",
+        "Reserved Parking"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1493809842364-78817add7ffb?q=80&w=1600",
+        "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1600",
+        "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=1600"
+      ],
+      "agent": {
+        "name": "Sneha Kulkarni",
+        "phone": "+91 89990 33221",
+        "agency": "GharNivas Pune"
+      },
+      "featured": false
+    },
+    {
+      "id": "gn-1005",
+      "title": "Sohna Road Elite",
+      "type": "Apartment",
+      "listingType": "Sale",
+      "bhk": 3,
+      "city": "Gurugram",
+      "locality": "Sohna Road",
+      "state": "Haryana",
+      "price": 15500000,
+      "priceLabel": "₹1.55 Cr",
+      "areaSqft": 1620,
+      "furnishing": "Semi-Furnished",
+      "floor": "9th of 30",
+      "facing": "South Facing",
+      "possession": "Ready to Move",
+      "reraId": "HRERA-GGM-591-2019",
+      "rating": 4.5,
+      "description": "A gated township on Gurugram's fastest-growing corridor. The clubhouse, pool, and schools are all within walking distance — office and lifestyle stay in easy balance here.",
+      "amenities": [
+        "Clubhouse",
+        "Swimming Pool",
+        "Jogging Track",
+        "24x7 Security",
+        "EV Charging",
+        "Amphitheatre"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?q=80&w=1600",
+        "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1600",
+        "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?q=80&w=1600"
+      ],
+      "agent": {
+        "name": "Karan Bhatia",
+        "phone": "+91 97170 55432",
+        "agency": "GharNivas Gurugram"
+      },
+      "featured": true
+    },
+    {
+      "id": "gn-1006",
+      "title": "Jubilee Hills Manor",
+      "type": "Villa",
+      "listingType": "Sale",
+      "bhk": 5,
+      "city": "Hyderabad",
+      "locality": "Jubilee Hills",
+      "state": "Telangana",
+      "price": 65000000,
+      "priceLabel": "₹6.5 Cr",
+      "areaSqft": 4500,
+      "furnishing": "Fully-Furnished",
+      "floor": "Independent",
+      "facing": "North-East Facing",
+      "possession": "Ready to Move",
+      "reraId": "TSRERA/A02900/2020",
+      "rating": 4.9,
+      "description": "A 5BHK manor in Jubilee Hills' most exclusive pocket — complete with a home theatre, a private pool, and staff quarters. The neighbours include film celebrities and prominent business families.",
+      "amenities": [
+        "Private Pool",
+        "Home Theatre",
+        "Staff Quarters",
+        "Landscaped Garden",
+        "6 Car Parking",
+        "Smart Home"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1613977257363-707ba9348227?q=80&w=1600",
+        "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?q=80&w=1600",
+        "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=1600"
+      ],
+      "agent": {
+        "name": "Divya Rao",
+        "phone": "+91 90000 66778",
+        "agency": "GharNivas Hyderabad"
+      },
+      "featured": false
+    },
+    {
+      "id": "gn-1007",
+      "title": "Salt Lake Sector V Studio",
+      "type": "Apartment",
+      "listingType": "Rent",
+      "bhk": 1,
+      "city": "Kolkata",
+      "locality": "Salt Lake Sector V",
+      "state": "West Bengal",
+      "price": 18000,
+      "priceLabel": "₹18,000/month",
+      "areaSqft": 620,
+      "furnishing": "Fully-Furnished",
+      "floor": "3rd of 6",
+      "facing": "East Facing",
+      "possession": "Immediate",
+      "reraId": "HIRA/P/NOR/2022/000451",
+      "rating": 4.0,
+      "description": "A compact, affordable 1BHK right next to the Sector V IT hub — ideal for bachelors and working professionals. The metro station is a 5-minute walk.",
+      "amenities": [
+        "Lift",
+        "24x7 Water Supply",
+        "Security Guard",
+        "Parking (Two-wheeler)"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1502672023488-70e25813eb80?q=80&w=1600",
+        "https://images.unsplash.com/photo-1484154218962-a197022b5858?q=80&w=1600",
+        "https://images.unsplash.com/photo-1493809842364-78817add7ffb?q=80&w=1600"
+      ],
+      "agent": {
+        "name": "Sourav Das",
+        "phone": "+91 98300 22114",
+        "agency": "GharNivas Kolkata"
+      },
+      "featured": false
+    },
+    {
+      "id": "gn-1008",
+      "title": "Anna Nagar Classic",
+      "type": "Apartment",
+      "listingType": "Sale",
+      "bhk": 3,
+      "city": "Chennai",
+      "locality": "Anna Nagar",
+      "state": "Tamil Nadu",
+      "price": 11200000,
+      "priceLabel": "₹1.12 Cr",
+      "areaSqft": 1380,
+      "furnishing": "Unfurnished",
+      "floor": "5th of 8",
+      "facing": "South Facing",
+      "possession": "Ready to Move",
+      "reraId": "TN/29/Building/0198/2021",
+      "rating": 4.3,
+      "description": "A spacious 3BHK in Anna Nagar's well-established residential belt — schools, hospitals, and Anna Nagar Tower Park are all a short walk away. Resale property with clear title.",
+      "amenities": [
+        "Lift",
+        "Generator Backup",
+        "Covered Parking",
+        "Community Hall"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1560185008-a33f5c1a3ea6?q=80&w=1600",
+        "https://images.unsplash.com/photo-1600566752355-35792bedcfea?q=80&w=1600",
+        "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=1600"
+      ],
+      "agent": {
+        "name": "Priya Raman",
+        "phone": "+91 94440 88991",
+        "agency": "GharNivas Chennai"
+      },
+      "featured": false
+    },
+    {
+      "id": "gn-1009",
+      "title": "Shela Farmhouse Plot",
+      "type": "Plot",
+      "listingType": "Sale",
+      "bhk": null,
+      "city": "Ahmedabad",
+      "locality": "Shela",
+      "state": "Gujarat",
+      "price": 6500000,
+      "priceLabel": "₹65 Lakh",
+      "areaSqft": 2400,
+      "furnishing": null,
+      "floor": null,
+      "facing": "East Facing",
+      "possession": "Ready to Construct",
+      "reraId": "PR/GJ/AHMEDABAD/AHMEDABAD CITY/AUDA/RAA10119/300124",
+      "rating": 4.1,
+      "description": "An NA (Non-Agricultural) converted plot near SP Ring Road, with the boundary wall and bore-well already in place. A blank canvas to design your dream home from scratch.",
+      "amenities": [
+        "Boundary Wall",
+        "Bore Well",
+        "Approach Road",
+        "Clear Title"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=1600",
+        "https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=1600",
+        "https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=1600"
+      ],
+      "agent": {
+        "name": "Nikhil Shah",
+        "phone": "+91 99250 11002",
+        "agency": "GharNivas Ahmedabad"
+      },
+      "featured": false
+    },
+    {
+      "id": "gn-1010",
+      "title": "Indiranagar Loft",
+      "type": "Apartment",
+      "listingType": "Rent",
+      "bhk": 2,
+      "city": "Bengaluru",
+      "locality": "Indiranagar",
+      "state": "Karnataka",
+      "price": 62000,
+      "priceLabel": "₹62,000/month",
+      "areaSqft": 1050,
+      "furnishing": "Fully-Furnished",
+      "floor": "2nd of 4",
+      "facing": "North Facing",
+      "possession": "Immediate",
+      "reraId": "PRM/KA/RERA/1251/446/PR/190210/002204",
+      "rating": 4.7,
+      "description": "Two minutes from 100 Feet Road — a designer loft-style 2BHK with exposed brick walls, set in a neighbourhood built on cafe culture. Weekend brunch to late-night biryani, all within walking distance.",
+      "amenities": [
+        "Balcony",
+        "Modular Kitchen",
+        "Wi-Fi Ready",
+        "Lift",
+        "Power Backup"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?q=80&w=1600",
+        "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?q=80&w=1600",
+        "https://images.unsplash.com/photo-1484154218962-a197022b5858?q=80&w=1600"
+      ],
+      "agent": {
+        "name": "Meera Iyer",
+        "phone": "+91 90080 44219",
+        "agency": "GharNivas Bengaluru"
+      },
+      "featured": true
+    },
+    {
+      "id": "gn-1011",
+      "title": "Alipore Heritage Bungalow",
+      "type": "Villa",
+      "listingType": "Sale",
+      "bhk": 4,
+      "city": "Kolkata",
+      "locality": "Alipore",
+      "state": "West Bengal",
+      "price": 42000000,
+      "priceLabel": "₹4.2 Cr",
+      "areaSqft": 3800,
+      "furnishing": "Semi-Furnished",
+      "floor": "Independent",
+      "facing": "East Facing",
+      "possession": "Ready to Move",
+      "reraId": "HIRA/P/SOU/2021/000287",
+      "rating": 4.6,
+      "description": "A 1930s colonial-era bungalow, restored with modern plumbing and wiring while keeping the original teakwood and high ceilings intact. Alipore Zoo and the race course are both within walking distance.",
+      "amenities": [
+        "Private Courtyard",
+        "Teakwood Interiors",
+        "Servant Quarter",
+        "Car Porch",
+        "Garden"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=1600",
+        "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=1600",
+        "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=1600"
+      ],
+      "agent": {
+        "name": "Arindam Ghosh",
+        "phone": "+91 98310 77654",
+        "agency": "GharNivas Kolkata"
+      },
+      "featured": false
+    },
+    {
+      "id": "gn-1012",
+      "title": "Wakad Riverside",
+      "type": "Apartment",
+      "listingType": "Sale",
+      "bhk": 2,
+      "city": "Pune",
+      "locality": "Wakad",
+      "state": "Maharashtra",
+      "price": 7200000,
+      "priceLabel": "₹72 Lakh",
+      "areaSqft": 850,
+      "furnishing": "Unfurnished",
+      "floor": "6th of 12",
+      "facing": "West Facing",
+      "possession": "Ready to Move",
+      "reraId": "P52100022341",
+      "rating": 4.0,
+      "description": "A compact 2BHK on the banks of the Mula river, 15 minutes from Hinjewadi IT Park. A value-for-money deal suited to young couples and nuclear families.",
+      "amenities": [
+        "Riverside View",
+        "Gym",
+        "Kids Play Area",
+        "Lift",
+        "Covered Parking"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1560184897-ae75f418493e?q=80&w=1600",
+        "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1600",
+        "https://images.unsplash.com/photo-1493809842364-78817add7ffb?q=80&w=1600"
+      ],
+      "agent": {
+        "name": "Omkar Deshmukh",
+        "phone": "+91 88880 12233",
+        "agency": "GharNivas Pune"
+      },
+      "featured": false
+    },
+    {
+      "id": "gn-1012",
+      "title": "Wakad Riverside",
+      "type": "Apartment",
+      "listingType": "Sale",
+      "bhk": 2,
+      "city": "Pune",
+      "locality": "Wakad",
+      "state": "Maharashtra",
+      "price": 7200000,
+      "priceLabel": "₹72 Lakh",
+      "areaSqft": 850,
+      "furnishing": "Unfurnished",
+      "floor": "6th of 12",
+      "facing": "West Facing",
+      "possession": "Ready to Move",
+      "reraId": "P52100022341",
+      "rating": 4.0,
+      "description": "A compact 2BHK on the banks of the Mula river, 15 minutes from Hinjewadi IT Park. A value-for-money deal suited to young couples and nuclear families.",
+      "amenities": [
+        "Riverside View",
+        "Gym",
+        "Kids Play Area",
+        "Lift",
+        "Covered Parking"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1560184897-ae75f418493e?q=80&w=1600",
+        "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1600",
+        "https://images.unsplash.com/photo-1493809842364-78817add7ffb?q=80&w=1600"
+      ],
+      "agent": {
+        "name": "Omkar Deshmukh",
+        "phone": "+91 88880 12233",
+        "agency": "GharNivas Pune"
+      },
+      "featured": false
+    }
+  ],
+  "blog": [
+    {
+      "id": 1,
+      "title": "10 Tips Before Buying Your First Home",
+      "category": "Buying Guide",
+      "date": "July 20, 2026",
+      "image": "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800",
+      "description": "Learn the essential tips every first-time home buyer should know before making a purchase."
+    },
+    {
+      "id": 2,
+      "title": "Best Cities to Invest in Real Estate",
+      "category": "Investment",
+      "date": "July 15, 2026",
+      "image": "https://images.unsplash.com/photo-1460317442991-0ec209397118?w=800",
+      "description": "Explore India's fastest-growing real estate markets for long-term investment."
+    },
+    {
+      "id": 3,
+      "title": "How to Choose the Perfect Apartment",
+      "category": "Apartment",
+      "date": "July 10, 2026",
+      "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800",
+      "description": "A complete guide to selecting the right apartment for your family."
+    },
+    {
+      "id": 5,
+      "title": "Renting vs Buying: Which is Right for You?",
+      "category": "Real Estate Tips",
+      "date": "July 18, 2026",
+      "image": "https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=800",
+      "description": "A detailed comparison to help you decide whether renting or buying a home fits your lifestyle and budget better."
+    }
+  ],
+  "header": {
+    "id": "01",
+    "heading": "Find Your Dream Home Today",
+    "title": "Find Your",
+    "title_one": "Dream Home",
+    "title_two": "Today",
+    "description": "Discover verified apartments, villas, plots, and commercial properties with trusted agents. Buy, Rent or Invest with complete confidence across India's fastest growing cities.",
+    "stats": [
+      {
+        "id": 1,
+        "value": "12K+",
+        "label": "Verified Listings"
+      },
+      {
+        "id": 2,
+        "value": "50+",
+        "label": "Cities Covered"
+      },
+      {
+        "id": 3,
+        "value": "4.9★",
+        "label": "Customer Rating"
+      }
+    ]
+  },
+
+  "testimonials": [
+    {
+      "id": 1,
+      "quote": "We viewed six flats over two weekends and closed on the seventh — no back-and-forth over broker fees, just a straight number.",
+      "name": "Aditi Sharma",
+      "detail": "Bought a 3BHK in Bandra West",
+      "rating": 5
+    },
+    {
+      "id": 2,
+      "quote": "The RERA ID was right there on the listing before I even asked. That single detail is why I trusted the site.",
+      "name": "Rahul Verma",
+      "detail": "Rented a 2BHK in Koramangala",
+      "rating": 5
+    },
+    {
+      "id": 3,
+      "quote": "Our agent in Gurugram answered on the first ring, every time. That kind of responsiveness is rare in this market.",
+      "name": "Sneha Iyer",
+      "detail": "Bought an apartment on Sohna Road",
+      "rating": 4
+    },
+    {
+      "id": 4,
+      "quote": "Every listing had verified documents attached. Saved us weeks of legal back-and-forth with the builder.",
+      "name": "Karan Mehta",
+      "detail": "Bought a 4BHK villa in Whitefield",
+      "rating": 5
+    },
+    {
+      "id": 5,
+      "quote": "Moved cities for work and rented a flat without a single in-person visit. Everything checked out exactly as listed.",
+      "name": "Priya Nair",
+      "detail": "Rented a 1BHK in Hinjewadi",
+      "rating": 4
+    }
+  ]
+}
