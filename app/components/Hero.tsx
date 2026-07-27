@@ -1,16 +1,32 @@
 "use client";
 
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import { Search, MapPin, Building2, ArrowRight, Sparkles } from "lucide-react";
-import { motion, type Variants } from "framer-motion";
-import data from "../data/properties.json";
+import { motion, AnimatePresence, type Variants } from "framer-motion";
+import data from "../../data/properties.json";
 const headers = data.header;
+
+const heroImages = data.Properties.filter(
+  (property) => property.images && property.images.length > 0,
+)
+  .slice(0, 5)
+  .map((property) => property.images[0]);
 
 interface HeroProps {
   cities: string[];
 }
 
 export default function Hero({ cities }: HeroProps) {
+  const [activeSlide, setActiveSlide] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveSlide((prev) => (prev + 1) % heroImages.length);
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, []);
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
@@ -40,36 +56,22 @@ export default function Hero({ cities }: HeroProps) {
   return (
     <div className="relative w-full">
       {/* HERO */}
-      <section
-        className="
-        relative
-        bg-cover
-        bg-center
-        pt-6
-        pb-16
-        sm:pt-8
-        sm:pb-20
-        lg:pt-10
-        lg:pb-24
-        "
-        style={{
-          backgroundImage: "url(/images/hero_1.jpg)",
-        }}
-      >
-        <div className="absolute inset-0 bg-slate-950/35" />
-        <div
-          className="
-          absolute
-          inset-0
-          bg-gradient-to-r
-          from-slate-950/85
-          via-slate-950/50
-          to-transparent
-          sm:from-slate-950/80
-          sm:via-slate-950/35
-          sm:to-transparent
-          "
-        />
+      <section className="relative pt-8 pb-12 sm:pt-10 sm:pb-16 lg:pt-12 lg:pb-18 min-h-[360px] sm:min-h-[440px] lg:min-h-[500px]">
+        <div className="absolute inset-0 overflow-hidden">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={heroImages[activeSlide]}
+              initial={{ opacity: 0, scale: 1.04 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.98 }}
+              transition={{ duration: 0.9, ease: "easeOut" }}
+              className="absolute inset-0 bg-cover bg-center"
+              style={{ backgroundImage: `url(${heroImages[activeSlide]})` }}
+            />
+          </AnimatePresence>
+          <div className="absolute inset-0 bg-slate-950/35" />
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-950/85 via-slate-950/50 to-transparent sm:from-slate-950/80 sm:via-slate-950/35 sm:to-transparent" />
+        </div>
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -84,7 +86,7 @@ export default function Hero({ cities }: HeroProps) {
           lg:px-8
           "
         >
-          <div className="max-w-3xl space-y-5">
+          <div className="max-w-2xl space-y-4 sm:space-y-5">
             {/* Badge */}
             <motion.div variants={itemVariants}>
               <span
@@ -121,22 +123,20 @@ export default function Hero({ cities }: HeroProps) {
               leading-tight
               text-white
               [text-shadow:0_2px_12px_rgba(0,0,0,0.65)]
-
               sm:text-4xl
-
               lg:text-5xl
               "
             >
               {headers.title}
               <span
                 className="
-                bg-gradient-to-r
-                from-cyan-400
-                via-sky-400
-                to-blue-500
-                bg-clip-text
-                text-transparent
-                "
+                  bg-gradient-to-r
+                  from-cyan-400
+                  via-sky-400
+                  to-blue-500
+                  bg-clip-text
+                  text-transparent
+                  "
               >
                 {headers.title_one}
               </span>{" "}
@@ -148,12 +148,11 @@ export default function Hero({ cities }: HeroProps) {
             <motion.p
               variants={itemVariants}
               className="
-              max-w-2xl
+              max-w-xl
               text-sm
-              leading-6
+              leading-7
               text-slate-200
               [text-shadow:0_1px_6px_rgba(0,0,0,0.6)]
-
               sm:text-base
               "
             >
@@ -165,8 +164,8 @@ export default function Hero({ cities }: HeroProps) {
               className="
               flex
               flex-col
-              gap-2
-
+              gap-3
+              mt-4
               sm:flex-row
               "
             >
@@ -180,7 +179,7 @@ export default function Hero({ cities }: HeroProps) {
                 gap-2
                 rounded-xl
                 bg-cyan-500
-                px-6
+                px-5
                 py-3
                 font-semibold
                 text-slate-950
@@ -201,7 +200,6 @@ export default function Hero({ cities }: HeroProps) {
                   "
                 />
               </Link>
-
               <Link
                 href="/contact"
                 className="
@@ -212,7 +210,7 @@ export default function Hero({ cities }: HeroProps) {
                 border
                 border-white/30
                 bg-white/10
-                px-6
+                px-5
                 py-3
                 font-semibold
                 text-white
@@ -224,38 +222,11 @@ export default function Hero({ cities }: HeroProps) {
                 Contact US
               </Link>
             </motion.div>
-
-            {/* Stats */}
-            {/* <div className="grid grid-cols-3 gap-8">
-              {headers.stats.map((item) => (
-                <div key={item.id}>
-                  <h3 className="text-4xl font-bold text-white">
-                    {item.value}
-                  </h3>
-
-                  <p className="mt-1 text-white/80">{item.label}</p>
-                </div>
-              ))}
-            </div> */}
           </div>
         </motion.div>
 
-        {/* SEARCH BAR — sits exactly half inside hero, half outside (bottom: 0 + translateY(-50%)) */}
-        <div
-          className="
-          absolute
-          left-0
-          right-0
-          bottom-0
-          z-20
-          translate-y-1/2
-          px-4
-
-          sm:px-6
-
-          lg:px-8
-          "
-        >
+        {/* SEARCH BAR — sits half inside hero, half outside with a slightly higher position */}
+        <div className="absolute left-0 right-0 bottom-4 z-20 translate-y-1/2 px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{
               opacity: 0,
@@ -271,14 +242,29 @@ export default function Hero({ cities }: HeroProps) {
             }}
             className="mx-auto max-w-7xl"
           >
+            <div className="mb-6 flex justify-center gap-2">
+              {heroImages.map((image, index) => (
+                <button
+                  key={image}
+                  onClick={() => setActiveSlide(index)}
+                  className={`h-2.5 w-2.5 rounded-full transition-all duration-300 ${
+                    index === activeSlide
+                      ? "bg-cyan-400 w-8"
+                      : "bg-white/50 hover:bg-white"
+                  }`}
+                  aria-label={`Slide ${index + 1}`}
+                />
+              ))}
+            </div>
             <div
               className="
-              rounded-2xl
+              rounded-[28px]
               border
-              border-slate-200
-              bg-white
+              border-slate-200/70
+              bg-white/90
               p-4
-              shadow-2xl
+              shadow-[0_30px_90px_rgba(15,23,42,0.12)]
+              backdrop-blur-xl
               "
             >
               <form
@@ -399,7 +385,7 @@ export default function Hero({ cities }: HeroProps) {
       </section>
 
       {/* Bottom Space - gives room for the half of search bar sitting outside hero */}
-      <div className="h-24 sm:h-28 lg:h-32" />
+      <div className="h-16 sm:h-20 lg:h-24" />
     </div>
   );
 }

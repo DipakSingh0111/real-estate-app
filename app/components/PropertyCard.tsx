@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { formatArea } from "@/app/lib/format";
+import { formatArea } from "@/lib/format";
 import type { Property } from "@/types/property";
 
 export default function PropertyCard({ property }: { property: Property }) {

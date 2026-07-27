@@ -1,5 +1,5 @@
 import PropertyCard from "./PropertyCard";
-import propertiesData from "../data/properties.json";
+import propertiesData from "../../data/properties.json";
 import type { Property } from "@/types/property";
 
 type ListingType = "Rent" | "Sale";

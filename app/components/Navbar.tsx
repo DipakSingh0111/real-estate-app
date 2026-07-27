@@ -2,16 +2,74 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import BookingModal from "./BookingModal";
 
-const navLinks = [
+const topLinks = [
   { href: "/", label: "Home" },
-  { href: "/properties", label: "All Properties" },
-  { href: "/rent", label: "For Rent" },
-  { href: "/sale", label: "For Sale" },
-  { href: "/blog", label: "Blog" },
-  { href: "/contact", label: "Contact Us" },
+  { href: "/aboutus", label: "About Us" },
+  { href: "/contact", label: "Contact" },
+];
+
+const navGroups = [
+  {
+    title: "Featured",
+    items: [
+      { href: "/properties?feature=trending", label: "Trending Properties" },
+      { href: "/properties?feature=premium", label: "Premium Listings" },
+      { href: "/properties?feature=new-launch", label: "New Launches" },
+      { href: "/properties?feature=luxury", label: "Luxury Homes" },
+    ],
+  },
+  {
+    title: "Property Type",
+    items: [
+      { href: "/properties?type=apartment", label: "Apartment" },
+      { href: "/properties?type=villa", label: "Villa" },
+      {
+        href: "/properties?type=independent-house",
+        label: "Independent House",
+      },
+      {
+        href: "/properties?type=commercial-office",
+        label: "Commercial Office",
+      },
+      { href: "/properties?type=retail-shop", label: "Retail Shop" },
+      { href: "/properties?type=warehouse", label: "Warehouse" },
+      { href: "/properties?type=plot-land", label: "Plot/Land" },
+    ],
+  },
+  {
+    title: "Location",
+    items: [
+      { href: "/properties?city=Delhi", label: "Delhi" },
+      { href: "/properties?city=Noida", label: "Noida" },
+      { href: "/properties?city=Gurgaon", label: "Gurgaon" },
+      { href: "/properties?city=Mumbai", label: "Mumbai" },
+      { href: "/properties?city=Bangalore", label: "Bangalore" },
+      { href: "/properties?city=Pune", label: "Pune" },
+    ],
+  },
+  {
+    title: "Projects",
+    items: [
+      {
+        href: "/projects?status=under-construction",
+        label: "Under Construction",
+      },
+      { href: "/projects?status=ready-to-move", label: "Ready to Move" },
+      { href: "/projects?status=pre-launch", label: "Pre Launch" },
+    ],
+  },
+  {
+    title: "Luxury",
+    items: [
+      { href: "/properties?collection=penthouse", label: "Penthouse" },
+      { href: "/properties?collection=luxury-villa", label: "Luxury Villa" },
+      { href: "/properties?collection=beach-house", label: "Beach House" },
+      { href: "/properties?collection=farm-house", label: "Farm House" },
+    ],
+  },
 ];
 
 export default function Navbar() {
@@ -19,59 +77,82 @@ export default function Navbar() {
   const [showModal, setShowModal] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-ink/10 bg-paper/90 backdrop-blur animate-[fadeDown_0.5s_ease-out]">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-        {/* Logo */}
+    <header className="sticky top-0 z-50 border-b border-ink/10 bg-paper/95 backdrop-blur-xl">
+      <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-start gap-2 px-6 py-4 md:flex-nowrap">
         <Link href="/" className="flex items-baseline gap-2">
           <span className="font-display text-2xl font-semibold tracking-tight text-ink">
             Elite<span className="text-brass">Estates</span>
           </span>
         </Link>
 
-        {/* Desktop Menu */}
-        <nav className="hidden items-center gap-8 md:flex">
-          {navLinks.map((link) => (
+        <nav className="hidden flex-1 items-center gap-0 md:flex md:ml-[161px]">
+          {topLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="group relative py-1 text-sm font-medium text-ink/70 transition hover:text-ink"
+              className="group relative rounded-full px-3 py-2 text-sm font-medium text-ink/80 transition hover:bg-brass/10 hover:text-brass-dark active:bg-brass/20"
             >
               {link.label}
-              <span className="absolute bottom-0 left-0 h-[1.5px] w-full origin-left scale-x-0 bg-brass transition-transform duration-300 ease-out group-hover:scale-x-100" />
+              <span className="absolute inset-x-0 bottom-0 h-[2px] scale-x-0 bg-brass transition-transform duration-300 group-hover:scale-x-100" />
             </Link>
+          ))}
+
+          {navGroups.map((group) => (
+            <div key={group.title} className="group relative">
+              <button
+                type="button"
+                className="flex items-center gap-1 rounded-full px-3 py-2 text-sm font-medium text-ink/80 transition hover:bg-white/10 hover:text-ink active:bg-white/5"
+              >
+                {group.title}
+                <ChevronDown
+                  size={14}
+                  className="transition-transform duration-300 group-hover:-rotate-180"
+                />
+              </button>
+
+              <div className="absolute left-0 top-full z-30 hidden min-w-[220px] rounded-3xl border border-ink/10 bg-paper p-4 shadow-2xl opacity-0 transition duration-200 group-hover:block group-hover:translate-y-0 group-hover:opacity-100 md:group-hover:block md:group-hover:translate-y-0">
+                <div className="grid gap-2">
+                  {group.items.map((item) => (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      className="rounded-3xl px-4 py-3 text-sm font-medium text-ink/80 transition hover:bg-brass/10 hover:text-brass-dark"
+                    >
+                      {item.label}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
           ))}
         </nav>
 
-        {/* Desktop Button */}
-        <button
-          onClick={() => setShowModal(true)}
-          className="hidden rounded-full bg-ink px-5 py-2.5 text-sm font-semibold text-paper transition duration-300 hover:bg-ink-light hover:shadow-lg hover:shadow-ink/20 hover:-translate-y-0.5 md:block"
-        >
-          Book Property
-        </button>
-
-        {/* Mobile Menu Button */}
-        <button
-          onClick={() => setOpen(!open)}
-          className="rounded-md p-2 text-ink transition-transform duration-300 md:hidden"
-        >
-          <span
-            className={`inline-block transition-transform duration-300 ${open ? "rotate-90" : "rotate-0"}`}
+        <div className="ml-auto flex items-center gap-2">
+          <button
+            onClick={() => setShowModal(true)}
+            className="hidden rounded-full bg-brass px-5 py-2.5 text-sm font-semibold text-ink shadow-[0_12px_30px_rgba(184,132,11,0.18)] transition duration-300 hover:bg-brass-dark hover:text-paper md:block"
           >
-            {open ? <X size={26} /> : <Menu size={26} />}
-          </span>
-        </button>
+            Schedule Visit
+          </button>
+
+          <button
+            onClick={() => setOpen(!open)}
+            className="rounded-md p-2 text-ink transition-transform duration-300 md:hidden"
+          >
+            <span
+              className={`inline-block transition-transform duration-300 ${open ? "rotate-90" : "rotate-0"}`}
+            >
+              {open ? <X size={26} /> : <Menu size={26} />}
+            </span>
+          </button>
+        </div>
       </div>
 
-      {/* Mobile Menu */}
       <div
-        className={`
-          overflow-hidden border-t border-ink/10 bg-paper transition-all duration-300 md:hidden
-          ${open ? "max-h-96 opacity-100" : "max-h-0 opacity-0"}
-        `}
+        className={`overflow-hidden border-t border-ink/10 bg-paper transition-all duration-300 md:hidden ${open ? "max-h-[720px] opacity-100" : "max-h-0 opacity-0"}`}
       >
         <nav className="flex flex-col gap-5 px-6 py-6">
-          {navLinks.map((link, i) => (
+          {topLinks.map((link, i) => (
             <Link
               key={link.href}
               onClick={() => setOpen(false)}
@@ -82,8 +163,30 @@ export default function Navbar() {
               }`}
             >
               {link.label}
-              <span className="absolute bottom-0 left-0 h-[1.5px] w-full origin-left scale-x-0 bg-brass transition-transform duration-300 ease-out group-hover:scale-x-100" />
             </Link>
+          ))}
+
+          {navGroups.map((group) => (
+            <div
+              key={group.title}
+              className="space-y-3 rounded-3xl border border-ink/10 bg-white/5 p-3"
+            >
+              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-ink/50">
+                {group.title}
+              </p>
+              <div className="grid gap-2">
+                {group.items.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    onClick={() => setOpen(false)}
+                    className="rounded-2xl px-3 py-2 text-sm font-medium text-ink/70 transition hover:bg-brass/10 hover:text-brass-dark"
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
           ))}
 
           <button
@@ -91,12 +194,13 @@ export default function Navbar() {
               setShowModal(true);
               setOpen(false);
             }}
-            className="rounded-full bg-ink px-5 py-3 text-white transition duration-300 hover:bg-ink-light active:scale-95"
+            className="rounded-full bg-brass px-5 py-3 text-sm font-semibold text-ink transition duration-300 hover:bg-brass-dark active:scale-95"
           >
-            Book Property
+            Schedule Visit
           </button>
         </nav>
       </div>
+
       <BookingModal open={showModal} onClose={() => setShowModal(false)} />
     </header>
   );
