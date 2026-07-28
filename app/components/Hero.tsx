@@ -56,7 +56,7 @@ export default function Hero({ cities }: HeroProps) {
   return (
     <div className="relative w-full">
       {/* HERO */}
-      <section className="relative pt-8 pb-12 sm:pt-10 sm:pb-16 lg:pt-12 lg:pb-18 min-h-[360px] sm:min-h-[440px] lg:min-h-[500px]">
+      <section className="relative pt-4 pb-6 sm:pt-6 sm:pb-8 lg:pt-8 lg:pb-10 min-h-[360px] sm:min-h-[440px] lg:min-h-[500px]">
         <div className="absolute inset-0 overflow-hidden">
           <AnimatePresence mode="wait">
             <motion.div

@@ -7,18 +7,21 @@ import BookingModal from "./BookingModal";
 
 const topLinks = [
   { href: "/", label: "Home" },
-  { href: "/aboutus", label: "About Us" },
   { href: "/contact", label: "Contact" },
 ];
 
 const navGroups = [
   {
-    title: "Featured",
+    title: "About",
     items: [
-      { href: "/properties?feature=trending", label: "Trending Properties" },
-      { href: "/properties?feature=premium", label: "Premium Listings" },
-      { href: "/properties?feature=new-launch", label: "New Launches" },
-      { href: "/properties?feature=luxury", label: "Luxury Homes" },
+      { href: "/aboutus", label: "AboutUs" },
+      { href: "/ourteam", label: "Our Team" },
+      { href: "/properties?feature=new-launch", label: "Why Choose Us" },
+      { href: "/properties?feature=luxury", label: "Careers" },
+      { href: "/blog", label: "Blog" },
+      { href: "/properties?feature=luxury", label: "Emi Calculator" },
+      { href: "/properties?feature=luxury", label: "Area Converter" },
+      { href: "/properties?feature=luxury", label: "Investment Tips" },
     ],
   },
   {
@@ -45,20 +48,24 @@ const navGroups = [
       { href: "/properties?city=Delhi", label: "Delhi" },
       { href: "/properties?city=Noida", label: "Noida" },
       { href: "/properties?city=Gurgaon", label: "Gurgaon" },
-      { href: "/properties?city=Mumbai", label: "Mumbai" },
-      { href: "/properties?city=Bangalore", label: "Bangalore" },
-      { href: "/properties?city=Pune", label: "Pune" },
+      { href: "/properties?city=Mumbai", label: "Greater Noida" },
+      { href: "/properties?city=Bangalore", label: "Yamuna Expressway" },
+      { href: "/properties?city=Pune", label: "Faridabad" },
+      { href: "/properties?city=Pune", label: "Ghaziabad" },
     ],
   },
   {
     title: "Projects",
     items: [
       {
-        href: "/projects?status=under-construction",
-        label: "Under Construction",
+        href: "/projects?",
+        label: "New Launches",
       },
       { href: "/projects?status=ready-to-move", label: "Ready to Move" },
-      { href: "/projects?status=pre-launch", label: "Pre Launch" },
+      { href: "/projects?status=pre-launch", label: "Under Construction" },
+      { href: "/projects?status=pre-launch", label: "Affordable Housing" },
+      { href: "/projects?status=pre-launch", label: "Luxury Projects" },
+      { href: "/projects?status=pre-launch", label: "Commercial Projects" },
     ],
   },
   {

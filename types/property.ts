@@ -43,3 +43,68 @@ export interface Testimonials {
   detail: string;
   rating: number;
 }
+
+export interface latestProjects {
+  id: number;
+  title: string;
+  slug: string;
+  builder: string;
+  location: string;
+  city: string;
+  status: string;
+  price: string;
+  area: string;
+  bedrooms: number;
+  bathrooms: number;
+  parking: number;
+  image: string;
+  description: string;
+}
+
+export interface newLunchingProject {
+  id: number;
+  name: string;
+  image: string;
+  builder: string;
+  city: string;
+  location: string;
+  status: null;
+  price: string;
+  priceUnit: string;
+  config: string;
+  area: string;
+  possession: string;
+  rera: string;
+  tags: string[];
+  height: number;
+}
+
+//
+export type ProjectStatus = "new" | "progress" | "ready";
+
+export type FilterKey = "all" | ProjectStatus;
+
+export interface Project {
+  id: number;
+  name: string;
+  image: string;
+  builder: string;
+  city: string;
+  location: string;
+  status: ProjectStatus;
+  price: string;
+  priceUnit: string;
+  config: string;
+  area: string;
+  possession: string;
+  rera: string;
+  tags: string[];
+  height: number;
+}
+
+export interface StatusMetaEntry {
+  label: string;
+  cls: string;
+}
+
+export type StatusMeta = Record<ProjectStatus, StatusMetaEntry>;

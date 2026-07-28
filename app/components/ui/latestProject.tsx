@@ -27,16 +27,6 @@ type Project = {
 
 const projects = data.projects as Project[];
 
-const badgeColor = (status: string) => {
-  switch (status) {
-    case "Ready to Move":
-      return "bg-slate-950 text-white";
-
-    default:
-      return "bg-slate-950 text-white";
-  }
-};
-
 const badgeText = (status: string) => {
   switch (status) {
     case "Ready to Move":
@@ -66,89 +56,96 @@ export default function LatestProjects() {
 
   return (
     <section className="bg-[#faf8f4] py-12">
-      <div className="mx-auto max-w-7xl px-6">
-        <div className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
+        {/* Header Section */}
+        <div className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between mb-8">
           <div className="max-w-3xl">
             <p className="font-mono text-xs uppercase tracking-[5px] text-[#b58b46]">
               LATEST PROJECTS
             </p>
 
-            <h2 className="mt-3 text-4xl font-bold leading-tight text-slate-900 md:text-5xl">
+            <h2 className="mt-3 text-2xl font-bold leading-tight text-slate-900 md:text-3xl">
               Homes and spaces we recently delivered.
             </h2>
 
-            <p className="mt-5 max-w-2xl text-slate-500">
+            <p className="mt-2 text-sm max-w-2xl text-slate-500">
               A look at recent handovers — interiors, layouts, and finishes
               families move into.
             </p>
           </div>
         </div>
 
-        <div className="relative mt-12">
+        {/* Carousel Container */}
+        <div className="relative group px-2 sm:px-6">
+          {/* Left Arrow Button */}
           <button
             type="button"
             onClick={() => scroll("left")}
             aria-label="Scroll left"
-            className="absolute left-0 top-1/2 z-10 -translate-y-1/2 rounded-full border bg-white/95 p-2 text-slate-900 shadow-lg transition hover:bg-white sm:p-3"
+            className="absolute -left-2 sm:left-0 top-1/2 z-20 -translate-y-1/2 rounded-full border border-slate-200 bg-white/95 p-2.5 sm:p-3 text-slate-800 shadow-md transition-all duration-200 hover:bg-slate-950 hover:text-white hover:border-slate-950 active:scale-95"
           >
-            <ChevronLeft size={18} />
+            <ChevronLeft size={20} />
           </button>
 
+          {/* Right Arrow Button */}
           <button
             type="button"
             onClick={() => scroll("right")}
             aria-label="Scroll right"
-            className="absolute right-0 top-1/2 z-10 -translate-y-1/2 rounded-full border bg-white/95 p-2 text-slate-900 shadow-lg transition hover:bg-white sm:p-3"
+            className="absolute -right-2 sm:right-0 top-1/2 z-20 -translate-y-1/2 rounded-full border border-slate-200 bg-white/95 p-2.5 sm:p-3 text-slate-800 shadow-md transition-all duration-200 hover:bg-slate-950 hover:text-white hover:border-slate-950 active:scale-95"
           >
-            <ChevronRight size={18} />
+            <ChevronRight size={20} />
           </button>
 
-          <div className="overflow-hidden">
+          {/* Cards Slider Wrapper */}
+          <div className="overflow-hidden px-4 py-4">
             <div
               ref={sliderRef}
-              className="scrollbar-hide flex snap-x snap-mandatory gap-5 overflow-x-auto pb-2 pr-3"
+              className="scrollbar-hide flex snap-x snap-mandatory gap-5 overflow-x-auto pb-4 scroll-smooth"
             >
               {projects.slice(0, 8).map((project) => (
                 <motion.div
-                  whileHover={{ y: -4 }}
+                  whileHover={{ y: -6 }}
                   transition={{ duration: 0.2 }}
                   key={project.id}
-                  className="min-w-[280px] max-w-[280px] snap-start flex-shrink-0"
+                  className="min-w-[280px] max-w-[280px] sm:min-w-[300px] sm:max-w-[300px] snap-start flex-shrink-0"
                 >
                   <Link
                     href={`/projects/${project.slug}`}
-                    className="group block"
+                    className="group/card block h-full"
                   >
-                    <div className="overflow-hidden rounded-[1.75rem] bg-white shadow-sm transition duration-300 hover:shadow-2xl">
-                      <div className="relative h-52 overflow-hidden">
-                        <Image
-                          src={project.image}
-                          alt={project.title}
-                          fill
-                          className="object-cover transition duration-700 group-hover:scale-110"
-                        />
+                    <div className="h-full overflow-hidden rounded-3xl bg-white border border-slate-100 shadow-sm transition-all duration-300 group-hover/card:shadow-xl flex flex-col justify-between">
+                      <div>
+                        {/* Image Banner */}
+                        <div className="relative h-48 sm:h-52 overflow-hidden">
+                          <Image
+                            src={project.image}
+                            alt={project.title}
+                            fill
+                            className="object-cover transition duration-700 group-hover/card:scale-105"
+                          />
 
-                        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-slate-950/10 to-transparent" />
+                          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent" />
 
-                        <span
-                          className={`absolute left-4 top-4 rounded-full bg-white/95 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.24em] text-slate-950 shadow-sm`}
-                        >
-                          {badgeText(project.status)}
-                        </span>
-                      </div>
+                          <span className="absolute left-3.5 top-3.5 rounded-full bg-white/95 backdrop-blur-md px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-slate-950 shadow-xs">
+                            {badgeText(project.status)}
+                          </span>
+                        </div>
 
-                      <div className="p-5">
-                        <p className="text-[10px] uppercase tracking-[0.3em] text-slate-400">
-                          {project.city} · {project.builder}
-                        </p>
+                        {/* Content */}
+                        <div className="p-4 sm:p-5">
+                          <p className="text-[10px] uppercase font-semibold tracking-widest text-slate-400">
+                            {project.city} · {project.builder}
+                          </p>
 
-                        <h3 className="mt-3 text-xl font-semibold text-slate-950 line-clamp-2">
-                          {project.title}
-                        </h3>
+                          <h3 className="mt-2 text-base font-bold text-slate-950 line-clamp-1 group-hover/card:text-[#b58b46] transition-colors">
+                            {project.title}
+                          </h3>
 
-                        <p className="mt-2 text-sm leading-6 text-slate-500 line-clamp-3">
-                          {project.description}
-                        </p>
+                          <p className="mt-1.5 text-xs leading-relaxed text-slate-500 line-clamp-2">
+                            {project.description}
+                          </p>
+                        </div>
                       </div>
                     </div>
                   </Link>
@@ -156,19 +153,20 @@ export default function LatestProjects() {
               ))}
             </div>
           </div>
+        </div>
 
-          <div className="mt-14 flex justify-center">
-            <Link
-              href="/viewsproject"
-              className="group inline-flex items-center gap-3 rounded-full bg-slate-950 px-8 py-4 text-white transition hover:bg-slate-700"
-            >
-              View Project
-              <ArrowRight
-                size={18}
-                className="transition group-hover:translate-x-1"
-              />
-            </Link>
-          </div>
+        {/* Bottom CTA Button */}
+        <div className="mt-10 flex justify-center">
+          <Link
+            href="/viewsproject"
+            className="group inline-flex items-center gap-2.5 rounded-full bg-slate-950 px-7 py-3.5 text-xs font-semibold uppercase tracking-wider text-white transition-all hover:bg-slate-800 hover:shadow-lg active:scale-95"
+          >
+            View Projects
+            <ArrowRight
+              size={16}
+              className="transition group-hover:translate-x-1"
+            />
+          </Link>
         </div>
       </div>
     </section>

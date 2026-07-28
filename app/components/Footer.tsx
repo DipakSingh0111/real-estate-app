@@ -78,20 +78,20 @@ export default function Footer() {
             </h3>
             <ul className="space-y-3 text-ink/60">
               {[
-                "About Us",
-                "Properties",
-                "Our Agents",
-                "Blog",
-                "Careers",
-                "Privacy Policy",
-                "Terms & Conditions",
+                { label: "About Us", href: "/aboutus" },
+                { label: "Properties", href: "/properties" },
+                { label: "Our Agents", href: "/properties" },
+                { label: "Blog", href: "/blog" },
+                { label: "Careers", href: "#careers" },
+                { label: "Privacy Policy", href: "#privacy" },
+                { label: "Terms & Conditions", href: "#terms" },
               ].map((item) => (
-                <li key={item}>
+                <li key={item.label}>
                   <Link
-                    href="#"
+                    href={item.href}
                     className="transition hover:pl-2 hover:text-brass-dark"
                   >
-                    {item}
+                    {item.label}
                   </Link>
                 </li>
               ))}

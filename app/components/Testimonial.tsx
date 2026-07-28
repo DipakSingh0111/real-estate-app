@@ -53,7 +53,7 @@ export default function Testimonial({
   };
 
   return (
-    <section className="bg-slate-50 py-16">
+    <section className="bg-slate-50 py-10">
       <div className="mx-auto max-w-7xl px-6">
         <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
           <div>

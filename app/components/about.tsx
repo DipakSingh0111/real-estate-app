@@ -12,10 +12,9 @@ const stats = [
 
 export default function AboutUs() {
   return (
-    <section className="relative overflow-hidden bg-[#F3EEE4] py-12">
+    <section className="relative overflow-hidden bg-[#F3EEE4] py-16">
       <div className="pointer-events-none absolute left-1/2 top-0 h-60 w-60 -translate-x-1/2 rounded-full bg-amber-300/20 blur-3xl" />
       <div className="pointer-events-none absolute right-0 top-1/4 h-44 w-44 -translate-y-1/2 rounded-full bg-slate-950/10 blur-3xl" />
-
       <div className="mx-auto grid w-full max-w-7xl gap-8 px-6 lg:grid-cols-2 lg:gap-12 lg:px-12 xl:px-20">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -24,7 +23,7 @@ export default function AboutUs() {
           viewport={{ once: true }}
           className="relative w-full lg:-ml-8 xl:-ml-12"
         >
-          <div className="relative overflow-hidden rounded-[2.5rem] bg-slate-950 shadow-[0_30px_90px_rgba(15,23,42,0.16)] transition-transform duration-700 hover:-translate-y-1">
+          <div className="relative overflow-hidden rounded-[2.5rem] bg-slate-950 transition-transform duration-700 hover:-translate-y-1">
             <div className="relative aspect-[4/3] w-full overflow-hidden">
               <Image
                 src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=900&q=80"
