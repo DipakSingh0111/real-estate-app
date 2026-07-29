@@ -77,12 +77,14 @@ export default function BrowseByCity() {
     ...new Set(properties.map((p) => p.city).filter(Boolean)),
   ].sort();
 
+  // Top 6 Cities
   const cityStats = cities
     .map((city) => ({
       city,
       count: properties.filter((p) => p.city === city).length,
     }))
-    .sort((a, b) => b.count - a.count);
+    .sort((a, b) => b.count - a.count)
+    .slice(0, 6);
 
   const updateScrollState = useCallback(() => {
     const el = sliderRef.current;
@@ -107,7 +109,7 @@ export default function BrowseByCity() {
 
   const scrollCities = (direction: "left" | "right") => {
     if (!sliderRef.current) return;
-    const scrollAmount = sliderRef.current.clientWidth * 0.75;
+    const scrollAmount = sliderRef.current.clientWidth;
     sliderRef.current.scrollBy({
       left: direction === "left" ? -scrollAmount : scrollAmount,
       behavior: "smooth",
@@ -115,7 +117,7 @@ export default function BrowseByCity() {
   };
 
   return (
-    <section className="bg-[#F8F9FA] py-10 lg:py-14 overflow-hidden">
+    <section className="bg-[#F8F9FA] py-8 lg:py-12">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         {/* Header Bar */}
         <motion.div
@@ -134,14 +136,14 @@ export default function BrowseByCity() {
             </h2>
           </div>
 
-          {/* Navigation Controls */}
-          <div className="hidden sm:flex items-center gap-2">
+          {/* Carousel Arrows */}
+          <div className="flex items-center gap-2">
             <button
               type="button"
               onClick={() => scrollCities("left")}
               disabled={!canScrollLeft}
               aria-label="Scroll left"
-              className="flex h-9 w-9 items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-700 shadow-xs transition hover:border-slate-400 disabled:opacity-30 cursor-pointer"
+              className="flex h-9 w-9 items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-700 shadow-xs transition hover:border-slate-400 active:scale-95 disabled:opacity-30 cursor-pointer"
             >
               <ChevronLeft size={18} />
             </button>
@@ -150,46 +152,51 @@ export default function BrowseByCity() {
               onClick={() => scrollCities("right")}
               disabled={!canScrollRight}
               aria-label="Scroll right"
-              className="flex h-9 w-9 items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-700 shadow-xs transition hover:border-slate-400 disabled:opacity-30 cursor-pointer"
+              className="flex h-9 w-9 items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-700 shadow-xs transition hover:border-slate-400 active:scale-95 disabled:opacity-30 cursor-pointer"
             >
               <ChevronRight size={18} />
             </button>
           </div>
         </motion.div>
 
-        {/* City Cards Slider */}
-        <div className="relative">
+        {/* Carousel Slider Container */}
+        <div className="overflow-hidden">
           <motion.div
             ref={sliderRef}
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-40px" }}
-            className="scrollbar-hide flex items-center gap-4 overflow-x-auto scroll-smooth py-2 px-1"
+            className="scrollbar-hide flex items-center gap-4 overflow-x-auto scroll-smooth py-2"
           >
             {cityStats.map(({ city, count }) => (
               <motion.div
                 key={city}
                 variants={cardVariants}
-                className="w-[180px] sm:w-[200px] flex-shrink-0"
+                /* Exact mathematical fit: 
+                   Desktop (xl): 5 cards in view (gap included), 6th card hidden until scroll 
+                   Laptop (lg): 4 cards 
+                   Tablet (sm): 2 cards 
+                   Mobile: 1 card 
+                */
+                className="w-full sm:w-[calc(50%-0.5rem)] lg:w-[calc(25%-0.75rem)] xl:w-[calc(20%-0.8rem)] flex-shrink-0"
               >
-                {/* Cleaned String URL Fixes Hydration & Event Handler Error */}
                 <Link
                   href={`/properties?city=${encodeURIComponent(city)}`}
                   className="group block overflow-hidden rounded-xl border border-slate-200/80 bg-white shadow-xs transition-all duration-300 hover:shadow-md cursor-pointer"
                 >
-                  {/* 1:1 Square Image Container */}
+                  {/* Square Image Box */}
                   <div className="relative aspect-square w-full overflow-hidden bg-slate-100">
                     <Image
                       src={cityImages[city] || defaultCityImage}
                       alt={city}
                       fill
-                      sizes="(max-width: 640px) 180px, 200px"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 20vw"
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                   </div>
 
-                  {/* Text Container Below Image */}
+                  {/* Text Container */}
                   <div className="p-3.5 text-left">
                     <h3 className="truncate text-sm font-bold text-slate-900 group-hover:text-amber-700 transition-colors">
                       {city}

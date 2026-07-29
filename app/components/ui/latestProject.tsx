@@ -93,7 +93,7 @@ export default function LatestProjects() {
 
   const scroll = (direction: "left" | "right") => {
     if (!sliderRef.current) return;
-    const offset = sliderRef.current.clientWidth * 0.75;
+    const offset = sliderRef.current.clientWidth;
     sliderRef.current.scrollBy({
       left: direction === "left" ? -offset : offset,
       behavior: "smooth",
@@ -102,8 +102,8 @@ export default function LatestProjects() {
 
   return (
     <section className="bg-[#FAF7F2] py-8 lg:py-10 overflow-hidden">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6">
-        {/* Header Section (Compact Space) */}
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        {/* Header Section */}
         <motion.div
           initial={{ opacity: 0, y: -10 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -146,17 +146,23 @@ export default function LatestProjects() {
           </div>
         </motion.div>
 
-        {/* Carousel Slider Wrapper */}
-        <div className="relative">
+        {/* CSS GRID Layout for Perfect 4 Columns */}
+        <div className="w-full overflow-hidden">
           <motion.div
             ref={sliderRef}
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-40px" }}
-            className="scrollbar-hide flex items-stretch gap-4 overflow-x-auto scroll-smooth py-2 px-0.5"
+            /* 
+              Grid technique apply ki hai:
+              - Mobile: 1 Column
+              - Tablet: 2 Columns
+              - Desktop (lg): Exact 4 Equal Columns (1fr 1fr 1fr 1fr)
+            */
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 py-2"
           >
-            {projects.slice(0, 8).map((project) => {
+            {projects.slice(0, 4).map((project) => {
               const badge = badgeStyle(project.status);
               return (
                 <motion.div
@@ -164,7 +170,7 @@ export default function LatestProjects() {
                   variants={cardVariants}
                   whileHover={{ y: -4 }}
                   transition={{ duration: 0.2 }}
-                  className="w-[260px] sm:w-[285px] flex-shrink-0"
+                  className="w-full flex-shrink-0"
                 >
                   <Link
                     href={`/projects/${project.slug}`}
@@ -176,7 +182,7 @@ export default function LatestProjects() {
                         src={project.image}
                         alt={project.title}
                         fill
-                        sizes="(max-width: 640px) 260px, 285px"
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                         className="object-cover transition-transform duration-500 group-hover:scale-105"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
@@ -190,12 +196,12 @@ export default function LatestProjects() {
                     </div>
 
                     {/* Content Area */}
-                    <div className="flex flex-1 flex-col justify-between p-4">
+                    <div className="flex flex-1 flex-col justify-between p-3.5">
                       <div>
                         {/* City & Builder */}
                         <div className="flex items-center gap-1 text-[11px] font-semibold text-[#B8863D]">
-                          <MapPin size={12} />
-                          <span>{project.city}</span>
+                          <MapPin size={12} className="shrink-0" />
+                          <span className="truncate">{project.city}</span>
                           <span className="text-slate-300">•</span>
                           <span className="text-slate-500 truncate">
                             {project.builder}
@@ -203,7 +209,7 @@ export default function LatestProjects() {
                         </div>
 
                         {/* Title */}
-                        <h3 className="mt-1.5 truncate text-base font-bold text-slate-900 group-hover:text-[#B8863D] transition-colors">
+                        <h3 className="mt-1 truncate text-sm sm:text-base font-bold text-slate-900 group-hover:text-[#B8863D] transition-colors">
                           {project.title}
                         </h3>
 
@@ -215,11 +221,11 @@ export default function LatestProjects() {
 
                       {/* Price / Specs Row */}
                       {project.price && (
-                        <div className="mt-3 border-t border-slate-100 pt-2.5 flex items-center justify-between">
-                          <span className="text-xs text-slate-400 font-medium">
+                        <div className="mt-3 border-t border-slate-100 pt-2 flex items-center justify-between">
+                          <span className="text-[11px] text-slate-400 font-medium">
                             Starting from
                           </span>
-                          <span className="text-sm font-bold text-slate-900">
+                          <span className="text-xs sm:text-sm font-bold text-slate-900">
                             {project.price}
                           </span>
                         </div>
@@ -232,7 +238,7 @@ export default function LatestProjects() {
           </motion.div>
         </div>
 
-        {/* Compact Bottom Button */}
+        {/* Bottom Button */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
