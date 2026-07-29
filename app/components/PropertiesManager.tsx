@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import React, { useState, useMemo } from "react";
@@ -9,52 +10,71 @@ import {
   Phone,
   Calendar,
 } from "lucide-react";
-import propertiesData from "@/data/properties.json"; // Apni JSON file ka path
+
+import propertiesData from "@/data/properties.json";
+
+const FALLBACK_IMAGE =
+  "https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=800&auto=format&fit=crop";
 
 export default function PropertiesManager() {
-  const [selectedProperty, setSelectedProperty] = useState(null);
+  const [selectedProperty, setSelectedProperty] = useState<any>(null);
   const [activeCity, setActiveCity] = useState("All");
   const [activeType, setActiveType] = useState("All");
 
-  // Array Extraction
+  // Safe Array Extraction for TypeScript (.tsx)
   const rawList = useMemo(() => {
-    if (Array.isArray(propertiesData)) return propertiesData;
-    return (
-      propertiesData?.Properties ||
-      propertiesData?.properties ||
-      propertiesData?.data ||
-      []
-    );
+    const data = propertiesData as any;
+    if (Array.isArray(data)) return data;
+    return data?.Properties || data?.properties || data?.data || [];
   }, []);
+
+  // Dynamic Unique City List
+  const cities = useMemo(() => {
+    const rawCities = rawList
+      .map((i: any) => i?.city || i?.location)
+      .filter(Boolean);
+    return ["All", ...Array.from(new Set(rawCities))] as string[];
+  }, [rawList]);
+
+  // Dynamic Unique Property Types
+  const types = useMemo(() => {
+    const rawTypes = rawList
+      .map((i: any) => i?.type || i?.propertyType)
+      .filter(Boolean);
+    return ["All", ...Array.from(new Set(rawTypes))] as string[];
+  }, [rawList]);
 
   // Filter Logic
   const filteredProperties = useMemo(() => {
-    return rawList.filter((item) => {
-      const itemCity = (item.city || item.location || "").toLowerCase();
-      const itemType = (item.type || item.propertyType || "").toLowerCase();
+    return rawList.filter((item: any) => {
+      const itemCity = String(item?.city || item?.location || "").trim();
+      const itemType = String(item?.type || item?.propertyType || "").trim();
 
       const matchesCity =
-        activeCity === "All" || itemCity.includes(activeCity.toLowerCase());
+        activeCity === "All" ||
+        itemCity.toLowerCase() === activeCity.toLowerCase();
+
       const matchesType =
-        activeType === "All" || itemType.includes(activeType.toLowerCase());
+        activeType === "All" ||
+        itemType.toLowerCase() === activeType.toLowerCase();
 
       return matchesCity && matchesType;
     });
   }, [rawList, activeCity, activeType]);
 
-  // Dynamic Categories from JSON
-  const cities = [
-    "All",
-    ...Array.from(
-      new Set(rawList.map((i) => i.city || i.location).filter(Boolean)),
-    ),
-  ];
-  const types = [
-    "All",
-    ...Array.from(
-      new Set(rawList.map((i) => i.type || i.propertyType).filter(Boolean)),
-    ),
-  ];
+  // Helper function to extract image
+  const getPropertyImage = (item: any) => {
+    if (Array.isArray(item?.images) && item.images.length > 0) {
+      return item.images[0];
+    }
+    if (typeof item?.image === "string" && item.image.trim() !== "") {
+      return item.image;
+    }
+    if (typeof item?.img === "string" && item.img.trim() !== "") {
+      return item.img;
+    }
+    return FALLBACK_IMAGE;
+  };
 
   return (
     <div className="min-h-screen bg-gray-50 py-10 px-4 sm:px-8 lg:px-12">
@@ -116,25 +136,21 @@ export default function PropertiesManager() {
         {/* Property Grid */}
         {filteredProperties.length > 0 ? (
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {filteredProperties.map((item, idx) => (
+            {filteredProperties.map((item: any, idx: number) => (
               <div
-                key={item.id || idx}
+                key={item?.id || idx}
                 onClick={() => setSelectedProperty(item)}
                 className="group cursor-pointer overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
               >
                 {/* Image Box */}
                 <div className="relative h-52 w-full overflow-hidden bg-slate-100">
                   <img
-                    src={
-                      Array.isArray(item.images)
-                        ? item.images[0]
-                        : item.image || item.img || "/placeholder.jpg"
-                    }
-                    alt={item.title || "Property"}
+                    src={getPropertyImage(item)}
+                    alt={item?.title || "Property"}
                     className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                   <span className="absolute left-3 top-3 rounded-full bg-slate-900/80 px-3 py-1 text-xs font-semibold text-white backdrop-blur-md">
-                    {item.type || item.propertyType || "Property"}
+                    {item?.type || item?.propertyType || "Property"}
                   </span>
                 </div>
 
@@ -142,15 +158,16 @@ export default function PropertiesManager() {
                 <div className="p-5">
                   <div className="flex items-center justify-between text-xs text-slate-500">
                     <span className="flex items-center gap-1 font-medium text-amber-700">
-                      <MapPin size={14} /> {item.city || item.location}
+                      <MapPin size={14} />{" "}
+                      {item?.city || item?.location || "N/A"}
                     </span>
                     <span className="font-bold text-slate-900 text-sm">
-                      {item.priceLabel || item.price || "Price on Request"}
+                      {item?.priceLabel || item?.price || "Price on Request"}
                     </span>
                   </div>
 
                   <h3 className="mt-2 text-lg font-bold text-slate-900 line-clamp-1 group-hover:text-amber-600">
-                    {item.title || item.name}
+                    {item?.title || item?.name || "Untitled Property"}
                   </h3>
 
                   <div className="mt-4 flex items-center justify-between border-t border-slate-100 pt-3 text-xs text-slate-500">
@@ -177,9 +194,8 @@ export default function PropertiesManager() {
 
       {/* PROPERTY DETAIL MODAL */}
       {selectedProperty && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/60 p-4 backdrop-blur-sm animate-fade-in">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/60 p-4 backdrop-blur-sm">
           <div className="relative max-h-[90vh] w-full max-w-3xl overflow-y-auto rounded-3xl bg-white p-6 shadow-2xl sm:p-8">
-            {/* Close Button */}
             <button
               onClick={() => setSelectedProperty(null)}
               className="absolute right-4 top-4 rounded-full bg-slate-100 p-2 text-slate-500 transition-all hover:bg-slate-200 hover:text-slate-800"
@@ -187,37 +203,28 @@ export default function PropertiesManager() {
               <X size={20} />
             </button>
 
-            {/* Modal Content */}
             <div className="space-y-6">
-              {/* Image Banner */}
               <div className="h-64 sm:h-80 w-full overflow-hidden rounded-2xl bg-slate-100">
                 <img
-                  src={
-                    Array.isArray(selectedProperty.images)
-                      ? selectedProperty.images[0]
-                      : selectedProperty.image ||
-                        selectedProperty.img ||
-                        "/placeholder.jpg"
-                  }
-                  alt={selectedProperty.title}
+                  src={getPropertyImage(selectedProperty)}
+                  alt={selectedProperty?.title || "Property"}
                   className="h-full w-full object-cover"
                 />
               </div>
 
-              {/* Title & Price Header */}
               <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
                 <div>
                   <span className="inline-block rounded-md bg-amber-100 px-2.5 py-1 text-xs font-bold text-amber-800">
-                    {selectedProperty.type ||
-                      selectedProperty.propertyType ||
+                    {selectedProperty?.type ||
+                      selectedProperty?.propertyType ||
                       "Property"}
                   </span>
                   <h2 className="mt-1 text-2xl font-bold text-slate-900 sm:text-3xl">
-                    {selectedProperty.title || selectedProperty.name}
+                    {selectedProperty?.title || selectedProperty?.name}
                   </h2>
                   <p className="flex items-center gap-1 text-sm text-slate-500 mt-1">
                     <MapPin size={16} className="text-amber-600" />
-                    {selectedProperty.city || selectedProperty.location}
+                    {selectedProperty?.city || selectedProperty?.location}
                   </p>
                 </div>
 
@@ -226,8 +233,8 @@ export default function PropertiesManager() {
                     Listing Price
                   </span>
                   <span className="text-2xl font-extrabold text-slate-900">
-                    {selectedProperty.priceLabel ||
-                      selectedProperty.price ||
+                    {selectedProperty?.priceLabel ||
+                      selectedProperty?.price ||
                       "Contact for Price"}
                   </span>
                 </div>
@@ -235,13 +242,12 @@ export default function PropertiesManager() {
 
               <hr className="border-slate-100" />
 
-              {/* Overview / Key Specs */}
               <div>
                 <h4 className="text-sm font-semibold uppercase tracking-wider text-slate-400 mb-3">
                   Property Overview
                 </h4>
                 <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
-                  {selectedProperty.status && (
+                  {selectedProperty?.status && (
                     <div className="rounded-xl bg-slate-50 p-3">
                       <span className="block text-xs text-slate-400">
                         Status
@@ -251,7 +257,7 @@ export default function PropertiesManager() {
                       </span>
                     </div>
                   )}
-                  {selectedProperty.area && (
+                  {selectedProperty?.area && (
                     <div className="rounded-xl bg-slate-50 p-3">
                       <span className="block text-xs text-slate-400">Area</span>
                       <span className="text-sm font-semibold text-slate-800">
@@ -259,7 +265,7 @@ export default function PropertiesManager() {
                       </span>
                     </div>
                   )}
-                  {selectedProperty.bedrooms && (
+                  {selectedProperty?.bedrooms && (
                     <div className="rounded-xl bg-slate-50 p-3">
                       <span className="block text-xs text-slate-400">
                         Bedrooms
@@ -272,8 +278,7 @@ export default function PropertiesManager() {
                 </div>
               </div>
 
-              {/* Description */}
-              {selectedProperty.description && (
+              {selectedProperty?.description && (
                 <div>
                   <h4 className="text-sm font-semibold uppercase tracking-wider text-slate-400 mb-2">
                     Description
@@ -284,7 +289,6 @@ export default function PropertiesManager() {
                 </div>
               )}
 
-              {/* Action Buttons */}
               <div className="flex flex-col sm:flex-row gap-3 pt-4 border-t border-slate-100">
                 <button
                   onClick={() => alert("Booking Inquiry Sent!")}
