@@ -10,7 +10,7 @@ interface Property {
   title: string;
   city: string;
   type: string;
-  price?: string;
+  price?: number | string;
   priceLabel?: string;
   image?: string;
   images?: string[];
@@ -35,9 +35,10 @@ function PropertyListContent() {
   };
 
   const filteredProperties = useMemo(() => {
-    let list: Property[] = Array.isArray(propertiesData)
-      ? propertiesData
-      : propertiesData.Properties || (propertiesData as any).properties || [];
+    const rawData = propertiesData as any;
+    let list: Property[] = Array.isArray(rawData)
+      ? rawData
+      : rawData.Properties || rawData.properties || [];
 
     return list.filter((item) => {
       // 1. CITY FILTER
@@ -45,7 +46,6 @@ function PropertyListContent() {
         const itemCity = cleanStr(item.city);
         const targetCity = cleanStr(selectedCity);
 
-        // Word-level strict matching (e.g. "Noida" shouldn't conflict with "Greater Noida" incorrectly)
         const matchesExact = itemCity === targetCity;
         const matchesPartial =
           itemCity.includes(targetCity) || targetCity.includes(itemCity);
@@ -124,9 +124,9 @@ function PropertyListContent() {
                     <span className="text-xs font-bold uppercase tracking-wider text-[#B8863D]">
                       {property.city}
                     </span>
-                    {(property.priceLabel || property.price) && (
+                    {(property.priceLabel || property.price !== undefined) && (
                       <span className="text-sm font-extrabold text-stone-900">
-                        {property.priceLabel || property.price}
+                        {property.priceLabel || String(property.price)}
                       </span>
                     )}
                   </div>
