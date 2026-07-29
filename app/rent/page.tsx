@@ -1,7 +1,11 @@
-interface PropertyListingProps {
-  listingType?: "Rent" | "Sale" | string; // 👈 Yeh line add karein
-}
+import type { Metadata } from "next";
+import PropertyListing from "../components/PropertyListing";
 
-export default function PropertyListing({ listingType }: PropertyListingProps) {
-  return <div>{/* Component content */}</div>;
+export const metadata: Metadata = {
+  title: "Properties for Rent — Real Estate",
+};
+
+export default function RentPage() {
+  const Component = PropertyListing as any;
+  return <Component listingType="Rent" />;
 }
