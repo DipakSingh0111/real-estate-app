@@ -1,10 +1,23 @@
 "use client";
 
-import { useRef, useState, useEffect } from "react";
-import { ChevronLeft, ChevronRight, Star, Quote } from "lucide-react";
+import { motion } from "framer-motion";
+import {
+  ChevronLeft,
+  ChevronRight,
+  Star,
+  CheckCircle2,
+  Quote,
+} from "lucide-react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Autoplay } from "swiper/modules";
+
+import "swiper/css";
+import "swiper/css/navigation";
+
 import type { Testimonials } from "@/types/property";
 
 function initials(name: string) {
+  if (!name) return "U";
   return name
     .split(" ")
     .map((n) => n[0])
@@ -14,157 +27,147 @@ function initials(name: string) {
 }
 
 export default function Testimonial({
-  testimonials,
+  testimonials = [],
 }: {
   testimonials: Testimonials[];
 }) {
-  const sliderRef = useRef<HTMLDivElement>(null);
-  const [canScrollLeft, setCanScrollLeft] = useState(false);
-  const [canScrollRight, setCanScrollRight] = useState(true);
-
-  const updateArrows = () => {
-    const el = sliderRef.current;
-    if (!el) return;
-    setCanScrollLeft(el.scrollLeft > 4);
-    setCanScrollRight(el.scrollLeft + el.clientWidth < el.scrollWidth - 4);
-  };
-
-  useEffect(() => {
-    updateArrows();
-    const el = sliderRef.current;
-    if (!el) return;
-    el.addEventListener("scroll", updateArrows);
-    window.addEventListener("resize", updateArrows);
-    return () => {
-      el.removeEventListener("scroll", updateArrows);
-      window.removeEventListener("resize", updateArrows);
-    };
-  }, []);
-
-  const scrollByCard = (direction: "left" | "right") => {
-    const el = sliderRef.current;
-    if (!el) return;
-    const card = el.querySelector<HTMLElement>("[data-card]");
-    const cardWidth = card ? card.offsetWidth + 24 : 340;
-    el.scrollBy({
-      left: direction === "left" ? -cardWidth : cardWidth,
-      behavior: "smooth",
-    });
-  };
+  if (!testimonials || testimonials.length === 0) return null;
 
   return (
-    <section className="bg-slate-50 py-10">
-      <div className="mx-auto max-w-7xl px-6">
-        <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+    <section className="w-full bg-[#FAF7F2]/50 py-8 lg:py-10">
+      <style jsx global>{`
+        .testimonials-swiper .swiper-wrapper {
+          align-items: stretch;
+        }
+        .testimonials-swiper .swiper-slide {
+          height: auto;
+        }
+      `}</style>
+
+      {/* Container Aligned Pixel-Perfect with Navbar (max-w-7xl px-4 sm:px-6) */}
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
+        {/* Header Section */}
+        <motion.div
+          initial={{ opacity: 0, y: -10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="mb-6 flex flex-wrap items-end justify-between gap-3"
+        >
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.35em] text-amber-700/80">
-              Reviews
-            </p>
-            <h2 className="mt-3 text-3xl font-semibold text-slate-950 sm:text-4xl">
-              What Buyers &amp; Tenants Say
+            <span className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-widest text-[#B8863D]">
+              <Star size={12} className="fill-[#B8863D] text-[#B8863D]" />
+              Client Reviews
+            </span>
+            <h2 className="mt-1 font-heading text-xl font-bold tracking-tight text-slate-900 sm:text-2xl lg:text-3xl">
+              What Our Clients Say
             </h2>
+            <p className="mt-0.5 text-xs text-slate-500 sm:text-sm">
+              Real stories from happy home buyers and verified tenants.
+            </p>
           </div>
 
-          <div className="hidden items-center gap-3 sm:flex">
+          {/* Carousel Navigation Buttons */}
+          <div className="hidden sm:flex items-center gap-2">
             <button
               type="button"
-              onClick={() => scrollByCard("left")}
-              disabled={!canScrollLeft}
-              aria-label="Previous"
-              className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-600 shadow-sm transition hover:border-amber-400 hover:text-amber-700 disabled:cursor-not-allowed disabled:opacity-40"
+              className="testi-prev-btn flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 shadow-2xs transition-all duration-300 hover:border-[#B8863D] hover:bg-[#FAF7F2] hover:text-[#B8863D] active:scale-95 disabled:opacity-30 cursor-pointer"
+              aria-label="Previous Testimonial"
             >
               <ChevronLeft size={18} />
             </button>
             <button
               type="button"
-              onClick={() => scrollByCard("right")}
-              disabled={!canScrollRight}
-              aria-label="Next"
-              className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-600 shadow-sm transition hover:border-amber-400 hover:text-amber-700 disabled:cursor-not-allowed disabled:opacity-40"
+              className="testi-next-btn flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 shadow-2xs transition-all duration-300 hover:border-[#B8863D] hover:bg-[#FAF7F2] hover:text-[#B8863D] active:scale-95 disabled:opacity-30 cursor-pointer"
+              aria-label="Next Testimonial"
             >
               <ChevronRight size={18} />
             </button>
           </div>
-        </div>
+        </motion.div>
 
-        <div className="relative mt-10">
-          <div
-            ref={sliderRef}
-            className="scrollbar-hide flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-smooth pb-2"
-            style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+        {/* Carousel Slider (Without Dots Pagination) */}
+        <div className="relative">
+          <Swiper
+            modules={[Navigation, Autoplay]}
+            spaceBetween={16}
+            slidesPerView={1}
+            autoplay={{
+              delay: 4500,
+              disableOnInteraction: false,
+            }}
+            navigation={{
+              prevEl: ".testi-prev-btn",
+              nextEl: ".testi-next-btn",
+            }}
+            breakpoints={{
+              640: { slidesPerView: 2, spaceBetween: 16 },
+              1024: { slidesPerView: 3, spaceBetween: 20 },
+            }}
+            className="testimonials-swiper"
           >
-            {testimonials.map((t) => (
-              <article
-                key={t.id}
-                data-card
-                className="group relative w-[88%] flex-shrink-0 snap-start rounded-[1.75rem] border border-slate-200 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl sm:w-[48%] lg:w-[31%]"
-              >
-                <div className="flex items-center justify-between gap-3">
-                  <span className="rounded-full bg-amber-100 px-3 py-1 text-[11px] uppercase tracking-[0.3em] text-amber-700">
-                    Verified
-                  </span>
-                  <div className="flex items-center gap-1.5 text-amber-500">
-                    {Array.from({ length: 5 }).map((_, i) => (
-                      <Star
-                        key={i}
-                        size={14}
-                        className={
-                          i < t.rating
-                            ? "fill-amber-500"
-                            : "fill-slate-200 text-slate-200"
-                        }
-                      />
-                    ))}
-                  </div>
-                </div>
-
-                <Quote
-                  size={28}
-                  className="mt-6 text-amber-200"
-                  fill="currentColor"
-                />
-
-                <p className="mt-4 text-sm leading-7 text-slate-700">
-                  “{t.quote}”
-                </p>
-
-                <div className="mt-6 flex items-center gap-3 border-t border-slate-200/80 pt-4">
-                  <span className="flex h-11 w-11 items-center justify-center rounded-full bg-amber-500/10 text-xs font-semibold text-amber-700">
-                    {initials(t.name)}
-                  </span>
+            {testimonials.map((t, index) => (
+              <SwiperSlide key={t.id || index} className="h-full">
+                <motion.article
+                  initial={{ opacity: 0, y: 15 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{
+                    duration: 0.35,
+                    delay: index * 0.05,
+                  }}
+                  className="group relative flex h-full flex-col justify-between rounded-2xl border border-slate-200/80 bg-white p-5 shadow-2xs transition-all duration-300 hover:-translate-y-1 hover:border-[#B8863D]/50 hover:shadow-md"
+                >
                   <div>
-                    <p className="text-sm font-semibold text-slate-950">
-                      {t.name}
-                    </p>
-                    <p className="text-sm text-slate-500">{t.detail}</p>
+                    {/* Top Row: Verified Badge & Star Rating */}
+                    <div className="mb-4 flex items-center justify-between gap-2">
+                      <span className="inline-flex items-center gap-1 rounded-full bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 text-[10px] font-bold text-emerald-700">
+                        <CheckCircle2 size={11} />
+                        Verified
+                      </span>
+
+                      <div className="flex items-center gap-0.5">
+                        {Array.from({ length: 5 }).map((_, i) => (
+                          <Star
+                            key={i}
+                            size={14}
+                            className={
+                              i < t.rating
+                                ? "fill-[#B8863D] text-[#B8863D]"
+                                : "fill-slate-100 text-slate-200"
+                            }
+                          />
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Quote Text */}
+                    <div className="relative">
+                      <Quote className="absolute -top-1 -left-1 h-6 w-6 text-slate-100 -z-0 opacity-60" />
+                      <p className="relative z-10 text-xs sm:text-sm leading-relaxed text-slate-600 line-clamp-4">
+                        "{t.quote}"
+                      </p>
+                    </div>
                   </div>
-                </div>
-              </article>
+
+                  {/* Profile Section */}
+                  <div className="mt-6 flex items-center gap-3 border-t border-slate-100 pt-4">
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-slate-900 text-white font-bold text-xs shadow-2xs">
+                      {initials(t.name)}
+                    </div>
+                    <div className="overflow-hidden">
+                      <h4 className="truncate text-xs font-bold text-slate-900">
+                        {t.name}
+                      </h4>
+                      <p className="truncate text-[11px] font-medium text-slate-500">
+                        {t.detail}
+                      </p>
+                    </div>
+                  </div>
+                </motion.article>
+              </SwiperSlide>
             ))}
-          </div>
-
-          <div className="absolute inset-y-0 right-0 hidden w-16 bg-gradient-to-l from-slate-50 to-transparent sm:block" />
-        </div>
-
-        <div className="mt-6 flex items-center justify-center gap-3 sm:hidden">
-          <button
-            type="button"
-            onClick={() => scrollByCard("left")}
-            disabled={!canScrollLeft}
-            aria-label="Previous"
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-600 shadow-sm disabled:opacity-40"
-          >
-            <ChevronLeft size={16} />
-          </button>
-          <button
-            type="button"
-            onClick={() => scrollByCard("right")}
-            disabled={!canScrollRight}
-            aria-label="Next"
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-600 shadow-sm disabled:opacity-40"
-          >
-            <ChevronRight size={16} />
-          </button>
+          </Swiper>
         </div>
       </div>
     </section>

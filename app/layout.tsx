@@ -1,19 +1,25 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Manrope, IBM_Plex_Mono } from "next/font/google";
+import {
+  Playfair_Display,
+  Plus_Jakarta_Sans,
+  IBM_Plex_Mono,
+} from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
+// Headings ke liye Premium Serif Font
 const playfair = Playfair_Display({
   subsets: ["latin"],
-  weight: ["500", "600", "700", "800", "900"],
+  weight: ["400", "500", "600", "700"],
   variable: "--font-heading",
   display: "swap",
 });
 
-const manrope = Manrope({
+// Overall Body & Buttons ke liye Clean Sans-Serif Font
+const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
+  weight: ["400", "500", "600", "700"],
   variable: "--font-body",
   display: "swap",
 });
@@ -39,9 +45,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${playfair.variable} ${manrope.variable} ${plexMono.variable}`}
+      className={`${playfair.variable} ${jakarta.variable} ${plexMono.variable}`}
     >
-      <body className="bg-paper font-body text-char antialiased">
+      <body className="bg-[#FAF7F2] font-body text-slate-900 antialiased">
         <Navbar />
         <main className="min-h-screen">{children}</main>
         <Footer />

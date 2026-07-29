@@ -37,8 +37,8 @@ export default function BookSiteVisit({
   };
 
   return (
-    <section className="bg-[#FAF7F1] py-6 sm:py-8 lg:py-10">
-      <div className="mx-auto max-w-7xl px-4 sm:px-7 lg:px-10">
+    <section className="bg-[#FAF7F1] py-2 sm:py-8 lg:py-10">
+      <div className="mx-auto max-w-7xl px-4 sm:px-7 lg:px-4">
         <div className="relative overflow-hidden rounded-3xl bg-slate-900 p-6 sm:p-8 lg:p-10 text-white shadow-xl">
           {/* Subtle Glows */}
           <div className="pointer-events-none absolute -right-16 -top-16 h-64 w-64 rounded-full bg-[#B8863D]/20 blur-3xl" />
@@ -63,13 +63,6 @@ export default function BookSiteVisit({
               </p>
 
               {/* Property Details Pill */}
-              <div className="mt-4 inline-flex items-center gap-2 rounded-xl border border-slate-800 bg-slate-800/60 px-3.5 py-2 text-xs text-slate-300 backdrop-blur-md">
-                <MapPin size={15} className="text-[#B8863D] flex-shrink-0" />
-                <span className="truncate font-medium">
-                  {propertyName} &bull;{" "}
-                  <span className="text-slate-400">{propertyLocation}</span>
-                </span>
-              </div>
             </div>
 
             {/* Right Form Container */}

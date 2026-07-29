@@ -138,7 +138,7 @@ export default function AboutPage() {
                 fill
                 className="object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/20 to-transparent" />
+              {/* <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/20 to-transparent" /> */}
             </div>
 
             <div className="pointer-events-none absolute left-0 top-0 hidden h-24 w-24 rounded-full bg-amber-300/20 blur-2xl lg:block" />
@@ -150,42 +150,6 @@ export default function AboutPage() {
                 Dedicated advisors for every property search.
               </p>
             </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-slate-950 py-16 text-white">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-            {values.map((item) => {
-              const iconMap: Record<string, typeof Home> = {
-                "Luxury Living": Award,
-                "Trusted Expertise": Building2,
-                "Client First": Users,
-                "Prime Locations": Home,
-              };
-              const Icon = iconMap[item.title] ?? Home;
-
-              return (
-                <div
-                  key={item.label}
-                  className="rounded-[2rem] border border-white/10 bg-white/5 p-8 backdrop-blur transition hover:-translate-y-1 hover:bg-white/10"
-                >
-                  <div className="flex h-14 w-14 items-center justify-center rounded-3xl bg-amber-400/10 text-amber-300">
-                    <Icon size={26} />
-                  </div>
-                  <p className="mt-6 text-4xl font-semibold text-white">
-                    {item.number}
-                  </p>
-                  <p className="mt-3 text-sm uppercase tracking-[0.3em] text-amber-300">
-                    {item.label}
-                  </p>
-                  <p className="mt-4 text-sm leading-6 text-slate-300">
-                    {item.description}
-                  </p>
-                </div>
-              );
-            })}
           </div>
         </div>
       </section>

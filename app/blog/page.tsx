@@ -23,7 +23,7 @@ const blogsData = data.blogs as BlogPost[];
 export default function BlogInsights() {
   return (
     <section className="bg-[#FAF7F1] py-8 sm:py-16 lg:py-10">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-6">
         {/* Header Section */}
         <div className="mb-8 sm:mb-12 flex flex-col md:flex-row md:items-end md:justify-between gap-4">
           <div>
@@ -31,7 +31,7 @@ export default function BlogInsights() {
               <TrendingUp size={14} />
               Knowledge Hub
             </div>
-            <h2 className="font-display mt-2 text-2xl font-bold text-stone-900 sm:text-3xl lg:text-4xl">
+            <h2 className="font-['Volkhov'] mt-2 text-2xl font-bold text-stone-900 sm:text-3xl lg:text-4xl">
               Latest Blogs & Market Insights
             </h2>
             <p className="mt-1 max-w-xl text-xs sm:text-sm text-stone-600">

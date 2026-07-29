@@ -79,6 +79,18 @@ export interface newLunchingProject {
   height: number;
 }
 
+export interface ProjectItem {
+  id: number;
+  title: string;
+  category: "For Sale" | "For Rent";
+  status: "New Launch" | "Ready to Move" | "Under Construction";
+  possessionDate?: string; // e.g. "Immediate" or "Dec 2026"
+  price: string;
+  beds: number;
+  baths: number;
+  location: string;
+  image: string;
+}
 //
 export type ProjectStatus = "new" | "progress" | "ready";
 

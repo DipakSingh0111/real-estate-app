@@ -1,114 +1,95 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
-import { Menu, X, ChevronDown } from "lucide-react";
-import BookingModal from "./BookingModal";
-
-const topLinks = [
-  { href: "/", label: "Home" },
-  { href: "/contact", label: "Contact" },
-];
+import { useState, useEffect } from "react";
+import { Menu, X, ChevronDown, PhoneCall, Phone } from "lucide-react";
 
 const navGroups = [
   {
     title: "About",
     items: [
-      { href: "/aboutus", label: "AboutUs" },
+      { href: "/aboutus", label: "About Us" },
       { href: "/ourteam", label: "Our Team" },
-      { href: "/properties?feature=new-launch", label: "Why Choose Us" },
-      { href: "/properties?feature=luxury", label: "Careers" },
       { href: "/blog", label: "Blog" },
-      { href: "/properties?feature=luxury", label: "Emi Calculator" },
-      { href: "/properties?feature=luxury", label: "Area Converter" },
-      { href: "/properties?feature=luxury", label: "Investment Tips" },
     ],
   },
   {
-    title: "Property Type",
+    title: "Properties",
     items: [
       { href: "/properties?type=apartment", label: "Apartment" },
       { href: "/properties?type=villa", label: "Villa" },
-      {
-        href: "/properties?type=independent-house",
-        label: "Independent House",
-      },
-      {
-        href: "/properties?type=commercial-office",
-        label: "Commercial Office",
-      },
-      { href: "/properties?type=retail-shop", label: "Retail Shop" },
-      { href: "/properties?type=warehouse", label: "Warehouse" },
-      { href: "/properties?type=plot-land", label: "Plot/Land" },
+      { href: "/properties?type=builder-floor", label: "Builder Floor" },
+      { href: "/properties?type=commercial", label: "Commercial Office" },
+      { href: "/properties?type=studio", label: "Studio" },
+      { href: "/properties?type=plot", label: "Plot/Land" },
     ],
   },
   {
     title: "Location",
     items: [
-      { href: "/properties?city=Delhi", label: "Delhi" },
-      { href: "/properties?city=Noida", label: "Noida" },
-      { href: "/properties?city=Gurgaon", label: "Gurgaon" },
-      { href: "/properties?city=Mumbai", label: "Greater Noida" },
-      { href: "/properties?city=Bangalore", label: "Yamuna Expressway" },
-      { href: "/properties?city=Pune", label: "Faridabad" },
-      { href: "/properties?city=Pune", label: "Ghaziabad" },
+      { href: "/properties?city=delhi", label: "Delhi" },
+      { href: "/properties?city=noida", label: "Noida" },
+      { href: "/properties?city=gurgaon", label: "Gurgaon" },
+      { href: "/properties?city=greater-noida", label: "Greater Noida" },
+      { href: "/properties?city=faridabad", label: "Faridabad" },
+      { href: "/properties?city=ghaziabad", label: "Ghaziabad" },
     ],
   },
   {
     title: "Projects",
     items: [
+      { href: "/newlaunch?status=new-launch", label: "New Launches" },
+      { href: "/newlaunch?status=ready-to-move", label: "Ready to Move" },
       {
-        href: "/projects?",
-        label: "New Launches",
+        href: "/newlaunch?status=under-construction",
+        label: "Under Construction",
       },
-      { href: "/projects?status=ready-to-move", label: "Ready to Move" },
-      { href: "/projects?status=pre-launch", label: "Under Construction" },
-      { href: "/projects?status=pre-launch", label: "Affordable Housing" },
-      { href: "/projects?status=pre-launch", label: "Luxury Projects" },
-      { href: "/projects?status=pre-launch", label: "Commercial Projects" },
-    ],
-  },
-  {
-    title: "Luxury",
-    items: [
-      { href: "/properties?collection=penthouse", label: "Penthouse" },
-      { href: "/properties?collection=luxury-villa", label: "Luxury Villa" },
-      { href: "/properties?collection=beach-house", label: "Beach House" },
-      { href: "/properties?collection=farm-house", label: "Farm House" },
     ],
   },
 ];
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
-  const [showModal, setShowModal] = useState(false);
+  const [expandedGroup, setExpandedGroup] = useState<string | null>(null);
+
+  useEffect(() => {
+    document.documentElement.style.scrollBehavior = "smooth";
+    return () => {
+      document.documentElement.style.scrollBehavior = "auto";
+    };
+  }, []);
+
+  const toggleMobileGroup = (title: string) => {
+    setExpandedGroup(expandedGroup === title ? null : title);
+  };
 
   return (
-    <header className="sticky top-0 z-50 border-b border-ink/10 bg-paper/95 backdrop-blur-xl">
-      <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-start gap-2 px-6 py-4 md:flex-nowrap">
-        <Link href="/" className="flex items-baseline gap-2">
-          <span className="font-display text-2xl font-semibold tracking-tight text-ink">
-            Elite<span className="text-brass">Estates</span>
+    <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur-xl transition-all duration-300">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6">
+        {/* Logo */}
+        <Link href="/" className="flex items-center gap-1.5 z-10">
+          <span className="text-xl font-bold tracking-tight text-slate-900 sm:text-2xl">
+            Elite<span className="text-[#B8863D]">Estates</span>
           </span>
         </Link>
 
-        <nav className="hidden flex-1 items-center gap-0 md:flex md:ml-[161px]">
-          {topLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="group relative rounded-full px-3 py-2 text-sm font-medium text-ink/80 transition hover:bg-brass/10 hover:text-brass-dark active:bg-brass/20"
-            >
-              {link.label}
-              <span className="absolute inset-x-0 bottom-0 h-[2px] scale-x-0 bg-brass transition-transform duration-300 group-hover:scale-x-100" />
-            </Link>
-          ))}
+        {/* Desktop Navigation */}
+        <nav className="hidden md:flex items-center gap-1 lg:gap-2">
+          {/* Home Link */}
+          <Link
+            href="/"
+            className="group relative rounded-full px-3 py-2 text-sm font-medium text-slate-700 transition-colors duration-200 hover:text-[#B8863D]"
+          >
+            Home
+            <span className="absolute inset-x-0 bottom-0.5 h-[2px] scale-x-0 bg-[#B8863D] transition-transform duration-300 ease-out group-hover:scale-x-100" />
+          </Link>
 
+          {/* Dropdown Groups */}
           {navGroups.map((group) => (
             <div key={group.title} className="group relative">
               <button
                 type="button"
-                className="flex items-center gap-1 rounded-full px-3 py-2 text-sm font-medium text-ink/80 transition hover:bg-white/10 hover:text-ink active:bg-white/5"
+                className="flex items-center gap-1 rounded-full px-3 py-2 text-sm font-medium text-slate-700 transition-colors duration-200 hover:text-[#B8863D] cursor-pointer"
               >
                 {group.title}
                 <ChevronDown
@@ -117,13 +98,14 @@ export default function Navbar() {
                 />
               </button>
 
-              <div className="absolute left-0 top-full z-30 hidden min-w-[220px] rounded-3xl border border-ink/10 bg-paper p-4 shadow-2xl opacity-0 transition duration-200 group-hover:block group-hover:translate-y-0 group-hover:opacity-100 md:group-hover:block md:group-hover:translate-y-0">
-                <div className="grid gap-2">
+              {/* Desktop Dropdown Menu */}
+              <div className="invisible absolute left-0 top-full z-30 min-w-[200px] translate-y-2 rounded-2xl border border-slate-100 bg-white p-2 opacity-0 shadow-xl transition-all duration-200 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
+                <div className="grid gap-0.5">
                   {group.items.map((item) => (
                     <Link
                       key={item.href}
                       href={item.href}
-                      className="rounded-3xl px-4 py-3 text-sm font-medium text-ink/80 transition hover:bg-brass/10 hover:text-brass-dark"
+                      className="rounded-xl px-3.5 py-2 text-xs font-semibold text-slate-600 transition-all duration-150 hover:bg-[#FAF7F2] hover:text-[#B8863D]"
                     >
                       {item.label}
                     </Link>
@@ -132,83 +114,142 @@ export default function Navbar() {
               </div>
             </div>
           ))}
+
+          {/* Contact Link */}
+          <Link
+            href="/contact"
+            className="group relative rounded-full px-3 py-2 text-sm font-medium text-slate-700 transition-colors duration-200 hover:text-[#B8863D]"
+          >
+            Contact
+            <span className="absolute inset-x-0 bottom-0.5 h-[2px] scale-x-0 bg-[#B8863D] transition-transform duration-300 ease-out group-hover:scale-x-100" />
+          </Link>
         </nav>
 
-        <div className="ml-auto flex items-center gap-2">
-          <button
-            onClick={() => setShowModal(true)}
-            className="hidden rounded-full bg-brass px-5 py-2.5 text-sm font-semibold text-ink shadow-[0_12px_30px_rgba(184,132,11,0.18)] transition duration-300 hover:bg-brass-dark hover:text-paper md:block"
+        {/* Right Side: Contact Number (Desktop) */}
+        <div className="hidden md:flex items-center gap-3">
+          <a
+            href="tel:+919876543210"
+            className="flex items-center gap-2 rounded-full border border-slate-200/80 bg-[#FAF7F2] px-3.5 py-1.5 text-xs font-bold text-slate-800 transition-all duration-300 hover:border-[#B8863D] hover:bg-[#B8863D] hover:text-white group shadow-2xs"
           >
-            Schedule Visit
-          </button>
+            <div className="flex h-6 w-6 items-center justify-center rounded-full bg-[#B8863D] text-white transition-colors group-hover:bg-white group-hover:text-[#B8863D]">
+              <Phone size={12} />
+            </div>
+            <span>+91 98765 43210</span>
+          </a>
+        </div>
+
+        {/* Mobile Right Container (Call Icon + Hamburger Toggle) */}
+        <div className="flex items-center gap-2 md:hidden">
+          <a
+            href="tel:+919876543210"
+            className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#FAF7F2] border border-slate-200 text-[#B8863D] active:scale-95 transition"
+            aria-label="Call Us"
+          >
+            <Phone size={18} />
+          </a>
 
           <button
+            type="button"
             onClick={() => setOpen(!open)}
-            className="rounded-md p-2 text-ink transition-transform duration-300 md:hidden"
+            className="flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 text-slate-800 transition hover:bg-slate-50 cursor-pointer"
+            aria-label="Toggle Navigation"
           >
-            <span
-              className={`inline-block transition-transform duration-300 ${open ? "rotate-90" : "rotate-0"}`}
-            >
-              {open ? <X size={26} /> : <Menu size={26} />}
-            </span>
+            {open ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>
       </div>
 
+      {/* Mobile Menu Slide-down Container */}
       <div
-        className={`overflow-hidden border-t border-ink/10 bg-paper transition-all duration-300 md:hidden ${open ? "max-h-[720px] opacity-100" : "max-h-0 opacity-0"}`}
+        className={`grid transition-all duration-300 ease-in-out md:hidden ${
+          open
+            ? "grid-rows-[1fr] opacity-100 border-t border-slate-100"
+            : "grid-rows-[0fr] opacity-0"
+        }`}
       >
-        <nav className="flex flex-col gap-5 px-6 py-6">
-          {topLinks.map((link, i) => (
+        <div className="overflow-hidden bg-white">
+          <nav className="flex flex-col gap-2 px-4 py-4 sm:px-6 max-h-[80vh] overflow-y-auto">
+            {/* Mobile Home Link */}
             <Link
-              key={link.href}
+              href="/"
               onClick={() => setOpen(false)}
-              href={link.href}
-              style={{ transitionDelay: open ? `${i * 40}ms` : "0ms" }}
-              className={`group relative w-fit text-sm font-medium text-ink/70 transition duration-300 hover:text-ink ${
-                open ? "translate-x-0 opacity-100" : "-translate-x-2 opacity-0"
-              }`}
+              className="flex items-center justify-between rounded-xl px-3 py-2.5 text-sm font-bold text-slate-900 transition-colors hover:bg-slate-50 hover:text-[#B8863D]"
             >
-              {link.label}
+              Home
             </Link>
-          ))}
 
-          {navGroups.map((group) => (
-            <div
-              key={group.title}
-              className="space-y-3 rounded-3xl border border-ink/10 bg-white/5 p-3"
-            >
-              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-ink/50">
-                {group.title}
-              </p>
-              <div className="grid gap-2">
-                {group.items.map((item) => (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    onClick={() => setOpen(false)}
-                    className="rounded-2xl px-3 py-2 text-sm font-medium text-ink/70 transition hover:bg-brass/10 hover:text-brass-dark"
+            {/* Mobile Expandable Accordions */}
+            {navGroups.map((group) => {
+              const isExpanded = expandedGroup === group.title;
+              return (
+                <div
+                  key={group.title}
+                  className="rounded-xl border border-slate-100 bg-[#FAF7F2]/50 overflow-hidden"
+                >
+                  <button
+                    type="button"
+                    onClick={() => toggleMobileGroup(group.title)}
+                    className="flex w-full items-center justify-between px-3 py-2.5 text-xs font-bold uppercase tracking-wider text-slate-800"
                   >
-                    {item.label}
-                  </Link>
-                ))}
-              </div>
+                    <span>{group.title}</span>
+                    <ChevronDown
+                      size={16}
+                      className={`text-[#B8863D] transition-transform duration-200 ${
+                        isExpanded ? "rotate-180" : ""
+                      }`}
+                    />
+                  </button>
+
+                  {/* Accordion Content */}
+                  <div
+                    className={`grid transition-all duration-200 ease-in-out ${
+                      isExpanded
+                        ? "grid-rows-[1fr] opacity-100 pb-2"
+                        : "grid-rows-[0fr] opacity-0"
+                    }`}
+                  >
+                    <div className="overflow-hidden px-2">
+                      <div className="grid gap-1 pt-1 border-t border-slate-200/60">
+                        {group.items.map((item) => (
+                          <Link
+                            key={item.href}
+                            href={item.href}
+                            onClick={() => setOpen(false)}
+                            className="rounded-lg px-3 py-2 text-xs font-medium text-slate-600 transition-colors hover:bg-white hover:text-[#B8863D]"
+                          >
+                            {item.label}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+
+            {/* Mobile Contact Link */}
+            <Link
+              href="/contact"
+              onClick={() => setOpen(false)}
+              className="flex items-center justify-between rounded-xl px-3 py-2.5 text-sm font-bold text-slate-900 transition-colors hover:bg-slate-50 hover:text-[#B8863D]"
+            >
+              Contact
+            </Link>
+
+            {/* Direct Call Action Button for Mobile */}
+            <div className="pt-2 mt-1 border-t border-slate-100">
+              <a
+                href="tel:+919876543210"
+                onClick={() => setOpen(false)}
+                className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#B8863D] px-4 py-3 text-xs font-semibold text-white shadow-xs transition hover:bg-[#a07433] active:scale-[0.98]"
+              >
+                <PhoneCall size={14} />
+                Call +91 98765 43210
+              </a>
             </div>
-          ))}
-
-          <button
-            onClick={() => {
-              setShowModal(true);
-              setOpen(false);
-            }}
-            className="rounded-full bg-brass px-5 py-3 text-sm font-semibold text-ink transition duration-300 hover:bg-brass-dark active:scale-95"
-          >
-            Schedule Visit
-          </button>
-        </nav>
+          </nav>
+        </div>
       </div>
-
-      <BookingModal open={showModal} onClose={() => setShowModal(false)} />
     </header>
   );
 }

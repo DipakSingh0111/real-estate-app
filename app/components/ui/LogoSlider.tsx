@@ -1,5 +1,8 @@
+"use client";
+
 import { useRef } from "react";
 import Image from "next/image";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const logos = [
   { name: "DLF", src: "/images/dlf.jpg" },
@@ -19,7 +22,7 @@ const LogoSlider = () => {
   const scrollLogos = (direction: "left" | "right") => {
     const container = sliderRef.current;
     if (!container) return;
-    const offset = container.clientWidth * 0.85;
+    const offset = container.clientWidth;
     container.scrollBy({
       left: direction === "right" ? offset : -offset,
       behavior: "smooth",
@@ -27,56 +30,68 @@ const LogoSlider = () => {
   };
 
   return (
-    <section className="w-full px-4 py-6 sm:px-6 lg:px-8">
-      <div className="mx-auto max-w-full rounded-[28px] border border-[#E5E7EB] bg-white p-6 shadow-sm sm:p-8">
-        <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#6B7280]">
-              Partner brands
-            </p>
-            <h2 className="mt-2 text-2xl font-semibold text-[#111827]">
-              Trusted by top developers
-            </h2>
+    <section className="w-full py-6">
+      {/* Container aligned exact with Navbar (px-4 sm:px-6) */}
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
+        <div className="rounded-3xl border border-slate-200 bg-white p-5 shadow-xs sm:p-6">
+          <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
+            <div>
+              <p className="text-[11px] font-bold uppercase tracking-widest text-[#B8863D]">
+                Partner Brands
+              </p>
+              <h2 className="mt-0.5 font-heading text-xl font-bold tracking-tight text-slate-900 sm:text-2xl">
+                Trusted by Top Developers
+              </h2>
+            </div>
           </div>
-        </div>
-        <div className="mt-8 flex items-center justify-between gap-3">
-          <button
-            type="button"
-            onClick={() => scrollLogos("left")}
-            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-[#E5E7EB] bg-white text-[#111827] shadow-sm transition hover:border-[#B8874A] hover:bg-[#F8F2D4]"
-            aria-label="Scroll left"
-          >
-            ‹
-          </button>
-          <div
-            ref={sliderRef}
-            className="no-scrollbar flex flex-1 gap-4 overflow-x-auto pb-2"
-          >
-            {logos.map((logo) => (
-              <div
-                key={logo.name + logo.src}
-                className="min-w-[160px] flex-shrink-0 rounded-3xl border border-[#E5E7EB] bg-[#F8FAFC] p-4 shadow-sm"
-              >
-                <div className="relative h-20 w-full overflow-hidden rounded-2xl bg-white p-3">
-                  <Image
-                    src={logo.src}
-                    alt={logo.name}
-                    fill
-                    className="object-contain"
-                    sizes="(max-width: 640px) 120px, 180px"
-                  />
+
+          <div className="mt-5 flex items-center justify-between gap-3">
+            {/* Left Carousel Button */}
+            <button
+              type="button"
+              onClick={() => scrollLogos("left")}
+              className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 shadow-2xs transition-all duration-300 hover:border-[#B8863D] hover:bg-[#FAF7F2] hover:text-[#B8863D] active:scale-95 cursor-pointer"
+              aria-label="Scroll left"
+            >
+              <ChevronLeft size={18} />
+            </button>
+
+            {/* Logos Carousel - Exact 6 Items Visible on Desktop */}
+            <div
+              ref={sliderRef}
+              className="flex flex-1 gap-3 overflow-x-auto scroll-smooth py-1 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+            >
+              {logos.map((logo) => (
+                <div
+                  key={logo.name + logo.src}
+                  /* 
+                    Mobile: 2 items, Tablet: 4 items, Desktop (lg): Exact 6 items visible
+                  */
+                  className="w-[calc((100%-1*0.75rem)/2)] sm:w-[calc((100%-3*0.75rem)/4)] lg:w-[calc((100%-5*0.75rem)/6)] flex-shrink-0 rounded-2xl border border-slate-100 bg-[#FAF7F2]/60 p-2.5 shadow-2xs transition-all duration-300 hover:-translate-y-0.5 hover:border-[#B8863D]/40"
+                >
+                  <div className="relative h-12 w-full overflow-hidden rounded-xl bg-white p-2">
+                    <Image
+                      src={logo.src}
+                      alt={logo.name}
+                      fill
+                      className="object-contain p-1"
+                      sizes="(max-width: 640px) 100px, 150px"
+                    />
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
+
+            {/* Right Carousel Button */}
+            <button
+              type="button"
+              onClick={() => scrollLogos("right")}
+              className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 shadow-2xs transition-all duration-300 hover:border-[#B8863D] hover:bg-[#FAF7F2] hover:text-[#B8863D] active:scale-95 cursor-pointer"
+              aria-label="Scroll right"
+            >
+              <ChevronRight size={18} />
+            </button>
           </div>
-          <button
-            type="button"
-            onClick={() => scrollLogos("right")}
-            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-[#E5E7EB] bg-white text-[#111827] shadow-sm transition hover:border-[#B8874A] hover:bg-[#F8F2D4]"
-            aria-label="Scroll right"
-          >
-            ›
-          </button>
         </div>
       </div>
     </section>

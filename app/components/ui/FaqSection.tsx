@@ -61,7 +61,7 @@ const categories = ["All", "Buying", "Selling", "Renting", "Legal"] as const;
 
 export default function FaqSection() {
   const [selectedCategory, setSelectedCategory] = useState<string>("All");
-  const [openId, setOpenId] = useState<string | null>("1"); // First item open by default
+  const [openId, setOpenId] = useState<string | null>("1");
   const [searchQuery, setSearchQuery] = useState("");
 
   const filteredFaqs = faqData.filter((faq) => {
@@ -78,103 +78,89 @@ export default function FaqSection() {
   };
 
   return (
-    <section className="bg-[#FAF7F1] sm:py-8 lg:py-3">
-      <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="text-center">
-          <div className="inline-flex items-center gap-1.5 rounded-full bg-[#B8863D]/10 px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wider text-[#B8863D]">
-            <HelpCircle size={13} />
-            Got Questions?
-          </div>
-          <h2 className="font-display mt-1.5 text-2xl font-bold text-stone-900 sm:text-3xl">
-            Frequently Asked Questions
-          </h2>
-          <p className="mt-1 text-xs sm:text-sm text-stone-600">
-            Everything you need to know about buying, selling, and renting real
-            estate.
-          </p>
-        </div>
+    <section className="bg-[#FAF7F1] py-10 lg:py-14">
+      {/* Aligned with Logo & Navbar Width (max-w-7xl) */}
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          {/* Left Column (Sticky Sidebar on Desktop) */}
+          <div className="lg:col-span-5 lg:sticky lg:top-24">
+            <h2 className="mt-3 text-2xl sm:text-3xl lg:text-4xl font-extrabold text-stone-900 tracking-tight">
+              Frequently Asked Questions
+            </h2>
 
-        {/* Search Bar */}
-        <div className="relative mt-5 max-w-md mx-auto">
-          <Search
-            size={16}
-            className="absolute left-3.5 top-1/2 -translate-y-1/2 text-stone-400"
-          />
-          <input
-            type="text"
-            placeholder="Search questions (e.g. RERA, tax, rental)..."
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full rounded-xl border border-stone-200/90 bg-white py-2.5 pl-9 pr-4 text-xs sm:text-sm font-medium text-stone-800 placeholder-stone-400 outline-none transition focus:border-[#B8863D] focus:ring-1 focus:ring-[#B8863D]"
-          />
-        </div>
+            <p className="mt-2 text-xs sm:text-sm text-stone-600 leading-relaxed">
+              Everything you need to know about buying, selling, and renting
+              real estate properties.
+            </p>
 
-        {/* Category Tabs */}
-        <div className="mt-4 flex flex-wrap items-center justify-center gap-1.5 sm:gap-2">
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setSelectedCategory(cat)}
-              className={`rounded-full px-3 py-1 text-xs font-semibold transition ${
-                selectedCategory === cat
-                  ? "bg-[#B8863D] text-white shadow-xs"
-                  : "bg-white text-stone-600 hover:bg-stone-100 border border-stone-200/60"
-              }`}
-            >
-              {cat}
-            </button>
-          ))}
-        </div>
-
-        {/* Accordion List */}
-        <div className="mt-6 space-y-2.5">
-          {filteredFaqs.length > 0 ? (
-            filteredFaqs.map((faq) => {
-              const isOpen = openId === faq.id;
-              return (
-                <div
-                  key={faq.id}
-                  className="overflow-hidden rounded-xl border border-stone-200/80 bg-white transition"
+            {/* Category Filter Chips */}
+            <div className="mt-5 flex flex-wrap gap-1.5">
+              {categories.map((cat) => (
+                <button
+                  key={cat}
+                  onClick={() => setSelectedCategory(cat)}
+                  className={`rounded-full px-3.5 py-1.5 text-xs font-semibold transition cursor-pointer ${
+                    selectedCategory === cat
+                      ? "bg-[#B8863D] text-white shadow-2xs"
+                      : "bg-white text-stone-600 hover:bg-stone-100 border border-stone-200/80"
+                  }`}
                 >
-                  <button
-                    onClick={() => toggleFaq(faq.id)}
-                    className="flex w-full items-center justify-between p-3.5 sm:p-4 text-left transition hover:bg-stone-50/50"
-                    aria-expanded={isOpen}
-                  >
-                    <span className="font-display text-xs sm:text-sm font-bold text-stone-900 pr-3">
-                      {faq.question}
-                    </span>
-                    <ChevronDown
-                      size={16}
-                      className={`flex-shrink-0 text-[#B8863D] transition-transform duration-300 ${
-                        isOpen ? "rotate-180" : ""
-                      }`}
-                    />
-                  </button>
-
-                  <AnimatePresence initial={false}>
-                    {isOpen && (
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: "auto", opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.25, ease: "easeInOut" }}
-                      >
-                        <div className="border-t border-stone-100 px-3.5 pb-3.5 pt-2 sm:px-4 sm:pb-4 text-xs sm:text-sm leading-relaxed text-stone-600">
-                          {faq.answer}
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
-              );
-            })
-          ) : (
-            <div className="py-8 text-center text-xs text-stone-500">
-              No matching questions found. Try searching with a different term.
+                  {cat}
+                </button>
+              ))}
             </div>
-          )}
+          </div>
+
+          {/* Right Column (Accordion List) */}
+          <div className="lg:col-span-7 space-y-3">
+            {filteredFaqs.length > 0 ? (
+              filteredFaqs.map((faq) => {
+                const isOpen = openId === faq.id;
+                return (
+                  <div
+                    key={faq.id}
+                    className="overflow-hidden rounded-2xl border border-stone-200/80 bg-white shadow-2xs transition"
+                  >
+                    <button
+                      onClick={() => toggleFaq(faq.id)}
+                      className="flex w-full items-center justify-between p-4 sm:p-5 text-left transition hover:bg-stone-50/50 cursor-pointer"
+                      aria-expanded={isOpen}
+                    >
+                      <span className="text-xs sm:text-sm font-bold text-stone-900 pr-3">
+                        {faq.question}
+                      </span>
+                      <ChevronDown
+                        size={18}
+                        className={`shrink-0 text-[#B8863D] transition-transform duration-300 ${
+                          isOpen ? "rotate-180" : ""
+                        }`}
+                      />
+                    </button>
+
+                    <AnimatePresence initial={false}>
+                      {isOpen && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: "auto", opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.25, ease: "easeInOut" }}
+                        >
+                          <div className="border-t border-stone-100 px-4 pb-4 pt-2 sm:px-5 sm:pb-5 text-xs sm:text-sm leading-relaxed text-stone-600">
+                            {faq.answer}
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                );
+              })
+            ) : (
+              <div className="py-12 rounded-2xl border border-dashed border-stone-200 bg-white text-center text-xs text-stone-500">
+                No matching questions found. Try searching with a different
+                term.
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </section>

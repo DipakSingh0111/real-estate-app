@@ -39,9 +39,7 @@ export default function ContactPage() {
                       Our Office
                     </h3>
                     <p className="font-sans text-gray-600 text-sm mt-1">
-                      123 Corporate Avenue, Suite 400
-                      <br />
-                      Business Bay, New York, NY 10001
+                      Noida Sector 62
                     </p>
                   </div>
                 </div>
@@ -56,9 +54,7 @@ export default function ContactPage() {
                       Phone Number
                     </h3>
                     <p className="font-sans text-gray-600 text-sm mt-1">
-                      +1 (555) 234-5678
-                      <br />
-                      +1 (555) 987-6543
+                      +91 8736674937
                     </p>
                   </div>
                 </div>
@@ -97,13 +93,6 @@ export default function ContactPage() {
                   </div>
                 </div>
               </div>
-            </div>
-
-            {/* Bottom Note */}
-            <div className="border-t border-gray-100 pt-6">
-              <p className="font-sans text-xs text-gray-400">
-                Licensed Real Estate Brokerage. Equal Housing Opportunity.
-              </p>
             </div>
           </div>
 

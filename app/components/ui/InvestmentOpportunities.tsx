@@ -42,8 +42,8 @@ const opportunitiesData: Opportunity[] = [
     title: "Green Valley Villas",
     location: "Gurugram Golf Course Rd",
     type: "Residential",
-    minInvestment: "₹10,000",
-    expectedROI: "12.0%",
+    minInvestment: "₹5,000",
+    expectedROI: "14.5%",
     tenure: "5 Yrs",
     fundedPercentage: 45,
     imageUrl:
@@ -54,8 +54,8 @@ const opportunitiesData: Opportunity[] = [
     title: "Apex Logistics Park",
     location: "Bhiwandi, Mumbai",
     type: "Industrial",
-    minInvestment: "₹25,000",
-    expectedROI: "16.2%",
+    minInvestment: "₹5,000",
+    expectedROI: "14.5%",
     tenure: "4 Yrs",
     fundedPercentage: 92,
     imageUrl:
@@ -66,8 +66,8 @@ const opportunitiesData: Opportunity[] = [
     title: "TechPark IT Tower",
     location: "Whitefield, Bengaluru",
     type: "Commercial",
-    minInvestment: "₹15,000",
-    expectedROI: "15.0%",
+    minInvestment: "₹5,000",
+    expectedROI: "14.5%",
     tenure: "3 Yrs",
     fundedPercentage: 60,
     imageUrl:
@@ -85,28 +85,29 @@ export default function CompactInvestmentOpportunities() {
       : opportunitiesData.filter((item) => item.type === activeTab);
 
   return (
-    <section className="w-full bg-slate-50 py-8 px-4 sm:px-6 font-sans">
-      <div className="max-w-6xl mx-auto">
+    <section className="w-full bg-[#FAF7F2]/50 py-8 lg:py-10">
+      {/* Container Aligned Pixel-Perfect with Navbar (max-w-7xl px-4 sm:px-6) */}
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
         {/* Sleek Header & Filter Row */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 pb-4 border-b border-slate-200">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-6 pb-4 border-b border-slate-200/80">
           <div>
-            <h2 className="text-xl font-bold text-slate-900 tracking-tight">
+            <h2 className="mt-1 font-heading text-xl font-bold tracking-tight text-slate-900 sm:text-2xl lg:text-3xl">
               Investment Opportunities
             </h2>
-            <p className="text-slate-500 text-xs mt-0.5">
+            <p className="mt-0.5 text-xs text-slate-500 sm:text-sm">
               Handpicked fractional real estate assets.
             </p>
           </div>
 
           {/* Minimal Filter Tabs */}
-          <div className="flex items-center gap-1 bg-slate-200/60 p-1 rounded-lg text-xs font-medium self-start sm:self-auto">
+          <div className="flex items-center gap-1 bg-slate-200/50 p-1 rounded-xl text-xs font-medium self-start sm:self-auto border border-slate-200/60">
             {["All", "Commercial", "Residential", "Industrial"].map((tab) => (
               <button
                 key={tab}
                 onClick={() => setActiveTab(tab)}
-                className={`px-3 py-1.5 rounded-md transition-all ${
+                className={`px-3 py-1.5 rounded-lg transition-all duration-200 cursor-pointer ${
                   activeTab === tab
-                    ? "bg-white text-slate-900 shadow-sm font-semibold"
+                    ? "bg-white text-slate-900 shadow-2xs font-semibold"
                     : "text-slate-600 hover:text-slate-900"
                 }`}
               >
@@ -121,42 +122,37 @@ export default function CompactInvestmentOpportunities() {
           {filteredOpportunities.map((item) => (
             <div
               key={item.id}
-              className="bg-white rounded-xl border border-slate-200 shadow-xs hover:shadow-md transition-all duration-200 overflow-hidden flex flex-col group"
+              className="group relative flex flex-col justify-between rounded-2xl border border-slate-200/80 bg-white shadow-2xs transition-all duration-300 hover:-translate-y-1 hover:border-[#B8863D]/50 hover:shadow-md overflow-hidden"
             >
-              {/* Compact Image Banner */}
-              <div className="relative h-36 w-full bg-slate-100 overflow-hidden">
-                <Image
-                  src={item.imageUrl}
-                  alt={item.title}
-                  fill
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                  className="object-cover group-hover:scale-105 transition-transform duration-300"
-                />
+              <div>
+                {/* Compact Image Banner */}
+                <div className="relative h-36 w-full bg-slate-100 overflow-hidden">
+                  <Image
+                    src={item.imageUrl}
+                    alt={item.title}
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
 
-                {/* Badges */}
-                <div className="absolute top-2 left-2 flex gap-1">
-                  <span className="bg-slate-900/80 backdrop-blur-md text-white text-[10px] font-medium px-2 py-0.5 rounded">
-                    {item.type}
-                  </span>
-                  {item.isHot && (
-                    <span className="bg-amber-500 text-white text-[10px] font-medium px-2 py-0.5 rounded">
-                      🔥 Fast Filling
+                  {/* Badges */}
+                  <div className="absolute top-2.5 left-2.5 flex gap-1.5">
+                    <span className="bg-slate-900/80 backdrop-blur-md text-white text-[10px] font-medium px-2 py-0.5 rounded-md">
+                      {item.type}
                     </span>
-                  )}
+                  </div>
+
+                  <button
+                    aria-label="Bookmark property"
+                    className="absolute top-2.5 right-2.5 p-1.5 rounded-full bg-white/90 hover:bg-white text-slate-700 hover:text-[#B8863D] transition-colors shadow-2xs cursor-pointer"
+                  >
+                    <Bookmark size={13} />
+                  </button>
                 </div>
 
-                <button
-                  aria-label="Bookmark property"
-                  className="absolute top-2 right-2 p-1.5 rounded-full bg-white/80 hover:bg-white text-slate-700 transition-colors"
-                >
-                  <Bookmark size={13} />
-                </button>
-              </div>
-
-              {/* Compact Content Body */}
-              <div className="p-3.5 flex-1 flex flex-col justify-between">
-                <div>
-                  <h3 className="text-sm font-bold text-slate-900 truncate group-hover:text-blue-600 transition-colors">
+                {/* Compact Content Body */}
+                <div className="p-4">
+                  <h3 className="text-sm font-bold text-slate-900 truncate group-hover:text-[#B8863D] transition-colors">
                     {item.title}
                   </h3>
 
@@ -168,14 +164,16 @@ export default function CompactInvestmentOpportunities() {
                     <span className="truncate">{item.location}</span>
                   </div>
                 </div>
+              </div>
 
-                {/* Micro Footer Action */}
-                <div className="mt-4 pt-2.5 border-t border-slate-100 flex items-center justify-between">
+              {/* Micro Footer Action */}
+              <div className="px-4 pb-4 pt-0">
+                <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
                   <span className="text-[11px] text-slate-500">
                     Tenure: <b className="text-slate-700">{item.tenure}</b>
                   </span>
 
-                  <button className="bg-slate-900 hover:bg-blue-600 text-white text-[11px] font-semibold px-3 py-1.5 rounded-md flex items-center gap-1 transition-colors">
+                  <button className="bg-slate-900 hover:bg-[#B8863D] text-white text-[11px] font-semibold px-3 py-1.5 rounded-lg flex items-center gap-1 transition-all duration-300 shadow-2xs cursor-pointer active:scale-95">
                     Invest
                     <ArrowRight size={12} />
                   </button>

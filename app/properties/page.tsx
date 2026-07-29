@@ -3,41 +3,67 @@ import propertiesData from "../../data/properties.json";
 import PropertyCard from "../components/PropertyCard";
 import type { Property } from "@/types/property";
 
-const properties = propertiesData.Properties as Property[];
+// Dynamic rendering enforce karein taaki searchParams fast & fresh update ho
+export const dynamic = "force-dynamic";
+
+const properties = (propertiesData?.Properties || []) as Property[];
 
 export const metadata: Metadata = {
   title: "All Properties — Real Estate",
 };
 
 interface PropertiesPageProps {
-  searchParams: {
+  searchParams: Promise<{
     city?: string;
-  };
+    type?: string; // 1. Type query parameter add kiya
+  }>;
 }
 
-const normalizeCity = (value: string) =>
-  value
+// Special characters (jaise '/') aur URL encoded values ke liye helper function
+const normalizeString = (value: string = "") =>
+  decodeURIComponent(value)
     .toLowerCase()
     .trim()
     .replace(/[^a-z0-9]+/g, " ")
     .replace(/\s+/g, " ");
 
-export default function PropertiesPage({ searchParams }: PropertiesPageProps) {
-  const cityQuery = searchParams.city?.trim() || "";
-  const normalizedCityQuery = normalizeCity(cityQuery);
+export default async function PropertiesPage({
+  searchParams,
+}: PropertiesPageProps) {
+  const params = await searchParams;
 
-  const filteredProperties = normalizedCityQuery
-    ? properties.filter(
-        (property) => normalizeCity(property.city) === normalizedCityQuery,
-      )
-    : properties;
+  const cityQuery = params.city?.trim() || "";
+  const typeQuery = params.type?.trim() || "";
+
+  const normalizedCityQuery = normalizeString(cityQuery);
+  const normalizedTypeQuery = normalizeString(typeQuery);
+
+  // 2. City aur Type dono ke base par filtering
+  const filteredProperties = properties.filter((property) => {
+    // City Filter
+    const matchesCity = normalizedCityQuery
+      ? normalizeString(property.city) === normalizedCityQuery
+      : true;
+
+    // Type Filter ( JSON mein field key `type` hai )
+    const matchesType = normalizedTypeQuery
+      ? normalizeString(property.type) === normalizedTypeQuery
+      : true;
+
+    return matchesCity && matchesType;
+  });
+
+  // Dynamic Title generate karne ke liye
+  const pageTitle = [typeQuery, cityQuery, "Properties"]
+    .filter(Boolean)
+    .join(" ");
 
   return (
     <section className="mx-auto max-w-7xl px-6 py-8">
       <p className="eyebrow text-brass">Directory</p>
 
-      <h1 className="mt-2 font-display text-4xl font-semibold text-ink">
-        {cityQuery ? `${cityQuery} Properties` : "All Properties"}
+      <h1 className="mt-2 font-display text-4xl font-semibold text-ink capitalize">
+        {pageTitle || "All Properties"}
       </h1>
 
       <p className="mt-2 text-ink/60">
@@ -53,7 +79,9 @@ export default function PropertiesPage({ searchParams }: PropertiesPageProps) {
         </div>
       ) : (
         <p className="mt-8 text-ink/60">
-          No properties found for {cityQuery || "this city"}.
+          No properties found
+          {typeQuery && ` for "${typeQuery}"`}
+          {cityQuery && ` in "${cityQuery}"`}.
         </p>
       )}
     </section>

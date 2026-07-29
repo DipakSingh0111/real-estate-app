@@ -1,10 +1,10 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
-import { motion } from "framer-motion";
+import { ChevronLeft, ChevronRight, ArrowRight, MapPin } from "lucide-react";
+import { motion, type Variants } from "framer-motion";
 
 import data from "../../../data/properties.json";
 
@@ -25,29 +25,75 @@ type Project = {
   description: string;
 };
 
-const projects = data.projects as Project[];
+const projects = (data?.projects || []) as Project[];
 
-const badgeText = (status: string) => {
+const badgeStyle = (status: string) => {
   switch (status) {
     case "Ready to Move":
-      return "COMPLETED";
+      return { label: "COMPLETED", bg: "bg-emerald-600 text-white" };
     case "New Launch":
-      return "NEW LAUNCH";
+      return { label: "NEW LAUNCH", bg: "bg-amber-600 text-white" };
     case "Under Construction":
-      return "UNDER CONSTRUCTION";
+      return { label: "IN PROGRESS", bg: "bg-blue-600 text-white" };
     case "Sold Out":
-      return "SOLD OUT";
+      return { label: "SOLD OUT", bg: "bg-slate-800 text-white" };
     default:
-      return status.toUpperCase();
+      return { label: status.toUpperCase(), bg: "bg-slate-900 text-white" };
   }
+};
+
+const containerVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.08,
+      delayChildren: 0.05,
+    },
+  },
+};
+
+const cardVariants: Variants = {
+  hidden: { opacity: 0, y: 15 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.4,
+      ease: "easeOut",
+    },
+  },
 };
 
 export default function LatestProjects() {
   const sliderRef = useRef<HTMLDivElement>(null);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(true);
+
+  const updateScrollState = useCallback(() => {
+    const el = sliderRef.current;
+    if (!el) return;
+    setCanScrollLeft(el.scrollLeft > 4);
+    setCanScrollRight(el.scrollLeft + el.clientWidth < el.scrollWidth - 4);
+  }, []);
+
+  useEffect(() => {
+    updateScrollState();
+    const el = sliderRef.current;
+    if (!el) return;
+
+    el.addEventListener("scroll", updateScrollState, { passive: true });
+    window.addEventListener("resize", updateScrollState);
+
+    return () => {
+      el.removeEventListener("scroll", updateScrollState);
+      window.removeEventListener("resize", updateScrollState);
+    };
+  }, [updateScrollState]);
 
   const scroll = (direction: "left" | "right") => {
     if (!sliderRef.current) return;
-    const offset = sliderRef.current.clientWidth * 0.8;
+    const offset = sliderRef.current.clientWidth * 0.75;
     sliderRef.current.scrollBy({
       left: direction === "left" ? -offset : offset,
       behavior: "smooth",
@@ -55,119 +101,156 @@ export default function LatestProjects() {
   };
 
   return (
-    <section className="bg-[#faf8f4] py-12">
+    <section className="bg-[#FAF7F2] py-8 lg:py-10 overflow-hidden">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
-        {/* Header Section */}
-        <div className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between mb-8">
-          <div className="max-w-3xl">
-            <p className="font-mono text-xs uppercase tracking-[5px] text-[#b58b46]">
+        {/* Header Section (Compact Space) */}
+        <motion.div
+          initial={{ opacity: 0, y: -10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="mb-5 flex flex-wrap items-end justify-between gap-3"
+        >
+          <div>
+            <span className="text-[11px] font-bold uppercase tracking-widest text-[#B8863D]">
               LATEST PROJECTS
-            </p>
-
-            <h2 className="mt-3 text-2xl font-bold leading-tight text-slate-900 md:text-3xl">
-              Homes and spaces we recently delivered.
+            </span>
+            <h2 className="mt-1 text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
+              Homes & Spaces Recently Delivered
             </h2>
-
-            <p className="mt-2 text-sm max-w-2xl text-slate-500">
-              A look at recent handovers — interiors, layouts, and finishes
-              families move into.
+            <p className="mt-0.5 text-xs text-slate-500 sm:text-sm">
+              Explore handovers, premium layouts, and world-class architecture.
             </p>
           </div>
-        </div>
 
-        {/* Carousel Container */}
-        <div className="relative group px-2 sm:px-6">
-          {/* Left Arrow Button */}
-          <button
-            type="button"
-            onClick={() => scroll("left")}
-            aria-label="Scroll left"
-            className="absolute -left-2 sm:left-0 top-1/2 z-20 -translate-y-1/2 rounded-full border border-slate-200 bg-white/95 p-2.5 sm:p-3 text-slate-800 shadow-md transition-all duration-200 hover:bg-slate-950 hover:text-white hover:border-slate-950 active:scale-95"
-          >
-            <ChevronLeft size={20} />
-          </button>
-
-          {/* Right Arrow Button */}
-          <button
-            type="button"
-            onClick={() => scroll("right")}
-            aria-label="Scroll right"
-            className="absolute -right-2 sm:right-0 top-1/2 z-20 -translate-y-1/2 rounded-full border border-slate-200 bg-white/95 p-2.5 sm:p-3 text-slate-800 shadow-md transition-all duration-200 hover:bg-slate-950 hover:text-white hover:border-slate-950 active:scale-95"
-          >
-            <ChevronRight size={20} />
-          </button>
-
-          {/* Cards Slider Wrapper */}
-          <div className="overflow-hidden px-4 py-4">
-            <div
-              ref={sliderRef}
-              className="scrollbar-hide flex snap-x snap-mandatory gap-5 overflow-x-auto pb-4 scroll-smooth"
+          {/* Navigation Controls */}
+          <div className="hidden sm:flex items-center gap-2">
+            <button
+              type="button"
+              onClick={() => scroll("left")}
+              disabled={!canScrollLeft}
+              aria-label="Scroll left"
+              className="flex h-9 w-9 items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-700 shadow-xs transition hover:border-[#B8863D] hover:text-[#B8863D] disabled:opacity-30 cursor-pointer"
             >
-              {projects.slice(0, 8).map((project) => (
+              <ChevronLeft size={18} />
+            </button>
+            <button
+              type="button"
+              onClick={() => scroll("right")}
+              disabled={!canScrollRight}
+              aria-label="Scroll right"
+              className="flex h-9 w-9 items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-700 shadow-xs transition hover:border-[#B8863D] hover:text-[#B8863D] disabled:opacity-30 cursor-pointer"
+            >
+              <ChevronRight size={18} />
+            </button>
+          </div>
+        </motion.div>
+
+        {/* Carousel Slider Wrapper */}
+        <div className="relative">
+          <motion.div
+            ref={sliderRef}
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-40px" }}
+            className="scrollbar-hide flex items-stretch gap-4 overflow-x-auto scroll-smooth py-2 px-0.5"
+          >
+            {projects.slice(0, 8).map((project) => {
+              const badge = badgeStyle(project.status);
+              return (
                 <motion.div
-                  whileHover={{ y: -6 }}
-                  transition={{ duration: 0.2 }}
                   key={project.id}
-                  className="min-w-[280px] max-w-[280px] sm:min-w-[300px] sm:max-w-[300px] snap-start flex-shrink-0"
+                  variants={cardVariants}
+                  whileHover={{ y: -4 }}
+                  transition={{ duration: 0.2 }}
+                  className="w-[260px] sm:w-[285px] flex-shrink-0"
                 >
                   <Link
                     href={`/projects/${project.slug}`}
-                    className="group/card block h-full"
+                    className="group flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-xs transition-all duration-300 hover:border-[#B8863D]/50 hover:shadow-lg"
                   >
-                    <div className="h-full overflow-hidden rounded-3xl bg-white border border-slate-100 shadow-sm transition-all duration-300 group-hover/card:shadow-xl flex flex-col justify-between">
+                    {/* Image Banner Container */}
+                    <div className="relative aspect-[16/10] w-full overflow-hidden bg-slate-100">
+                      <Image
+                        src={project.image}
+                        alt={project.title}
+                        fill
+                        sizes="(max-width: 640px) 260px, 285px"
+                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+
+                      {/* Status Badge */}
+                      <span
+                        className={`absolute left-3 top-3 rounded-md px-2.5 py-1 text-[9px] font-bold uppercase tracking-wider shadow-xs ${badge.bg}`}
+                      >
+                        {badge.label}
+                      </span>
+                    </div>
+
+                    {/* Content Area */}
+                    <div className="flex flex-1 flex-col justify-between p-4">
                       <div>
-                        {/* Image Banner */}
-                        <div className="relative h-48 sm:h-52 overflow-hidden">
-                          <Image
-                            src={project.image}
-                            alt={project.title}
-                            fill
-                            className="object-cover transition duration-700 group-hover/card:scale-105"
-                          />
-
-                          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent" />
-
-                          <span className="absolute left-3.5 top-3.5 rounded-full bg-white/95 backdrop-blur-md px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-slate-950 shadow-xs">
-                            {badgeText(project.status)}
+                        {/* City & Builder */}
+                        <div className="flex items-center gap-1 text-[11px] font-semibold text-[#B8863D]">
+                          <MapPin size={12} />
+                          <span>{project.city}</span>
+                          <span className="text-slate-300">•</span>
+                          <span className="text-slate-500 truncate">
+                            {project.builder}
                           </span>
                         </div>
 
-                        {/* Content */}
-                        <div className="p-4 sm:p-5">
-                          <p className="text-[10px] uppercase font-semibold tracking-widest text-slate-400">
-                            {project.city} · {project.builder}
-                          </p>
+                        {/* Title */}
+                        <h3 className="mt-1.5 truncate text-base font-bold text-slate-900 group-hover:text-[#B8863D] transition-colors">
+                          {project.title}
+                        </h3>
 
-                          <h3 className="mt-2 text-base font-bold text-slate-950 line-clamp-1 group-hover/card:text-[#b58b46] transition-colors">
-                            {project.title}
-                          </h3>
-
-                          <p className="mt-1.5 text-xs leading-relaxed text-slate-500 line-clamp-2">
-                            {project.description}
-                          </p>
-                        </div>
+                        {/* Description */}
+                        <p className="mt-1 text-xs text-slate-500 line-clamp-2 leading-relaxed">
+                          {project.description}
+                        </p>
                       </div>
+
+                      {/* Price / Specs Row */}
+                      {project.price && (
+                        <div className="mt-3 border-t border-slate-100 pt-2.5 flex items-center justify-between">
+                          <span className="text-xs text-slate-400 font-medium">
+                            Starting from
+                          </span>
+                          <span className="text-sm font-bold text-slate-900">
+                            {project.price}
+                          </span>
+                        </div>
+                      )}
                     </div>
                   </Link>
                 </motion.div>
-              ))}
-            </div>
-          </div>
+              );
+            })}
+          </motion.div>
         </div>
 
-        {/* Bottom CTA Button */}
-        <div className="mt-10 flex justify-center">
+        {/* Compact Bottom Button */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.4 }}
+          className="mt-6 flex justify-center"
+        >
           <Link
             href="/viewsproject"
-            className="group inline-flex items-center gap-2.5 rounded-full bg-slate-950 px-7 py-3.5 text-xs font-semibold uppercase tracking-wider text-white transition-all hover:bg-slate-800 hover:shadow-lg active:scale-95"
+            className="group inline-flex items-center gap-2 rounded-xl bg-slate-900 px-6 py-2.5 text-xs font-semibold text-white shadow-xs transition-all hover:bg-[#B8863D] active:scale-95"
           >
-            View Projects
+            <span>View All Projects</span>
             <ArrowRight
-              size={16}
-              className="transition group-hover:translate-x-1"
+              size={14}
+              className="transition-transform duration-200 group-hover:translate-x-1"
             />
           </Link>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
