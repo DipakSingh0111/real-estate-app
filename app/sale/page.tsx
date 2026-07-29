@@ -6,5 +6,6 @@ export const metadata: Metadata = {
 };
 
 export default function SalePage() {
-  return <PropertyListing listingType="Sale" />;
+  const Component = PropertyListing as any;
+  return <Component listingType="Sale" />;
 }
