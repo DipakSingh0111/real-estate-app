@@ -15,10 +15,11 @@ export default function PropertyFilters() {
     const timer = setTimeout(() => {
       const params = new URLSearchParams(searchParams.toString());
       value ? params.set("search", value) : params.delete("search");
+      params.delete("page"); // reset to page 1 on new search
       router.push(`${pathname}?${params.toString()}`, { scroll: false });
     }, 400);
     return () => clearTimeout(timer);
-  }, [value]);
+  }, [value, searchParams, router, pathname]);
 
   return (
     <div className="flex flex-col gap-1.5">
