@@ -78,13 +78,13 @@ export default function FaqSection() {
   };
 
   return (
-    <section className="bg-[#FAF7F1] py-10 lg:py-14">
+    <section className="bg-[#FAF7F1] py-6 lg:py-8">
       {/* Aligned with Logo & Navbar Width (max-w-7xl) */}
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           {/* Left Column (Sticky Sidebar on Desktop) */}
           <div className="lg:col-span-5 lg:sticky lg:top-24">
-            <h2 className="mt-3 text-2xl sm:text-3xl lg:text-4xl font-extrabold text-stone-900 tracking-tight">
+            <h2 className="mt-2 font-heading text-2xl font-bold tracking-tight text-stone-900 sm:text-3xl">
               Frequently Asked Questions
             </h2>
 

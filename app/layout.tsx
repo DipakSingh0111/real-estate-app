@@ -1,23 +1,23 @@
 import type { Metadata } from "next";
 import {
-  Playfair_Display,
-  Plus_Jakarta_Sans,
+  Cormorant_Garamond,
+  DM_Sans,
   IBM_Plex_Mono,
 } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import SmoothScroll from "./components/SmoothScroll";
 
-// Headings ke liye Premium Serif Font
-const playfair = Playfair_Display({
+const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
+  style: ["normal", "italic"],
   variable: "--font-heading",
   display: "swap",
 });
 
-// Overall Body & Buttons ke liye Clean Sans-Serif Font
-const jakarta = Plus_Jakarta_Sans({
+const dmSans = DM_Sans({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   variable: "--font-body",
@@ -45,12 +45,14 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${playfair.variable} ${jakarta.variable} ${plexMono.variable}`}
+      className={`${cormorant.variable} ${dmSans.variable} ${plexMono.variable}`}
     >
-      <body className="bg-[#FAF7F2] font-body text-slate-900 antialiased">
-        <Navbar />
-        <main className="min-h-screen">{children}</main>
-        <Footer />
+      <body className="bg-[#FAF7F2] font-body text-slate-900 antialiased" suppressHydrationWarning>
+        <SmoothScroll>
+          <Navbar />
+          <main className="min-h-screen">{children}</main>
+          <Footer />
+        </SmoothScroll>
       </body>
     </html>
   );

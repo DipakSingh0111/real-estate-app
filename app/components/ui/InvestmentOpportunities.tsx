@@ -85,13 +85,13 @@ export default function CompactInvestmentOpportunities() {
       : opportunitiesData.filter((item) => item.type === activeTab);
 
   return (
-    <section className="w-full bg-[#FAF7F2]/50 py-8 lg:py-10">
+    <section className="w-full bg-[#FAF7F2]/50 py-5 lg:py-7">
       {/* Container Aligned Pixel-Perfect with Navbar (max-w-7xl px-4 sm:px-6) */}
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         {/* Sleek Header & Filter Row */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-6 pb-4 border-b border-slate-200/80">
           <div>
-            <h2 className="mt-1 font-heading text-xl font-bold tracking-tight text-slate-900 sm:text-2xl lg:text-3xl">
+            <h2 className="mt-1 font-heading text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
               Investment Opportunities
             </h2>
             <p className="mt-0.5 text-xs text-slate-500 sm:text-sm">

@@ -77,14 +77,14 @@ export default function BrowseByCity() {
     ...new Set(properties.map((p) => p.city).filter(Boolean)),
   ].sort();
 
-  // Top 6 Cities
+  // Top 8 Cities
   const cityStats = cities
     .map((city) => ({
       city,
       count: properties.filter((p) => p.city === city).length,
     }))
     .sort((a, b) => b.count - a.count)
-    .slice(0, 6);
+    .slice(0, 8);
 
   const updateScrollState = useCallback(() => {
     const el = sliderRef.current;
@@ -131,7 +131,7 @@ export default function BrowseByCity() {
             <span className="text-[11px] font-bold uppercase tracking-widest text-stone-500">
               EXPLORE BY LOCATION
             </span>
-            <h2 className="mt-1 text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
+            <h2 className="mt-1 font-heading text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
               Find Properties in Top Cities
             </h2>
           </div>
@@ -167,18 +167,12 @@ export default function BrowseByCity() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-40px" }}
-            className="scrollbar-hide flex items-center gap-4 overflow-x-auto scroll-smooth py-2"
+            className="flex items-center gap-4 overflow-x-auto scroll-smooth py-2 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
           >
             {cityStats.map(({ city, count }) => (
               <motion.div
                 key={city}
                 variants={cardVariants}
-                /* Exact mathematical fit: 
-                   Desktop (xl): 5 cards in view (gap included), 6th card hidden until scroll 
-                   Laptop (lg): 4 cards 
-                   Tablet (sm): 2 cards 
-                   Mobile: 1 card 
-                */
                 className="w-full sm:w-[calc(50%-0.5rem)] lg:w-[calc(25%-0.75rem)] xl:w-[calc(20%-0.8rem)] flex-shrink-0"
               >
                 <Link

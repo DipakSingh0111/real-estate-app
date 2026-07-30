@@ -52,7 +52,7 @@ export default function BookSiteVisit({
                 Free On-Site Tour
               </span>
 
-              <h2 className="font-display mt-2 text-2xl font-bold tracking-tight text-white sm:text-3xl lg:text-4xl">
+              <h2 className="font-heading mt-2 text-2xl font-bold tracking-tight text-white sm:text-3xl">
                 Schedule Your Personal Site Visit
               </h2>
 

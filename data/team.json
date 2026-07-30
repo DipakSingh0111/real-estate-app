@@ -1,0 +1,80 @@
+[
+  {
+    "name": "Aarav Sharma",
+    "role": "Founder & CEO",
+    "bio": "Pioneering real estate strategy with 15+ years of experience across luxury residential and commercial markets in India.",
+    "image": "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&auto=format&fit=crop&q=80",
+    "experience": "15+ Years",
+    "tag": "Leadership",
+    "socials": {
+      "linkedin": "#",
+      "twitter": "#",
+      "instagram": "#"
+    }
+  },
+  {
+    "name": "Priya Malhotra",
+    "role": "Chief Operations Officer",
+    "bio": "Streamlining property transactions and client relations with a decade of operational excellence in premium real estate.",
+    "image": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&auto=format&fit=crop&q=80",
+    "experience": "10+ Years",
+    "tag": "Operations",
+    "socials": {
+      "linkedin": "#",
+      "twitter": "#",
+      "instagram": "#"
+    }
+  },
+  {
+    "name": "Kabir Verma",
+    "role": "Head of Sales",
+    "bio": "Closing high-value deals with a client-first approach, specializing in luxury villas and premium apartment portfolios.",
+    "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&auto=format&fit=crop&q=80",
+    "experience": "12+ Years",
+    "tag": "Sales",
+    "socials": {
+      "linkedin": "#",
+      "twitter": "#",
+      "instagram": "#"
+    }
+  },
+  {
+    "name": "Meera Nair",
+    "role": "Senior Property Consultant",
+    "bio": "Guiding clients through every step of their property journey with deep market insights across Mumbai and Pune.",
+    "image": "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=600&auto=format&fit=crop&q=80",
+    "experience": "8+ Years",
+    "tag": "Consulting",
+    "socials": {
+      "linkedin": "#",
+      "twitter": "#",
+      "instagram": "#"
+    }
+  },
+  {
+    "name": "Rohan Kapoor",
+    "role": "Investment Advisor",
+    "bio": "Delivering data-driven investment strategies that maximize ROI for HNI clients in India's top real estate markets.",
+    "image": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=600&auto=format&fit=crop&q=80",
+    "experience": "9+ Years",
+    "tag": "Investment",
+    "socials": {
+      "linkedin": "#",
+      "twitter": "#",
+      "instagram": "#"
+    }
+  },
+  {
+    "name": "Ananya Iyer",
+    "role": "Marketing Director",
+    "bio": "Crafting compelling brand narratives and digital campaigns that connect premium properties with the right buyers.",
+    "image": "https://images.unsplash.com/photo-1598550874175-4d0ef436c909?w=600&auto=format&fit=crop&q=80",
+    "experience": "7+ Years",
+    "tag": "Marketing",
+    "socials": {
+      "linkedin": "#",
+      "twitter": "#",
+      "instagram": "#"
+    }
+  }
+]

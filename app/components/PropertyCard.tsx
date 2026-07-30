@@ -5,7 +5,13 @@ import Link from "next/link";
 import { formatArea } from "@/lib/format";
 import type { Property } from "@/types/property";
 
-export default function PropertyCard({ property }: { property: Property }) {
+export default function PropertyCard({
+  property,
+  priority = false,
+}: {
+  property: Property;
+  priority?: boolean;
+}) {
   // Safe extraction for TypeScript
   const prop = property as any;
   const bedrooms = prop.bedrooms || prop.bhk || prop.beds;
@@ -22,6 +28,7 @@ export default function PropertyCard({ property }: { property: Property }) {
           alt={property.title || "Property"}
           fill
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+          priority={priority}
           className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
         />
 
@@ -29,30 +36,6 @@ export default function PropertyCard({ property }: { property: Property }) {
         <span className="absolute left-3 top-3 rounded-md bg-white/90 px-2.5 py-1 text-[11px] font-bold uppercase tracking-wider text-slate-800 shadow-sm backdrop-blur-sm">
           {property.listingType === "Rent" ? "FOR RENT" : "FOR SALE"}
         </span>
-
-        {/* Favorite/Heart Icon */}
-        <button
-          type="button"
-          aria-label="Add to favorites"
-          className="absolute right-3 top-3 flex h-8 w-8 items-center justify-center text-white/90 hover:text-white transition-colors"
-          onClick={(e) => {
-            e.preventDefault();
-          }}
-        >
-          <svg
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
-          </svg>
-        </button>
-
         {/* Price Tag Overlay */}
         <div className="absolute bottom-3 left-3">
           <span className="font-sans text-lg font-bold text-white drop-shadow-md">

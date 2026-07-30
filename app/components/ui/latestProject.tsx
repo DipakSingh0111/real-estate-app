@@ -101,7 +101,7 @@ export default function LatestProjects() {
   };
 
   return (
-    <section className="bg-[#FAF7F2] py-8 lg:py-10 overflow-hidden">
+    <section className="bg-[#FAF7F2] py-5 lg:py-7 overflow-hidden">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Header Section */}
         <motion.div
@@ -115,7 +115,7 @@ export default function LatestProjects() {
             <span className="text-[11px] font-bold uppercase tracking-widest text-[#B8863D]">
               LATEST PROJECTS
             </span>
-            <h2 className="mt-1 text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
+            <h2 className="mt-1 font-heading text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
               Homes & Spaces Recently Delivered
             </h2>
             <p className="mt-0.5 text-xs text-slate-500 sm:text-sm">

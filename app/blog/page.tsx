@@ -31,7 +31,7 @@ export default function BlogInsights() {
               <TrendingUp size={14} />
               Knowledge Hub
             </div>
-            <h2 className="font-['Volkhov'] mt-2 text-2xl font-bold text-stone-900 sm:text-3xl lg:text-4xl">
+            <h2 className="font-heading mt-2 text-2xl font-bold text-stone-900 sm:text-3xl">
               Latest Blogs & Market Insights
             </h2>
             <p className="mt-1 max-w-xl text-xs sm:text-sm text-stone-600">
@@ -95,7 +95,7 @@ export default function BlogInsights() {
                   </div>
 
                   {/* Blog Title */}
-                  <h3 className="font-display text-base font-bold text-stone-900 line-clamp-2 group-hover:text-[#B8863D] transition-colors sm:text-lg">
+                  <h3 className="font-body text-base font-bold text-stone-900 line-clamp-2 group-hover:text-[#B8863D] transition-colors sm:text-lg">
                     <Link href={`/blogs/${post.slug}`}>{post.title}</Link>
                   </h3>
 

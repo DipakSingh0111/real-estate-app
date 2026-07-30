@@ -9,8 +9,8 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        heading: ["var(--font-heading)", "Georgia", "serif"], // Playfair Display
-        body: ["var(--font-body)", "sans-serif"], // Plus Jakarta Sans
+        heading: ["var(--font-heading)", "Georgia", "serif"], // Cormorant Garamond
+        body: ["var(--font-body)", "sans-serif"],             // DM Sans
         mono: ["var(--font-mono)", "monospace"],
       },
     },

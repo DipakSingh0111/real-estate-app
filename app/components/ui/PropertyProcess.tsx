@@ -58,7 +58,7 @@ const stepsData: ProcessStep[] = [
 
 export default function PropertyProcess() {
   return (
-    <section className="w-full bg-[#FAF7F2]/50 py-10 lg:py-12">
+    <section className="w-full bg-[#FAF7F2]/50 py-5 lg:py-7">
       {/* Container Aligned Pixel-Perfect with Navbar (max-w-7xl px-4 sm:px-6) */}
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         {/* Horizontal Process Steps Flow */}

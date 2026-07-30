@@ -33,13 +33,13 @@ export default function HomePage() {
       {/* Hero */}
       <Hero cities={cities} />
       {/* Featured Properties */}
-      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-6 pt-2 pb-12 mt-3">
+      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-6 pt-2 pb-6 mt-2">
         {/* Section Header */}
         <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div className="space-y-2">
             {/* Main Title with Volkhov Font */}
-            <h2 className="font-hero-heading text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
-              Featured <span className="text-cyan-600">Properties</span>
+            <h2 className="mt-2 font-heading text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
+              Featured <span className="text-[#B8863D]">Properties</span>
             </h2>
 
             {/* Subtitle */}

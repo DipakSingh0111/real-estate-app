@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import propertiesData from "../../data/properties.json";
 import PropertyCard from "../components/PropertyCard";
+import PropertyFilters from "../components/ui/PropertyFilters";
 import type { Property } from "@/types/property";
 
-// Dynamic rendering enforce karein taaki searchParams fast & fresh update ho
 export const dynamic = "force-dynamic";
 
 const properties = (propertiesData?.Properties || []) as Property[];
@@ -15,74 +16,76 @@ export const metadata: Metadata = {
 interface PropertiesPageProps {
   searchParams: Promise<{
     city?: string;
-    type?: string; // 1. Type query parameter add kiya
+    type?: string;
+    listingType?: string;
+    bhk?: string;
+    search?: string;
   }>;
 }
 
-// Special characters (jaise '/') aur URL encoded values ke liye helper function
-const normalizeString = (value: string = "") =>
-  decodeURIComponent(value)
-    .toLowerCase()
-    .trim()
-    .replace(/[^a-z0-9]+/g, " ")
-    .replace(/\s+/g, " ");
+const normalize = (value: string = "") =>
+  decodeURIComponent(value).toLowerCase().trim().replace(/[^a-z0-9]+/g, " ").replace(/\s+/g, " ");
 
-export default async function PropertiesPage({
-  searchParams,
-}: PropertiesPageProps) {
+export default async function PropertiesPage({ searchParams }: PropertiesPageProps) {
   const params = await searchParams;
 
-  const cityQuery = params.city?.trim() || "";
-  const typeQuery = params.type?.trim() || "";
+  const cityQuery     = params.city?.trim() || "";
+  const typeQuery     = params.type?.trim() || "";
+  const listingQuery  = params.listingType?.trim() || "";
+  const bhkQuery      = params.bhk?.trim() || "";
+  const searchQuery   = normalize(params.search || "");
 
-  const normalizedCityQuery = normalizeString(cityQuery);
-  const normalizedTypeQuery = normalizeString(typeQuery);
-
-  // 2. City aur Type dono ke base par filtering
-  const filteredProperties = properties.filter((property) => {
-    // City Filter
-    const matchesCity = normalizedCityQuery
-      ? normalizeString(property.city) === normalizedCityQuery
-      : true;
-
-    // Type Filter ( JSON mein field key `type` hai )
-    const matchesType = normalizedTypeQuery
-      ? normalizeString(property.type) === normalizedTypeQuery
-      : true;
-
-    return matchesCity && matchesType;
+  const filteredProperties = properties.filter((p) => {
+    if (cityQuery    && normalize(p.city)        !== normalize(cityQuery))    return false;
+    if (typeQuery    && normalize(p.type)        !== normalize(typeQuery))    return false;
+    if (listingQuery && normalize(p.listingType) !== normalize(listingQuery)) return false;
+    if (bhkQuery     && String(p.bhk)            !== bhkQuery)               return false;
+    if (searchQuery  && !normalize(p.title).includes(searchQuery) && !normalize(p.locality).includes(searchQuery)) return false;
+    return true;
   });
 
-  // Dynamic Title generate karne ke liye
-  const pageTitle = [typeQuery, cityQuery, "Properties"]
-    .filter(Boolean)
-    .join(" ");
+  const pageTitle = [typeQuery, cityQuery, "Properties"].filter(Boolean).join(" ");
 
   return (
-    <section className="mx-auto max-w-7xl px-6 py-8">
-      <p className="eyebrow text-brass">Directory</p>
+    <section className="mx-auto max-w-7xl px-6 py-10">
+      {/* Page Header */}
+      <div className="rounded-2xl border border-stone-200 bg-white px-5 py-5 shadow-sm flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between sm:px-7 sm:py-6">
+        {/* Left: label + title + count */}
+        <div>
+          <span className="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-widest text-[#B8860B]">
+            <span className="h-1.5 w-1.5 rounded-full bg-[#C89234]" />
+            Directory
+          </span>
+          <h1 className="mt-1.5 font-heading text-2xl sm:text-3xl font-bold text-slate-900 capitalize">
+            {pageTitle || "All Properties"}
+          </h1>
+          <p className="mt-1 text-sm text-slate-400">
+            <span className="font-semibold text-slate-700">{filteredProperties.length}</span>
+            {" "}propert{filteredProperties.length !== 1 ? "ies" : "y"} available
+          </p>
+        </div>
 
-      <h1 className="mt-2 font-display text-4xl font-semibold text-ink capitalize">
-        {pageTitle || "All Properties"}
-      </h1>
+        {/* Right: Search */}
+        <div className="w-full sm:w-auto sm:shrink-0">
+          <Suspense fallback={null}>
+            <PropertyFilters />
+          </Suspense>
+        </div>
+      </div>
 
-      <p className="mt-2 text-ink/60">
-        {filteredProperties.length} propert
-        {filteredProperties.length !== 1 ? "ies" : "y"} available.
-      </p>
-
+      {/* Property Cards */}
       {filteredProperties.length > 0 ? (
         <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {filteredProperties.map((property) => (
-            <PropertyCard key={property.id} property={property} />
+          {filteredProperties.map((property, i) => (
+            <PropertyCard key={property.id} property={property} priority={i < 3} />
           ))}
         </div>
       ) : (
-        <p className="mt-8 text-ink/60">
-          No properties found
-          {typeQuery && ` for "${typeQuery}"`}
-          {cityQuery && ` in "${cityQuery}"`}.
-        </p>
+        <div className="flex flex-col items-center justify-center py-20 text-center">
+          <p className="text-2xl">🏠</p>
+          <p className="mt-3 font-semibold text-slate-700">No properties found</p>
+          <p className="mt-1 text-sm text-slate-400">Try a different search term.</p>
+        </div>
       )}
     </section>
   );

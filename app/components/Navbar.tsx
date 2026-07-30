@@ -88,6 +88,7 @@ export default function Navbar() {
             <div key={group.title} className="group relative">
               <button
                 type="button"
+                suppressHydrationWarning
                 className="flex items-center gap-1 rounded-full px-3 py-2 text-sm font-medium text-slate-700 transition-colors duration-200 hover:text-[#B8863D] cursor-pointer"
               >
                 {group.title}
@@ -157,6 +158,7 @@ export default function Navbar() {
 
           <button
             type="button"
+            suppressHydrationWarning
             onClick={() => setOpen(!open)}
             className="flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 text-slate-800 transition hover:bg-slate-50 cursor-pointer"
             aria-label="Toggle Navigation"
@@ -195,6 +197,7 @@ export default function Navbar() {
                 >
                   <button
                     type="button"
+                    suppressHydrationWarning
                     onClick={() => toggleMobileGroup(group.title)}
                     className="flex w-full items-center justify-between px-3 py-2.5 text-xs font-bold uppercase tracking-wider text-slate-800"
                   >

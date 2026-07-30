@@ -12,7 +12,7 @@ const stats = [
 
 export default function AboutUs() {
   return (
-    <section className="bg-white py-3 lg:py-12">
+    <section className="bg-white py-3 lg:py-6">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-6">
         <div className="grid items-center gap-6 lg:grid-cols-2 lg:gap-10">
           {/* Left Column: Image with reduced height */}
@@ -50,7 +50,7 @@ export default function AboutUs() {
             </span>
 
             {/* Main Headline in Volkhov Font */}
-            <h2 className="font-['Volkhov',serif] text-2xl font-bold leading-tight text-slate-900 sm:text-3xl lg:text-4xl">
+            <h2 className="font-heading text-2xl font-bold leading-tight text-slate-900 sm:text-3xl">
               Real estate, <br />
               handled with distinction.
             </h2>
