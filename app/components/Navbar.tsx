@@ -10,7 +10,6 @@ const navGroups = [
     items: [
       { href: "/aboutus", label: "About Us" },
       { href: "/ourteam", label: "Our Team" },
-      { href: "/blog", label: "Blog" },
     ],
   },
   {
@@ -121,6 +120,14 @@ export default function Navbar() {
             className="group relative rounded-full px-3 py-2 text-sm font-medium text-slate-700 transition-colors duration-200 hover:text-[#B8863D]"
           >
             Contact
+            <span className="absolute inset-x-0 bottom-0.5 h-[2px] scale-x-0 bg-[#B8863D] transition-transform duration-300 ease-out group-hover:scale-x-100" />
+          </Link>
+          {/* Blog Link */}
+          <Link
+            href="/blog"
+            className="group relative rounded-full px-3 py-2 text-sm font-medium text-slate-700 transition-colors duration-200 hover:text-[#B8863D]"
+          >
+            Blog
             <span className="absolute inset-x-0 bottom-0.5 h-[2px] scale-x-0 bg-[#B8863D] transition-transform duration-300 ease-out group-hover:scale-x-100" />
           </Link>
         </nav>
@@ -234,6 +241,14 @@ export default function Navbar() {
               className="flex items-center justify-between rounded-xl px-3 py-2.5 text-sm font-bold text-slate-900 transition-colors hover:bg-slate-50 hover:text-[#B8863D]"
             >
               Contact
+            </Link>
+            {/* Mobile Blog Link */}
+            <Link
+              href="/blog"
+              onClick={() => setOpen(false)}
+              className="flex items-center justify-between rounded-xl px-3 py-2.5 text-sm font-bold text-slate-900 transition-colors hover:bg-slate-50 hover:text-[#B8863D]"
+            >
+              Blog
             </Link>
 
             {/* Direct Call Action Button for Mobile */}
