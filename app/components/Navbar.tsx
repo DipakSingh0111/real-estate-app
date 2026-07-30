@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState, useEffect } from "react";
 import { Menu, X, ChevronDown, PhoneCall, Phone } from "lucide-react";
 
@@ -64,12 +65,17 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur-xl transition-all duration-300">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-2 sm:px-6">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-1.5 z-10">
-          <span className="text-xl font-bold tracking-tight text-slate-900 sm:text-2xl">
-            Elite<span className="text-[#B8863D]">Estates</span>
-          </span>
+        <Link href="/" className="flex items-center z-10">
+          <Image
+            src="/images/logo_1.png"
+            alt="Elite Estates"
+            width={220}
+            height={64}
+            className="h-16 w-auto object-contain"
+            priority
+          />
         </Link>
 
         {/* Desktop Navigation */}

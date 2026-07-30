@@ -79,88 +79,83 @@ export default function FaqSection() {
 
   return (
     <section className="bg-[#FAF7F1] py-6 lg:py-8">
-      {/* Aligned with Logo & Navbar Width (max-w-7xl) */}
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          {/* Left Column (Sticky Sidebar on Desktop) */}
-          <div className="lg:col-span-5 lg:sticky lg:top-24">
-            <h2 className="mt-2 font-heading text-2xl font-bold tracking-tight text-stone-900 sm:text-3xl">
-              Frequently Asked Questions
-            </h2>
+        {/* Header — top center */}
+        <div className="mb-6 max-w-2xl">
+          <h2 className="font-heading mt-2 text-2xl font-bold tracking-tight text-stone-900 sm:text-3xl">
+            Frequently Asked Questions
+          </h2>
+          <p className="mt-2 text-xs sm:text-sm text-stone-600 leading-relaxed">
+            Everything you need to know about buying, selling, and renting real
+            estate properties.
+          </p>
 
-            <p className="mt-2 text-xs sm:text-sm text-stone-600 leading-relaxed">
-              Everything you need to know about buying, selling, and renting
-              real estate properties.
-            </p>
+          {/* Category Filter Chips */}
+          <div className="mt-4 flex flex-wrap gap-1.5">
+            {categories.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setSelectedCategory(cat)}
+                className={`rounded-full px-3.5 py-1.5 text-xs font-semibold transition cursor-pointer ${
+                  selectedCategory === cat
+                    ? "bg-[#B8863D] text-white shadow-sm"
+                    : "bg-white text-stone-600 hover:bg-stone-100 border border-stone-200/80"
+                }`}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
+        </div>
 
-            {/* Category Filter Chips */}
-            <div className="mt-5 flex flex-wrap gap-1.5">
-              {categories.map((cat) => (
-                <button
-                  key={cat}
-                  onClick={() => setSelectedCategory(cat)}
-                  className={`rounded-full px-3.5 py-1.5 text-xs font-semibold transition cursor-pointer ${
-                    selectedCategory === cat
-                      ? "bg-[#B8863D] text-white shadow-2xs"
-                      : "bg-white text-stone-600 hover:bg-stone-100 border border-stone-200/80"
-                  }`}
+        {/* Accordion List */}
+        <div className="space-y-3">
+          {filteredFaqs.length > 0 ? (
+            filteredFaqs.map((faq) => {
+              const isOpen = openId === faq.id;
+              return (
+                <div
+                  key={faq.id}
+                  className="overflow-hidden rounded-2xl border border-stone-200/80 bg-white shadow-2xs transition"
                 >
-                  {cat}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {/* Right Column (Accordion List) */}
-          <div className="lg:col-span-7 space-y-3">
-            {filteredFaqs.length > 0 ? (
-              filteredFaqs.map((faq) => {
-                const isOpen = openId === faq.id;
-                return (
-                  <div
-                    key={faq.id}
-                    className="overflow-hidden rounded-2xl border border-stone-200/80 bg-white shadow-2xs transition"
+                  <button
+                    onClick={() => toggleFaq(faq.id)}
+                    className="flex w-full items-center justify-between p-4 sm:p-5 text-left transition hover:bg-stone-50/50 cursor-pointer"
+                    aria-expanded={isOpen}
                   >
-                    <button
-                      onClick={() => toggleFaq(faq.id)}
-                      className="flex w-full items-center justify-between p-4 sm:p-5 text-left transition hover:bg-stone-50/50 cursor-pointer"
-                      aria-expanded={isOpen}
-                    >
-                      <span className="text-xs sm:text-sm font-bold text-stone-900 pr-3">
-                        {faq.question}
-                      </span>
-                      <ChevronDown
-                        size={18}
-                        className={`shrink-0 text-[#B8863D] transition-transform duration-300 ${
-                          isOpen ? "rotate-180" : ""
-                        }`}
-                      />
-                    </button>
+                    <span className="text-xs sm:text-sm font-bold text-stone-900 pr-3">
+                      {faq.question}
+                    </span>
+                    <ChevronDown
+                      size={18}
+                      className={`shrink-0 text-[#B8863D] transition-transform duration-300 ${
+                        isOpen ? "rotate-180" : ""
+                      }`}
+                    />
+                  </button>
 
-                    <AnimatePresence initial={false}>
-                      {isOpen && (
-                        <motion.div
-                          initial={{ height: 0, opacity: 0 }}
-                          animate={{ height: "auto", opacity: 1 }}
-                          exit={{ height: 0, opacity: 0 }}
-                          transition={{ duration: 0.25, ease: "easeInOut" }}
-                        >
-                          <div className="border-t border-stone-100 px-4 pb-4 pt-2 sm:px-5 sm:pb-5 text-xs sm:text-sm leading-relaxed text-stone-600">
-                            {faq.answer}
-                          </div>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  </div>
-                );
-              })
-            ) : (
-              <div className="py-12 rounded-2xl border border-dashed border-stone-200 bg-white text-center text-xs text-stone-500">
-                No matching questions found. Try searching with a different
-                term.
-              </div>
-            )}
-          </div>
+                  <AnimatePresence initial={false}>
+                    {isOpen && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.25, ease: "easeInOut" }}
+                      >
+                        <div className="border-t border-stone-100 px-4 pb-4 pt-2 sm:px-5 sm:pb-5 text-xs sm:text-sm leading-relaxed text-stone-600">
+                          {faq.answer}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              );
+            })
+          ) : (
+            <div className="py-12 rounded-2xl border border-dashed border-stone-200 bg-white text-center text-xs text-stone-500">
+              No matching questions found.
+            </div>
+          )}
         </div>
       </div>
     </section>

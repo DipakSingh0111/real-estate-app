@@ -138,8 +138,7 @@ export default function Hero({ cities }: HeroProps) {
               className="mt-7 flex flex-col gap-3.5 sm:flex-row"
             >
               <Link
-                href="#properties-grid"
-                onClick={(e) => handleSmoothScroll(e, "properties-grid")}
+                href="/properties"
                 className="group inline-flex items-center justify-center gap-2 rounded-xl bg-[#B8863D] px-6 py-3.5 text-sm font-semibold text-white shadow-lg transition-all duration-300 hover:scale-[1.02] hover:bg-[#a07433] hover:shadow-[#B8863D]/25 active:scale-95"
               >
                 Explore Properties

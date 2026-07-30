@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import propertiesData from "../../data/properties.json";
 import type { Property } from "@/types/property";
 import { MapPin, Phone, Mail, ArrowRight } from "lucide-react";
@@ -22,9 +23,13 @@ export default function Footer() {
           {/* Logo */}
           <div>
             <Link href="/">
-              <h2 className="cursor-pointer font-display text-3xl font-semibold text-ink">
-                Elite<span className="text-brass-dark">Estates</span>
-              </h2>
+              <Image
+                src="/images/logo_1.png"
+                alt="Elite Estates"
+                width={220}
+                height={64}
+                className="h-16 w-auto object-contain"
+              />
             </Link>
             <p className="mt-4 leading-7 text-ink/60">
               Find your dream home with verified listings across India. Buy,

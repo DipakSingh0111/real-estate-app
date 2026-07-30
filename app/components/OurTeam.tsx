@@ -37,7 +37,7 @@ export default function OurTeam() {
           <span className="text-xs font-bold uppercase tracking-widest text-[#B8860B]">
             Our Team
           </span>
-          <h2 className="font-heading mt-2 text-3xl font-bold leading-tight text-slate-900 sm:text-4xl lg:text-5xl">
+          <h2 className="font-heading mt-2 text-2xl font-bold leading-tight text-slate-900 sm:text-4xl lg:text-5xl">
             The experts behind <br />
             every great deal.
           </h2>
@@ -46,10 +46,10 @@ export default function OurTeam() {
             help you buy, sell, and invest with complete confidence.
           </p>
           {/* Gold divider */}
-          <div className="mt-6 h-0.5 w-16 rounded-full bg-[#C89234]" />
+          <div className="mt-6 w-10 rounded-full bg-[#C89234]" />
         </motion.div>
         {/* Team Grid */}
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
           {teamData.map((member, index) => (
             <motion.div
               key={member.name}
@@ -59,13 +59,14 @@ export default function OurTeam() {
               viewport={{ once: true }}
               variants={cardVariants}
               className="group flex flex-col overflow-hidden rounded-2xl border border-stone-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-amber-100/60"
+              style={{ height: "24rem" }}
             >
               {/* Image */}
-              <div className="relative aspect-[4/3] overflow-hidden">
+              <div className="relative aspect-[4/4] overflow-hidden">
                 <img
                   src={member.image}
                   alt={member.name}
-                  className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                  className="mb-3 w-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
                 />
                 {/* Tag */}
                 <span
