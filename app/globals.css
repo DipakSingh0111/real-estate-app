@@ -2,32 +2,34 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --font-heading: "Cormorant Garamond", Georgia, serif;
-  --font-body: "DM Sans", sans-serif;
-  --font-mono: "IBM Plex Mono", monospace;
-}
-
 html {
   scroll-behavior: smooth;
 }
 
 @layer base {
   body {
-    font-family: var(--font-body);
+    font-family: var(--font-body), "DM Sans", sans-serif;
   }
   h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-heading);
+    font-family: var(--font-heading), "Cormorant Garamond", Georgia, serif;
     letter-spacing: -0.02em;
   }
 }
 
 .font-heading {
-  font-family: var(--font-heading);
+  font-family: var(--font-heading), "Cormorant Garamond", Georgia, serif !important;
 }
 .font-body {
-  font-family: var(--font-body);
+  font-family: var(--font-body), "DM Sans", sans-serif !important;
 }
 .font-mono {
-  font-family: var(--font-mono);
+  font-family: var(--font-mono), "IBM Plex Mono", monospace !important;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
 }
