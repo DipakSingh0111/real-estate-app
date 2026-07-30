@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import { FaLinkedinIn, FaTwitter, FaInstagram } from "react-icons/fa";
 import teamData from "@/data/team.json";
 
@@ -13,12 +13,12 @@ const tagColors: Record<string, string> = {
   Marketing: "bg-rose-50 text-rose-700 border-rose-200",
 };
 
-const cardVariants = {
+const cardVariants: Variants = {
   hidden: { opacity: 0, y: 30 },
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.5, delay: i * 0.1, ease: "easeOut" },
+    transition: { duration: 0.5, delay: i * 0.1, ease: "easeOut" as const },
   }),
 };
 
