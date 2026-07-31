@@ -141,9 +141,6 @@ export default function WhyChooseUs() {
       {/* Features */}
       <section className="mx-auto max-w-7xl px-6 py-10 lg:px-8 lg:py-14">
         <div className="mb-8">
-          <span className="text-[11px] font-bold uppercase tracking-widest text-[#B8860B]">
-            What Sets Us Apart
-          </span>
           <h2 className="font-heading mt-2 text-2xl font-bold text-slate-900 sm:text-3xl">
             Built around your needs, not ours.
           </h2>
@@ -170,7 +167,7 @@ export default function WhyChooseUs() {
                   <h3 className="text-sm font-bold text-slate-900 group-hover:text-[#B8860B] transition-colors">
                     {item.title}
                   </h3>
-                  <p className="mt-1 text-xs leading-relaxed text-slate-500">
+                  <p className="mt-1 text-[13px] leading-relaxed text-slate-500">
                     {item.desc}
                   </p>
                 </div>
@@ -187,9 +184,6 @@ export default function WhyChooseUs() {
             <span className="text-[11px] font-bold uppercase tracking-widest text-[#B8860B]">
               Our Process
             </span>
-            <h2 className="font-heading mt-2 text-2xl font-bold text-slate-900 sm:text-3xl">
-              How we work with you
-            </h2>
           </div>
 
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -198,7 +192,7 @@ export default function WhyChooseUs() {
                 key={p.step}
                 className="relative rounded-2xl border border-slate-100 bg-[#FAF7F2] p-5"
               >
-                <span className="font-mono text-3xl font-extrabold text-slate-100">
+                <span className="font-mono text-3xl font-extrabold text-black">
                   {p.step}
                 </span>
                 <h3 className="mt-2 text-sm font-bold text-slate-900">

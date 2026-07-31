@@ -34,7 +34,6 @@ export default function OurTeam() {
   return (
     <section className="bg-white py-8 lg:py-12">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 12 }}
@@ -82,31 +81,23 @@ export default function OurTeam() {
                 <div>
                   <div className="flex items-start justify-between gap-2">
                     <div>
-                      <h3 className="truncate text-sm font-bold text-slate-900 group-hover:text-[#B8860B] transition-colors">
+                      <h3 className="truncate text-[20px] font-bold text-slate-900 group-hover:text-[#B8860B] transition-colors">
                         {member.name}
                       </h3>
-                      <p className="text-[11px] font-medium text-slate-500">
+                      <p className="text-[18px] font-medium text-slate-500">
                         {member.role}
                       </p>
                     </div>
-                    <span
-                      className={`shrink-0 rounded-md border px-2 py-0.5 text-[10px] font-semibold ${
-                        tagColors[member.tag] ||
-                        "bg-slate-100 text-slate-600 border-slate-200"
-                      }`}
-                    >
-                      {member.tag}
-                    </span>
                   </div>
 
-                  <p className="mt-2 text-[11px] leading-relaxed text-slate-500 line-clamp-2">
+                  <p className="mt-2 text-[13px] leading-relaxed text-slate-500 line-clamp-2">
                     {member.bio}
                   </p>
                 </div>
 
                 {/* Footer row */}
                 <div className="mt-3 flex items-center justify-between">
-                  <span className="rounded-md bg-slate-100 px-2 py-0.5 text-[10px] font-semibold text-slate-600">
+                  <span className="rounded-md bg-slate-100 px-2 py-0.5 text-[13px] font-semibold text-slate-600">
                     {member.experience}
                   </span>
 
@@ -119,7 +110,7 @@ export default function OurTeam() {
                           rel="noopener noreferrer"
                           className="flex h-6 w-6 items-center justify-center rounded-md text-slate-400 transition hover:text-[#B8860B]"
                         >
-                          <FaLinkedinIn size={11} />
+                          <FaLinkedinIn size={15} />
                         </a>
                       )}
                       {member.socials.twitter && (
@@ -129,7 +120,7 @@ export default function OurTeam() {
                           rel="noopener noreferrer"
                           className="flex h-6 w-6 items-center justify-center rounded-md text-slate-400 transition hover:text-[#B8860B]"
                         >
-                          <FaTwitter size={11} />
+                          <FaTwitter size={15} />
                         </a>
                       )}
                       {member.socials.instagram && (
@@ -139,7 +130,7 @@ export default function OurTeam() {
                           rel="noopener noreferrer"
                           className="flex h-6 w-6 items-center justify-center rounded-md text-slate-400 transition hover:text-[#B8860B]"
                         >
-                          <FaInstagram size={11} />
+                          <FaInstagram size={15} />
                         </a>
                       )}
                     </div>

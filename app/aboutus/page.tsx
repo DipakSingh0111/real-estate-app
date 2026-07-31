@@ -83,12 +83,12 @@ export default function AboutPage() {
           <h2 className="font-heading mt-2 text-2xl font-bold leading-tight text-slate-900 sm:text-3xl">
             Building trust through premium real estate.
           </h2>
-          <p className="mt-3 text-xs leading-relaxed text-slate-600 sm:text-sm">
+          <p className="mt-3 text-[15px] leading-relaxed text-slate-600 sm:text-sm">
             Our mission is to connect people with extraordinary homes and
             investment opportunities. Every project is selected for its quality,
             prime location, and long-term value.
           </p>
-          <p className="mt-2 text-xs leading-relaxed text-slate-600 sm:text-sm">
+          <p className="mt-2 text-[15px] leading-relaxed text-slate-600 sm:text-sm">
             From luxury villas to premium apartments and commercial spaces, our
             experienced team guides every client with transparency,
             professionalism, and unmatched market knowledge.
@@ -135,10 +135,10 @@ export default function AboutPage() {
                 <p className="mt-2 font-heading text-lg font-bold text-slate-900">
                   {v.title}
                 </p>
-                <p className="mt-0.5 text-[10px] font-semibold uppercase tracking-wider text-[#B8860B]">
+                <p className="mt-0.5 text-[13px] font-semibold uppercase tracking-wider text-[#B8860B]">
                   {v.label}
                 </p>
-                <p className="mt-2 text-xs leading-relaxed text-slate-500">
+                <p className="mt-2 text-[15px] leading-relaxed text-slate-500">
                   {v.description}
                 </p>
               </div>

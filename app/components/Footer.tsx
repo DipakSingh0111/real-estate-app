@@ -36,9 +36,6 @@ export default function Footer() {
                 <span className="text-xl font-extrabold tracking-tight text-slate-900">
                   Nest<span className="text-[#B8863D]">Vista</span>
                 </span>
-                <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-slate-400 mt-0.5">
-                  Premium Real Estate
-                </span>
               </div>
             </Link>
             <p className="mt-4 leading-7 text-ink/60">
