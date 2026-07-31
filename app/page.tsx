@@ -26,20 +26,20 @@ export default function HomePage() {
 
   const featured = properties
     .filter((property) => property.featured)
-    .slice(0, 8);
+    .slice(0, 4);
 
   return (
     <>
       {/* Hero */}
       <Hero cities={cities} />
       {/* Featured Properties */}
-      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-6 pt-2 pb-6 mt-2">
+      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-6 pt-2 pb-6 mt-4">
         {/* Section Header */}
         <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div className="space-y-2">
             {/* Main Title with Volkhov Font */}
             <h2 className="mt-2 font-heading text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
-              Featured <span className="text-[#B8863D]">Properties</span>
+              High<span className="text-[#B8863D]">Lights</span>
             </h2>
 
             {/* Subtitle */}
@@ -54,14 +54,7 @@ export default function HomePage() {
           <Link
             href="/properties"
             className="group hidden items-center gap-2 text-sm font-semibold text-slate-900 transition-colors hover:text-cyan-600 sm:inline-flex"
-          >
-            <span className="relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-cyan-600 after:transition-transform after:duration-300 group-hover:after:origin-bottom-left group-hover:after:scale-x-100">
-              View all properties
-            </span>
-            <span className="inline-block transition-transform duration-300 group-hover:translate-x-1 text-cyan-600">
-              →
-            </span>
-          </Link>
+          ></Link>
         </div>
 
         {/* Property Grid (4 Cards per row) */}

@@ -14,7 +14,14 @@ interface Opportunity {
   id: number;
   title: string;
   location: string;
-  type: "Commercial" | "Residential" | "Industrial";
+  type:
+    | "Villa"
+    | "Apartment"
+    | "Builder Floor"
+    | "Commercial Office"
+    | "Studio"
+    | "Plot"
+    | "Land";
   minInvestment: string;
   expectedROI: string;
   tenure: string;
@@ -26,58 +33,106 @@ interface Opportunity {
 const opportunitiesData: Opportunity[] = [
   {
     id: 1,
-    title: "Skyline Commercial Hub",
-    location: "Noida Sector 62",
-    type: "Commercial",
+    title: "Surajkund Royal Villa",
+    location: "Faridabad, Haryana",
+    type: "Villa",
     minInvestment: "₹5,000",
-    expectedROI: "14.5%",
-    tenure: "3 Yrs",
-    fundedPercentage: 78,
+    expectedROI: "16.2%",
+    tenure: "5 Yrs",
+    fundedPercentage: 68,
     imageUrl:
-      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=400&q=80",
+      "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=400&q=80",
     isHot: true,
   },
   {
     id: 2,
-    title: "Green Valley Villas",
-    location: "Gurugram Golf Course Rd",
-    type: "Residential",
+    title: "Golf Course Heights",
+    location: "Gurugram, Haryana",
+    type: "Apartment",
     minInvestment: "₹5,000",
-    expectedROI: "14.5%",
-    tenure: "5 Yrs",
+    expectedROI: "13.8%",
+    tenure: "3 Yrs",
     fundedPercentage: 45,
     imageUrl:
-      "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=400&q=80",
+      "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=400&q=80",
   },
   {
     id: 3,
-    title: "Apex Logistics Park",
-    location: "Bhiwandi, Mumbai",
-    type: "Industrial",
+    title: "Vasant Vihar Luxury Floor",
+    location: "Delhi",
+    type: "Builder Floor",
     minInvestment: "₹5,000",
-    expectedROI: "14.5%",
+    expectedROI: "15.0%",
     tenure: "4 Yrs",
-    fundedPercentage: 92,
+    fundedPercentage: 82,
     imageUrl:
-      "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=400&q=80",
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=400&q=80",
   },
   {
     id: 4,
-    title: "TechPark IT Tower",
-    location: "Whitefield, Bengaluru",
-    type: "Commercial",
+    title: "Cyber Hub Office Tower",
+    location: "Noida Sector 62",
+    type: "Commercial Office",
     minInvestment: "₹5,000",
     expectedROI: "14.5%",
     tenure: "3 Yrs",
     fundedPercentage: 60,
     imageUrl:
-      "https://images.unsplash.com/photo-1554469384-e58fac16e23a?auto=format&fit=crop&w=400&q=80",
+      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=400&q=80",
     isHot: true,
+  },
+  {
+    id: 5,
+    title: "Vasundhara Studio Suite",
+    location: "Ghaziabad, UP",
+    type: "Studio",
+    minInvestment: "₹5,000",
+    expectedROI: "11.5%",
+    tenure: "2 Yrs",
+    fundedPercentage: 35,
+    imageUrl:
+      "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=400&q=80",
+  },
+  {
+    id: 6,
+    title: "Jaypee Greens Plot",
+    location: "Noida Sector 128",
+    type: "Plot",
+    minInvestment: "₹5,000",
+    expectedROI: "18.0%",
+    tenure: "5 Yrs",
+    fundedPercentage: 55,
+    imageUrl:
+      "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=400&q=80",
+    isHot: true,
+  },
+  {
+    id: 7,
+    title: "Aravalli Farmland Estate",
+    location: "Sohna, Haryana",
+    type: "Land",
+    minInvestment: "₹5,000",
+    expectedROI: "20.0%",
+    tenure: "7 Yrs",
+    fundedPercentage: 28,
+    imageUrl:
+      "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=400&q=80",
   },
 ];
 
 export default function CompactInvestmentOpportunities() {
   const [activeTab, setActiveTab] = useState<string>("All");
+
+  const tabs = [
+    "All",
+    "Villa",
+    "Apartment",
+    "Builder Floor",
+    "Commercial Office",
+    "Studio",
+    "Plot",
+    "Land",
+  ];
 
   const filteredOpportunities =
     activeTab === "All"
@@ -92,28 +147,30 @@ export default function CompactInvestmentOpportunities() {
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-6 pb-4 border-b border-slate-200/80">
           <div>
             <h2 className="mt-1 font-heading text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
-              Investment Opportunities
+              Properties
             </h2>
             <p className="mt-0.5 text-xs text-slate-500 sm:text-sm">
-              Handpicked fractional real estate assets.
+              Explore curated homes, plots & commercial spaces.
             </p>
           </div>
 
           {/* Minimal Filter Tabs */}
-          <div className="flex items-center gap-1 bg-slate-200/50 p-1 rounded-xl text-xs font-medium self-start sm:self-auto border border-slate-200/60">
-            {["All", "Commercial", "Residential", "Industrial"].map((tab) => (
-              <button
-                key={tab}
-                onClick={() => setActiveTab(tab)}
-                className={`px-3 py-1.5 rounded-lg transition-all duration-200 cursor-pointer ${
-                  activeTab === tab
-                    ? "bg-white text-slate-900 shadow-2xs font-semibold"
-                    : "text-slate-600 hover:text-slate-900"
-                }`}
-              >
-                {tab}
-              </button>
-            ))}
+          <div className="w-full sm:w-auto overflow-x-auto scrollbar-hide">
+            <div className="flex items-center gap-1 bg-slate-200/50 p-1 rounded-xl text-xs font-medium border border-slate-200/60 w-max">
+              {tabs.map((tab) => (
+                <button
+                  key={tab}
+                  onClick={() => setActiveTab(tab)}
+                  className={`whitespace-nowrap px-3 py-1.5 rounded-lg transition-all duration-200 cursor-pointer ${
+                    activeTab === tab
+                      ? "bg-white text-slate-900 shadow-2xs font-semibold"
+                      : "text-slate-600 hover:text-slate-900"
+                  }`}
+                >
+                  {tab}
+                </button>
+              ))}
+            </div>
           </div>
         </div>
 
@@ -141,13 +198,6 @@ export default function CompactInvestmentOpportunities() {
                       {item.type}
                     </span>
                   </div>
-
-                  <button
-                    aria-label="Bookmark property"
-                    className="absolute top-2.5 right-2.5 p-1.5 rounded-full bg-white/90 hover:bg-white text-slate-700 hover:text-[#B8863D] transition-colors shadow-2xs cursor-pointer"
-                  >
-                    <Bookmark size={13} />
-                  </button>
                 </div>
 
                 {/* Compact Content Body */}

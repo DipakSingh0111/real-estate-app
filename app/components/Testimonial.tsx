@@ -119,28 +119,6 @@ export default function Testimonial({
                   className="group relative flex h-full flex-col justify-between rounded-2xl border border-slate-200/80 bg-white p-5 shadow-2xs transition-all duration-300 hover:-translate-y-1 hover:border-[#B8863D]/50 hover:shadow-md"
                 >
                   <div>
-                    {/* Top Row: Verified Badge & Star Rating */}
-                    <div className="mb-4 flex items-center justify-between gap-2">
-                      <span className="inline-flex items-center gap-1 rounded-full bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 text-[10px] font-bold text-emerald-700">
-                        <CheckCircle2 size={11} />
-                        Verified
-                      </span>
-
-                      <div className="flex items-center gap-0.5">
-                        {Array.from({ length: 5 }).map((_, i) => (
-                          <Star
-                            key={i}
-                            size={14}
-                            className={
-                              i < t.rating
-                                ? "fill-[#B8863D] text-[#B8863D]"
-                                : "fill-slate-100 text-slate-200"
-                            }
-                          />
-                        ))}
-                      </div>
-                    </div>
-
                     {/* Quote Text */}
                     <div className="relative">
                       <Quote className="absolute -top-1 -left-1 h-6 w-6 text-slate-100 -z-0 opacity-60" />

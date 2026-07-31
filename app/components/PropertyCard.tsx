@@ -33,9 +33,7 @@ export default function PropertyCard({
         />
 
         {/* Listing Type Badge (FOR SALE / FOR RENT) */}
-        <span className="absolute left-3 top-3 rounded-md bg-white/90 px-2.5 py-1 text-[11px] font-bold uppercase tracking-wider text-slate-800 shadow-sm backdrop-blur-sm">
-          {property.listingType === "Rent" ? "FOR RENT" : "FOR SALE"}
-        </span>
+
         {/* Price Tag Overlay */}
         <div className="absolute bottom-3 left-3">
           <span className="font-sans text-lg font-bold text-white drop-shadow-md">

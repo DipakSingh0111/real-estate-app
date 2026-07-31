@@ -11,6 +11,8 @@ const navGroups = [
     items: [
       { href: "/aboutus", label: "About Us" },
       { href: "/ourteam", label: "Our Team" },
+      { href: "/whychooseus", label: "Why Choose Us" },
+      { href: "/visionandmission", label: "Vision and Mission" },
     ],
   },
   {
@@ -64,18 +66,26 @@ export default function Navbar() {
   };
 
   return (
-    <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur-xl transition-all duration-300">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-2 sm:px-6">
-        {/* Logo */}
-        <Link href="/" className="flex items-center z-10">
-          <Image
-            src="/images/logo_1.png"
-            alt="Elite Estates"
-            width={220}
-            height={64}
-            className="h-16 w-auto object-contain"
-            priority
-          />
+    <header className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/90 backdrop-blur-xl transition-all duration-300">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-2.5 sm:px-6">
+        {/* PREMIUM LOGO WRAPPER */}
+        <Link
+          href="/"
+          className="group relative flex items-center py-1 transition-all duration-300 focus:outline-none"
+        >
+          {/* Subtle   */}
+          <div className="absolute -inset-1 -z-10 rounded-2xl bg-gradient-to-r from-[#B8863D]/20 via-[#D4AF37]/10 to-transparent opacity-0 blur-lg transition-opacity duration-300 group-hover:opacity-100" />
+
+          <div className="relative flex items-center justify-center">
+            <Image
+              src="/images/logo_1.png"
+              alt="Elite Estates Logo"
+              width={240}
+              height={72}
+              className="h-[52px] sm:h-[58px] lg:h-[62px] w-auto object-contain transition-transform duration-300 group-hover:scale-[1.02] filter drop-shadow-sm"
+              priority
+            />
+          </div>
         </Link>
 
         {/* Desktop Navigation */}
@@ -121,12 +131,12 @@ export default function Navbar() {
             </div>
           ))}
 
-          {/* Contact Link */}
+          {/* Careers Link */}
           <Link
-            href="/contact"
+            href="/careers"
             className="group relative rounded-full px-3 py-2 text-sm font-medium text-slate-700 transition-colors duration-200 hover:text-[#B8863D]"
           >
-            Contact
+            Careers
             <span className="absolute inset-x-0 bottom-0.5 h-[2px] scale-x-0 bg-[#B8863D] transition-transform duration-300 ease-out group-hover:scale-x-100" />
           </Link>
           {/* Blog Link */}
@@ -135,6 +145,14 @@ export default function Navbar() {
             className="group relative rounded-full px-3 py-2 text-sm font-medium text-slate-700 transition-colors duration-200 hover:text-[#B8863D]"
           >
             Blog
+            <span className="absolute inset-x-0 bottom-0.5 h-[2px] scale-x-0 bg-[#B8863D] transition-transform duration-300 ease-out group-hover:scale-x-100" />
+          </Link>
+          {/* Contact Link */}
+          <Link
+            href="/contact"
+            className="group relative rounded-full px-3 py-2 text-sm font-medium text-slate-700 transition-colors duration-200 hover:text-[#B8863D]"
+          >
+            Contact
             <span className="absolute inset-x-0 bottom-0.5 h-[2px] scale-x-0 bg-[#B8863D] transition-transform duration-300 ease-out group-hover:scale-x-100" />
           </Link>
         </nav>
@@ -152,7 +170,7 @@ export default function Navbar() {
           </a>
         </div>
 
-        {/* Mobile Right Container (Call Icon + Hamburger Toggle) */}
+        {/* Mobile Right Container */}
         <div className="flex items-center gap-2 md:hidden">
           <a
             href="tel:+919876543210"
@@ -184,7 +202,6 @@ export default function Navbar() {
       >
         <div className="overflow-hidden bg-white">
           <nav className="flex flex-col gap-2 px-4 py-4 sm:px-6 max-h-[80vh] overflow-y-auto">
-            {/* Mobile Home Link */}
             <Link
               href="/"
               onClick={() => setOpen(false)}
@@ -193,7 +210,6 @@ export default function Navbar() {
               Home
             </Link>
 
-            {/* Mobile Expandable Accordions */}
             {navGroups.map((group) => {
               const isExpanded = expandedGroup === group.title;
               return (
@@ -216,7 +232,6 @@ export default function Navbar() {
                     />
                   </button>
 
-                  {/* Accordion Content */}
                   <div
                     className={`grid transition-all duration-200 ease-in-out ${
                       isExpanded
@@ -243,7 +258,6 @@ export default function Navbar() {
               );
             })}
 
-            {/* Mobile Contact Link */}
             <Link
               href="/contact"
               onClick={() => setOpen(false)}
@@ -251,7 +265,6 @@ export default function Navbar() {
             >
               Contact
             </Link>
-            {/* Mobile Blog Link */}
             <Link
               href="/blog"
               onClick={() => setOpen(false)}
@@ -260,7 +273,6 @@ export default function Navbar() {
               Blog
             </Link>
 
-            {/* Direct Call Action Button for Mobile */}
             <div className="pt-2 mt-1 border-t border-slate-100">
               <a
                 href="tel:+919876543210"

@@ -12,15 +12,7 @@ import {
   ShieldCheck,
   TrendingUp,
   Sofa,
-  ChevronLeft,
-  ChevronRight,
 } from "lucide-react";
-
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Autoplay } from "swiper/modules";
-
-import "swiper/css";
-import "swiper/css/navigation";
 
 import data from "../../../data/properties.json";
 
@@ -31,7 +23,8 @@ type Service = {
   icon: string;
 };
 
-const services = (data?.propertyServices || []) as Service[];
+// Sirf pehle 4 services lene ke liye slice(0, 4) ka use kiya gaya hai
+const services = ((data?.propertyServices || []) as Service[]).slice(0, 4);
 
 const icons = {
   Building2,
@@ -82,7 +75,6 @@ function ServiceCard({ service }: CardProps) {
           className="inline-flex items-center gap-1.5 text-xs font-bold text-[#B8863D] transition-all group-hover:gap-2.5"
         >
           <span>Learn More</span>
-          <ArrowRight className="h-3.5 w-3.5" />
         </Link>
       </div>
     </div>
@@ -92,15 +84,6 @@ function ServiceCard({ service }: CardProps) {
 export default function PropertyServices() {
   return (
     <section className="bg-[#FAF7F2] py-5 lg:py-7 overflow-hidden">
-      <style jsx global>{`
-        .services-swiper .swiper-wrapper {
-          align-items: stretch;
-        }
-        .services-swiper .swiper-slide {
-          height: auto;
-        }
-      `}</style>
-
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         {/* Header Section */}
         <motion.div
@@ -108,77 +91,36 @@ export default function PropertyServices() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="mb-5 flex flex-wrap items-end justify-between gap-3"
+          className="mb-5"
         >
-          <div>
-            <span className="text-[11px] font-bold uppercase tracking-widest text-[#B8863D]">
-              PROPERTY SERVICES
-            </span>
-            <h2 className="mt-1 font-heading text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
-              End-to-End Real Estate Solutions
-            </h2>
-            <p className="mt-0.5 text-xs text-slate-500 sm:text-sm">
-              Tailored services for home buyers, property owners, and investors.
-            </p>
-          </div>
-
-          {/* Navigation Controls */}
-          <div className="hidden sm:flex items-center gap-2">
-            <button
-              type="button"
-              className="svc-prev-btn flex h-9 w-9 items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-700 shadow-xs transition hover:border-[#B8863D] hover:text-[#B8863D] disabled:opacity-30 cursor-pointer"
-              aria-label="Previous service"
-            >
-              <ChevronLeft size={18} />
-            </button>
-            <button
-              type="button"
-              className="svc-next-btn flex h-9 w-9 items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-700 shadow-xs transition hover:border-[#B8863D] hover:text-[#B8863D] disabled:opacity-30 cursor-pointer"
-              aria-label="Next service"
-            >
-              <ChevronRight size={18} />
-            </button>
-          </div>
+          <span className="text-[11px] font-bold uppercase tracking-widest text-[#B8863D]">
+            PROPERTY SERVICES
+          </span>
+          <h2 className="mt-1 font-heading text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
+            End-to-End Real Estate Solutions
+          </h2>
+          <p className="mt-0.5 text-xs text-slate-500 sm:text-sm">
+            Tailored services for home buyers, property owners, and investors.
+          </p>
         </motion.div>
 
-        {/* Carousel Slider */}
-        <div className="relative">
-          <Swiper
-            modules={[Navigation, Autoplay]}
-            spaceBetween={16}
-            slidesPerView={1}
-            autoplay={{
-              delay: 4000,
-              disableOnInteraction: false,
-            }}
-            navigation={{
-              prevEl: ".svc-prev-btn",
-              nextEl: ".svc-next-btn",
-            }}
-            breakpoints={{
-              640: { slidesPerView: 2, spaceBetween: 16 },
-              1024: { slidesPerView: 3, spaceBetween: 20 },
-              1280: { slidesPerView: 4, spaceBetween: 20 },
-            }}
-            className="services-swiper"
-          >
-            {services.map((service, index) => (
-              <SwiperSlide key={service.id} className="h-full">
-                <motion.div
-                  initial={{ opacity: 0, y: 15 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{
-                    duration: 0.35,
-                    delay: index * 0.05,
-                  }}
-                  className="h-full"
-                >
-                  <ServiceCard service={service} />
-                </motion.div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
+        {/* 4 Cards Static Grid */}
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 sm:gap-5">
+          {services.map((service, index) => (
+            <motion.div
+              key={service.id}
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{
+                duration: 0.35,
+                delay: index * 0.05,
+              }}
+              className="h-full"
+            >
+              <ServiceCard service={service} />
+            </motion.div>
+          ))}
         </div>
 
         {/* Bottom CTA Button */}
