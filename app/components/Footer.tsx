@@ -22,27 +22,35 @@ export default function Footer() {
         <div className="grid gap-10 lg:grid-cols-5">
           {/* Logo */}
           <div>
-            <Link href="/">
-              <Image
-                src="/images/logo_1.png"
-                alt="Elite Estates"
-                width={220}
-                height={64}
-                className="h-16 w-auto object-contain"
-              />
+            <Link href="/" className="flex items-center gap-2.5">
+              <div className="p-1 shadow-sm">
+                <Image
+                  src="/images/logo.png"
+                  alt="Logo"
+                  width={180}
+                  height={56}
+                  className="h-24 w-auto object-contain"
+                />
+              </div>
+              <div className="flex flex-col leading-none">
+                <span className="text-xl font-extrabold tracking-tight text-slate-900">
+                  Nest<span className="text-[#B8863D]">Vista</span>
+                </span>
+                <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-slate-400 mt-0.5">
+                  Premium Real Estate
+                </span>
+              </div>
             </Link>
             <p className="mt-4 leading-7 text-ink/60">
               Find your dream home with verified listings across India. Buy,
               Rent & Invest confidently with trusted agents and transparent
               pricing.
             </p>
-
             {/* Trust badge */}
             <div className="mt-5 inline-flex items-center gap-2 rounded-full border border-brass/30 bg-brass/10 px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-brass-dark">
               <span className="h-1.5 w-1.5 rounded-full bg-brass" />
               RERA-verified listings
             </div>
-
             {/* Social */}
             <div className="mt-5 flex gap-3">
               {[FaFacebookF, FaInstagram, FaXTwitter, FaLinkedinIn].map(

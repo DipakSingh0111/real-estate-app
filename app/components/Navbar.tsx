@@ -76,15 +76,25 @@ export default function Navbar() {
           {/* Subtle   */}
           <div className="absolute -inset-1 -z-10 rounded-2xl bg-gradient-to-r from-[#B8863D]/20 via-[#D4AF37]/10 to-transparent opacity-0 blur-lg transition-opacity duration-300 group-hover:opacity-100" />
 
-          <div className="relative flex items-center justify-center">
-            <Image
-              src="/images/logo_1.png"
-              alt="Elite Estates Logo"
-              width={240}
-              height={72}
-              className="h-[52px] sm:h-[58px] lg:h-[62px] w-auto object-contain transition-transform duration-300 group-hover:scale-[1.02] filter drop-shadow-sm"
-              priority
-            />
+          <div className="relative flex items-center gap-2.5">
+            <div className="p-1.5 shadow-sm">
+              <Image
+                src="/images/logo.png"
+                alt="Logo"
+                width={160}
+                height={48}
+                className="h-16 w-auto object-contain transition-transform duration-300 group-hover:scale-[1.02]"
+                priority
+              />
+            </div>
+            <div className="flex flex-col leading-none">
+              <span className="text-xl sm:text-2xl font-extrabold tracking-tight text-slate-900">
+                Nest<span className="text-[#B8863D]">Vista</span>
+              </span>
+              <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-slate-400 mt-0.5">
+                Premium Real Estate
+              </span>
+            </div>
           </div>
         </Link>
 
