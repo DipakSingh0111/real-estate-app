@@ -9,6 +9,7 @@ import {
   ShieldCheck,
   Bookmark,
 } from "lucide-react";
+import Link from "next/link";
 
 interface Opportunity {
   id: number;
@@ -191,7 +192,8 @@ export default function CompactInvestmentOpportunities() {
         {/* Compact Cards Grid (Up to 4 columns on desktop) */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {filteredOpportunities.map((item) => (
-            <div
+            <Link
+              href={`/properties`}
               key={item.id}
               className="group relative flex flex-col justify-between rounded-2xl border border-slate-200/80 bg-white shadow-2xs transition-all duration-300 hover:-translate-y-1 hover:border-[#B8863D]/50 hover:shadow-md overflow-hidden"
             >
@@ -238,7 +240,7 @@ export default function CompactInvestmentOpportunities() {
                   </span>
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

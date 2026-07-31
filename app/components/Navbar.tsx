@@ -67,7 +67,7 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/90 backdrop-blur-xl transition-all duration-300">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-2.5 sm:px-6">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-1.5 sm:px-6">
         {/* PREMIUM LOGO WRAPPER */}
         <Link
           href="/"
@@ -77,12 +77,12 @@ export default function Navbar() {
           <div className="absolute -inset-1 -z-10 rounded-2xl bg-gradient-to-r from-[#B8863D]/20 via-[#D4AF37]/10 to-transparent opacity-0 blur-lg transition-opacity duration-300 group-hover:opacity-100" />
 
           <div className="relative flex items-center gap-2.5">
-            <div className="p-1.5 shadow-sm">
+            <div className="p-1 shadow-sm">
               <Image
                 src="/images/logo.png"
                 alt="Logo"
-                width={160}
-                height={48}
+                width={200}
+                height={64}
                 className="h-16 w-auto object-contain transition-transform duration-300 group-hover:scale-[1.02]"
                 priority
               />
