@@ -4,11 +4,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
-const stats = [
-  { value: "16+", label: "Years of", subLabel: "Experience" },
-  { value: "2,400+", label: "Happy", subLabel: "Customers" },
-  { value: "20+", label: "Cities", subLabel: "We Serve" },
-];
+import data from "../../data/properties.json";
+
+const stats = (data?.aboutStats || []) as { value: string; label: string; subLabel: string }[];
 
 export default function AboutUs() {
   return (

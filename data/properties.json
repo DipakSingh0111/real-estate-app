@@ -868,6 +868,41 @@
         "agency": "GharNivas Faridabad"
       },
       "featured": false
+    },
+    {
+      "id": "gn-2026",
+      "title": "Noida Sector 137 Premium Residency",
+      "type": "Apartment",
+      "listingType": "Sale",
+      "bhk": 2,
+      "city": "Noida",
+      "locality": "Sector 137",
+      "state": "Uttar Pradesh",
+      "price": 8800000,
+      "priceLabel": "₹88 Lakh",
+      "areaSqft": 1150,
+      "furnishing": "Semi-Furnished",
+      "floor": "6th of 20",
+      "facing": "East Facing",
+      "possession": "Ready to Move",
+      "reraId": "UPRERAPRJ77821",
+      "rating": 4.3,
+      "description": "Well-connected 2BHK apartment near Noida-Greater Noida Expressway with easy access to Sector 137 Metro Station.",
+      "amenities": [
+        "Swimming Pool",
+        "Gymnasium",
+        "Clubhouse",
+        "24x7 Security"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1493809842364-78817add7ffb?q=80&w=1600"
+      ],
+      "agent": {
+        "name": "Pooja Verma",
+        "phone": "+91 98710 33221",
+        "agency": "GharNivas Noida"
+      },
+      "featured": false
     }
   ],
   "header": {
@@ -1141,126 +1176,230 @@
       "readTime": "5 min read"
     }
   ],
+  "aboutStats": [
+    { "value": "16+", "label": "Years of", "subLabel": "Experience" },
+    { "value": "2,400+", "label": "Happy", "subLabel": "Customers" },
+    { "value": "20+", "label": "Cities", "subLabel": "We Serve" }
+  ],
+  "propertyProcess": [
+    { "id": 1, "number": "01", "title": "Consultation", "description": "Understand your needs", "icon": "MessageSquare" },
+    { "id": 2, "number": "02", "title": "Property Search", "description": "We find the best options for you", "icon": "Search" },
+    { "id": 3, "number": "03", "title": "Site Visit", "description": "Visit properties of your choice", "icon": "MapPin" },
+    { "id": 4, "number": "04", "title": "Deal & Paperwork", "description": "We handle all legal formalities", "icon": "FileText" },
+    { "id": 5, "number": "05", "title": "Possession", "description": "Move into your dream property", "icon": "Key" }
+  ],
+  "faqs": [
+    { "id": "1", "category": "Buying", "question": "What documents are required to buy a property in India?", "answer": "Essential documents include the Sale Deed, Title Deed, Encumbrance Certificate (EC), Building Approval Plan, Occupancy Certificate (OC), and Khata Certificate. Always ensure RERA registration details are verified." },
+    { "id": "2", "category": "Buying", "question": "How do I check if a property is RERA approved?", "answer": "You can verify RERA approval by visiting the official state RERA portal (e.g., UP-RERA, MahaRERA) and searching for the developer or project's unique RERA Registration Number." },
+    { "id": "3", "category": "Selling", "question": "How is the market value of my property calculated?", "answer": "Property valuation depends on location, connectivity, amenities, age of construction, demand-supply trends, and recent transaction prices of similar properties in your locality." },
+    { "id": "4", "category": "Selling", "question": "What is Capital Gains Tax on property sale?", "answer": "If you sell a property held for more than 24 months, Long Term Capital Gains (LTCG) tax applies. You can save tax by investing gains into another residential property under Section 54 or Capital Gains Bonds under Section 54EC." },
+    { "id": "5", "category": "Renting", "question": "What is the standard tenure for a rental agreement?", "answer": "The standard lease agreement tenure is typically 11 months to avoid mandatory registration requirements under state stamp duty laws. It can be renewed upon mutual agreement." },
+    { "id": "6", "category": "Legal", "question": "What is the difference between carpet area and super built-up area?", "answer": "Carpet area is the actual usable net floor space inside the walls. Super built-up area includes carpet area plus common spaces like lobbies, staircases, elevators, and corridors." }
+  ],
   "projectSection": [
     {
       "id": 1,
-      "title": "Skyline Luxury Penthouse",
-      "category": "For Rent",
+      "title": "DLF The Arbour",
+      "category": "For Sale",
       "status": "New Launch",
       "possessionDate": "Booking Open",
-      "price": "4,500/mo",
+      "price": "₹3.5 Cr",
       "beds": 3,
-      "baths": 2,
-      "location": "Downtown, New York",
+      "baths": 3,
+      "location": "Sector 63, Gurugram",
       "image": "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&q=80"
     },
     {
       "id": 2,
-      "title": "Central Park View Apartment",
+      "title": "Godrej Meridien",
       "category": "For Sale",
       "status": "New Launch",
       "possessionDate": "Booking Open",
-      "price": "1,250,000",
-      "beds": 4,
-      "baths": 3,
-      "location": "Midtown, New York",
-      "image": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80"
-    },
-    {
-      "id": 11,
-      "title": "Grand Residency Suites",
-      "category": "For Sale",
-      "status": "Ready to Move",
-      "possessionDate": "Immediate Possession",
-      "price": "950,000",
-      "beds": 3,
-      "baths": 3,
-      "location": "Financial District, SF",
-      "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80"
-    },
-    {
-      "id": 12,
-      "title": "Oakwood Heritage Villa",
-      "category": "For Rent",
-      "status": "Ready to Move",
-      "possessionDate": "Immediate Possession",
-      "price": "3,800/mo",
-      "beds": 4,
-      "baths": 3,
-      "location": "Suburbs, Chicago",
-      "image": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80"
-    },
-    {
-      "id": 13,
-      "title": "Palm View Luxury Apartments",
-      "category": "For Sale",
-      "status": "Ready to Move",
-      "possessionDate": "Immediate Possession",
-      "price": "1,600,000",
+      "price": "₹1.8 Cr",
       "beds": 3,
       "baths": 2,
-      "location": "Miami Beach, FL",
+      "location": "Sector 106, Gurugram",
+      "image": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80"
+    },
+    {
+      "id": 3,
+      "title": "Sobha City Vista",
+      "category": "For Sale",
+      "status": "New Launch",
+      "possessionDate": "Booking Open",
+      "price": "₹2.1 Cr",
+      "beds": 4,
+      "baths": 3,
+      "location": "Sector 108, Gurugram",
       "image": "https://images.unsplash.com/photo-1613977257363-707ba9348227?w=800&q=80"
     },
     {
+      "id": 4,
+      "title": "Lodha Bellavista",
+      "category": "For Sale",
+      "status": "New Launch",
+      "possessionDate": "Booking Open",
+      "price": "₹95 Lakh",
+      "beds": 2,
+      "baths": 2,
+      "location": "Sector 150, Noida",
+      "image": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80"
+    },
+    {
+      "id": 5,
+      "title": "ATS Homekraft Pious Hideaways",
+      "category": "For Sale",
+      "status": "New Launch",
+      "possessionDate": "Booking Open",
+      "price": "₹78 Lakh",
+      "beds": 2,
+      "baths": 2,
+      "location": "Sector 1, Noida Extension",
+      "image": "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&q=80"
+    },
+    {
+      "id": 6,
+      "title": "Tata Eureka Park",
+      "category": "For Rent",
+      "status": "New Launch",
+      "possessionDate": "Booking Open",
+      "price": "₹32,000/mo",
+      "beds": 3,
+      "baths": 2,
+      "location": "Sector 150, Noida",
+      "image": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80"
+    },
+    {
+      "id": 11,
+      "title": "DLF Camellias",
+      "category": "For Sale",
+      "status": "Ready to Move",
+      "possessionDate": "Immediate Possession",
+      "price": "₹12 Cr",
+      "beds": 5,
+      "baths": 5,
+      "location": "DLF Phase 5, Gurugram",
+      "image": "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=800&q=80"
+    },
+    {
+      "id": 12,
+      "title": "Surajkund Royal Villas",
+      "category": "For Sale",
+      "status": "Ready to Move",
+      "possessionDate": "Immediate Possession",
+      "price": "₹4.5 Cr",
+      "beds": 5,
+      "baths": 4,
+      "location": "Surajkund Road, Faridabad",
+      "image": "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=800&q=80"
+    },
+    {
+      "id": 13,
+      "title": "Vasant Vihar Luxury Floor",
+      "category": "For Sale",
+      "status": "Ready to Move",
+      "possessionDate": "Immediate Possession",
+      "price": "₹8.5 Cr",
+      "beds": 4,
+      "baths": 3,
+      "location": "Vasant Vihar, Delhi",
+      "image": "https://images.unsplash.com/photo-1605146769289-440113cc3d00?w=800&q=80"
+    },
+    {
       "id": 14,
-      "title": "The Urban Heights",
+      "title": "Greater Kailash Executive Suite",
       "category": "For Rent",
       "status": "Ready to Move",
       "possessionDate": "Immediate Possession",
-      "price": "2,700/mo",
+      "price": "₹1.5 Lakh/mo",
+      "beds": 3,
+      "baths": 3,
+      "location": "Greater Kailash 1, Delhi",
+      "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80"
+    },
+    {
+      "id": 15,
+      "title": "Gaur City 2 Homes",
+      "category": "For Sale",
+      "status": "Ready to Move",
+      "possessionDate": "Immediate Possession",
+      "price": "₹82 Lakh",
+      "beds": 3,
+      "baths": 2,
+      "location": "Noida Extension, Greater Noida",
+      "image": "https://images.unsplash.com/photo-1515263487990-61b07816b324?w=800&q=80"
+    },
+    {
+      "id": 16,
+      "title": "Sohna Road Sky Towers",
+      "category": "For Rent",
+      "status": "Ready to Move",
+      "possessionDate": "Immediate Possession",
+      "price": "₹35,000/mo",
       "beds": 2,
       "baths": 2,
-      "location": "Downtown, Austin",
-      "image": "https://images.unsplash.com/photo-1567496898669-ee935f5f647a?w=800&q=80"
+      "location": "Sohna Road, Gurugram",
+      "image": "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&q=80"
     },
     {
       "id": 21,
-      "title": "Apex Horizon Towers",
-      "category": "For Rent",
+      "title": "Mahindra Luminare",
+      "category": "For Sale",
       "status": "Under Construction",
       "possessionDate": "Possession Dec 2026",
-      "price": "820,000",
-      "beds": 2,
-      "baths": 2,
-      "location": "Tech Hub, Seattle",
+      "price": "₹2.8 Cr",
+      "beds": 3,
+      "baths": 3,
+      "location": "Sector 59, Gurugram",
       "image": "https://images.unsplash.com/photo-1512915922686-57c11dde9b6b?w=800&q=80"
     },
     {
       "id": 22,
-      "title": "Greenfield Eco Estates",
+      "title": "Adani Samsara Vilasa",
       "category": "For Sale",
       "status": "Under Construction",
       "possessionDate": "Possession Jun 2027",
-      "price": "1,100,000",
+      "price": "₹3.2 Cr",
       "beds": 4,
       "baths": 4,
-      "location": "North Hills, Denver",
+      "location": "Sector 63, Gurugram",
       "image": "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?w=800&q=80"
     },
     {
       "id": 23,
-      "title": "Bayfront Highrise Towers",
+      "title": "Noida Sector 75 Expressway Suite",
       "category": "For Sale",
       "status": "Under Construction",
       "possessionDate": "Possession Mar 2027",
-      "price": "1,450,000",
+      "price": "₹1.25 Cr",
       "beds": 3,
-      "baths": 3,
-      "location": "Harbor Drive, San Diego",
+      "baths": 2,
+      "location": "Sector 75, Noida",
       "image": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80"
     },
     {
       "id": 24,
-      "title": "Skyline Royal Plaza",
+      "title": "Greenfields Villa Enclave",
       "category": "For Sale",
       "status": "Under Construction",
       "possessionDate": "Possession Oct 2026",
-      "price": "780,000",
-      "beds": 2,
-      "baths": 2,
-      "location": "Business District, Atlanta",
-      "image": "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&q=80"
+      "price": "₹2.8 Cr",
+      "beds": 4,
+      "baths": 3,
+      "location": "Sector 43, Faridabad",
+      "image": "https://images.unsplash.com/photo-1613977257363-707ba9348227?w=800&q=80"
+    },
+    {
+      "id": 25,
+      "title": "Defence Colony Premium Floor",
+      "category": "For Rent",
+      "status": "Under Construction",
+      "possessionDate": "Possession Sep 2026",
+      "price": "₹1.2 Lakh/mo",
+      "beds": 3,
+      "baths": 3,
+      "location": "Defence Colony, Delhi",
+      "image": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80"
     }
   ]
 }

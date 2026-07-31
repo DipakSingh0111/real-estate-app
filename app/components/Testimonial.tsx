@@ -71,6 +71,7 @@ export default function Testimonial({
           <div className="hidden sm:flex items-center gap-2">
             <button
               type="button"
+              suppressHydrationWarning
               className="testi-prev-btn flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 shadow-2xs transition-all duration-300 hover:border-[#B8863D] hover:bg-[#FAF7F2] hover:text-[#B8863D] active:scale-95 disabled:opacity-30 cursor-pointer"
               aria-label="Previous Testimonial"
             >
@@ -78,6 +79,7 @@ export default function Testimonial({
             </button>
             <button
               type="button"
+              suppressHydrationWarning
               className="testi-next-btn flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 shadow-2xs transition-all duration-300 hover:border-[#B8863D] hover:bg-[#FAF7F2] hover:text-[#B8863D] active:scale-95 disabled:opacity-30 cursor-pointer"
               aria-label="Next Testimonial"
             >

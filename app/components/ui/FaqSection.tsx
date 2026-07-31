@@ -4,6 +4,8 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, HelpCircle, Search } from "lucide-react";
 
+import data from "../../../data/properties.json";
+
 interface FAQItem {
   id: string;
   category: "Buying" | "Selling" | "Renting" | "Legal";
@@ -11,51 +13,7 @@ interface FAQItem {
   answer: string;
 }
 
-const faqData: FAQItem[] = [
-  {
-    id: "1",
-    category: "Buying",
-    question: "What documents are required to buy a property in India?",
-    answer:
-      "Essential documents include the Sale Deed, Title Deed, Encumbrance Certificate (EC), Building Approval Plan, Occupancy Certificate (OC), and Khata Certificate. Always ensure RERA registration details are verified.",
-  },
-  {
-    id: "2",
-    category: "Buying",
-    question: "How do I check if a property is RERA approved?",
-    answer:
-      "You can verify RERA approval by visiting the official state RERA portal (e.g., UP-RERA, MahaRERA) and searching for the developer or project's unique RERA Registration Number.",
-  },
-  {
-    id: "3",
-    category: "Selling",
-    question: "How is the market value of my property calculated?",
-    answer:
-      "Property valuation depends on location, connectivity, amenities, age of construction, demand-supply trends, and recent transaction prices of similar properties in your locality.",
-  },
-  {
-    id: "4",
-    category: "Selling",
-    question: "What is Capital Gains Tax on property sale?",
-    answer:
-      "If you sell a property held for more than 24 months, Long Term Capital Gains (LTCG) tax applies. You can save tax by investing gains into another residential property under Section 54 or Capital Gains Bonds under Section 54EC.",
-  },
-  {
-    id: "5",
-    category: "Renting",
-    question: "What is the standard tenure for a rental agreement?",
-    answer:
-      "The standard lease agreement tenure is typically 11 months to avoid mandatory registration requirements under state stamp duty laws. It can be renewed upon mutual agreement.",
-  },
-  {
-    id: "6",
-    category: "Legal",
-    question:
-      "What is the difference between carpet area and super built-up area?",
-    answer:
-      "Carpet area is the actual usable net floor space inside the walls. Super built-up area includes carpet area plus common spaces like lobbies, staircases, elevators, and corridors.",
-  },
-];
+const faqData = (data?.faqs || []) as FAQItem[];
 
 const categories = ["All", "Buying", "Selling", "Renting", "Legal"] as const;
 
@@ -96,6 +54,7 @@ export default function FaqSection() {
               <button
                 key={cat}
                 onClick={() => setSelectedCategory(cat)}
+                suppressHydrationWarning
                 className={`rounded-full px-3.5 py-1.5 text-xs font-semibold transition cursor-pointer ${
                   selectedCategory === cat
                     ? "bg-[#B8863D] text-white shadow-sm"
@@ -120,6 +79,7 @@ export default function FaqSection() {
                 >
                   <button
                     onClick={() => toggleFaq(faq.id)}
+                    suppressHydrationWarning
                     className="flex w-full items-center justify-between p-4 sm:p-5 text-left transition hover:bg-stone-50/50 cursor-pointer"
                     aria-expanded={isOpen}
                   >

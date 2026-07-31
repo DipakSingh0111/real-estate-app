@@ -143,6 +143,7 @@ export default function BrowseByCity() {
               onClick={() => scrollCities("left")}
               disabled={!canScrollLeft}
               aria-label="Scroll left"
+              suppressHydrationWarning
               className="flex h-9 w-9 items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-700 shadow-xs transition hover:border-slate-400 active:scale-95 disabled:opacity-30 cursor-pointer"
             >
               <ChevronLeft size={18} />
@@ -152,6 +153,7 @@ export default function BrowseByCity() {
               onClick={() => scrollCities("right")}
               disabled={!canScrollRight}
               aria-label="Scroll right"
+              suppressHydrationWarning
               className="flex h-9 w-9 items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-700 shadow-xs transition hover:border-slate-400 active:scale-95 disabled:opacity-30 cursor-pointer"
             >
               <ChevronRight size={18} />

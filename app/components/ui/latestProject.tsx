@@ -1,9 +1,8 @@
 "use client";
 
-import { useRef, useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ChevronLeft, ChevronRight, ArrowRight, MapPin } from "lucide-react";
+import { ArrowRight, MapPin } from "lucide-react";
 import { motion, type Variants } from "framer-motion";
 
 import data from "../../../data/properties.json";
@@ -66,40 +65,6 @@ const cardVariants: Variants = {
 };
 
 export default function LatestProjects() {
-  const sliderRef = useRef<HTMLDivElement>(null);
-  const [canScrollLeft, setCanScrollLeft] = useState(false);
-  const [canScrollRight, setCanScrollRight] = useState(true);
-
-  const updateScrollState = useCallback(() => {
-    const el = sliderRef.current;
-    if (!el) return;
-    setCanScrollLeft(el.scrollLeft > 4);
-    setCanScrollRight(el.scrollLeft + el.clientWidth < el.scrollWidth - 4);
-  }, []);
-
-  useEffect(() => {
-    updateScrollState();
-    const el = sliderRef.current;
-    if (!el) return;
-
-    el.addEventListener("scroll", updateScrollState, { passive: true });
-    window.addEventListener("resize", updateScrollState);
-
-    return () => {
-      el.removeEventListener("scroll", updateScrollState);
-      window.removeEventListener("resize", updateScrollState);
-    };
-  }, [updateScrollState]);
-
-  const scroll = (direction: "left" | "right") => {
-    if (!sliderRef.current) return;
-    const offset = sliderRef.current.clientWidth;
-    sliderRef.current.scrollBy({
-      left: direction === "left" ? -offset : offset,
-      behavior: "smooth",
-    });
-  };
-
   return (
     <section className="bg-[#FAF7F2] py-5 lg:py-7 overflow-hidden">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -109,57 +74,26 @@ export default function LatestProjects() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="mb-5 flex flex-wrap items-end justify-between gap-3"
+          className="mb-5"
         >
-          <div>
-            <span className="text-[11px] font-bold uppercase tracking-widest text-[#B8863D]">
-              LATEST PROJECTS
-            </span>
-            <h2 className="mt-1 font-heading text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
-              Homes & Spaces Recently Delivered
-            </h2>
-            <p className="mt-0.5 text-xs text-slate-500 sm:text-sm">
-              Explore handovers, premium layouts, and world-class architecture.
-            </p>
-          </div>
-
-          {/* Navigation Controls */}
-          <div className="hidden sm:flex items-center gap-2">
-            <button
-              type="button"
-              onClick={() => scroll("left")}
-              disabled={!canScrollLeft}
-              aria-label="Scroll left"
-              className="flex h-9 w-9 items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-700 shadow-xs transition hover:border-[#B8863D] hover:text-[#B8863D] disabled:opacity-30 cursor-pointer"
-            >
-              <ChevronLeft size={18} />
-            </button>
-            <button
-              type="button"
-              onClick={() => scroll("right")}
-              disabled={!canScrollRight}
-              aria-label="Scroll right"
-              className="flex h-9 w-9 items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-700 shadow-xs transition hover:border-[#B8863D] hover:text-[#B8863D] disabled:opacity-30 cursor-pointer"
-            >
-              <ChevronRight size={18} />
-            </button>
-          </div>
+          <span className="text-[11px] font-bold uppercase tracking-widest text-[#B8863D]">
+            LATEST PROJECTS
+          </span>
+          <h2 className="mt-1 font-heading text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
+            Homes & Spaces Recently Delivered
+          </h2>
+          <p className="mt-0.5 text-xs text-slate-500 sm:text-sm">
+            Explore handovers, premium layouts, and world-class architecture.
+          </p>
         </motion.div>
 
-        {/* CSS GRID Layout for Perfect 4 Columns */}
-        <div className="w-full overflow-hidden">
+        {/* 4 Cards Static Grid */}
+        <div className="w-full">
           <motion.div
-            ref={sliderRef}
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-40px" }}
-            /* 
-              Grid technique apply ki hai:
-              - Mobile: 1 Column
-              - Tablet: 2 Columns
-              - Desktop (lg): Exact 4 Equal Columns (1fr 1fr 1fr 1fr)
-            */
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 py-2"
           >
             {projects.slice(0, 4).map((project) => {
@@ -170,7 +104,7 @@ export default function LatestProjects() {
                   variants={cardVariants}
                   whileHover={{ y: -4 }}
                   transition={{ duration: 0.2 }}
-                  className="w-full flex-shrink-0"
+                  className="w-full"
                 >
                   <Link
                     href={`/projects/${project.slug}`}
@@ -219,7 +153,7 @@ export default function LatestProjects() {
                         </p>
                       </div>
 
-                      {/* Price / Specs Row */}
+                      {/* Price Row */}
                       {project.price && (
                         <div className="mt-3 border-t border-slate-100 pt-2 flex items-center justify-between">
                           <span className="text-[11px] text-slate-400 font-medium">

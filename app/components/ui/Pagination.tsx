@@ -1,6 +1,7 @@
 "use client";
 
-import { useRouter, useSearchParams, usePathname } from "next/navigation";
+import Link from "next/link";
+import { useSearchParams, usePathname } from "next/navigation";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 interface PaginationProps {
@@ -9,17 +10,15 @@ interface PaginationProps {
 }
 
 export default function Pagination({ currentPage, totalPages }: PaginationProps) {
-  const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
-  const goTo = (page: number) => {
+  const buildHref = (page: number) => {
     const params = new URLSearchParams(searchParams.toString());
     params.set("page", String(page));
-    router.push(`${pathname}?${params.toString()}`, { scroll: true });
+    return `${pathname}?${params.toString()}`;
   };
 
-  // Build page numbers with ellipsis
   const pages: (number | "...")[] = [];
   if (totalPages <= 7) {
     for (let i = 1; i <= totalPages; i++) pages.push(i);
@@ -36,43 +35,53 @@ export default function Pagination({ currentPage, totalPages }: PaginationProps)
   return (
     <div className="flex items-center justify-center gap-1.5">
       {/* Prev */}
-      <button
-        onClick={() => goTo(currentPage - 1)}
-        disabled={currentPage === 1}
-        className="flex h-9 w-9 items-center justify-center rounded-xl border border-stone-200 bg-white text-slate-600 transition hover:border-[#C89234] hover:text-[#C89234] disabled:opacity-30 disabled:cursor-not-allowed"
-      >
-        <ChevronLeft size={16} />
-      </button>
+      {currentPage === 1 ? (
+        <span className="flex h-9 w-9 items-center justify-center rounded-xl border border-stone-200 bg-white text-slate-300 cursor-not-allowed">
+          <ChevronLeft size={16} />
+        </span>
+      ) : (
+        <Link
+          href={buildHref(currentPage - 1)}
+          className="flex h-9 w-9 items-center justify-center rounded-xl border border-stone-200 bg-white text-slate-600 transition hover:border-[#C89234] hover:text-[#C89234]"
+        >
+          <ChevronLeft size={16} />
+        </Link>
+      )}
 
       {/* Page Numbers */}
       {pages.map((page, i) =>
         page === "..." ? (
-          <span key={`ellipsis-${i}`} className="flex h-9 w-9 items-center justify-center text-sm text-slate-400">
+          <span key={`e-${i}`} className="flex h-9 w-9 items-center justify-center text-sm text-slate-400">
             …
           </span>
         ) : (
-          <button
+          <Link
             key={page}
-            onClick={() => goTo(page)}
+            href={buildHref(page)}
             className={`flex h-9 w-9 items-center justify-center rounded-xl border text-sm font-semibold transition ${
               currentPage === page
-                ? "border-[#C89234] bg-[#C89234] text-white shadow-sm"
+                ? "border-[#C89234] bg-[#C89234] text-white shadow-sm pointer-events-none"
                 : "border-stone-200 bg-white text-slate-600 hover:border-[#C89234] hover:text-[#C89234]"
             }`}
           >
             {page}
-          </button>
+          </Link>
         )
       )}
 
       {/* Next */}
-      <button
-        onClick={() => goTo(currentPage + 1)}
-        disabled={currentPage === totalPages}
-        className="flex h-9 w-9 items-center justify-center rounded-xl border border-stone-200 bg-white text-slate-600 transition hover:border-[#C89234] hover:text-[#C89234] disabled:opacity-30 disabled:cursor-not-allowed"
-      >
-        <ChevronRight size={16} />
-      </button>
+      {currentPage === totalPages ? (
+        <span className="flex h-9 w-9 items-center justify-center rounded-xl border border-stone-200 bg-white text-slate-300 cursor-not-allowed">
+          <ChevronRight size={16} />
+        </span>
+      ) : (
+        <Link
+          href={buildHref(currentPage + 1)}
+          className="flex h-9 w-9 items-center justify-center rounded-xl border border-stone-200 bg-white text-slate-600 transition hover:border-[#C89234] hover:text-[#C89234]"
+        >
+          <ChevronRight size={16} />
+        </Link>
+      )}
     </div>
   );
 }

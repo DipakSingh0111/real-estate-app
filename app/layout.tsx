@@ -1,9 +1,5 @@
 import type { Metadata } from "next";
-import {
-  Cormorant_Garamond,
-  DM_Sans,
-  IBM_Plex_Mono,
-} from "next/font/google";
+import { Cormorant_Garamond, DM_Sans, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -47,7 +43,10 @@ export default function RootLayout({
       lang="en"
       className={`${cormorant.variable} ${dmSans.variable} ${plexMono.variable}`}
     >
-      <body className="bg-[#FAF7F2] font-body text-slate-900 antialiased" suppressHydrationWarning>
+      <body
+        className="font-body text-slate-900 antialiased"
+        suppressHydrationWarning
+      >
         <SmoothScroll>
           <Navbar />
           <main className="min-h-screen">{children}</main>

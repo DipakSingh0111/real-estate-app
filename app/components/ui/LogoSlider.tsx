@@ -50,6 +50,7 @@ const LogoSlider = () => {
             <button
               type="button"
               onClick={() => scrollLogos("left")}
+              suppressHydrationWarning
               className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 shadow-2xs transition-all duration-300 hover:border-[#B8863D] hover:bg-[#FAF7F2] hover:text-[#B8863D] active:scale-95 cursor-pointer"
               aria-label="Scroll left"
             >
@@ -86,6 +87,7 @@ const LogoSlider = () => {
             <button
               type="button"
               onClick={() => scrollLogos("right")}
+              suppressHydrationWarning
               className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 shadow-2xs transition-all duration-300 hover:border-[#B8863D] hover:bg-[#FAF7F2] hover:text-[#B8863D] active:scale-95 cursor-pointer"
               aria-label="Scroll right"
             >

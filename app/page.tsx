@@ -13,7 +13,7 @@ import LogoSlider from "./components/ui/LogoSlider";
 import type { Property, Testimonials } from "@/types/property";
 import BrowseByCity from "./components/ui/BrowseByCity";
 import PropertyServices from "./components/ui/PropertyServices";
-import InvestmentOpportunities from "./components/ui/InvestmentOpportunities";
+import Properties from "./components/ui/Properties";
 import BlogInsights from "./blog/page";
 import PropertyProcess from "./components/ui/PropertyProcess";
 import FaqSection from "./components/ui/FaqSection";
@@ -84,7 +84,7 @@ export default function HomePage() {
       {/* Property Services */}
       <PropertyServices />
       {/* InvestmentOpportunities */}
-      <InvestmentOpportunities />
+      <Properties />
       {/* Testimonials */}
       {/* `PropertyProcess */}
       <PropertyProcess />

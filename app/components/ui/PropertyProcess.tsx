@@ -9,52 +9,15 @@ import {
   Key,
   ArrowRight,
 } from "lucide-react";
+import data from "../../../data/properties.json";
 
-interface ProcessStep {
-  id: number;
-  number: string;
-  title: string;
-  description: string;
-  icon: React.ElementType;
-}
+const icons: Record<string, React.ElementType> = {
+  MessageSquare, Search, MapPin, FileText, Key,
+};
 
-const stepsData: ProcessStep[] = [
-  {
-    id: 1,
-    number: "01",
-    title: "Consultation",
-    description: "Understand your needs",
-    icon: MessageSquare,
-  },
-  {
-    id: 2,
-    number: "02",
-    title: "Property Search",
-    description: "We find the best options for you",
-    icon: Search,
-  },
-  {
-    id: 3,
-    number: "03",
-    title: "Site Visit",
-    description: "Visit properties of your choice",
-    icon: MapPin,
-  },
-  {
-    id: 4,
-    number: "04",
-    title: "Deal & Paperwork",
-    description: "We handle all legal formalities",
-    icon: FileText,
-  },
-  {
-    id: 5,
-    number: "05",
-    title: "Possession",
-    description: "Move into your dream property",
-    icon: Key,
-  },
-];
+const stepsData = (data?.propertyProcess || []) as {
+  id: number; number: string; title: string; description: string; icon: string;
+}[];
 
 export default function PropertyProcess() {
   return (
@@ -64,7 +27,7 @@ export default function PropertyProcess() {
         {/* Horizontal Process Steps Flow */}
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 md:gap-2">
           {stepsData.map((step, index) => {
-            const Icon = step.icon;
+            const Icon = icons[step.icon] ?? MessageSquare;
             const isLast = index === stepsData.length - 1;
 
             return (

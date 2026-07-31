@@ -1,122 +1,149 @@
 "use client";
 
-import { motion, type Variants } from "framer-motion";
+import Image from "next/image";
+import { motion } from "framer-motion";
 import { FaLinkedinIn, FaTwitter, FaInstagram } from "react-icons/fa";
 import teamData from "@/data/team.json";
 
+interface TeamMember {
+  name: string;
+  role: string;
+  tag: string;
+  image: string;
+  experience: string;
+  bio: string;
+  socials?: {
+    linkedin?: string;
+    twitter?: string;
+    instagram?: string;
+  };
+}
+
 const tagColors: Record<string, string> = {
   Leadership: "bg-amber-50 text-amber-700 border-amber-200",
-  Operations: "bg-slate-50 text-slate-600 border-slate-200",
+  Operations: "bg-blue-50 text-blue-700 border-blue-200",
   Sales: "bg-emerald-50 text-emerald-700 border-emerald-200",
-  Consulting: "bg-blue-50 text-blue-700 border-blue-200",
-  Investment: "bg-purple-50 text-purple-700 border-purple-200",
-  Marketing: "bg-rose-50 text-rose-700 border-rose-200",
-};
-
-const cardVariants: Variants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.5, delay: i * 0.1, ease: "easeOut" as const },
-  }),
+  Consulting: "bg-purple-50 text-purple-700 border-purple-200",
+  Investment: "bg-rose-50 text-rose-700 border-rose-200",
+  Marketing: "bg-cyan-50 text-cyan-700 border-cyan-200",
 };
 
 export default function OurTeam() {
+  const members = (teamData || []) as TeamMember[];
+
   return (
-    <section className="bg-[#FAF7F2] py-16 lg:py-16">
+    <section className="bg-white py-8 lg:py-12">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
+          transition={{ duration: 0.45 }}
           viewport={{ once: true }}
-          className="mb-14 max-w-2xl"
+          className="mb-8"
         >
-          <span className="text-xs font-bold uppercase tracking-widest text-[#B8860B]">
-            Our Team
+          <span className="text-[11px] font-bold uppercase tracking-widest text-[#B8860B]">
+            Meet the Team
           </span>
-          <h2 className="font-heading mt-2 text-2xl font-bold leading-tight text-slate-900 sm:text-4xl lg:text-5xl">
-            The experts behind <br />
-            every great deal.
+          <h2 className="font-heading mt-2 text-2xl font-bold text-slate-900 sm:text-3xl lg:text-4xl">
+            People who make it happen
           </h2>
-          <p className="mt-4 text-sm leading-relaxed text-slate-500 sm:text-base">
-            Our seasoned professionals bring decades of combined expertise to
-            help you buy, sell, and invest with complete confidence.
+          <p className="mt-2 max-w-xl text-sm leading-relaxed text-slate-500">
+            A close-knit team of real estate professionals who genuinely care
+            about finding the right home for every client.
           </p>
-          {/* Gold divider */}
-          <div className="mt-6 w-10 rounded-full bg-[#C89234]" />
         </motion.div>
-        {/* Team Grid */}
-        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
-          {teamData.map((member, index) => (
+
+        {/* Grid */}
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {members.map((member, i) => (
             <motion.div
               key={member.name}
-              custom={index}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={cardVariants}
-              className="group flex flex-col overflow-hidden rounded-2xl border border-stone-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-amber-100/60"
-              style={{ height: "24rem" }}
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-20px" }}
+              transition={{ duration: 0.4, delay: i * 0.07 }}
+              className="group flex gap-4 rounded-2xl border border-slate-100 bg-[#FAFAFA] p-4 transition-all duration-300 hover:border-[#B8860B]/30 hover:bg-white hover:shadow-md"
             >
-              {/* Image */}
-              <div className="relative aspect-[4/4] overflow-hidden">
-                <img
+              {/* Avatar */}
+              <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-xl bg-slate-100">
+                <Image
                   src={member.image}
                   alt={member.name}
-                  className="mb-3 w-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                  fill
+                  sizes="80px"
+                  className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
                 />
-                {/* Tag */}
-                <span
-                  className={`absolute left-3 top-3 rounded-full border px-2.5 py-0.5 text-[11px] font-semibold ${tagColors[member.tag] ?? "bg-stone-50 text-stone-600 border-stone-200"}`}
-                >
-                  {member.tag}
-                </span>
-                {/* Experience badge */}
-                <span className="absolute bottom-3 right-3 rounded-lg bg-white/90 px-2.5 py-1 text-[11px] font-bold text-[#B8860B] backdrop-blur-sm">
-                  {member.experience}
-                </span>
               </div>
 
-              {/* Content */}
-              <div className="flex flex-1 flex-col justify-between px-5 pt-4 pb-5">
+              {/* Info */}
+              <div className="flex flex-1 flex-col justify-between overflow-hidden">
                 <div>
-                  <h3 className="font-heading text-lg font-bold text-slate-900 transition-colors group-hover:text-[#C89234]">
-                    {member.name}
-                  </h3>
-                  <p className="mt-0.5 text-xs font-semibold uppercase tracking-wide text-[#B8860B]">
-                    {member.role}
-                  </p>
-                  <p className="mt-3 text-xs leading-relaxed text-slate-500 line-clamp-3">
+                  <div className="flex items-start justify-between gap-2">
+                    <div>
+                      <h3 className="truncate text-sm font-bold text-slate-900 group-hover:text-[#B8860B] transition-colors">
+                        {member.name}
+                      </h3>
+                      <p className="text-[11px] font-medium text-slate-500">
+                        {member.role}
+                      </p>
+                    </div>
+                    <span
+                      className={`shrink-0 rounded-md border px-2 py-0.5 text-[10px] font-semibold ${
+                        tagColors[member.tag] ||
+                        "bg-slate-100 text-slate-600 border-slate-200"
+                      }`}
+                    >
+                      {member.tag}
+                    </span>
+                  </div>
+
+                  <p className="mt-2 text-[11px] leading-relaxed text-slate-500 line-clamp-2">
                     {member.bio}
                   </p>
                 </div>
 
-                {/* Social Footer */}
-                <div className="mt-4 flex items-center gap-2 border-t border-stone-100 pt-4">
-                  <a
-                    href={member.socials.linkedin}
-                    aria-label="LinkedIn"
-                    className="flex h-8 w-8 items-center justify-center rounded-lg border border-stone-200 text-slate-400 transition-colors hover:border-[#C89234] hover:bg-amber-50 hover:text-[#C89234]"
-                  >
-                    <FaLinkedinIn size={13} />
-                  </a>
-                  <a
-                    href={member.socials.twitter}
-                    aria-label="Twitter"
-                    className="flex h-8 w-8 items-center justify-center rounded-lg border border-stone-200 text-slate-400 transition-colors hover:border-[#C89234] hover:bg-amber-50 hover:text-[#C89234]"
-                  >
-                    <FaTwitter size={13} />
-                  </a>
-                  <a
-                    href={member.socials.instagram}
-                    aria-label="Instagram"
-                    className="flex h-8 w-8 items-center justify-center rounded-lg border border-stone-200 text-slate-400 transition-colors hover:border-[#C89234] hover:bg-amber-50 hover:text-[#C89234]"
-                  >
-                    <FaInstagram size={13} />
-                  </a>
+                {/* Footer row */}
+                <div className="mt-3 flex items-center justify-between">
+                  <span className="rounded-md bg-slate-100 px-2 py-0.5 text-[10px] font-semibold text-slate-600">
+                    {member.experience}
+                  </span>
+
+                  {member.socials && (
+                    <div className="flex items-center gap-1.5">
+                      {member.socials.linkedin && (
+                        <a
+                          href={member.socials.linkedin}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex h-6 w-6 items-center justify-center rounded-md text-slate-400 transition hover:text-[#B8860B]"
+                        >
+                          <FaLinkedinIn size={11} />
+                        </a>
+                      )}
+                      {member.socials.twitter && (
+                        <a
+                          href={member.socials.twitter}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex h-6 w-6 items-center justify-center rounded-md text-slate-400 transition hover:text-[#B8860B]"
+                        >
+                          <FaTwitter size={11} />
+                        </a>
+                      )}
+                      {member.socials.instagram && (
+                        <a
+                          href={member.socials.instagram}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex h-6 w-6 items-center justify-center rounded-md text-slate-400 transition hover:text-[#B8860B]"
+                        >
+                          <FaInstagram size={11} />
+                        </a>
+                      )}
+                    </div>
+                  )}
                 </div>
               </div>
             </motion.div>

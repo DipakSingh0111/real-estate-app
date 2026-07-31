@@ -19,7 +19,7 @@ export default function Footer() {
     <footer className="relative overflow-hidden border-t border-ink/10 bg-paper text-ink">
       <div className="relative mx-auto max-w-7xl px-6 py-8 sm:py-10">
         {/* Top */}
-        <div className="grid gap-10 lg:grid-cols-4">
+        <div className="grid gap-10 lg:grid-cols-5">
           {/* Logo */}
           <div>
             <Link href="/">
@@ -85,11 +85,33 @@ export default function Footer() {
               {[
                 { label: "About Us", href: "/aboutus" },
                 { label: "Properties", href: "/properties" },
-                { label: "Our Agents", href: "/properties" },
+                { label: "Our Agents", href: "/ourteam" },
                 { label: "Blog", href: "/blog" },
-                { label: "Careers", href: "#careers" },
+                { label: "Careers", href: "/careers" },
                 { label: "Privacy Policy", href: "#privacy" },
                 { label: "Terms & Conditions", href: "#terms" },
+              ].map((item) => (
+                <li key={item.label}>
+                  <Link
+                    href={item.href}
+                    className="transition hover:pl-2 hover:text-brass-dark"
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+          {/* Tools */}
+          <div>
+            <h3 className="mb-4 font-display text-sm font-semibold uppercase tracking-wider text-ink">
+              Tools
+            </h3>
+            <ul className="space-y-3 text-ink/60">
+              {[
+                { label: "EMI Calculator", href: "/tools/emi-calculator" },
+                { label: "Area Converter", href: "/tools/area-converter" },
+                { label: "Investment Tips", href: "/tools/investment-tips" },
               ].map((item) => (
                 <li key={item.label}>
                   <Link
@@ -140,6 +162,7 @@ export default function Footer() {
                 <input
                   type="email"
                   placeholder="Enter your email"
+                  suppressHydrationWarning
                   className="w-full bg-transparent px-4 py-3 text-sm text-ink outline-none placeholder:text-ink/40"
                 />
                 <button className="bg-brass px-5 text-white transition hover:bg-brass-dark active:scale-95">

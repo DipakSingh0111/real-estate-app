@@ -164,6 +164,7 @@ export default function Hero({ cities }: HeroProps) {
               key={image}
               type="button"
               onClick={() => setActiveSlide(index)}
+              suppressHydrationWarning
               className={`h-2 rounded-full transition-all duration-500 ease-out cursor-pointer ${
                 index === activeSlide
                   ? "w-8 bg-[#D4AF37]"

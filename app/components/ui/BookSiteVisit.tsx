@@ -119,6 +119,7 @@ export default function BookSiteVisit({
                           onChange={(e) =>
                             setFormData({ ...formData, name: e.target.value })
                           }
+                          suppressHydrationWarning
                           className="w-full rounded-xl border border-slate-800 bg-slate-900/90 py-2.5 pl-9 pr-3 text-xs sm:text-sm text-white placeholder-slate-500 outline-none transition focus:border-[#B8863D] focus:ring-1 focus:ring-[#B8863D]"
                         />
                       </div>
@@ -142,6 +143,7 @@ export default function BookSiteVisit({
                           onChange={(e) =>
                             setFormData({ ...formData, phone: e.target.value })
                           }
+                          suppressHydrationWarning
                           className="w-full rounded-xl border border-slate-800 bg-slate-900/90 py-2.5 pl-9 pr-3 text-xs sm:text-sm text-white placeholder-slate-500 outline-none transition focus:border-[#B8863D] focus:ring-1 focus:ring-[#B8863D]"
                         />
                       </div>
@@ -174,6 +176,7 @@ export default function BookSiteVisit({
                             onChange={(e) =>
                               setFormData({ ...formData, time: e.target.value })
                             }
+                            suppressHydrationWarning
                             className="w-full appearance-none rounded-xl border border-slate-800 bg-slate-900/90 py-2 pl-3 pr-7 text-xs text-white outline-none transition focus:border-[#B8863D] focus:ring-1 focus:ring-[#B8863D]"
                           >
                             <option value="10:00 AM">10:00 AM</option>
@@ -192,6 +195,7 @@ export default function BookSiteVisit({
                     {/* Submit CTA Button */}
                     <button
                       type="submit"
+                      suppressHydrationWarning
                       className="mt-2 group flex w-full items-center justify-center gap-2 rounded-xl bg-[#B8863D] py-3 text-xs sm:text-sm font-bold text-slate-950 transition-all hover:bg-[#A37430] active:scale-[0.98]"
                     >
                       Confirm Site Visit
