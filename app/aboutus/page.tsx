@@ -1,6 +1,6 @@
 import Link from "next/link";
 import data from "../../data/properties.json";
-import { ArrowRight, CheckCircle2, Home, ChevronsRight } from "lucide-react";
+import { CheckCircle2, Home, ChevronsRight } from "lucide-react";
 
 const values = data.aboutValues;
 

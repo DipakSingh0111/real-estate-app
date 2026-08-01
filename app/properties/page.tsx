@@ -33,6 +33,10 @@ const normalize = (value: string = "") =>
     .replace(/[^a-z0-9]+/g, " ")
     .trim();
 
+// 💡 Words ko Title Case / Capitalize karne ke liye helper function
+const capitalize = (str: string) =>
+  str ? str.charAt(0).toUpperCase() + str.slice(1).toLowerCase() : "";
+
 const cities = [...new Set(properties.map((p) => p.city))].sort();
 const types = [...new Set(properties.map((p) => p.type))].sort();
 
@@ -46,6 +50,10 @@ export default async function PropertiesPage({
   const listingQuery = params.listingType?.trim() || "";
   const bhkQuery = params.bhk?.trim() || "";
   const currentPage = Math.max(1, parseInt(params.page || "1", 10));
+
+  // Capitalize format for display
+  const formattedCity = capitalize(cityQuery);
+  const formattedType = capitalize(typeQuery);
 
   const filteredProperties = properties.filter((p) => {
     if (cityQuery && normalize(p.city) !== normalize(cityQuery)) return false;
@@ -61,18 +69,6 @@ export default async function PropertiesPage({
     (currentPage - 1) * PER_PAGE,
     currentPage * PER_PAGE,
   );
-
-  const buildFilterUrl = (key: string, value: string) => {
-    const p = new URLSearchParams();
-    if (cityQuery) p.set("city", cityQuery);
-    if (typeQuery) p.set("type", typeQuery);
-    if (listingQuery) p.set("listingType", listingQuery);
-    if (bhkQuery) p.set("bhk", bhkQuery);
-    if (value) p.set(key, value);
-    else p.delete(key);
-    p.delete("page");
-    return `/properties?${p.toString()}`;
-  };
 
   return (
     <main className="bg-[#FAF7F2] min-h-screen">
@@ -97,15 +93,18 @@ export default async function PropertiesPage({
             <ChevronRight size={12} className="text-slate-600" />
             <span className="font-medium text-[#C89234]">Properties</span>
           </nav>
+
+          {/* 💡 Yahan par formatted values use ho rahi hain (e.g. 'apartment' -> 'Apartment') */}
           <h1 className="font-heading text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
-            {typeQuery && cityQuery
-              ? `${typeQuery} in ${cityQuery}`
-              : cityQuery
-                ? `Properties in ${cityQuery}`
-                : typeQuery
-                  ? `${typeQuery} Properties`
+            {formattedType && formattedCity
+              ? `${formattedType} in ${formattedCity}`
+              : formattedCity
+                ? `Properties in ${formattedCity}`
+                : formattedType
+                  ? `${formattedType} Properties`
                   : "All Properties"}
           </h1>
+
           <p className="mt-1 text-xs text-slate-300">
             <span className="font-semibold text-white">
               {filteredProperties.length} -
