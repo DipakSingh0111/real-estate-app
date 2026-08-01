@@ -23,15 +23,6 @@ export default function Footer() {
           {/* Logo */}
           <div>
             <Link href="/" className="flex items-center gap-2.5">
-              <div className="p-1 shadow-sm">
-                <Image
-                  src="/images/logo.png"
-                  alt="Logo"
-                  width={180}
-                  height={56}
-                  className="h-24 w-auto object-contain"
-                />
-              </div>
               <div className="flex flex-col leading-none">
                 <span className="text-xl font-extrabold tracking-tight text-slate-900">
                   Nest<span className="text-[#B8863D]">Vista</span>

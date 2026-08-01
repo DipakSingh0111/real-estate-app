@@ -68,12 +68,12 @@ export default function AboutPage() {
             <h2 className="font-heading mt-2 text-2xl font-bold leading-tight text-slate-900 sm:text-3xl lg:text-4xl">
               Building trust through premium real estate.
             </h2>
-            <p className="mt-4 text-[15px] leading-relaxed text-slate-600 sm:text-base">
+            <p className="mt-4 text-[15px] leading-relaxed text-slate-600 sm:text-base text-justify">
               Our mission is to connect people with extraordinary homes and
               investment opportunities. Every project is selected for its
               quality, prime location, and long-term value.
             </p>
-            <p className="mt-3 text-[15px] leading-relaxed text-slate-600 sm:text-base">
+            <p className="mt-3 text-[15px] leading-relaxed text-slate-600 sm:text-base text-justify">
               From luxury villas to premium apartments and commercial spaces,
               our experienced team guides every client with transparency,
               professionalism, and unmatched market knowledge.
@@ -84,9 +84,8 @@ export default function AboutPage() {
               {features.map((item) => (
                 <div
                   key={item}
-                  className="flex items-center gap-2.5 rounded-xl border border-stone-200 bg-white p-3 shadow-sm"
+                  className="flex items-center gap-2.5 rounded-x p-3"
                 >
-                  <CheckCircle2 size={16} className="shrink-0 text-[#C89234]" />
                   <p className="text-xs sm:text-sm font-medium text-slate-700">
                     {item}
                   </p>

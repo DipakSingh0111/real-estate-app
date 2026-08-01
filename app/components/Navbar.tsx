@@ -66,29 +66,24 @@ export default function Navbar() {
   };
 
   return (
-    <header className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/90 backdrop-blur-xl transition-all duration-300">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-2.5 sm:px-6">
-        {/* PREMIUM LOGO WRAPPER */}
+    <header className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/95 backdrop-blur-xl transition-all duration-300">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-2 sm:px-6">
+        {/* PREMIUM PROMINENT LOGO WRAPPER */}
         <Link
           href="/"
           className="group relative flex items-center py-1 transition-all duration-300 focus:outline-none"
         >
-          {/* Subtle   */}
-          <div className="absolute -inset-1 -z-10 rounded-2xl bg-gradient-to-r from-[#B8863D]/20 via-[#D4AF37]/10 to-transparent opacity-0 blur-lg transition-opacity duration-300 group-hover:opacity-100" />
+          {/* Outer Ambient Glow */}
+          <div className="absolute -inset-1.5 -z-10 rounded-2xl bg-gradient-to-r from-[#B8863D]/25 via-[#D4AF37]/15 to-transparent opacity-70 blur-md transition-all duration-300 group-hover:opacity-100 group-hover:blur-lg" />
 
-          <div className="relative flex items-center gap-2.5">
-            <div className="p-1.5 rounded-2xl bg-slate-300 shadow-sm">
-              <Image
-                src="/images/logo.png"
-                alt="Logo"
-                width={160}
-                height={48}
-                className="h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-[1.02]"
-              />
-            </div>
+          <div className="relative flex items-center gap-3">
+            {/* Brand Title */}
             <div className="flex flex-col leading-none">
-              <span className="text-xl sm:text-2xl font-extrabold tracking-tight text-slate-900">
+              <span className="text-xl sm:text-2xl font-black tracking-tight text-slate-900">
                 Nest<span className="text-[#B8863D]">Vista</span>
+              </span>
+              <span className="mt-0.5 text-[9px] font-semibold uppercase tracking-widest text-slate-400">
+                Real Estate
               </span>
             </div>
           </div>
@@ -145,6 +140,7 @@ export default function Navbar() {
             Careers
             <span className="absolute inset-x-0 bottom-0.5 h-[2px] scale-x-0 bg-[#B8863D] transition-transform duration-300 ease-out group-hover:scale-x-100" />
           </Link>
+
           {/* Blog Link */}
           <Link
             href="/blog"
@@ -153,6 +149,7 @@ export default function Navbar() {
             Blog
             <span className="absolute inset-x-0 bottom-0.5 h-[2px] scale-x-0 bg-[#B8863D] transition-transform duration-300 ease-out group-hover:scale-x-100" />
           </Link>
+
           {/* Contact Link */}
           <Link
             href="/contact"
@@ -163,7 +160,7 @@ export default function Navbar() {
           </Link>
         </nav>
 
-        {/* Right Side: Contact Number (Desktop) */}
+        {/* Right Side: Contact Call Action */}
         <div className="hidden md:flex items-center gap-3">
           <a
             href="tel:+919876543210"
@@ -176,7 +173,7 @@ export default function Navbar() {
           </a>
         </div>
 
-        {/* Mobile Right Container */}
+        {/* Mobile Buttons */}
         <div className="flex items-center gap-2 md:hidden">
           <a
             href="tel:+919876543210"
@@ -198,7 +195,7 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Menu Slide-down Container */}
+      {/* Mobile Navigation Drawer */}
       <div
         className={`grid transition-all duration-300 ease-in-out md:hidden ${
           open

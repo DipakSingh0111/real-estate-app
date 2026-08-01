@@ -6,7 +6,11 @@ import { motion } from "framer-motion";
 
 import data from "../../data/properties.json";
 
-const stats = (data?.aboutStats || []) as { value: string; label: string; subLabel: string }[];
+const stats = (data?.aboutStats || []) as {
+  value: string;
+  label: string;
+  subLabel: string;
+}[];
 
 export default function AboutUs() {
   return (
@@ -54,11 +58,13 @@ export default function AboutUs() {
             </h2>
 
             {/* Description Paragraph */}
-            <p className="text-xs leading-relaxed text-slate-600 sm:text-sm">
+            <p className="text-xs leading-relaxed text-slate-600 sm:text-sm text-justify">
               We are a real estate company committed to helping you find the
               perfect property. Whether it’s your dream home, a strategic
               investment, or a commercial space, we ensure a smooth and
-              transparent experience.
+              transparent experience. Our team of experts is dedicated to
+              providing personalized service, market insights, and professional
+              guidance every step of the way.
             </p>
 
             {/* Stats Cards Row */}

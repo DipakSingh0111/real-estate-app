@@ -5,7 +5,7 @@ import propertiesData from "../../data/properties.json";
 import PropertyCard from "../components/PropertyCard";
 import Pagination from "../components/ui/Pagination";
 import type { Property } from "@/types/property";
-import { ChevronRight } from "lucide-react";
+import { Home, Building2 } from "lucide-react";
 
 export const dynamic = "force-dynamic";
 
@@ -33,12 +33,9 @@ const normalize = (value: string = "") =>
     .replace(/[^a-z0-9]+/g, " ")
     .trim();
 
-// 💡 Words ko Title Case / Capitalize karne ke liye helper function
+// Helper to Capitalize strings
 const capitalize = (str: string) =>
   str ? str.charAt(0).toUpperCase() + str.slice(1).toLowerCase() : "";
-
-const cities = [...new Set(properties.map((p) => p.city))].sort();
-const types = [...new Set(properties.map((p) => p.type))].sort();
 
 export default async function PropertiesPage({
   searchParams,
@@ -51,7 +48,6 @@ export default async function PropertiesPage({
   const bhkQuery = params.bhk?.trim() || "";
   const currentPage = Math.max(1, parseInt(params.page || "1", 10));
 
-  // Capitalize format for display
   const formattedCity = capitalize(cityQuery);
   const formattedType = capitalize(typeQuery);
 
@@ -72,8 +68,9 @@ export default async function PropertiesPage({
 
   return (
     <main className="bg-[#FAF7F2] min-h-screen">
-      {/* Hero */}
-      <section className="relative text-white border-b border-stone-800 overflow-hidden">
+      {/* HERO SECTION - Center Aligned + Screenshot Style */}
+      <section className="relative h-48 sm:h-60 w-full text-white overflow-hidden flex items-center justify-center border-b border-stone-800">
+        {/* Background Image */}
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
@@ -81,21 +78,13 @@ export default async function PropertiesPage({
               "url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1600&auto=format&fit=crop')",
           }}
         />
-        <div className="absolute inset-0 bg-slate-950/50" />
-        <div className="relative mx-auto max-w-7xl px-6 py-8 sm:py-28 lg:px-8">
-          <nav
-            aria-label="Breadcrumb"
-            className="mb-3 flex items-center gap-2 text-xs text-slate-400"
-          >
-            <Link href="/" className="transition-colors hover:text-[#C89234]">
-              Home
-            </Link>
-            <ChevronRight size={12} className="text-slate-600" />
-            <span className="font-medium text-[#C89234]">Properties</span>
-          </nav>
+        {/* Dark Mask Overlay */}
+        <div className="absolute inset-0 bg-black/75" />
 
-          {/* 💡 Yahan par formatted values use ho rahi hain (e.g. 'apartment' -> 'Apartment') */}
-          <h1 className="font-heading text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
+        {/* Centered Content */}
+        <div className="relative z-10 text-center flex flex-col items-center justify-center px-4 max-w-4xl mx-auto">
+          {/* Main Dynamic Title */}
+          <h1 className="text-2xl sm:text-4xl font-extrabold uppercase tracking-wider text-white">
             {formattedType && formattedCity
               ? `${formattedType} in ${formattedCity}`
               : formattedCity
@@ -105,16 +94,46 @@ export default async function PropertiesPage({
                   : "All Properties"}
           </h1>
 
-          <p className="mt-1 text-xs text-slate-300">
-            <span className="font-semibold text-white">
-              {filteredProperties.length} -
-            </span>{" "}
-            propert{filteredProperties.length !== 1 ? "ies" : "y"} available
-          </p>
+          {/* Breadcrumb Links Below Title */}
+          <nav
+            aria-label="Breadcrumb"
+            className="mt-3 flex items-center justify-center gap-2 text-xs sm:text-sm font-medium text-white"
+          >
+            <Link
+              href="/"
+              className="flex items-center gap-1.5 hover:text-red-500 transition-colors"
+            >
+              <Home size={14} className="mb-0.5" />
+              <span>Home</span>
+            </Link>
+            <span className="text-slate-400">»</span>
+            <span className="text-[#DC2626] font-semibold">Properties</span>
+          </nav>
         </div>
       </section>
 
+      {/* CONTENT AREA */}
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-6 py-6">
+        {/* PROPERTIES COUNTER BAR (Cards ke bilkul upar premium design) */}
+        <div className="mb-6 flex items-center justify-between rounded-xl bg-white p-4 border border-slate-200/80 shadow-xs">
+          <div className="flex items-center gap-2.5">
+            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-amber-50 text-[#C89234]">
+              <Building2 size={18} />
+            </div>
+            <div>
+              <p className="text-xs font-medium text-slate-500">
+                Found Results
+              </p>
+              <p className="text-sm font-bold text-slate-900">
+                <span className="text-[#C89234] font-extrabold text-base">
+                  {filteredProperties.length}
+                </span>{" "}
+                propert{filteredProperties.length !== 1 ? "ies" : "y"} available
+              </p>
+            </div>
+          </div>
+        </div>
+
         {/* Grid */}
         {paginated.length > 0 ? (
           <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
