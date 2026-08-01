@@ -1,40 +1,55 @@
 import OurTeam from "@/app/components/OurTeam";
 import Link from "next/link";
-import { ChevronRight } from "lucide-react";
+import { Home, ChevronsRight } from "lucide-react";
 
 export default function OurTeamPage() {
   return (
     <main className="bg-[#FAF7F2] text-slate-900">
-      {/* Hero with Breadcrumb */}
+      {/* ── Centered Hero Section (Matching About Us Style) ── */}
       <section className="relative text-white border-b border-stone-800 overflow-hidden">
+        {/* Background Image */}
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: "url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1600&auto=format&fit=crop')" }}
+          style={{
+            backgroundImage:
+              "url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1600&auto=format&fit=crop')",
+          }}
         />
-        <div className="absolute inset-0 bg-slate-950/60" />
-        <div className="relative mx-auto max-w-7xl px-6 py-8 sm:py-12 lg:px-8">
-          {/* Breadcrumb */}
-          <nav aria-label="Breadcrumb" className="mb-4 flex items-center gap-2 text-xs text-slate-400">
-            <Link href="/" className="transition-colors hover:text-[#C89234]">
-              Home
-            </Link>
-            <ChevronRight size={12} className="text-slate-600" />
-            <span className="font-medium text-[#C89234]">Our Team</span>
-          </nav>
+        {/* Dark Overlay */}
+        <div className="absolute inset-0 bg-black/60" />
 
-          <div className="max-w-3xl">
-            <h1 className="font-heading mt-3 text-3xl font-extrabold tracking-tight text-white sm:text-4xl lg:text-5xl">
-              Meet the people{" "}
-              <span className="text-[#C89234]">behind every deal.</span>
-            </h1>
-            <p className="mt-3 max-w-2xl text-xs sm:text-sm leading-relaxed text-slate-300">
-              A dedicated team of real estate professionals committed to finding
-              the right property for every client — with honesty, expertise, and care.
-            </p>
-          </div>
+        <div className="relative mx-auto max-w-7xl px-6 py-16 sm:py-24 lg:px-8 flex flex-col items-center justify-center text-center">
+          {/* Main Title (Centered & Uppercase) */}
+          <h1 className="font-heading text-3xl font-extrabold uppercase tracking-wide text-white sm:text-4xl lg:text-5xl">
+            OUR TEAM
+          </h1>
+
+          {/* 📍 Breadcrumb (Below Title, Center Aligned) */}
+          <nav
+            aria-label="Breadcrumb"
+            className="mt-3 flex items-center justify-center gap-1.5 text-sm font-medium text-white flex-wrap"
+          >
+            <Link
+              href="/"
+              className="flex items-center gap-1.5 transition-colors hover:text-[#e53935]"
+            >
+              <Home size={15} className="mb-0.5" />
+              <span>Home</span>
+            </Link>
+            <ChevronsRight size={14} className="text-white/70" />
+            <Link
+              href="/aboutus"
+              className="transition-colors hover:text-[#e53935]"
+            >
+              About Us
+            </Link>
+            <ChevronsRight size={14} className="text-white/70" />
+            <span className="text-[#e53935]">Our Team</span>
+          </nav>
         </div>
       </section>
 
+      {/* Team Component */}
       <OurTeam />
     </main>
   );

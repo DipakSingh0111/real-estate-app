@@ -4,7 +4,7 @@ import { useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import { MapPin, Bed, Bath, ChevronRight, ArrowRight } from "lucide-react";
+import { MapPin, Bed, Bath, Home, ChevronsRight } from "lucide-react";
 import propertiesData from "@/data/properties.json";
 
 type ProjectStatus = "New Launch" | "Ready to Move" | "Under Construction";
@@ -74,8 +74,9 @@ function NewLaunchContent() {
 
   return (
     <main className="bg-[#FAF7F2] text-slate-900">
-      {/* Hero with Breadcrumb */}
+      {/* ── Centered Hero Section (Matching Careers / Standard Style) ── */}
       <section className="relative text-white border-b border-stone-800 overflow-hidden">
+        {/* Background Image */}
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
@@ -83,30 +84,36 @@ function NewLaunchContent() {
               "url('https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=1600&auto=format&fit=crop')",
           }}
         />
-        <div className="absolute inset-0 bg-slate-950/62" />
-        <div className="relative mx-auto max-w-7xl px-6 py-8 sm:py-12 lg:px-8">
+        {/* Dark Overlay */}
+        <div className="absolute inset-0 bg-black/60" />
+
+        <div className="relative mx-auto max-w-7xl px-6 py-16 sm:py-24 lg:px-8 flex flex-col items-center justify-center text-center">
+          {/* Main Title (Centered & Uppercase) */}
+          <h1 className="font-heading text-3xl font-extrabold uppercase tracking-wide text-white sm:text-4xl lg:text-5xl">
+            NEW LAUNCH PROJECTS
+          </h1>
+
+          {/* 📍 Breadcrumb (Below Title, Center Aligned) */}
           <nav
             aria-label="Breadcrumb"
-            className="mb-4 flex items-center gap-2 text-xs text-slate-400"
+            className="mt-3 flex items-center justify-center gap-1.5 text-sm font-medium text-white flex-wrap"
           >
-            <Link href="/" className="transition-colors hover:text-[#C89234]">
-              Home
+            <Link
+              href="/"
+              className="flex items-center gap-1.5 transition-colors hover:text-[#e53935]"
+            >
+              <Home size={15} className="mb-0.5" />
+              <span>Home</span>
             </Link>
-            <ChevronRight size={12} className="text-slate-600" />
-            <span className="font-medium text-[#C89234]">
-              New Launch Projects
-            </span>
+            <ChevronsRight size={14} className="text-white/70" />
+            <span className="text-[#e53935]">New Launch Projects</span>
           </nav>
-          <div className="max-w-3xl">
-            <h1 className="font-heading mt-3 text-3xl font-extrabold tracking-tight text-white sm:text-4xl lg:text-5xl">
-              Latest projects in{" "}
-              <span className="text-[#C89234]">Delhi NCR.</span>
-            </h1>
-            <p className="mt-3 max-w-2xl text-xs sm:text-sm leading-relaxed text-slate-300">
-              Explore new launches, ready-to-move, and under construction
-              properties across Delhi, Gurugram, Noida & Faridabad.
-            </p>
-          </div>
+
+          {/* Subtitle / Description */}
+          <p className="mt-4 max-w-2xl text-xs sm:text-sm leading-relaxed text-slate-200">
+            Explore new launches, ready-to-move, and under construction
+            properties across Delhi, Gurugram, Noida & Faridabad.
+          </p>
         </div>
       </section>
 
@@ -115,7 +122,7 @@ function NewLaunchContent() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <div className="flex flex-col gap-3 py-3 sm:flex-row sm:items-center sm:justify-between">
             {/* Status Tabs */}
-            <div className="flex items-center gap-1 rounded-xl bg-slate-100 p-1">
+            <div className="flex items-center gap-1 rounded-xl bg-slate-100 p-1 overflow-x-auto">
               {(
                 ["New Launch", "Ready to Move", "Under Construction"] as const
               ).map((status) => (
@@ -163,7 +170,7 @@ function NewLaunchContent() {
             <h2 className="font-heading text-lg font-bold text-slate-900 sm:text-xl">
               {selectedStatus} Projects
             </h2>
-            <span className="rounded-full bg-slate-100 px-2.5 py-0.5 text-xs font-semibold text-slate-600">
+            <span className="rounded-full bg-gradient-to-r from-amber-50 to-amber-100/80 px-3 py-1 text-xs font-bold text-amber-800 shadow-sm border border-amber-200/60 ring-1 ring-amber-400/20">
               {filteredData.length}
             </span>
           </div>

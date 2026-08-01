@@ -1,19 +1,16 @@
 import React from "react";
 import Link from "next/link";
 import {
-  ChevronRight,
   Eye,
   Target,
-  HandshakeIcon,
   ShieldCheck,
   TrendingUp,
   Users,
   Building2,
-  MapPin,
   FileCheck,
   Heart,
-  ArrowRight,
-  PhoneCall,
+  Home,
+  ChevronsRight,
 } from "lucide-react";
 
 const coreValues = [
@@ -81,8 +78,9 @@ const commitments = [
 export default function VisionMissionPage() {
   return (
     <main className="bg-[#FAF7F2] text-slate-900">
-      {/* Hero with Breadcrumb */}
+      {/* ── Centered Hero Section (Matching About Us Style) ── */}
       <section className="relative text-white border-b border-stone-800 overflow-hidden">
+        {/* Background Image */}
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
@@ -90,29 +88,37 @@ export default function VisionMissionPage() {
               "url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1600&auto=format&fit=crop')",
           }}
         />
-        <div className="absolute inset-0 bg-slate-950/62" />
-        <div className="relative mx-auto max-w-7xl px-6 py-8 sm:py-12 lg:px-8">
+        {/* Dark Overlay */}
+        <div className="absolute inset-0 bg-black/60" />
+
+        <div className="relative mx-auto max-w-7xl px-6 py-16 sm:py-24 lg:px-8 flex flex-col items-center justify-center text-center">
+          {/* Main Title (Centered & Uppercase) */}
+          <h1 className="font-heading text-3xl font-extrabold uppercase tracking-wide text-white sm:text-4xl lg:text-5xl">
+            VISION & MISSION
+          </h1>
+
+          {/* 📍 Breadcrumb (Below Title, Center Aligned) */}
           <nav
             aria-label="Breadcrumb"
-            className="mb-4 flex items-center gap-2 text-xs text-slate-400"
+            className="mt-3 flex items-center justify-center gap-1.5 text-sm font-medium text-white flex-wrap"
           >
-            <Link href="/" className="transition-colors hover:text-[#C89234]">
-              Home
+            <Link
+              href="/"
+              className="flex items-center gap-1.5 transition-colors hover:text-[#e53935]"
+            >
+              <Home size={15} className="mb-0.5" />
+              <span>Home</span>
             </Link>
-            <ChevronRight size={12} className="text-slate-600" />
-            <span className="font-medium text-[#C89234]">Vision & Mission</span>
+            <ChevronsRight size={14} className="text-white/70" />
+            <Link
+              href="/aboutus"
+              className="transition-colors hover:text-[#e53935]"
+            >
+              About Us
+            </Link>
+            <ChevronsRight size={14} className="text-white/70" />
+            <span className="text-[#e53935]">Vision & Mission</span>
           </nav>
-          <div className="max-w-3xl">
-            <h1 className="font-heading mt-3 text-3xl font-extrabold tracking-tight text-white sm:text-4xl lg:text-5xl">
-              What we stand for &{" "}
-              <span className="text-[#C89234]">where we're headed.</span>
-            </h1>
-            <p className="mt-3 max-w-2xl text-xs sm:text-sm leading-relaxed text-slate-300">
-              Real estate is one of the most important decisions in a person's
-              life. Our vision and mission are built around making that decision
-              easier, safer, and more rewarding.
-            </p>
-          </div>
         </div>
       </section>
 
@@ -165,81 +171,6 @@ export default function VisionMissionPage() {
               </p>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* Core Values */}
-      <section className="border-t border-slate-200 bg-white py-10 lg:py-14">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mb-8">
-            <span className="text-[11px] font-bold uppercase tracking-widest text-[#B8860B]">
-              What Drives Us
-            </span>
-            <h2 className="font-heading mt-2 text-2xl font-bold text-slate-900 sm:text-3xl">
-              Our core values
-            </h2>
-            <p className="mt-2 max-w-xl text-sm text-slate-500 leading-relaxed">
-              These aren't just words on a wall. They're the principles our team
-              follows on every call, every site visit, and every deal.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {coreValues.map((v) => {
-              const Icon = v.icon;
-              return (
-                <div
-                  key={v.title}
-                  className="group flex gap-4 rounded-2xl border border-slate-100 bg-[#FAFAFA] p-5 transition-all duration-300 hover:border-[#B8860B]/30 hover:bg-white hover:shadow-md"
-                >
-                  <div
-                    className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl ${v.color}`}
-                  >
-                    <Icon size={18} />
-                  </div>
-                  <div>
-                    <h3 className="text-sm font-bold text-slate-900 group-hover:text-[#B8860B] transition-colors">
-                      {v.title}
-                    </h3>
-                    <p className="mt-1 text-xs leading-relaxed text-slate-500">
-                      {v.desc}
-                    </p>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* Our Commitments */}
-      <section className="mx-auto max-w-7xl px-6 py-10 lg:px-8 lg:py-14">
-        <div className="mb-8">
-          <span className="text-[11px] font-bold uppercase tracking-widest text-[#B8860B]">
-            Our Promise
-          </span>
-          <h2 className="font-heading mt-2 text-2xl font-bold text-slate-900 sm:text-3xl">
-            Commitments we don't compromise on
-          </h2>
-        </div>
-
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {commitments.map((c) => (
-            <div
-              key={c.number}
-              className="rounded-2xl border border-slate-100 bg-white p-5 transition hover:border-[#B8860B]/30 hover:shadow-md"
-            >
-              <span className="font-mono text-3xl font-extrabold text-black">
-                {c.number}
-              </span>
-              <h3 className="mt-2 text-sm font-bold text-slate-900">
-                {c.title}
-              </h3>
-              <p className="mt-1 text-xs leading-relaxed text-slate-500">
-                {c.desc}
-              </p>
-            </div>
-          ))}
         </div>
       </section>
     </main>
