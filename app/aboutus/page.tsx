@@ -14,7 +14,7 @@ const features = [
 export default function AboutPage() {
   return (
     <main className="bg-[#FAF7F2] text-slate-900">
-      {/* ── Centered Hero Section (Matching Screenshot) ── */}
+      {/* Hero Section  */}
       <section className="relative text-white border-b border-stone-800 overflow-hidden">
         {/* Background Image */}
         <div

@@ -74,7 +74,7 @@ function NewLaunchContent() {
 
   return (
     <main className="bg-[#FAF7F2] text-slate-900">
-      {/* ── Centered Hero Section (Matching Careers / Standard Style) ── */}
+      {/* Hero Section */}
       <section className="relative text-white border-b border-stone-800 overflow-hidden">
         {/* Background Image */}
         <div
@@ -88,7 +88,7 @@ function NewLaunchContent() {
         <div className="absolute inset-0 bg-black/60" />
 
         <div className="relative mx-auto max-w-7xl px-6 py-16 sm:py-24 lg:px-8 flex flex-col items-center justify-center text-center">
-          {/* Main Title (Centered & Uppercase) */}
+          {/* Main Title */}
           <h1 className="font-heading text-3xl font-extrabold uppercase tracking-wide text-white sm:text-4xl lg:text-5xl">
             NEW LAUNCH PROJECTS
           </h1>

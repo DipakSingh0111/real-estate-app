@@ -3,10 +3,8 @@
 import React from "react";
 import Link from "next/link";
 import {
-  ChevronRight,
   TrendingUp,
   Award,
-  Users,
   GraduationCap,
   MapPin,
   Briefcase,
@@ -16,6 +14,8 @@ import {
   Building2,
   HeartHandshake,
   ShieldCheck,
+  Home,
+  ChevronsRight,
 } from "lucide-react";
 
 const jobOpenings = [
@@ -92,17 +92,12 @@ const perks = [
   },
 ];
 
-const deptColors: Record<string, string> = {
-  Sales: "bg-amber-50 text-amber-700 border-amber-200",
-  Legal: "bg-blue-50 text-blue-700 border-blue-200",
-  Marketing: "bg-purple-50 text-purple-700 border-purple-200",
-};
-
 export default function CareerPage() {
   return (
     <main className="bg-[#FAF7F2] text-slate-900">
-      {/* Hero with Breadcrumb */}
+      {/*  Hero Section */}
       <section className="relative text-white border-b border-stone-800 overflow-hidden">
+        {/* Background Image */}
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
@@ -110,43 +105,44 @@ export default function CareerPage() {
               "url('https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1600&auto=format&fit=crop')",
           }}
         />
-        <div className="absolute inset-0 bg-slate-950/62" />
-        <div className="relative mx-auto max-w-7xl px-6 py-8 sm:py-12 lg:px-8">
+        {/* Dark Overlay */}
+        <div className="absolute inset-0 bg-black/60" />
+
+        <div className="relative mx-auto max-w-7xl px-6 py-16 sm:py-24 lg:px-8 flex flex-col items-center justify-center text-center">
+          {/* Main Title */}
+          <h1 className="font-heading text-3xl font-extrabold uppercase tracking-wide text-white sm:text-4xl lg:text-5xl">
+            CAREERS
+          </h1>
           <nav
             aria-label="Breadcrumb"
-            className="mb-4 flex items-center gap-2 text-xs text-slate-400"
+            className="mt-3 flex items-center justify-center gap-1.5 text-sm font-medium text-white flex-wrap"
           >
-            <Link href="/" className="transition-colors hover:text-[#C89234]">
-              Home
+            <Link
+              href="/"
+              className="flex items-center gap-1.5 transition-colors hover:text-[#e53935]"
+            >
+              <Home size={15} className="mb-0.5" />
+              <span>Home</span>
             </Link>
-            <ChevronRight size={12} className="text-slate-600" />
-            <span className="font-medium text-[#C89234]">Careers</span>
+            <ChevronsRight size={14} className="text-white/70" />
+            <span className="text-[#e53935]">Careers</span>
           </nav>
-          <div className="max-w-3xl">
-            <h1 className="font-heading mt-3 text-3xl font-extrabold tracking-tight text-white sm:text-4xl lg:text-5xl">
-              Build your career in{" "}
-              <span className="text-[#C89234]">real estate with us.</span>
-            </h1>
-            <p className="mt-3 max-w-2xl text-xs sm:text-sm leading-relaxed text-slate-300">
-              We're a growing team of real estate professionals who take pride
-              in honest work, strong client relationships, and building
-              something that lasts.
-            </p>
-            <div className="mt-5 flex flex-wrap gap-3">
-              <a
-                href="#openings"
-                className="inline-flex items-center gap-2 rounded-xl bg-[#C89234] px-5 py-2.5 text-xs sm:text-sm font-semibold text-white transition hover:bg-[#b07e28] active:scale-95"
-              >
-                View Openings <ArrowRight size={15} />
-              </a>
-              <a
-                href="mailto:hr@realestatecompany.in"
-                className="inline-flex items-center gap-2 rounded-xl border border-white/20 bg-white/10 px-5 py-2.5 text-xs sm:text-sm font-semibold text-white transition hover:bg-white/20"
-              >
-                <Mail size={14} /> hr@realestatecompany.in
-              </a>
-            </div>
-          </div>
+
+          {/* Action CTA Buttons */}
+          {/* <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
+            <a
+              href="#openings"
+              className="inline-flex items-center gap-2 rounded-xl bg-[#C89234] px-5 py-2.5 text-xs sm:text-sm font-semibold text-white transition hover:bg-[#b07e28] active:scale-95"
+            >
+              View Openings <ArrowRight size={15} />
+            </a>
+            <a
+              href="mailto:hr@realestatecompany.in"
+              className="inline-flex items-center gap-2 rounded-xl border border-white/20 bg-white/10 px-5 py-2.5 text-xs sm:text-sm font-semibold text-white backdrop-blur-xs transition hover:bg-white/20"
+            >
+              <Mail size={14} /> hr@realestatecompany.in
+            </a>
+          </div> */}
         </div>
       </section>
 

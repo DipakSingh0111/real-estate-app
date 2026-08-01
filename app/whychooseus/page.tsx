@@ -90,7 +90,7 @@ const process = [
 export default function WhyChooseUs() {
   return (
     <main className="bg-[#FAF7F2] text-slate-900">
-      {/* ── Centered Hero Section (Matching About Us Style) ── */}
+      {/* Hero Section*/}
       <section className="relative text-white border-b border-stone-800 overflow-hidden">
         {/* Background Image */}
         <div
