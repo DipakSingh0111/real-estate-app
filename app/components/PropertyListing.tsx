@@ -96,8 +96,7 @@ function PropertyListContent() {
             const displayImage =
               Array.isArray(property.images) && property.images.length > 0
                 ? property.images[0]
-                : property.image ||
-                  "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80";
+                : property.image || "/placeholder.jpg";
 
             return (
               <div
@@ -131,7 +130,7 @@ function PropertyListContent() {
                     )}
                   </div>
 
-                  <h3 className="mt-2 text-base font-bold text-stone-900 line-clamp-1 group-hover:text-[#B8863D] transition-colors">
+                  <h3 className="mt-2 text-lg sm:text-xl font-bold text-stone-900 line-clamp-1 group-hover:text-[#B8863D] transition-colors">
                     {property.title}
                   </h3>
                 </div>

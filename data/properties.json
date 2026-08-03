@@ -2,7 +2,7 @@
   "Properties": [
     {
       "id": "gn-2001",
-      "title": "Vasant Vihar Luxury Residency",
+      "title": "Vasant Vihar Luxury Residency. ",
       "type": "Builder Floor",
       "listingType": "Sale",
       "bhk": 4,
@@ -27,7 +27,10 @@
         "Power Backup"
       ],
       "images": [
-        "https://images.unsplash.com/photo-1605146769289-440113cc3d00?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cHJvcGVydHl8ZW58MHx8MHx8fDA%3D"
+        "/images/01.avif",
+        "/images/02.avif",
+        "/images/03.avif",
+        "/images/04.avif"
       ],
       "agent": {
         "name": "Amit Kumar",
@@ -90,7 +93,7 @@
       "possession": "Under Construction",
       "reraId": "UPRERAPRJ15243",
       "rating": 4.4,
-      "description": "Spacious 2BHK in Noida's sports city corridor with massive green open areas and golf course views.",
+      "description": "Spacious 2BHK in Noida's sports city corridor with massive green open areas and golf course views. designed for families seeking a healthy lifestyle and premium amenities. ",
       "amenities": [
         "Golf Course",
         "Gymnasium",
@@ -99,6 +102,9 @@
         "Intercom"
       ],
       "images": [
+        "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1600",
+        "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1600",
+        "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1600",
         "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1600"
       ],
       "agent": {
@@ -126,7 +132,7 @@
       "possession": "Ready to Move",
       "reraId": "UPRERAPRJ88219",
       "rating": 4.2,
-      "description": "Fully furnished studio apartment ideal for IT working professionals and rental income investors.",
+      "description": "Fully furnished studio apartment ideal for IT working professionals and rental income investors. Located in a smart city with 24x7 security, high-speed lifts, and proximity to Noida Expressway.",
       "amenities": [
         "High Speed Lift",
         "Food Court",
@@ -159,7 +165,7 @@
       "possession": "Immediate",
       "reraId": "UPRERAPRJ33910",
       "rating": 4.3,
-      "description": "Well-maintained 3BHK flat close to Swarna Jayanti Park and Noida Electronic City Metro.",
+      "description": "Well-maintained 3BHK flat close to Swarna Jayanti Park and Noida Electronic City Metro. Includes modular kitchen, wardrobes, and balcony with city views.",
       "amenities": [
         "Covered Parking",
         "24x7 Water",
@@ -194,7 +200,7 @@
       "possession": "Ready to Move",
       "reraId": "HRERA-PKL-FBD-112-2021",
       "rating": 4.5,
-      "description": "Independent duplex villa near Mathura Road featuring private garden, terrace gazebo, and driveway parking.",
+      "description": "Independent duplex villa near Mathura Road featuring private garden, terrace gazebo, and driveway parking. Ideal for families seeking privacy and luxury in Faridabad.",
       "amenities": [
         "Private Garden",
         "Terrace Garden",
@@ -229,7 +235,7 @@
       "possession": "Immediate",
       "reraId": "HRERA-GGM-1092-2023",
       "rating": 4.6,
-      "description": "Ready-to-use corporate office space with 30 workstations, conference rooms, and power backup near Metro.",
+      "description": "Ready-to-use corporate office space with 30 workstations, conference rooms, and power backup near Metro. Ideal for IT startups and consulting firms seeking a prime location in Cyber Hub.",
       "amenities": [
         "Central AC",
         "Power Backup",
@@ -264,7 +270,7 @@
       "possession": "Ready to Construct",
       "reraId": "UPRERAPRJ99002",
       "rating": 4.1,
-      "description": "YEIDA approved residential plot in close proximity to Jewar International Airport and Film City corridor.",
+      "description": "YEIDA approved residential plot in close proximity to Jewar International Airport and Film City corridor. Perfect for investors and builders looking for high-growth potential in Greater Noida.",
       "amenities": [
         "Wide Road",
         "Boundary Wall",
@@ -297,7 +303,7 @@
       "possession": "Ready to Move",
       "reraId": "DLRERA2022P0098",
       "rating": 4.9,
-      "description": "Prime builder floor with high-end modular fittings, Italian washrooms, and walking distance to M-Block Market.",
+      "description": "Prime builder floor with high-end modular fittings, Italian washrooms, and walking distance to M-Block Market. Perfect for families seeking a luxurious lifestyle in South Delhi.",
       "amenities": [
         "Lift",
         "Car Parking",
@@ -333,7 +339,7 @@
       "possession": "Immediate",
       "reraId": "HRERA-GGM-412-2021",
       "rating": 4.3,
-      "description": "Furnished 2BHK flat with ACs, TV, sofa, and modular kitchen in a premium gated society on Sohna Road.",
+      "description": "Furnished 2BHK flat with ACs, TV, sofa, and modular kitchen in a premium gated society on Sohna Road. Ideal for young professionals and couples seeking a comfortable living experience.",
       "amenities": [
         "Gymnasium",
         "Clubhouse",
@@ -368,7 +374,7 @@
       "possession": "Ready to Move",
       "reraId": "UPRERAPRJ11004",
       "rating": 4.5,
-      "description": "Ideal commercial office space in Noida's premier IT hub, near Sector 62 Metro Station with guaranteed rental return.",
+      "description": "Ideal commercial office space in Noida's premier IT hub, near Sector 62 Metro Station with guaranteed rental return. Includes modular workstations, conference room, and pantry area.",
       "amenities": [
         "Cafeteria",
         "Power Backup",
@@ -401,7 +407,7 @@
       "possession": "Ready to Move",
       "reraId": "UPRERAPRJ66512",
       "rating": 4.3,
-      "description": "3BHK apartment in Gaur City 2 with immediate access to shopping malls, schools, and major highways.",
+      "description": "3BHK apartment in Gaur City 2 with immediate access to shopping malls, schools, and major highways. Perfect for families seeking a convenient and luxurious lifestyle.",
       "amenities": [
         "Shopping Complex",
         "School inside Society",
@@ -436,11 +442,9 @@
       "possession": "Ready to Move",
       "reraId": "UPRERAPRJ22190",
       "rating": 4.0,
-      "description": "Affordable 2BHK flat with balconies opening to views of Hindon Elevated Road and ample natural light.",
+      "description": "Affordable 2BHK flat with balconies opening to views of Hindon Elevated Road and ample natural light. Ideal for young professionals and couples seeking a comfortable living experience.",
       "amenities": ["Gated Security", "Power Backup", "Park", "Clubhouse"],
-      "images": [
-        "https://images.unsplash.com/photo-1502672016976-1b427e909a80?q=80&w=1600"
-      ],
+      "images": ["/images/05.avif"],
       "agent": {
         "name": "Rajesh Tyagi",
         "phone": "+91 98180 77665",
@@ -466,7 +470,7 @@
       "possession": "Ready to Move",
       "reraId": "HRERA-PKL-FBD-881-2023",
       "rating": 4.9,
-      "description": "5BHK luxury villa surrounded by Aravalli green belt. Includes private pool, basement lounge, and Smart Home automation.",
+      "description": "5BHK luxury villa surrounded by Aravalli green belt. Includes private pool, basement lounge, and Smart Home automation. Perfect for families seeking a premium lifestyle in Faridabad.",
       "amenities": [
         "Private Pool",
         "Home Theatre",
@@ -501,7 +505,7 @@
       "possession": "Ready to Move",
       "reraId": "DLRERA2021P0044",
       "rating": 4.4,
-      "description": "Spacious DDA approved society 3BHK flat located close to Metro Station, City Center Mall, and top schools.",
+      "description": "Spacious DDA approved society 3BHK flat located close to Metro Station, City Center Mall, and top schools. Perfect for families seeking a convenient and luxurious lifestyle.",
       "amenities": [
         "Elevator",
         "Power Backup",
@@ -536,7 +540,7 @@
       "possession": "Ready to Move",
       "reraId": "HRERA-GGM-770-2022",
       "rating": 5.0,
-      "description": "Exclusive penthouse with panoramic skyline views, private terrace garden, plunge pool, and personalized concierge.",
+      "description": "Exclusive penthouse with panoramic skyline views, private terrace garden, plunge pool, and personalized concierge. Perfect for discerning buyers seeking a luxurious lifestyle in Gurgaon.",
       "amenities": [
         "Plunge Pool",
         "Private Elevator",
@@ -571,7 +575,7 @@
       "possession": "Ready to Construct",
       "reraId": "UPRERAPRJ00912",
       "rating": 4.7,
-      "description": "Golf view residential plot located inside gated Jaypee Greens township right along Noida Expressway.",
+      "description": "Golf view residential plot located inside gated Jaypee Greens township right along Noida Expressway. Perfect for investors and builders seeking a premium location with high growth potential.",
       "amenities": [
         "Gated Community",
         "Golf Course Access",
@@ -605,7 +609,7 @@
       "possession": "Immediate",
       "reraId": "UPRERAPRJ44310",
       "rating": 4.1,
-      "description": "Cozy 1BHK studio flat with air conditioner, wardrobe, bed, fridge, and easy access to Vaishali Metro.",
+      "description": "Cozy 1BHK studio flat with air conditioner, wardrobe, bed, fridge, and easy access to Vaishali Metro. Ideal for students and working professionals seeking a budget-friendly rental option in Ghaziabad.",
       "amenities": [
         "Elevator",
         "Power Backup",
@@ -640,7 +644,7 @@
       "possession": "Ready to Move",
       "reraId": "HRERA-PKL-FBD-504-2022",
       "rating": 4.4,
-      "description": "High footfall ground floor commercial space suitable for retail outlets, banks, or franchise stores.",
+      "description": "High footfall ground floor commercial space suitable for retail outlets, banks, or franchise stores. Perfect for entrepreneurs and businesses seeking a prime location with high visibility.",
       "amenities": [
         "Main Road Frontage",
         "Ample Parking",
@@ -675,7 +679,7 @@
       "possession": "Immediate",
       "reraId": "HRERA-GGM-112-2020",
       "rating": 4.6,
-      "description": "Luxurious 3BHK independent builder floor near MG Road Metro and major shopping malls.",
+      "description": "Luxurious 3BHK independent builder floor near MG Road Metro and major shopping malls. Perfect for families seeking a comfortable and convenient lifestyle.",
       "amenities": [
         "Lift",
         "Covered Parking",
@@ -710,7 +714,7 @@
       "possession": "Ready to Construct",
       "reraId": "UPRERAPRJ88102",
       "rating": 4.2,
-      "description": "Residential plot situated in a rapidly developing sector near educational hub and planned Metro route.",
+      "description": "Residential plot situated in a rapidly developing sector near educational hub and planned Metro route. Perfect for investors and builders seeking a premium location with high growth potential.",
       "amenities": [
         "Gated Entry",
         "Electricity Connection",
@@ -743,7 +747,7 @@
       "possession": "Immediate",
       "reraId": "DLRERA2023P0410",
       "rating": 4.8,
-      "description": "Expats-preferred 3BHK builder floor with modern interior decor, central AC, and park-facing terrace.",
+      "description": "Expats-preferred 3BHK builder floor with modern interior decor, central AC, and park-facing terrace. Perfect for families seeking a comfortable and convenient lifestyle.",
       "amenities": [
         "Private Terrace",
         "Elevator",
@@ -778,7 +782,7 @@
       "possession": "Ready to Move",
       "reraId": "UPRERAPRJ55410",
       "rating": 4.5,
-      "description": "Ready 3BHK flat located directly adjacent to Sector 50 Metro station with high rental yield potential.",
+      "description": "Ready 3BHK flat located directly adjacent to Sector 50 Metro station with high rental yield potential. Perfect for families seeking a comfortable and convenient lifestyle.",
       "amenities": [
         "Clubhouse",
         "Gymnasium",
@@ -813,7 +817,7 @@
       "possession": "Immediate",
       "reraId": "UPRERAPRJ33211",
       "rating": 4.1,
-      "description": "2BHK family apartment inside integrated township with dedicated parking, green belts, and local market.",
+      "description": "2BHK family apartment inside integrated township with dedicated parking, green belts, and local market. Ideal for families seeking a comfortable and convenient lifestyle.",
       "amenities": ["Park", "24x7 Security", "Power Backup", "Gymnasium"],
       "images": [
         "https://images.unsplash.com/photo-1493809842364-78817add7ffb?q=80&w=1600"
@@ -843,7 +847,7 @@
       "possession": "Ready to Move",
       "reraId": "HRERA-PKL-FBD-302-2021",
       "rating": 4.3,
-      "description": "Spacious 3BHK flat in one of Faridabad's most established residential sectors near Badkhal Lake Metro.",
+      "description": "Spacious 3BHK flat in one of Faridabad's most established residential sectors near Badkhal Lake Metro. Perfect for families seeking a comfortable and convenient lifestyle.",
       "amenities": [
         "Gated Complex",
         "Elevator",
@@ -878,7 +882,7 @@
       "possession": "Ready to Move",
       "reraId": "UPRERAPRJ77821",
       "rating": 4.3,
-      "description": "Well-connected 2BHK apartment near Noida-Greater Noida Expressway with easy access to Sector 137 Metro Station.",
+      "description": "Well-connected 2BHK apartment near Noida-Greater Noida Expressway with easy access to Sector 137 Metro Station. Ideal for families seeking a comfortable and convenient lifestyle.",
       "amenities": ["Swimming Pool", "Gymnasium", "Clubhouse", "24x7 Security"],
       "images": [
         "https://images.unsplash.com/photo-1493809842364-78817add7ffb?q=80&w=1600"
@@ -896,7 +900,7 @@
     "title": "Real estate,",
     "title_one": "handled with",
     "title_two": "distinction.",
-    "description": "Find curated homes and investments — designed for comfort and long-term value.",
+    "description": "Find curated homes and investments — designed for comfort and long-term value. Our team of seasoned agents ensures a seamless buying, selling, or renting experience.",
     "stats": [
       { "id": 1, "label": "Cities covered", "value": "20+" },
       { "id": 2, "label": "Trusted agents", "value": "50+" },
@@ -1129,7 +1133,14 @@
       "image": "https://images.unsplash.com/photo-1560184897-ae75f418493e?q=80&w=800&auto=format&fit=crop",
       "date": "Jul 20, 2026",
       "readTime": "5 min read",
-      "featured": true
+      "featured": true,
+      "author": "Elite Estates Research Team",
+      "content": [
+        "Delhi NCR continues to be one of India's most dynamic real estate markets in 2026. With metro expansion, expressway connectivity, and new commercial hubs, several localities are emerging as top picks for homebuyers and investors alike.",
+        "Dwarka Expressway and New Gurgaon remain strong choices for families seeking modern infrastructure and proximity to business districts. Noida Sector 150 and Greater Noida West offer larger floor plans at competitive price points, making them ideal for first-time buyers.",
+        "South Delhi localities like Vasant Vihar and Saket command premium pricing but deliver unmatched lifestyle benefits and consistent appreciation. For investors focused on rental yield, Noida Sector 62 and Golf Course Extension Road in Gurgaon continue to perform well.",
+        "Before finalizing a locality, evaluate connectivity, upcoming infrastructure projects, builder reputation, and resale liquidity. Our advisors recommend shortlisting 2–3 areas based on your budget and visiting each during peak and off-peak hours to assess livability."
+      ]
     },
     {
       "id": "2",
@@ -1139,7 +1150,14 @@
       "category": "Investment Tips",
       "image": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=800&auto=format&fit=crop",
       "date": "Jul 15, 2026",
-      "readTime": "4 min read"
+      "readTime": "4 min read",
+      "author": "Elite Estates Advisory",
+      "content": [
+        "Choosing between a villa and a builder floor is one of the most common dilemmas for buyers in Delhi NCR's premium segment. Both offer privacy and space, but they differ significantly in cost, maintenance, and investment returns.",
+        "Builder floors typically offer better price per sq.ft in established colonies like Vasant Vihar, Greater Kailash, and South Extension. They are easier to rent out and generally have higher liquidity when it's time to sell.",
+        "Villas, on the other hand, provide larger land ownership, more customization freedom, and stronger long-term appreciation in gated communities. However, they come with higher maintenance costs and longer sale cycles.",
+        "For pure investment purposes, builder floors in prime South Delhi localities often deliver 3–5% annual rental yield with faster resale. Villas suit end-users who prioritize lifestyle, privacy, and multi-generational living over immediate returns."
+      ]
     },
     {
       "id": "3",
@@ -1149,7 +1167,14 @@
       "category": "Commercial Real Estate",
       "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=800&auto=format&fit=crop",
       "date": "Jul 08, 2026",
-      "readTime": "6 min read"
+      "readTime": "6 min read",
+      "author": "Elite Estates Commercial Desk",
+      "content": [
+        "Commercial real estate in Noida and Gurgaon has seen a remarkable resurgence in 2026, driven by IT/ITES expansion, co-working demand, and MNC back-office relocations from expensive global markets.",
+        "Grade-A office spaces in Noida Sector 62, Express Trade Towers, and Cyber City Gurgaon are commanding rents of ₹80–120 per sq.ft per month, translating to gross rental yields of 12–16% for well-located assets.",
+        "Unlike residential property, commercial leases are typically longer (5–9 years), include annual escalation clauses, and are backed by corporate tenants with stronger payment track records.",
+        "Key due diligence includes checking OC/CC status, tenant profile, lock-in period, and maintenance charges. Fractional ownership and REIT exposure are also gaining traction among retail investors seeking passive commercial income."
+      ]
     },
     {
       "id": "4",
@@ -1159,7 +1184,14 @@
       "category": "Buyer's Guide",
       "image": "https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=800&auto=format&fit=crop",
       "date": "Jul 01, 2026",
-      "readTime": "5 min read"
+      "readTime": "5 min read",
+      "author": "Elite Estates Buyer Advisory",
+      "content": [
+        "For first-time homebuyers, the plot versus apartment decision often comes down to budget, timeline, and risk appetite. Each option has distinct advantages that suit different life stages and financial goals.",
+        "Ready apartments offer immediate possession, bundled amenities, and easier home loan approval. They are ideal for buyers who need to move in within 1–2 years and prefer a hassle-free, community-based lifestyle.",
+        "Plots provide land appreciation, design flexibility, and potentially lower entry cost in emerging corridors like Yamuna Expressway and Sohna Road. However, they require construction management, longer timelines, and careful title verification.",
+        "Our recommendation: if you're buying for self-use with a stable income, a RERA-registered ready or near-ready apartment is the safer bet. If you have a 5+ year horizon and can manage construction, a plotted development in a growth corridor can deliver superior returns."
+      ]
     }
   ],
   "aboutStats": [
@@ -1447,5 +1479,15 @@
       "location": "Defence Colony, Delhi",
       "image": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80"
     }
+  ],
+  "officeInventory": [
+    { "unit": "SC-16A-1", "area": "110,000 Sq. Ft", "condition": "Warmshell" },
+    { "unit": "SC-16A-2", "area": "55,000 Sq. Ft", "condition": "Warmshell" },
+    { "unit": "SC-16A-3", "area": "40,000 Sq. Ft", "condition": "Warmshell" },
+    { "unit": "SC-16A-4", "area": "30,000 Sq. Ft", "condition": "Warmshell" },
+    { "unit": "SC-16A-5", "area": "15,000 Sq. Ft", "condition": "Warmshell" },
+    { "unit": "SC-16A-6", "area": "10,000 Sq. Ft", "condition": "Warmshell" },
+    { "unit": "SC-16A-7", "area": "7,800 Sq. Ft", "condition": "Warmshell" },
+    { "unit": "SC-16A-8", "area": "2,500 Sq. Ft", "condition": "Warmshell" }
   ]
 }

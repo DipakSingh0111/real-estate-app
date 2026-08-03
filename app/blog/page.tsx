@@ -1,128 +1,81 @@
-"use client";
-
-import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
-import { Calendar, Clock, ArrowUpRight, TrendingUp } from "lucide-react";
+import { Home, ChevronsRight, TrendingUp } from "lucide-react";
 import data from "../../data/properties.json";
+import type { BlogPost } from "@/types/blog";
+import BlogCard from "@/app/components/BlogCard";
 
-interface BlogPost {
-  id: string;
-  title: string;
-  slug: string;
-  excerpt: string;
-  category: string;
-  image: string;
-  date: string;
-  readTime: string;
-  featured?: boolean;
-}
+const blogs = data.blogs as BlogPost[];
 
-const blogsData = data.blogs as BlogPost[];
+export default function BlogPage() {
+  const featured = blogs.find((b) => b.featured) ?? blogs[0];
+  const rest = blogs.filter((b) => b.id !== featured?.id);
 
-export default function BlogInsights() {
   return (
-    <section className="bg-[#FAF7F1] py-8 sm:py-16 lg:py-10">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-6">
-        {/* Header Section */}
-        <div className="mb-8 sm:mb-12 flex flex-col md:flex-row md:items-end md:justify-between gap-4">
-          <div>
-            <div className="inline-flex items-center gap-1.5 rounded-full bg-[#B8863D]/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-[#B8863D]">
-              <TrendingUp size={14} />
-              Knowledge Hub
-            </div>
-            <h2 className="font-heading mt-2 text-2xl font-bold text-stone-900 sm:text-3xl">
-              Latest Blogs & Market Insights
-            </h2>
-            <p className="mt-1 max-w-xl text-xs sm:text-sm text-stone-600">
-              Stay ahead with real estate trends, expert investment advice, and
-              comprehensive city guides.
-            </p>
-          </div>
+    <main className="min-h-screen bg-[#FAF7F1] text-stone-900">
+      {/* Hero */}
+      <section className="relative overflow-hidden border-b border-stone-800 text-white">
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage:
+              "url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1600&auto=format&fit=crop')",
+          }}
+        />
+        <div className="absolute inset-0 bg-black/60" />
 
-          <Link
-            href="/blogs"
-            className="group inline-flex items-center gap-1.5 text-sm font-semibold text-[#B8863D] transition hover:text-[#8C6226]"
+        <div className="relative mx-auto flex max-w-7xl flex-col items-center justify-center px-6 py-16 text-center sm:py-20 lg:px-8">
+          
+          <h1 className="font-heading mt-4 text-3xl font-extrabold uppercase tracking-wide text-white sm:text-4xl lg:text-5xl">
+            Blog & Insights
+          </h1>
+          <p className="mt-3 max-w-xl text-sm text-white/80 sm:text-base">
+            Real estate trends, investment tips, and city guides from our
+            expert advisors.
+          </p>
+
+          <nav
+            aria-label="Breadcrumb"
+            className="mt-5 flex flex-wrap items-center justify-center gap-1.5 text-sm font-medium text-white"
           >
-            View All Articles
-            <ArrowUpRight
-              size={18}
-              className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-            />
-          </Link>
-        </div>
-
-        {/* Blog Cards Grid */}
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {blogsData.map((post, index) => (
-            <motion.article
-              key={post.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: index * 0.1 }}
-              className="group flex flex-col overflow-hidden rounded-2xl border border-stone-200/80 bg-white shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[#B8863D]/40 hover:shadow-xl hover:shadow-stone-900/5"
+            <Link
+              href="/"
+              className="flex items-center gap-1.5 transition-colors hover:text-[#B8863D]"
             >
-              {/* Image Container */}
-              <div className="relative h-48 w-full overflow-hidden bg-stone-100 sm:h-52">
-                <Image
-                  src={post.image}
-                  alt={post.title}
-                  fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-
-                {/* Category Badge */}
-                <span className="absolute top-3 left-3 rounded-lg bg-stone-950/70 px-2.5 py-1 text-[11px] font-medium text-white backdrop-blur-md">
-                  {post.category}
-                </span>
-              </div>
-
-              {/* Card Body */}
-              <div className="flex flex-1 flex-col justify-between p-4 sm:p-5">
-                <div>
-                  {/* Metadata: Date & Read Time */}
-                  <div className="mb-2.5 flex items-center gap-4 text-[11px] text-stone-500">
-                    <span className="inline-flex items-center gap-1">
-                      <Calendar size={13} className="text-[#B8863D]" />
-                      {post.date}
-                    </span>
-                    <span className="inline-flex items-center gap-1">
-                      <Clock size={13} className="text-[#B8863D]" />
-                      {post.readTime}
-                    </span>
-                  </div>
-
-                  {/* Blog Title */}
-                  <h3 className="font-body text-base font-bold text-stone-900 line-clamp-2 group-hover:text-[#B8863D] transition-colors sm:text-lg">
-                    <Link href={`/blogs/${post.slug}`}>{post.title}</Link>
-                  </h3>
-
-                  {/* Excerpt */}
-                  <p className="mt-2 text-xs leading-relaxed text-stone-600 line-clamp-2 sm:text-sm">
-                    {post.excerpt}
-                  </p>
-                </div>
-
-                {/* Read More Link */}
-                <div className="mt-4 pt-3 border-t border-stone-100">
-                  <Link
-                    href={`/blogs/${post.slug}`}
-                    className="inline-flex items-center gap-1 text-xs font-bold text-stone-800 transition group-hover:text-[#B8863D]"
-                  >
-                    Read Full Article
-                    <ArrowUpRight
-                      size={14}
-                      className="transition-transform group-hover:translate-x-0.5"
-                    />
-                  </Link>
-                </div>
-              </div>
-            </motion.article>
-          ))}
+              <Home size={15} />
+              Home
+            </Link>
+            <ChevronsRight size={14} className="text-white/60" />
+            <span className="text-[#B8863D]">Blog</span>
+          </nav>
         </div>
-      </div>
-    </section>
+      </section>
+
+      {/* Articles */}
+      <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-14">
+        {featured && (
+          <div className="mb-10">
+            <BlogCard post={featured} variant="featured" />
+          </div>
+        )}
+
+        {rest.length > 0 && (
+          <>
+            <div className="mb-6">
+              <h2 className="font-heading text-xl font-bold text-stone-900 sm:text-2xl">
+                More Articles
+              </h2>
+              <p className="mt-1 text-sm text-stone-500">
+                Explore guides on buying, investing, and market trends.
+              </p>
+            </div>
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {rest.map((post, index) => (
+                <BlogCard key={post.id} post={post} index={index} />
+              ))}
+            </div>
+          </>
+        )}
+      </section>
+    </main>
   );
 }

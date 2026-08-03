@@ -14,7 +14,7 @@ import type { Property, Testimonials } from "@/types/property";
 import BrowseByCity from "./components/ui/BrowseByCity";
 import PropertyServices from "./components/ui/PropertyServices";
 import Properties from "./components/ui/Properties";
-import BlogInsights from "./blog/page";
+import BlogInsights from "./components/BlogInsights";
 import PropertyProcess from "./components/ui/PropertyProcess";
 import FaqSection from "./components/ui/FaqSection";
 import BookSiteVisit from "./components/ui/BookSiteVisit";

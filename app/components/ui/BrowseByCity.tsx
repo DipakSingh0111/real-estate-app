@@ -42,8 +42,7 @@ const cityImages: Record<string, string> = {
   Pune: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=600&q=80",
 };
 
-const defaultCityImage =
-  "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80";
+const defaultCityImage = "/placeholder.jpg";
 
 const containerVariants: Variants = {
   hidden: { opacity: 0 },

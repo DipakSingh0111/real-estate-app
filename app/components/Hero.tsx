@@ -22,32 +22,12 @@ export default function Hero({ cities }: HeroProps) {
   const [activeSlide, setActiveSlide] = useState(0);
 
   useEffect(() => {
-    document.documentElement.style.scrollBehavior = "smooth";
-    return () => {
-      document.documentElement.style.scrollBehavior = "auto";
-    };
-  }, []);
-
-  // Auto slide
-  useEffect(() => {
     const interval = setInterval(() => {
       setActiveSlide((prev) => (prev + 1) % heroImages.length);
     }, 4000);
 
     return () => clearInterval(interval);
   }, []);
-
-  // Smooth Scroll Helper
-  const handleSmoothScroll = (
-    e: React.MouseEvent<HTMLAnchorElement>,
-    targetId: string,
-  ) => {
-    e.preventDefault();
-    const element = document.getElementById(targetId);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-  };
 
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
@@ -92,8 +72,8 @@ export default function Hero({ cities }: HeroProps) {
               style={{ backgroundImage: `url(${heroImages[activeSlide]})` }}
             />
           </AnimatePresence>
-          <div className="absolute inset-0 bg-slate-950/45" />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-950/60 to-slate-950/20" />
+          <div className="absolute inset-0 bg-slate-950/20" />
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-950/65 via-slate-950/35 to-slate-950/10" />
         </div>
 
         {/* Content Box */}
@@ -115,7 +95,7 @@ export default function Hero({ cities }: HeroProps) {
             {/* Main Heading with Premium Playfair Display font */}
             <motion.h1
               variants={itemVariants}
-              className="font-hero-heading text-3xl font-bold leading-[1.15] tracking-tight text-white drop-shadow-md sm:text-5xl lg:text-6xl"
+              className="font-hero-heading text-3xl font-bold leading-[1.15] tracking-tight text-white drop-shadow-lg sm:text-5xl lg:text-6xl"
             >
               {headers.title}{" "}
               <span className="bg-gradient-to-r from-[#F3E5AB] via-[#D4AF37] to-[#B8863D] bg-clip-text italic text-transparent">
@@ -127,7 +107,7 @@ export default function Hero({ cities }: HeroProps) {
             {/* Sub-description */}
             <motion.p
               variants={itemVariants}
-              className="max-w-xl text-sm font-normal leading-relaxed text-slate-200/90 drop-shadow sm:text-base"
+              className="max-w-xl text-sm font-normal leading-relaxed text-white/95 drop-shadow-md sm:text-base"
             >
               {headers.description}
             </motion.p>

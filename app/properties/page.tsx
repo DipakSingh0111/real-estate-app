@@ -3,9 +3,9 @@ import { Suspense } from "react";
 import Link from "next/link";
 import propertiesData from "../../data/properties.json";
 import PropertyCard from "../components/PropertyCard";
+import PropertyListingFilters from "../components/PropertyListingFilters";
 import Pagination from "../components/ui/Pagination";
 import type { Property } from "@/types/property";
-import { Home, Building2 } from "lucide-react";
 
 export const dynamic = "force-dynamic";
 
@@ -13,7 +13,7 @@ const properties = (propertiesData?.Properties || []) as Property[];
 const PER_PAGE = 8;
 
 export const metadata: Metadata = {
-  title: "All Properties — Real Estate",
+  title: "Featured Properties — Real Estate",
 };
 
 interface PropertiesPageProps {
@@ -33,7 +33,6 @@ const normalize = (value: string = "") =>
     .replace(/[^a-z0-9]+/g, " ")
     .trim();
 
-// Helper to Capitalize strings
 const capitalize = (str: string) =>
   str ? str.charAt(0).toUpperCase() + str.slice(1).toLowerCase() : "";
 
@@ -48,8 +47,7 @@ export default async function PropertiesPage({
   const bhkQuery = params.bhk?.trim() || "";
   const currentPage = Math.max(1, parseInt(params.page || "1", 10));
 
-  const formattedCity = capitalize(cityQuery);
-  const formattedType = capitalize(typeQuery);
+  const cities = [...new Set(properties.map((p) => p.city))].sort();
 
   const filteredProperties = properties.filter((p) => {
     if (cityQuery && normalize(p.city) !== normalize(cityQuery)) return false;
@@ -66,111 +64,109 @@ export default async function PropertiesPage({
     currentPage * PER_PAGE,
   );
 
+  const pageTitle =
+    listingQuery === "Rent"
+      ? "Properties for Rent"
+      : listingQuery === "Sale"
+        ? "Properties for Sale"
+        : cityQuery
+          ? `Properties in ${capitalize(cityQuery)}`
+          : "Featured Properties";
+
+  const pageSubtitle =
+    listingQuery === "Rent"
+      ? "Browse verified rental homes across Delhi NCR."
+      : listingQuery === "Sale"
+        ? "Explore premium homes and investments for sale."
+        : "Browse verified homes for sale and rent across Delhi NCR.";
+
   return (
-    <main className="bg-[#FAF7F2] min-h-screen">
-      {/* HERO SECTION - Center Aligned + Screenshot Style */}
-      <section className="relative h-48 sm:h-60 w-full text-white overflow-hidden flex items-center justify-center border-b border-stone-800">
-        {/* Background Image */}
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage:
-              "url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1600&auto=format&fit=crop')",
-          }}
-        />
-        {/* Dark Mask Overlay */}
-        <div className="absolute inset-0 bg-black/75" />
-
-        {/* Centered Content */}
-        <div className="relative z-10 text-center flex flex-col items-center justify-center px-4 max-w-4xl mx-auto">
-          {/* Main Dynamic Title */}
-          <h1 className="text-2xl sm:text-4xl font-extrabold uppercase tracking-wider text-white">
-            {formattedType && formattedCity
-              ? `${formattedType} in ${formattedCity}`
-              : formattedCity
-                ? `Properties in ${formattedCity}`
-                : formattedType
-                  ? `${formattedType} Properties`
-                  : "All Properties"}
-          </h1>
-
-          {/* Breadcrumb Links Below Title */}
+    <main className="min-h-screen bg-white">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        {/* Header */}
+        <div className="border-b border-stone-100 py-8 text-center sm:py-10">
           <nav
             aria-label="Breadcrumb"
-            className="mt-3 flex items-center justify-center gap-2 text-xs sm:text-sm font-medium text-white"
+            className="mb-4 flex items-center justify-center gap-2 text-sm text-stone-400"
           >
-            <Link
-              href="/"
-              className="flex items-center gap-1.5 hover:text-red-500 transition-colors"
-            >
-              <Home size={14} className="mb-0.5" />
-              <span>Home</span>
+            <Link href="/" className="transition hover:text-stone-700">
+              Home
             </Link>
-            <span className="text-slate-400">»</span>
-            <span className="text-[#DC2626] font-semibold">Properties</span>
+            <span>/</span>
+            <span className="font-medium text-stone-700">Properties</span>
           </nav>
-        </div>
-      </section>
 
-      {/* CONTENT AREA */}
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-6 py-6">
-        {/* PROPERTIES COUNTER BAR (Cards ke bilkul upar premium design) */}
-        <div className="mb-6 flex items-center justify-between rounded-xl bg-white p-4 border border-slate-200/80 shadow-xs">
-          <div className="flex items-center gap-2.5">
-            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-amber-50 text-[#C89234]">
-              <Building2 size={18} />
-            </div>
-            <div>
-              <p className="text-xs font-medium text-slate-500">
-                Found Results
-              </p>
-              <p className="text-sm font-bold text-slate-900">
-                <span className="text-[#C89234] font-extrabold text-base">
-                  {filteredProperties.length}
-                </span>{" "}
-                propert{filteredProperties.length !== 1 ? "ies" : "y"} available
-              </p>
-            </div>
-          </div>
+          <h1 className="font-heading text-3xl font-bold tracking-tight text-stone-900 sm:text-4xl lg:text-5xl">
+            {pageTitle}
+          </h1>
+          <p className="mx-auto mt-3 max-w-xl text-sm text-stone-500 sm:text-base">
+            {pageSubtitle}
+          </p>
         </div>
+
+        {/* Filters */}
+        <Suspense fallback={<div className="h-16 border-y border-stone-200" />}>
+          <PropertyListingFilters
+            cities={cities}
+            resultCount={filteredProperties.length}
+            activeListing={listingQuery}
+            activeCity={cityQuery}
+          />
+        </Suspense>
+
+        {/* Active type filter from URL (e.g. navbar link) */}
+        {typeQuery && (
+          <div className="flex items-center gap-2 py-4">
+            <span className="text-sm text-stone-500">Showing:</span>
+            <span className="rounded-full bg-[#FAF7F2] px-3 py-1 text-xs font-semibold text-[#C89234]">
+              {capitalize(typeQuery)}
+            </span>
+            <Link
+              href="/properties"
+              className="text-xs font-semibold text-stone-400 hover:text-[#C89234]"
+            >
+              Clear
+            </Link>
+          </div>
+        )}
 
         {/* Grid */}
         {paginated.length > 0 ? (
-          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid grid-cols-1 gap-6 py-8 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5 lg:py-10">
             {paginated.map((property, i) => (
               <PropertyCard
                 key={property.id}
                 property={property}
                 priority={i < 4}
+                variant="listing"
               />
             ))}
           </div>
         ) : (
-          <div className="rounded-2xl border border-dashed border-slate-200 bg-white py-16 text-center">
-            <p className="text-sm font-semibold text-slate-700">
+          <div className="py-20 text-center">
+            <p className="text-base font-semibold text-stone-800">
               No properties found
             </p>
-            <p className="mt-1 text-xs text-slate-400">
-              Try changing or clearing your filters.
+            <p className="mt-2 text-sm text-stone-500">
+              Try changing your filters or browse all listings.
             </p>
             <Link
               href="/properties"
-              className="mt-4 inline-block text-xs font-semibold text-[#C89234] hover:underline"
+              className="mt-5 inline-flex items-center justify-center rounded-full border border-stone-900 bg-stone-900 px-6 py-2.5 text-sm font-semibold text-white transition hover:bg-stone-800"
             >
-              Clear filters
+              View all properties
             </Link>
           </div>
         )}
 
         {/* Pagination */}
         {totalPages > 1 && (
-          <div className="mt-10 flex flex-col items-center gap-2">
+          <div className="flex flex-col items-center gap-3 border-t border-stone-100 py-10">
             <Suspense fallback={null}>
               <Pagination currentPage={currentPage} totalPages={totalPages} />
             </Suspense>
-            <p className="text-xs text-slate-400">
-              Page {currentPage} of {totalPages} · {filteredProperties.length}{" "}
-              properties
+            <p className="text-xs text-stone-400">
+              Page {currentPage} of {totalPages}
             </p>
           </div>
         )}

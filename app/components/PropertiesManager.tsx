@@ -13,8 +13,7 @@ import {
 
 import propertiesData from "@/data/properties.json";
 
-const FALLBACK_IMAGE =
-  "https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=800&auto=format&fit=crop";
+const FALLBACK_IMAGE = "/placeholder.jpg";
 
 export default function PropertiesManager() {
   const [selectedProperty, setSelectedProperty] = useState<any>(null);
