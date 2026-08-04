@@ -105,63 +105,10 @@ function NewLaunchContent() {
               <Home size={15} className="mb-0.5" />
               <span>Home</span>
             </Link>
-            <ChevronsRight size={14} className="text-white/70" />
-            <span className="text-[#e53935]">New Launch Projects</span>
+            /<span className="text-white">{selectedStatus}</span>
           </nav>
-
-          {/* Subtitle / Description */}
-          <p className="mt-4 max-w-2xl text-xs sm:text-sm leading-relaxed text-slate-200">
-            Explore new launches, ready-to-move, and under construction
-            properties across Delhi, Gurugram, Noida & Faridabad.
-          </p>
         </div>
       </section>
-
-      {/* Filters */}
-      <div className="sticky top-0 z-20 border-b border-slate-200 bg-white/95 backdrop-blur-md">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6">
-          <div className="flex flex-col gap-3 py-3 sm:flex-row sm:items-center sm:justify-between">
-            {/* Status Tabs */}
-            <div className="flex items-center gap-1 rounded-xl bg-slate-100 p-1 overflow-x-auto">
-              {(
-                ["New Launch", "Ready to Move", "Under Construction"] as const
-              ).map((status) => (
-                <button
-                  key={status}
-                  onClick={() => setSelectedStatus(status)}
-                  suppressHydrationWarning
-                  className={`flex items-center gap-1.5 whitespace-nowrap rounded-lg px-3 py-1.5 text-xs font-semibold transition-all duration-200 ${
-                    selectedStatus === status
-                      ? "bg-white text-slate-900 shadow-sm"
-                      : "text-slate-500 hover:text-slate-800"
-                  }`}
-                >
-                  {status}
-                </button>
-              ))}
-            </div>
-
-            {/* Category Pills */}
-            <div className="flex items-center gap-1.5">
-              {(["All", "For Sale", "For Rent"] as const).map((cat) => (
-                <button
-                  key={cat}
-                  onClick={() => setSelectedCategory(cat)}
-                  suppressHydrationWarning
-                  className={`rounded-full px-3.5 py-1.5 text-xs font-semibold transition-all ${
-                    selectedCategory === cat
-                      ? "bg-slate-900 text-white"
-                      : "border border-slate-200 bg-white text-slate-600 hover:border-slate-300"
-                  }`}
-                >
-                  {cat}
-                </button>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-
       {/* Content */}
       <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:py-10">
         {/* Section Label */}

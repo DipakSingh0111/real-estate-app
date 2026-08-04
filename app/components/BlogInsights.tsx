@@ -18,10 +18,6 @@ export default function BlogInsights({
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-6">
         <div className="mb-8 flex flex-col gap-4 sm:mb-12 md:flex-row md:items-end md:justify-between">
           <div>
-            <div className="inline-flex items-center gap-1.5 rounded-full bg-[#B8863D]/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-[#B8863D]">
-              <TrendingUp size={14} />
-              Knowledge Hub
-            </div>
             <h2 className="font-heading mt-2 text-2xl font-bold text-stone-900 sm:text-3xl">
               Latest Blogs & Market Insights
             </h2>

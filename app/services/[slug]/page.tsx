@@ -45,53 +45,27 @@ export default async function ServiceDetailPage({
     <main className="min-h-screen bg-[#FAF7F2] text-stone-900">
       {/* Hero */}
       <section className="relative overflow-hidden border-b border-stone-800 text-white">
-        <div className="absolute inset-0">
-          <Image
-            src={service.heroImage}
-            alt={service.title}
-            fill
-            priority
-            className="object-cover"
-          />
-          <div
-            className="absolute inset-0"
-          
-          />
-          <div className="absolute inset-0 bg-black/30" />
-        </div>
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: `url('${service.heroImage}')` }}
+        />
+        <div className="absolute inset-0 bg-black/35" />
 
-        <div className="relative mx-auto flex max-w-7xl flex-col justify-center px-6 py-16 sm:py-20 lg:px-8 lg:py-14">
-          <div className="max-w-2xl">
-            <span
-              className="inline-flex rounded-full px-3 py-1 text-[11px] font-bold uppercase tracking-widest text-white/90 backdrop-blur-sm"
-              style={{ backgroundColor: `${service.accent}cc` }}
-            >
-              {service.tagline}
-            </span>
-            <div className="mt-4 flex items-center gap-3">
-              
-              <h1 className="font-heading text-3xl font-extrabold text-white sm:text-4xl lg:text-5xl">
-                {service.title}
-              </h1>
-            </div>
-            <p className="mt-4 max-w-lg text-sm leading-relaxed text-white/90 sm:text-base">
-              {service.shortDescription}
-            </p>
-            <Link
-              href="/contact"
-              className="mt-6 inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3 text-sm font-bold transition hover:bg-white/90"
-              style={{ color: service.accent }}
-            >
-              Get Free Consultation
-              <ArrowRight size={16} />
-            </Link>
+        <div className="relative mx-auto flex min-h-[200px] max-w-7xl flex-col items-center justify-center px-6 py-20 text-center sm:py-24 lg:px-8 lg:py-20">
+          <div className="max-w-3xl">
+            <h1 className="font-heading text-3xl font-extrabold text-white sm:text-4xl lg:text-5xl">
+              {service.title}
+            </h1>
           </div>
 
           <nav
             aria-label="Breadcrumb"
-            className="mt-8 flex flex-wrap items-center gap-1.5 text-sm text-white/70"
+            className="mt-8 inline-flex flex-wrap items-center justify-center gap-1.5 text-sm text-white/80"
           >
-            <Link href="/" className="inline-flex items-center gap-1 hover:text-white">
+            <Link
+              href="/"
+              className="inline-flex items-center gap-1 hover:text-white"
+            >
               <Home size={14} />
               Home
             </Link>
@@ -100,7 +74,7 @@ export default async function ServiceDetailPage({
               Services
             </Link>
             <ChevronsRight size={14} />
-            <span className="text-white">{service.title}</span>
+            <span className="font-medium text-white">{service.title}</span>
           </nav>
         </div>
       </section>
@@ -201,22 +175,6 @@ export default async function ServiceDetailPage({
                 <p className="mt-2 text-xs leading-relaxed text-white/80">
                   Free consultation with our experts — no obligation.
                 </p>
-              </div>
-              <div className="space-y-3 p-6">
-                <Link
-                  href="/contact"
-                  className="flex w-full items-center justify-center gap-2 rounded-xl py-3.5 text-sm font-bold text-white transition hover:opacity-90"
-                  style={{ backgroundColor: service.accent }}
-                >
-                  Request Consultation
-                  <ArrowRight size={16} />
-                </Link>
-                <a
-                  href="tel:+919876543210"
-                  className="flex w-full items-center justify-center rounded-xl border border-stone-200 py-3.5 text-sm font-semibold text-stone-700 transition hover:border-stone-300"
-                >
-                  Call +91 98765 43210
-                </a>
               </div>
             </div>
           </div>

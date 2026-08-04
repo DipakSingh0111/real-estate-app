@@ -24,14 +24,9 @@ export default function BlogPage() {
         <div className="absolute inset-0 bg-black/60" />
 
         <div className="relative mx-auto flex max-w-7xl flex-col items-center justify-center px-6 py-16 text-center sm:py-20 lg:px-8">
-          
           <h1 className="font-heading mt-4 text-3xl font-extrabold uppercase tracking-wide text-white sm:text-4xl lg:text-5xl">
             Blog & Insights
           </h1>
-          <p className="mt-3 max-w-xl text-sm text-white/80 sm:text-base">
-            Real estate trends, investment tips, and city guides from our
-            expert advisors.
-          </p>
 
           <nav
             aria-label="Breadcrumb"
@@ -64,9 +59,6 @@ export default function BlogPage() {
               <h2 className="font-heading text-xl font-bold text-stone-900 sm:text-2xl">
                 More Articles
               </h2>
-              <p className="mt-1 text-sm text-stone-500">
-                Explore guides on buying, investing, and market trends.
-              </p>
             </div>
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {rest.map((post, index) => (

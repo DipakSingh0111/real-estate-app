@@ -38,44 +38,23 @@ export default function ServicesPage() {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/55 to-black/70" />
         <div className="relative mx-auto flex max-w-7xl flex-col items-center justify-center px-6 py-16 text-center sm:py-20 lg:px-8">
-          <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-[11px] font-bold uppercase tracking-[0.15em] text-[#f0d9a8] backdrop-blur-sm">
-            Complete Real Estate Support
-          </span>
           <h1 className="font-heading mt-4 text-3xl font-extrabold uppercase tracking-wide text-white sm:text-4xl lg:text-5xl">
             Our Services
           </h1>
-          <p className="mt-3 max-w-2xl text-sm leading-relaxed text-white/80 sm:text-base">
-            From home loans and legal verification to interiors and investment
-            advice — everything you need for a smooth property journey.
-          </p>
           <nav
             aria-label="Breadcrumb"
             className="mt-5 flex flex-wrap items-center justify-center gap-1.5 text-sm text-white"
           >
-            <Link href="/" className="flex items-center gap-1.5 hover:text-[#f0d9a8]">
+            <Link
+              href="/"
+              className="flex items-center gap-1.5 hover:text-[#f0d9a8]"
+            >
               <Home size={15} />
               Home
             </Link>
             <ChevronsRight size={14} className="text-white/50" />
             <span className="text-[#C89234]">Services</span>
           </nav>
-        </div>
-      </section>
-
-      {/* Intro strip */}
-      <section className="border-b border-stone-200 bg-white">
-        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-4 py-6 sm:flex-row sm:px-6 lg:px-8">
-          <p className="text-center text-sm text-stone-600 sm:text-left">
-            <span className="font-bold text-[#C89234]">6 specialized services</span>{" "}
-            — click any card to learn more and get started.
-          </p>
-          <a
-            href="tel:+919876543210"
-            className="inline-flex items-center gap-2 rounded-full border border-stone-200 bg-[#FAF7F2] px-4 py-2 text-sm font-semibold text-stone-800 transition hover:border-[#C89234]/40 hover:text-[#C89234]"
-          >
-            <Phone size={15} className="text-[#C89234]" />
-            +91 98765 43210
-          </a>
         </div>
       </section>
 
@@ -106,9 +85,7 @@ export default function ServicesPage() {
                     <Icon size={18} />
                   </div>
                   <div className="absolute bottom-4 left-4 right-4">
-                    <p
-                      className="text-[10px] font-bold uppercase tracking-widest text-white/80"
-                    >
+                    <p className="text-[10px] font-bold uppercase tracking-widest text-white/80">
                       {service.tagline}
                     </p>
                     <h3 className="font-heading mt-0.5 text-lg font-bold text-white">
@@ -128,7 +105,10 @@ export default function ServicesPage() {
                         key={f}
                         className="flex items-center gap-2 text-xs text-stone-600"
                       >
-                        <CheckCircle2 size={13} className="shrink-0 text-[#C89234]" />
+                        <CheckCircle2
+                          size={13}
+                          className="shrink-0 text-[#C89234]"
+                        />
                         {f}
                       </li>
                     ))}

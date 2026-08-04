@@ -52,14 +52,9 @@ export default function ContactPage() {
         <div className="absolute inset-0 bg-black/65" />
 
         <div className="relative mx-auto flex max-w-7xl flex-col items-center justify-center px-6 py-16 text-center sm:py-20 lg:px-8">
-         
           <h1 className="font-heading mt-4 text-3xl font-extrabold uppercase tracking-wide text-white sm:text-4xl lg:text-5xl">
             Contact Us
           </h1>
-          <p className="mt-3 max-w-xl text-sm text-white/80 sm:text-base">
-            Looking for your dream property or have questions about a listing?
-            Our expert team responds within 24 hours.
-          </p>
 
           <nav
             aria-label="Breadcrumb"
@@ -97,7 +92,10 @@ export default function ContactPage() {
                   {item.title}
                 </h3>
                 {item.lines.map((line) => (
-                  <p key={line} className="mt-0.5 text-xs leading-relaxed text-stone-500">
+                  <p
+                    key={line}
+                    className="mt-0.5 text-xs leading-relaxed text-stone-500"
+                  >
                     {line}
                   </p>
                 ))}
@@ -126,7 +124,10 @@ export default function ContactPage() {
 
             <div className="mt-8 space-y-4">
               <div className="flex items-start gap-3 rounded-xl border border-stone-100 bg-white p-4">
-                <MessageSquare size={18} className="mt-0.5 shrink-0 text-[#C89234]" />
+                <MessageSquare
+                  size={18}
+                  className="mt-0.5 shrink-0 text-[#C89234]"
+                />
                 <div>
                   <p className="text-sm font-semibold text-stone-900">
                     Free Consultation
@@ -160,7 +161,7 @@ export default function ContactPage() {
               >
                 <div className="absolute inset-0 bg-stone-900/30" />
                 <div className="absolute bottom-3 left-3 rounded-lg bg-white/95 px-3 py-2 text-xs font-semibold text-stone-800 backdrop-blur-sm">
-                Noida Sector 62
+                  Noida Sector 62
                 </div>
               </div>
             </div>

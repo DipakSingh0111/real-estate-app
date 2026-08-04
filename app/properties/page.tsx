@@ -80,6 +80,13 @@ export default async function PropertiesPage({
         ? "Explore premium homes and investments for sale."
         : "Browse verified homes for sale and rent across Delhi NCR.";
 
+  const breadcrumbFilters = [
+    listingQuery ? capitalize(listingQuery) : null,
+    cityQuery ? capitalize(cityQuery) : null,
+    typeQuery ? capitalize(typeQuery) : null,
+    bhkQuery ? `${bhkQuery} BHK` : null,
+  ].filter(Boolean) as string[];
+
   return (
     <main className="min-h-screen bg-white">
       {/* Hero — full-bleed */}
@@ -92,19 +99,27 @@ export default async function PropertiesPage({
           <h1 className="font-heading text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl">
             {pageTitle}
           </h1>
-          <p className="mx-auto mt-3 max-w-xl text-sm text-white/90 sm:text-base">
-            {pageSubtitle}
-          </p>
-
           <nav
             aria-label="Breadcrumb"
-            className="mt-6 flex items-center justify-center gap-2 text-sm text-white/80"
+            className="mt-6 flex flex-wrap items-center justify-center gap-2 text-sm text-white/80"
           >
             <Link href="/" className="transition hover:text-white">
               Home
             </Link>
             <span>/</span>
-            <span className="font-medium text-white">Properties</span>
+            <Link href="/properties" className="font-medium text-white">
+              Properties
+            </Link>
+            {breadcrumbFilters.length > 0 &&
+              breadcrumbFilters.map((filter, index) => (
+                <span
+                  key={`${filter}-${index}`}
+                  className="flex items-center gap-2"
+                >
+                  <span>/</span>
+                  <span className="font-medium text-white">{filter}</span>
+                </span>
+              ))}
           </nav>
         </div>
       </div>
@@ -119,22 +134,6 @@ export default async function PropertiesPage({
             activeCity={cityQuery}
           />
         </Suspense>
-
-        {/* Active type filter from URL (e.g. navbar link) */}
-        {typeQuery && (
-          <div className="flex items-center gap-2 py-4">
-            <span className="text-sm text-stone-500">Showing:</span>
-            <span className="rounded-full bg-[#FAF7F2] px-3 py-1 text-xs font-semibold text-[#C89234]">
-              {capitalize(typeQuery)}
-            </span>
-            <Link
-              href="/properties"
-              className="text-xs font-semibold text-stone-400 hover:text-[#C89234]"
-            >
-              Clear
-            </Link>
-          </div>
-        )}
 
         {/* Grid */}
         {paginated.length > 0 ? (
