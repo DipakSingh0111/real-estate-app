@@ -18,7 +18,10 @@ const normalize = (str: any): string => {
     .replace(/[^a-z0-9]/g, "");
 };
 
-const statusConfig: Record<NewLaunchProjectStatus, { dot: string; badge: string }> = {
+const statusConfig: Record<
+  NewLaunchProjectStatus,
+  { dot: string; badge: string }
+> = {
   "New Launch": {
     dot: "bg-amber-400",
     badge: "bg-amber-50 text-amber-700 border-amber-200",
