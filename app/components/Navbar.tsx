@@ -57,7 +57,7 @@ const navGroups = [
   {
     title: "About",
     items: [
-      { href: "/aboutus", label: "About Us" },
+      { href: "/about-us", label: "About Us" },
       { href: "/ourteam", label: "Our Team" },
       { href: "/awards", label: "Awards" },
       { href: "/whychooseus", label: "Why Choose Us" },
