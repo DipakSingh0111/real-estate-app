@@ -6,25 +6,9 @@ import { ArrowRight, MapPin } from "lucide-react";
 import { motion, type Variants } from "framer-motion";
 
 import data from "../../../data/properties.json";
+import type { LatestProject } from "@/types/property";
 
-type Project = {
-  id: number;
-  title: string;
-  slug: string;
-  builder: string;
-  location: string;
-  city: string;
-  status: string;
-  price: string;
-  area: string;
-  bedrooms: number;
-  bathrooms: number;
-  parking: number;
-  image: string;
-  description: string;
-};
-
-const projects = (data?.projects || []) as Project[];
+const projects = (data?.projects || []) as LatestProject[];
 
 const badgeStyle = (status: string) => {
   switch (status) {

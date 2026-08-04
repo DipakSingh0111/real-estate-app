@@ -2,13 +2,7 @@
 
 import { useMemo, useState } from "react";
 import Image from "next/image";
-
-interface PropertyGalleryProps {
-  images: string[];
-  title: string;
-  type: string;
-  listingType: string;
-}
+import type { PropertyGalleryProps } from "@/types/property";
 
 export default function PropertyGallery({
   images,

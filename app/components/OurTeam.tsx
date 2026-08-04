@@ -4,20 +4,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { FaLinkedinIn, FaTwitter, FaInstagram } from "react-icons/fa";
 import teamData from "@/data/team.json";
-
-interface TeamMember {
-  name: string;
-  role: string;
-  tag: string;
-  image: string;
-  experience: string;
-  bio: string;
-  socials?: {
-    linkedin?: string;
-    twitter?: string;
-    instagram?: string;
-  };
-}
+import type { TeamMember } from "@/types/property";
 
 const tagColors: Record<string, string> = {
   Leadership: "bg-amber-50 text-amber-700 border-amber-200",

@@ -2,13 +2,7 @@
 
 import { useRouter, useSearchParams, usePathname } from "next/navigation";
 import { ChevronDown } from "lucide-react";
-
-interface PropertyListingFiltersProps {
-  cities: string[];
-  resultCount: number;
-  activeListing: string;
-  activeCity: string;
-}
+import type { PropertyListingFiltersProps } from "@/types/property";
 
 export default function PropertyListingFilters({
   resultCount,

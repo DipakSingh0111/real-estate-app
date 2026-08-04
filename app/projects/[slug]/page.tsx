@@ -2,12 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 import data from "../../../data/properties.json";
 import { notFound } from "next/navigation";
+import { ProjectDetailProps } from "@/types/property";
 
-interface Props {
-  params: { slug: string };
-}
-
-export default function ProjectDetail({ params }: Props) {
+export default function ProjectDetail({ params }: ProjectDetailProps) {
   const projects = data?.projects || [];
   const project = projects.find((p: any) => p.slug === params.slug);
   if (!project) return notFound();

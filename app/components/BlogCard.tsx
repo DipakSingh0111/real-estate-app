@@ -4,13 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Calendar, Clock, ArrowUpRight } from "lucide-react";
-import type { BlogPost } from "@/types/blog";
-
-interface BlogCardProps {
-  post: BlogPost;
-  index?: number;
-  variant?: "default" | "featured";
-}
+import type { BlogCardProps } from "@/types/property";
 
 export default function BlogCard({
   post,

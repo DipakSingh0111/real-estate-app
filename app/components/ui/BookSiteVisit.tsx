@@ -10,11 +10,7 @@ import {
   CheckCircle2,
   ArrowRight,
 } from "lucide-react";
-
-interface BookSiteVisitProps {
-  propertyName?: string;
-  propertyLocation?: string;
-}
+import type { BookSiteVisitProps } from "@/types/property";
 
 export default function BookSiteVisit({
   propertyName = "Luxury Vista Apartments",

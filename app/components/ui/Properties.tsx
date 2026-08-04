@@ -10,26 +10,7 @@ import {
   Bookmark,
 } from "lucide-react";
 import Link from "next/link";
-
-interface Opportunity {
-  id: number;
-  title: string;
-  location: string;
-  type:
-    | "Villa"
-    | "Apartment"
-    | "Builder Floor"
-    | "Commercial Office"
-    | "Studio"
-    | "Plot"
-    | "Land";
-  minInvestment: string;
-  expectedROI: string;
-  tenure: string;
-  fundedPercentage: number;
-  imageUrl: string;
-  isHot?: boolean;
-}
+import type { Opportunity } from "@/types/property";
 
 const opportunitiesData: Opportunity[] = [
   {

@@ -2,11 +2,7 @@
 
 import { useMemo, useState } from "react";
 import type { Award } from "@/types/award";
-
-interface AwardsGridProps {
-  awards: Award[];
-  years: number[];
-}
+import type { AwardsGridProps } from "@/types/property";
 
 function AwardCard({ award }: { award: Award }) {
   const isGhost = award.iconVariant === "ghost";

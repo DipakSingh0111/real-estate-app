@@ -4,17 +4,7 @@ import { useSearchParams } from "next/navigation";
 import { useMemo, Suspense } from "react";
 import Image from "next/image";
 import propertiesData from "@/data/properties.json";
-
-interface Property {
-  id: string | number;
-  title: string;
-  city: string;
-  type: string;
-  price?: number | string;
-  priceLabel?: string;
-  image?: string;
-  images?: string[];
-}
+import type { PropertyListingItem } from "@/types/property";
 
 function PropertyListContent() {
   const searchParams = useSearchParams();
@@ -36,7 +26,7 @@ function PropertyListContent() {
 
   const filteredProperties = useMemo(() => {
     const rawData = propertiesData as any;
-    let list: Property[] = Array.isArray(rawData)
+    let list: PropertyListingItem[] = Array.isArray(rawData)
       ? rawData
       : rawData.Properties || rawData.properties || [];
 

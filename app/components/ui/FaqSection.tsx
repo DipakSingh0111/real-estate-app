@@ -5,13 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, HelpCircle, Search } from "lucide-react";
 
 import data from "../../../data/properties.json";
-
-interface FAQItem {
-  id: string;
-  category: "Buying" | "Selling" | "Renting" | "Legal";
-  question: string;
-  answer: string;
-}
+import type { FAQItem } from "@/types/property";
 
 const faqData = (data?.faqs || []) as FAQItem[];
 

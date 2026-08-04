@@ -5,7 +5,7 @@ import propertiesData from "../../data/properties.json";
 import PropertyCard from "../components/PropertyCard";
 import PropertyListingFilters from "../components/PropertyListingFilters";
 import Pagination from "../components/ui/Pagination";
-import type { Property } from "@/types/property";
+import type { Property, PropertiesPageProps } from "@/types/property";
 
 export const dynamic = "force-dynamic";
 
@@ -15,16 +15,6 @@ const PER_PAGE = 8;
 export const metadata: Metadata = {
   title: "Featured Properties — Real Estate",
 };
-
-interface PropertiesPageProps {
-  searchParams: Promise<{
-    city?: string;
-    type?: string;
-    listingType?: string;
-    bhk?: string;
-    page?: string;
-  }>;
-}
 
 const normalize = (value: string = "") =>
   decodeURIComponent(value)

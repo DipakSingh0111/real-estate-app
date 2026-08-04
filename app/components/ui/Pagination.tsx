@@ -3,11 +3,7 @@
 import Link from "next/link";
 import { useSearchParams, usePathname } from "next/navigation";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-
-interface PaginationProps {
-  currentPage: number;
-  totalPages: number;
-}
+import type { PaginationProps } from "@/types/property";
 
 export default function Pagination({ currentPage, totalPages }: PaginationProps) {
   const pathname = usePathname();

@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { ArrowRight, Sparkles } from "lucide-react";
 import { motion, AnimatePresence, type Variants } from "framer-motion";
 import data from "../../data/properties.json";
+import type { HeroProps } from "@/types/property";
 
 const headers = data.header;
 
@@ -13,10 +14,6 @@ const heroImages = data.Properties.filter(
 )
   .slice(0, 5)
   .map((property) => property.images[0]);
-
-interface HeroProps {
-  cities: string[];
-}
 
 export default function Hero({ cities }: HeroProps) {
   const [activeSlide, setActiveSlide] = useState(0);

@@ -36,6 +36,26 @@ export interface PropertyFilters {
   bhk?: string;
 }
 
+export type NewLaunchProjectStatus =
+  | "New Launch"
+  | "Ready to Move"
+  | "Under Construction";
+export type NewLaunchCategoryFilter = "All" | "For Sale" | "For Rent";
+
+export interface ProjectDetailProps {
+  params: { slug: string };
+}
+
+export interface PropertiesPageProps {
+  searchParams: Promise<{
+    city?: string;
+    type?: string;
+    listingType?: string;
+    bhk?: string;
+    page?: string;
+  }>;
+}
+
 export interface Testimonials {
   id: number;
   quote: string;

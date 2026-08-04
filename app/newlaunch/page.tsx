@@ -6,9 +6,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { MapPin, Bed, Bath, Home, ChevronsRight } from "lucide-react";
 import propertiesData from "@/data/properties.json";
-
-type ProjectStatus = "New Launch" | "Ready to Move" | "Under Construction";
-type CategoryFilter = "All" | "For Sale" | "For Rent";
+import {
+  NewLaunchCategoryFilter,
+  NewLaunchProjectStatus,
+} from "@/types/property";
 
 const normalize = (str: any): string => {
   if (!str) return "";
@@ -17,7 +18,7 @@ const normalize = (str: any): string => {
     .replace(/[^a-z0-9]/g, "");
 };
 
-const statusConfig = {
+const statusConfig: Record<NewLaunchProjectStatus, { dot: string; badge: string }> = {
   "New Launch": {
     dot: "bg-amber-400",
     badge: "bg-amber-50 text-amber-700 border-amber-200",
@@ -37,9 +38,9 @@ function NewLaunchContent() {
   const statusParam = searchParams.get("status");
 
   const [selectedStatus, setSelectedStatus] =
-    useState<ProjectStatus>("New Launch");
+    useState<NewLaunchProjectStatus>("New Launch");
   const [selectedCategory, setSelectedCategory] =
-    useState<CategoryFilter>("All");
+    useState<NewLaunchCategoryFilter>("All");
 
   useEffect(() => {
     if (!statusParam) return;
