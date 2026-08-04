@@ -82,28 +82,34 @@ export default async function PropertiesPage({
 
   return (
     <main className="min-h-screen bg-white">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="border-b border-stone-100 py-8 text-center sm:py-10">
+      {/* Hero — full-bleed */}
+      <div
+        className="relative bg-cover bg-center bg-no-repeat w-full"
+        style={{ backgroundImage: "url('/images/land_01.avif')" }}
+      >
+        <div className="absolute inset-0 bg-black/40" />
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 text-center relative z-10">
+          <h1 className="font-heading text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl">
+            {pageTitle}
+          </h1>
+          <p className="mx-auto mt-3 max-w-xl text-sm text-white/90 sm:text-base">
+            {pageSubtitle}
+          </p>
+
           <nav
             aria-label="Breadcrumb"
-            className="mb-4 flex items-center justify-center gap-2 text-sm text-stone-400"
+            className="mt-6 flex items-center justify-center gap-2 text-sm text-white/80"
           >
-            <Link href="/" className="transition hover:text-stone-700">
+            <Link href="/" className="transition hover:text-white">
               Home
             </Link>
             <span>/</span>
-            <span className="font-medium text-stone-700">Properties</span>
+            <span className="font-medium text-white">Properties</span>
           </nav>
-
-          <h1 className="font-heading text-3xl font-bold tracking-tight text-stone-900 sm:text-4xl lg:text-5xl">
-            {pageTitle}
-          </h1>
-          <p className="mx-auto mt-3 max-w-xl text-sm text-stone-500 sm:text-base">
-            {pageSubtitle}
-          </p>
         </div>
+      </div>
 
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Filters */}
         <Suspense fallback={<div className="h-16 border-y border-stone-200" />}>
           <PropertyListingFilters

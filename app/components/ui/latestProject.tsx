@@ -181,7 +181,7 @@ export default function LatestProjects() {
           className="mt-6 flex justify-center"
         >
           <Link
-            href="/viewsproject"
+            href="/projects"
             className="group inline-flex items-center gap-2 rounded-xl bg-slate-900 px-6 py-2.5 text-xs font-semibold text-white shadow-xs transition-all hover:bg-[#B8863D] active:scale-95"
           >
             <span>View All Projects</span>
