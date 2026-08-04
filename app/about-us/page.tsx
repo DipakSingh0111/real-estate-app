@@ -28,7 +28,7 @@ export default function AboutPage() {
 
         <div className="relative mx-auto max-w-7xl px-6 py-16 sm:py-24 lg:px-8 flex flex-col items-center justify-center text-center">
           <h1 className="font-heading text-3xl font-extrabold uppercase tracking-wide text-white sm:text-4xl lg:text-5xl">
-            ABOUT US
+            ABOUT-US
           </h1>
 
           <nav
@@ -43,7 +43,7 @@ export default function AboutPage() {
               <span>Home</span>
             </Link>
             <ChevronsRight size={14} className="text-white/70" />
-            <span className="text-[#e53935]">About Us</span>
+            <span className="text-[#e53935]">About-Us</span>
           </nav>
         </div>
       </section>
