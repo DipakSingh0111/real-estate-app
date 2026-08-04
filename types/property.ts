@@ -1,4 +1,3 @@
-import type { Award } from "./award";
 import type { BlogPost } from "./blog";
 
 export interface Agent {
@@ -143,11 +142,6 @@ export interface StatusMetaEntry {
 }
 
 export type StatusMeta = Record<ProjectStatus, StatusMetaEntry>;
-
-export interface AwardsGridProps {
-  awards: Award[];
-  years: number[];
-}
 
 export interface BlogCardProps {
   post: BlogPost;

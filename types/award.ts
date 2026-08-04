@@ -13,3 +13,8 @@ export interface AwardStat {
   value: string;
   label: string;
 }
+
+export interface AwardsGridProps {
+  awards: Award[];
+  years: number[];
+}

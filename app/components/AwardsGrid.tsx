@@ -1,8 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import type { Award } from "@/types/award";
-import type { AwardsGridProps } from "@/types/awards";
+import type { Award, AwardsGridProps } from "@/types/award";
 
 function AwardCard({ award }: { award: Award }) {
   const isGhost = award.iconVariant === "ghost";

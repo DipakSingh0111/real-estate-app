@@ -203,7 +203,6 @@ export default function Navbar() {
               <span className="truncate">sales@eliteestates.com</span>
             </a>
           </div>
-
           <div className="flex shrink-0 items-center gap-1 sm:gap-1.5">
             {socialLinks.map(({ href, label, Icon }) => (
               <a
