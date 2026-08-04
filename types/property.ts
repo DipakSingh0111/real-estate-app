@@ -1,3 +1,6 @@
+import type { Award } from "./award";
+import type { BlogPost } from "./blog";
+
 export interface Agent {
   name: string;
   phone: string;
@@ -140,3 +143,111 @@ export interface StatusMetaEntry {
 }
 
 export type StatusMeta = Record<ProjectStatus, StatusMetaEntry>;
+
+export interface AwardsGridProps {
+  awards: Award[];
+  years: number[];
+}
+
+export interface BlogCardProps {
+  post: BlogPost;
+  index?: number;
+  variant?: "default" | "featured";
+}
+
+export interface HeroProps {
+  cities: string[];
+}
+
+export interface TeamMember {
+  name: string;
+  role: string;
+  tag: string;
+  image: string;
+  experience: string;
+  bio: string;
+  socials?: {
+    linkedin?: string;
+    twitter?: string;
+    instagram?: string;
+  };
+}
+
+export interface PropertyListingItem {
+  id: string | number;
+  title: string;
+  city: string;
+  type: string;
+  price?: number | string;
+  priceLabel?: string;
+  image?: string;
+  images?: string[];
+}
+
+export interface PropertyGalleryProps {
+  images: string[];
+  title: string;
+  type: string;
+  listingType: string;
+}
+
+export interface PropertyListingFiltersProps {
+  cities: string[];
+  resultCount: number;
+  activeListing: string;
+  activeCity: string;
+}
+
+export interface FAQItem {
+  id: string;
+  category: "Buying" | "Selling" | "Renting" | "Legal";
+  question: string;
+  answer: string;
+}
+
+export interface Opportunity {
+  id: number;
+  title: string;
+  location: string;
+  type:
+    | "Villa"
+    | "Apartment"
+    | "Builder Floor"
+    | "Commercial Office"
+    | "Studio"
+    | "Plot"
+    | "Land";
+  minInvestment: string;
+  expectedROI: string;
+  tenure: string;
+  fundedPercentage: number;
+  imageUrl: string;
+  isHot?: boolean;
+}
+
+export interface BookSiteVisitProps {
+  propertyName?: string;
+  propertyLocation?: string;
+}
+
+export interface LatestProject {
+  id: number;
+  title: string;
+  slug: string;
+  builder: string;
+  location: string;
+  city: string;
+  status: string;
+  price: string;
+  area: string;
+  bedrooms: number;
+  bathrooms: number;
+  parking: number;
+  image: string;
+  description: string;
+}
+
+export interface PaginationProps {
+  currentPage: number;
+  totalPages: number;
+}
