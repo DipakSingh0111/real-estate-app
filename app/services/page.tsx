@@ -11,7 +11,6 @@ import {
   TrendingUp,
   ShieldCheck,
   Sofa,
-  Phone,
 } from "lucide-react";
 import { services } from "@/lib/services";
 
@@ -138,7 +137,6 @@ export default function ServicesPage() {
             );
           })}
         </div>
-
         {/* CTA */}
         <div className="mt-14 overflow-hidden rounded-2xl bg-gradient-to-br from-[#322f2a] via-[#4a4338] to-[#6b5c3e] px-8 py-12 text-center sm:px-12">
           <h2 className="font-heading text-2xl font-bold text-white sm:text-3xl">

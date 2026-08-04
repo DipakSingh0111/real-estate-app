@@ -11,7 +11,7 @@ import type { Property } from "@/types/property";
 
 const properties = (propertiesData?.Properties || []) as Property[];
 
-// High Quality City Landmark Images (Unsplash)
+// city images
 const cityImages: Record<string, string> = {
   Delhi:
     "https://images.unsplash.com/photo-1587474260584-136574528ed5?w=600&q=80",

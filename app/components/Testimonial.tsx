@@ -5,7 +5,6 @@ import {
   ChevronLeft,
   ChevronRight,
   Star,
-  CheckCircle2,
   Quote,
 } from "lucide-react";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -44,9 +43,10 @@ export default function Testimonial({
         }
       `}</style>
 
-      {/* Container Aligned Pixel-Perfect with Navbar (max-w-7xl px-4 sm:px-6) */}
+      {/* Container Aligned  */}
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         {/* Header Section */}
+       
         <motion.div
           initial={{ opacity: 0, y: -10 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -56,8 +56,7 @@ export default function Testimonial({
         >
           <div>
             <span className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-widest text-[#B8863D]">
-              <Star size={12} className="fill-[#B8863D] text-[#B8863D]" />
-              Client Reviews
+              Testimonials
             </span>
             <h2 className="mt-1 font-heading text-xl font-bold tracking-tight text-slate-900 sm:text-2xl lg:text-3xl">
               What Our Clients Say
@@ -67,7 +66,7 @@ export default function Testimonial({
             </p>
           </div>
 
-          {/* Carousel Navigation Buttons */}
+          {/* Carousel Buttons */}
           <div className="hidden sm:flex items-center gap-2">
             <button
               type="button"
@@ -88,7 +87,7 @@ export default function Testimonial({
           </div>
         </motion.div>
 
-        {/* Carousel Slider (Without Dots Pagination) */}
+        {/* Carousel Slider */}
         <div className="relative">
           <Swiper
             modules={[Navigation, Autoplay]}

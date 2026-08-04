@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from "react";
 import type { Award } from "@/types/award";
-import type { AwardsGridProps } from "@/types/property";
+import type { AwardsGridProps } from "@/types/awards";
 
 function AwardCard({ award }: { award: Award }) {
   const isGhost = award.iconVariant === "ghost";

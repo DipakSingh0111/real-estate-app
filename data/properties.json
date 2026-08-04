@@ -66,7 +66,10 @@
         "24x7 Security"
       ],
       "images": [
-        "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=1600"
+        "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=1600",
+         "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=1600",
+          "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=1600",
+           "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=1600"
       ],
       "agent": {
         "name": "Vikram Singh",
@@ -139,7 +142,11 @@
         "Modular Kitchen",
         "Power Backup"
       ],
-      "images": ["/images/studio.jpg"],
+      "images": ["/images/studio.jpg",
+        "/images/studio.jpg",
+        "/images/studio.jpg",
+        "/images/studio.jpg"
+      ],
       "agent": {
         "name": "Suresh Gupta",
         "phone": "+91 98990 11445",
@@ -173,6 +180,9 @@
         "Children Play Area"
       ],
       "images": [
+        "https://images.unsplash.com/photo-1493809842364-78817add7ffb?q=80&w=1600",
+        "https://images.unsplash.com/photo-1493809842364-78817add7ffb?q=80&w=1600",
+        "https://images.unsplash.com/photo-1493809842364-78817add7ffb?q=80&w=1600",
         "https://images.unsplash.com/photo-1493809842364-78817add7ffb?q=80&w=1600"
       ],
       "agent": {
@@ -208,6 +218,9 @@
         "Gated Security"
       ],
       "images": [
+        "https://images.unsplash.com/photo-1613977257363-707ba9348227?q=80&w=1600",
+        "https://images.unsplash.com/photo-1613977257363-707ba9348227?q=80&w=1600",
+        "https://images.unsplash.com/photo-1613977257363-707ba9348227?q=80&w=1600",
         "https://images.unsplash.com/photo-1613977257363-707ba9348227?q=80&w=1600"
       ],
       "agent": {
@@ -243,6 +256,9 @@
         "Conference Room"
       ],
       "images": [
+        "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?q=80&w=1600",
+        "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?q=80&w=1600",
+        "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?q=80&w=1600",
         "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?q=80&w=1600"
       ],
       "agent": {
@@ -277,7 +293,11 @@
         "Street Lights",
         "Drainage System"
       ],
-      "images": ["/images/land_01.avif"],
+      "images": ["/images/land_01.avif",
+        "/images/land_01.avif",
+        "/images/land_01.avif",
+        "/images/land_01.avif"
+      ],
       "agent": {
         "name": "Suresh Gupta",
         "phone": "+91 98990 11445",
@@ -312,6 +332,9 @@
         "Modular Kitchen"
       ],
       "images": [
+        "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=1600",
+        "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=1600",
+        "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=1600",
         "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=1600"
       ],
       "agent": {
@@ -347,6 +370,9 @@
         "Swimming Pool"
       ],
       "images": [
+        "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=1600",
+        "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=1600",
+        "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=1600",
         "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=1600"
       ],
       "agent": {
@@ -381,7 +407,11 @@
         "Central Air Conditioning",
         "Visitor Parking"
       ],
-      "images": ["/images/comercial.jpg"],
+      "images": ["/images/comercial.jpg",
+        "/images/comercial.jpg",
+        "/images/comercial.jpg",
+        "/images/comercial.jpg"
+      ],
       "agent": {
         "name": "Pooja Verma",
         "phone": "+91 98710 33221",
@@ -415,6 +445,9 @@
         "Swimming Pool"
       ],
       "images": [
+        "https://images.unsplash.com/photo-1515263487990-61b07816b324?q=80&w=1600",
+        "https://images.unsplash.com/photo-1515263487990-61b07816b324?q=80&w=1600",
+        "https://images.unsplash.com/photo-1515263487990-61b07816b324?q=80&w=1600",
         "https://images.unsplash.com/photo-1515263487990-61b07816b324?q=80&w=1600"
       ],
       "agent": {
@@ -444,7 +477,11 @@
       "rating": 4.0,
       "description": "Affordable 2BHK flat with balconies opening to views of Hindon Elevated Road and ample natural light. Ideal for young professionals and couples seeking a comfortable living experience.",
       "amenities": ["Gated Security", "Power Backup", "Park", "Clubhouse"],
-      "images": ["/images/05.avif"],
+      "images": ["/images/05.avif",
+        "/images/05.avif",
+        "/images/05.avif",
+        "/images/05.avif"
+      ],
       "agent": {
         "name": "Rajesh Tyagi",
         "phone": "+91 98180 77665",
@@ -478,6 +515,9 @@
         "Solar Panels"
       ],
       "images": [
+        "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=1600",
+        "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=1600",
+        "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=1600",
         "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=1600"
       ],
       "agent": {
@@ -513,6 +553,9 @@
         "CCTV Security"
       ],
       "images": [
+        "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=1600",
+        "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=1600",
+        "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=1600",
         "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=1600"
       ],
       "agent": {
@@ -548,6 +591,9 @@
         "Spa & Sauna"
       ],
       "images": [
+        "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=1600",
+        "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=1600",
+        "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=1600",
         "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=1600"
       ],
       "agent": {
@@ -582,7 +628,11 @@
         "24x7 Security",
         "Clubhouse"
       ],
-      "images": ["/images/land_02.avif"],
+      "images": ["/images/land_02.avif",
+        "/images/land_02.avif",
+        "/images/land_02.avif",
+        "/images/land_02.avif"
+      ],
 
       "agent": {
         "name": "Pooja Verma",
@@ -617,6 +667,9 @@
         "CCTV Security"
       ],
       "images": [
+        "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?q=80&w=1600",
+        "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?q=80&w=1600",
+        "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?q=80&w=1600",
         "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?q=80&w=1600"
       ],
       "agent": {
@@ -652,6 +705,9 @@
         "Fire Safety"
       ],
       "images": [
+        "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1600",
+        "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1600",
+        "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1600",
         "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1600"
       ],
       "agent": {
@@ -687,7 +743,10 @@
         "Terrace Access"
       ],
       "images": [
-        "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1600"
+        "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1600",
+         "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=1600",
+          "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=1600",
+           "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=1600"
       ],
       "agent": {
         "name": "Vikram Singh",
@@ -721,7 +780,7 @@
         "Water Supply",
         "Paved Roads"
       ],
-      "images": ["/images/land_03.avif"],
+      "images": ["/images/land_03.avif","/images/land_03.avif","/images/land_03.avif","/images/land_03.avif"],
       "agent": {
         "name": "Suresh Gupta",
         "phone": "+91 98990 11445",
@@ -755,7 +814,10 @@
         "Full Power Backup"
       ],
       "images": [
-        "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=1600"
+        "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=1600",
+         "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=1600",
+          "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=1600",
+           "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=1600"
       ],
       "agent": {
         "name": "Amit Kumar",
@@ -790,7 +852,10 @@
         "Convenience Store"
       ],
       "images": [
-        "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=1600"
+        "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=1600",
+         "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=1600", 
+          "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=1600",
+           "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=1600"
       ],
       "agent": {
         "name": "Pooja Verma",
@@ -820,7 +885,10 @@
       "description": "2BHK family apartment inside integrated township with dedicated parking, green belts, and local market. Ideal for families seeking a comfortable and convenient lifestyle.",
       "amenities": ["Park", "24x7 Security", "Power Backup", "Gymnasium"],
       "images": [
-        "https://images.unsplash.com/photo-1493809842364-78817add7ffb?q=80&w=1600"
+        "https://images.unsplash.com/photo-1493809842364-78817add7ffb?q=80&w=1600",
+         "https://images.unsplash.com/photo-1493809842364-78817add7ffb?q=80&w=1600",
+          "https://images.unsplash.com/photo-1493809842364-78817add7ffb?q=80&w=1600",
+           "https://images.unsplash.com/photo-1493809842364-78817add7ffb?q=80&w=1600"
       ],
       "agent": {
         "name": "Rajesh Tyagi",
@@ -855,7 +923,10 @@
         "Children Play Area"
       ],
       "images": [
-        "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1600"
+        "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1600",
+         "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1600",
+          "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1600",
+           "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1600"
       ],
       "agent": {
         "name": "Manish Sharma",
@@ -885,7 +956,10 @@
       "description": "Well-connected 2BHK apartment near Noida-Greater Noida Expressway with easy access to Sector 137 Metro Station. Ideal for families seeking a comfortable and convenient lifestyle.",
       "amenities": ["Swimming Pool", "Gymnasium", "Clubhouse", "24x7 Security"],
       "images": [
-        "https://images.unsplash.com/photo-1493809842364-78817add7ffb?q=80&w=1600"
+        "https://images.unsplash.com/photo-1493809842364-78817add7ffb?q=80&w=1600",
+         "https://images.unsplash.com/photo-1493809842364-78817add7ffb?q=80&w=1600",
+          "https://images.unsplash.com/photo-1493809842364-78817add7ffb?q=80&w=1600",
+           "https://images.unsplash.com/photo-1493809842364-78817add7ffb?q=80&w=1600"
       ],
       "agent": {
         "name": "Pooja Verma",

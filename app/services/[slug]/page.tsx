@@ -64,17 +64,17 @@ export default async function ServiceDetailPage({
           >
             <Link
               href="/"
-              className="inline-flex items-center gap-1 hover:text-white"
+              className="inline-flex font-bold text-lg items-center gap-1 hover:text-white"
             >
               <Home size={14} />
               Home
             </Link>
             <ChevronsRight size={14} />
-            <Link href="/services" className="hover:text-white">
+            <Link href="/services" className="hover:text-white font-bold text-lg">
               Services
             </Link>
             <ChevronsRight size={14} />
-            <span className="font-medium text-white">{service.title}</span>
+            <span className="font-bold text-lg text-white font-heading text-center ">{service.title}</span>
           </nav>
         </div>
       </section>

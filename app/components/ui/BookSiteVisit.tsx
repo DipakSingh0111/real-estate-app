@@ -57,10 +57,7 @@ export default function BookSiteVisit({
                 with our dedicated real estate expert. Free pick & drop service
                 available on request.
               </p>
-
-              {/* Property Details Pill */}
             </div>
-
             {/* Right Form Container */}
             <div className="lg:col-span-6">
               <div className="rounded-2xl border border-slate-800 bg-slate-950/80 p-4 sm:p-6 backdrop-blur-xl">

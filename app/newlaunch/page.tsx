@@ -97,7 +97,7 @@ function NewLaunchContent() {
             NEW LAUNCH PROJECTS
           </h1>
 
-          {/* 📍 Breadcrumb (Below Title, Center Aligned) */}
+          
           <nav
             aria-label="Breadcrumb"
             className="mt-3 flex items-center justify-center gap-1.5 text-sm font-medium text-white flex-wrap"
@@ -153,10 +153,6 @@ function NewLaunchContent() {
                   >
                     {item.status}
                   </span>
-                  {/* Category */}
-                  <span className="absolute right-3 top-3 rounded-md bg-slate-900/75 px-2 py-0.5 text-[10px] font-semibold text-white backdrop-blur-md">
-                    {item.category}
-                  </span>
                 </div>
 
                 {/* Info */}
@@ -181,16 +177,7 @@ function NewLaunchContent() {
                     <p className="text-sm font-extrabold text-slate-900">
                       {item.price}
                     </p>
-                    <div className="flex items-center gap-2.5 text-[11px] text-slate-500">
-                      <span className="flex items-center gap-1">
-                        <Bed size={12} className="text-slate-400" />
-                        {item.beds ?? item.bedrooms ?? 0}
-                      </span>
-                      <span className="flex items-center gap-1">
-                        <Bath size={12} className="text-slate-400" />
-                        {item.baths ?? item.bathrooms ?? 0}
-                      </span>
-                    </div>
+                   
                   </div>
                 </div>
               </div>

@@ -1,7 +1,6 @@
 "use client";
 
 import { useRouter, useSearchParams, usePathname } from "next/navigation";
-import { ChevronDown } from "lucide-react";
 import type { PropertyListingFiltersProps } from "@/types/property";
 
 export default function PropertyListingFilters({
@@ -51,7 +50,6 @@ export default function PropertyListingFilters({
         })}
 
       </div>
-
       <p className="text-sm text-stone-400">
         <span className="font-semibold text-stone-600">{resultCount}</span>{" "}
         result{resultCount !== 1 ? "s" : ""}

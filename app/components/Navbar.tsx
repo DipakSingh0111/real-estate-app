@@ -3,7 +3,55 @@
 import Link from "next/link";
 import { useState, useEffect, useCallback } from "react";
 import { usePathname } from "next/navigation";
-import { Menu, X, ChevronDown, PhoneCall, Phone } from "lucide-react";
+import { Menu, X, ChevronDown, PhoneCall, Phone, Mail } from "lucide-react";
+import { FaAmazon } from "react-icons/fa";
+import {
+  FaFacebookF,
+  FaWhatsapp,
+  FaLinkedinIn,
+  FaInstagram,
+  FaYoutube,
+  FaXTwitter,
+} from "react-icons/fa6";
+
+const contactPhones = [
+  { label: "+91 98765 43210", href: "tel:+919876543210" },
+  { label: "+91 87366 74937", href: "tel:+918736674937" },
+];
+
+const socialLinks = [
+  {
+    href: "https://www.facebook.com/",
+    label: "Facebook",
+    Icon: FaFacebookF,
+  },
+  {
+    href: "https://wa.me/919876543210",
+    label: "WhatsApp",
+    Icon: FaWhatsapp,
+  },
+  {
+    href: "https://www.linkedin.com/",
+    label: "LinkedIn",
+    Icon: FaLinkedinIn,
+  },
+  {
+    href: "https://www.instagram.com/",
+    label: "Instagram",
+    Icon: FaInstagram,
+  },
+  {
+    href: "https://www.youtube.com/",
+    label: "YouTube",
+    Icon: FaYoutube,
+  },
+  {
+    href: "https://amazon.in",
+    label: "Amazon",
+    Icon: FaAmazon
+    ,
+  },
+];
 
 const navGroups = [
   {
@@ -107,6 +155,72 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/95 backdrop-blur-xl">
+      {/* Top utility bar */}
+      <div className="border-b border-white/5 bg-slate-950 text-white">
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-2 sm:px-6 lg:px-8">
+          <div className="flex min-w-0 flex-1 items-center gap-3 text-[11px] sm:gap-5 sm:text-xs">
+            <div className="flex min-w-0 items-center gap-1.5 sm:gap-2">
+              <Phone
+                size={13}
+                className="shrink-0 text-[#C9A227]"
+                strokeWidth={2.25}
+              />
+              <div className="flex min-w-0 flex-wrap items-center gap-x-1.5 gap-y-0.5">
+                {contactPhones.map((phone, index) => (
+                  <span key={phone.href} className="inline-flex items-center">
+                    {index > 0 && (
+                      <span className="mr-1.5 hidden text-white/35 sm:inline">
+                        ,
+                      </span>
+                    )}
+                    <a
+                      href={phone.href}
+                      className={`font-medium tracking-wide text-white/85 transition-colors hover:text-[#E6C687] ${
+                        index > 0 ? "hidden sm:inline" : ""
+                      }`}
+                    >
+                      {phone.label}
+                    </a>
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <span
+              className="hidden h-3 w-px bg-white/15 md:block"
+              aria-hidden="true"
+            />
+
+            <a
+              href="mailto:sales@eliteestates.com"
+              className="hidden min-w-0 items-center gap-2 font-medium tracking-wide text-white/85 transition-colors hover:text-[#E6C687] md:inline-flex"
+            >
+              <Mail
+                size={13}
+                className="shrink-0 text-[#C9A227]"
+                strokeWidth={2.25}
+              />
+              <span className="truncate">sales@eliteestates.com</span>
+            </a>
+          </div>
+
+          <div className="flex shrink-0 items-center gap-1 sm:gap-1.5">
+            {socialLinks.map(({ href, label, Icon }) => (
+              <a
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={label}
+                className="flex h-7 w-7 items-center justify-center rounded-md text-white/70 transition-all duration-200 hover:-translate-y-0.5 hover:bg-white/10 hover:text-[#E6C687]"
+              >
+                <Icon size={13} />
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+
       <div className="mx-auto flex min-h-[60px] max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:min-h-[64px] sm:px-6 lg:px-8">
         {/* Logo */}
         <Link
@@ -224,7 +338,7 @@ export default function Navbar() {
 
       {/* Mobile backdrop */}
       <div
-        className={`fixed inset-0 top-[60px] z-40 bg-black/40 transition-opacity duration-300 sm:top-[64px] lg:hidden ${
+        className={`fixed inset-0 top-[96px] z-40 bg-black/40 transition-opacity duration-300 sm:top-[100px] lg:hidden ${
           open ? "opacity-100" : "pointer-events-none opacity-0"
         }`}
         onClick={closeMenu}
@@ -234,11 +348,13 @@ export default function Navbar() {
       {/* Mobile drawer */}
       <div
         className={`relative z-50 overflow-hidden border-t border-slate-100 bg-white transition-all duration-300 lg:hidden ${
-          open ? "max-h-[calc(100dvh-60px)] opacity-100 sm:max-h-[calc(100dvh-64px)]" : "max-h-0 opacity-0"
+          open
+            ? "max-h-[calc(100dvh-96px)] opacity-100 sm:max-h-[calc(100dvh-100px)]"
+            : "max-h-0 opacity-0"
         }`}
       >
         <nav
-          className="flex max-h-[calc(100dvh-60px)] flex-col gap-2 overflow-y-auto px-4 py-4 sm:max-h-[calc(100dvh-64px)] sm:gap-2.5 sm:px-6 sm:py-5"
+          className="flex max-h-[calc(100dvh-96px)] flex-col gap-2 overflow-y-auto px-4 py-4 sm:max-h-[calc(100dvh-100px)] sm:gap-2.5 sm:px-6 sm:py-5"
           data-lenis-prevent
         >
           <Link
