@@ -143,9 +143,9 @@ export default function BrowseByCity() {
               disabled={!canScrollLeft}
               aria-label="Scroll left"
               suppressHydrationWarning
-              className="flex h-9 w-9 items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-700 shadow-xs transition hover:border-slate-400 active:scale-95 disabled:opacity-30 cursor-pointer"
+              className="z-10 flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-slate-100 text-slate-900 shadow-lg transition hover:border-slate-400 hover:bg-[#F7F2E6] active:scale-95 disabled:opacity-30 cursor-pointer ring-1 ring-slate-200"
             >
-              <ChevronLeft size={18} />
+              <span className="text-1xl font-black leading-none">←</span>
             </button>
             <button
               type="button"
@@ -153,9 +153,9 @@ export default function BrowseByCity() {
               disabled={!canScrollRight}
               aria-label="Scroll right"
               suppressHydrationWarning
-              className="flex h-9 w-9 items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-700 shadow-xs transition hover:border-slate-400 active:scale-95 disabled:opacity-30 cursor-pointer"
+              className="z-10 flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-900 shadow-lg transition hover:border-slate-400 hover:bg-[#F7F2E6] active:scale-95 disabled:opacity-30 cursor-pointer ring-1 ring-slate-200"
             >
-              <ChevronRight size={18} />
+              <span className="text-1xl font-black leading-none">→</span>
             </button>
           </div>
         </motion.div>

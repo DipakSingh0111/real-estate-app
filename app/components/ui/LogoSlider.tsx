@@ -51,10 +51,10 @@ const LogoSlider = () => {
               type="button"
               onClick={() => scrollLogos("left")}
               suppressHydrationWarning
-              className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 shadow-2xs transition-all duration-300 hover:border-[#B8863D] hover:bg-[#FAF7F2] hover:text-[#B8863D] active:scale-95 cursor-pointer"
+              className="z-10 inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-slate-300 bg-slate-100 text-slate-900 shadow-lg transition-all duration-300 hover:border-[#B8863D] hover:bg-[#F7F2E6] active:scale-95 cursor-pointer ring-1 ring-slate-200"
               aria-label="Scroll left"
             >
-              <ChevronLeft size={18} />
+              <span className="text-3xl font-black leading-none">←</span>
             </button>
 
             {/* Logos Carousel - Exact 6 Items Visible on Desktop */}
@@ -88,10 +88,10 @@ const LogoSlider = () => {
               type="button"
               onClick={() => scrollLogos("right")}
               suppressHydrationWarning
-              className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 shadow-2xs transition-all duration-300 hover:border-[#B8863D] hover:bg-[#FAF7F2] hover:text-[#B8863D] active:scale-95 cursor-pointer"
+              className="z-10 inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-slate-300 bg-slate-100 text-slate-900 shadow-lg transition-all duration-300 hover:border-[#B8863D] hover:bg-[#F7F2E6] active:scale-95 cursor-pointer ring-1 ring-slate-200"
               aria-label="Scroll right"
             >
-              <ChevronRight size={18} />
+              <span className="text-3xl font-black leading-none">→</span>
             </button>
           </div>
         </div>

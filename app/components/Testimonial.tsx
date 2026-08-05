@@ -1,12 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import {
-  ChevronLeft,
-  ChevronRight,
-  Star,
-  Quote,
-} from "lucide-react";
+import { ChevronLeft, ChevronRight, Star, Quote } from "lucide-react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper/modules";
 
@@ -46,7 +41,7 @@ export default function Testimonial({
       {/* Container Aligned  */}
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         {/* Header Section */}
-       
+
         <motion.div
           initial={{ opacity: 0, y: -10 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -67,22 +62,22 @@ export default function Testimonial({
           </div>
 
           {/* Carousel Buttons */}
-          <div className="hidden sm:flex items-center gap-2">
+          <div className="flex items-center gap-2">
             <button
               type="button"
               suppressHydrationWarning
-              className="testi-prev-btn flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 shadow-2xs transition-all duration-300 hover:border-[#B8863D] hover:bg-[#FAF7F2] hover:text-[#B8863D] active:scale-95 disabled:opacity-30 cursor-pointer"
+              className="testi-prev-btn z-20 flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-900 shadow-lg transition-all duration-300 hover:border-[#B8863D] hover:bg-[#F7F2E6] hover:text-[#B8863D] active:scale-95 disabled:opacity-30 cursor-pointer ring-1 ring-slate-200"
               aria-label="Previous Testimonial"
             >
-              <ChevronLeft size={18} />
+              <span className="text-1xl font-black leading-none">←</span>
             </button>
             <button
               type="button"
               suppressHydrationWarning
-              className="testi-next-btn flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 shadow-2xs transition-all duration-300 hover:border-[#B8863D] hover:bg-[#FAF7F2] hover:text-[#B8863D] active:scale-95 disabled:opacity-30 cursor-pointer"
+              className="testi-next-btn z-20 flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-slate-100 text-slate-900 shadow-lg transition-all duration-300 hover:border-[#B8863D] hover:bg-[#F7F2E6] hover:text-[#B8863D] active:scale-95 disabled:opacity-30 cursor-pointer ring-1 ring-slate-200"
               aria-label="Next Testimonial"
             >
-              <ChevronRight size={18} />
+              <span className="text-1xl font-black leading-none">→</span>
             </button>
           </div>
         </motion.div>
