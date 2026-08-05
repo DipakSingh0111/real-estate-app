@@ -138,23 +138,6 @@ export default function Hero({ cities }: HeroProps) {
           </div>
         </motion.div>
 
-        {/* Slide Pagination Dots */}
-        <div className="absolute inset-x-0 bottom-3 z-20 flex justify-center gap-2 sm:bottom-4">
-          {heroImages.map((image, index) => (
-            <button
-              key={image}
-              type="button"
-              onClick={() => setActiveSlide(index)}
-              suppressHydrationWarning
-              className={`h-1.5 rounded-full transition-all duration-500 ease-out sm:h-2 ${
-                index === activeSlide
-                  ? "w-7 bg-[#D4AF37] sm:w-8"
-                  : "w-1.5 bg-white/50 hover:bg-white/80 sm:w-2"
-              }`}
-              aria-label={`Slide ${index + 1}`}
-            />
-          ))}
-        </div>
       </section>
     </div>
   );

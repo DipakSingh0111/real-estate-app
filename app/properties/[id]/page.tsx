@@ -252,11 +252,11 @@ export default async function PropertyDetailPage({
                           return (
                             <div
                               key={stat.label}
-                              className="flex items-center gap-2.5 rounded-xl bg-white/10 px-4 py-2.5 backdrop-blur-sm"
+                              className="flex items-center gap-2.5 rounded-xl bg-white px-4 py-2.5 backdrop-blur-sm"
                             >
                               <Icon size={16} className="text-[#f0d9a8]" />
                               <div>
-                                <p className="text-[10px] text-white/60">
+                                <p className="text-[10px] text-white">
                                   {stat.label}
                                 </p>
                                 <p className="text-sm font-bold">
