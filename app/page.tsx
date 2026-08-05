@@ -99,17 +99,9 @@ export default function HomePage() {
               elegance.
             </p>
           </div>
-
-          {/* Desktop Action Link */}
-          <Link
-            href="/properties"
-            className="group hidden items-center gap-2 text-sm font-semibold text-slate-900 transition-colors hover:text-cyan-600 sm:inline-flex"
-          >
-            View all properties →
-          </Link>
         </motion.div>
 
-        {/* Property Grid (4 Cards per row) */}
+        {/* Property Grid */}
         <motion.div
           variants={cardGridVariants}
           initial={reduceMotion ? false : "hidden"}
