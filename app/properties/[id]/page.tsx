@@ -97,7 +97,7 @@ export default async function PropertyDetailPage({
   }[];
 
   return (
-    <main className="min-h-screen bg-[#F8F5F0]">
+    <main className=" bg-[#F8F5F0]">
       <section className="relative overflow-hidden">
         <div className="absolute inset-0">
           <Image
@@ -139,13 +139,11 @@ export default async function PropertyDetailPage({
               type={property.type}
               listingType={property.listingType}
             />
-
-            {/* Title + Price card */}
+            {/* Title*/}
             <div className="overflow-hidden rounded-2xl border border-slate-100 bg-white shadow-sm">
               <div className="relative bg-gradient-to-br from-[#322f2a] via-[#4a4338] to-[#d9b778] px-6 py-6 text-white sm:px-8 sm:py-7">
                 <div className="absolute -right-8 -top-8 h-32 w-32 rounded-full bg-white/5" />
                 <div className="absolute -bottom-6 -left-6 h-24 w-24 rounded-full bg-white/5" />
-
                 <div className="relative">
                   <div className="mb-4 flex flex-wrap gap-2">
                     <span className="rounded-full bg-white/15 px-3 py-1 text-[11px] font-semibold backdrop-blur-sm">
@@ -208,7 +206,9 @@ export default async function PropertyDetailPage({
                                 <p className="text-[10px] text-white/60">
                                   {stat.label}
                                 </p>
-                                <p className="text-sm font-bold">{stat.value}</p>
+                                <p className="text-sm font-bold">
+                                  {stat.value}
+                                </p>
                               </div>
                             </div>
                           );

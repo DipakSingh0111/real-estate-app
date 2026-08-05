@@ -48,8 +48,7 @@ const socialLinks = [
   {
     href: "https://amazon.in",
     label: "Amazon",
-    Icon: FaAmazon
-    ,
+    Icon: FaAmazon,
   },
 ];
 
@@ -386,26 +385,18 @@ export default function Navbar() {
                   />
                 </button>
 
-                <div
-                  className={`grid transition-all duration-200 ${
-                    isExpanded
-                      ? "grid-rows-[1fr] opacity-100"
-                      : "grid-rows-[0fr] opacity-0"
-                  }`}
-                >
-                  <div className="overflow-hidden">
-                    <div className="grid gap-1 border-t border-slate-200/60 px-2 pb-2.5 pt-1.5">
-                      {group.items.map((item) => (
-                        <Link
-                          key={item.href}
-                          href={item.href}
-                          onClick={closeMenu}
-                          className="rounded-lg px-4 py-3 text-base font-medium text-slate-600 transition hover:bg-white hover:text-[#B8863D]"
-                        >
-                          {item.label}
-                        </Link>
-                      ))}
-                    </div>
+                <div className={isExpanded ? "block" : "hidden"}>
+                  <div className="grid gap-1 border-t border-slate-200/60 px-2 pt-1.5">
+                    {group.items.map((item) => (
+                      <Link
+                        key={item.href}
+                        href={item.href}
+                        onClick={closeMenu}
+                        className="rounded-lg px-4 py-3 text-base font-medium text-slate-600 transition hover:bg-white hover:text-[#B8863D]"
+                      >
+                        {item.label}
+                      </Link>
+                    ))}
                   </div>
                 </div>
               </div>
