@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { usePathname } from "next/navigation";
 import { Menu, X, ChevronDown, PhoneCall, Phone, Mail } from "lucide-react";
 import { FaAmazon } from "react-icons/fa";
@@ -11,7 +11,6 @@ import {
   FaLinkedinIn,
   FaInstagram,
   FaYoutube,
-  FaXTwitter,
 } from "react-icons/fa6";
 
 const contactPhones = [
@@ -107,19 +106,37 @@ const topLinks = [
 
 export default function Navbar() {
   const pathname = usePathname();
+  const headerRef = useRef<HTMLElement>(null);
   const [open, setOpen] = useState(false);
   const [expandedGroup, setExpandedGroup] = useState<string | null>(null);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [headerHeight, setHeaderHeight] = useState(96);
 
   const closeMenu = useCallback(() => {
     setOpen(false);
     setExpandedGroup(null);
   }, []);
 
+  const measureHeader = useCallback(() => {
+    if (headerRef.current) {
+      setHeaderHeight(headerRef.current.getBoundingClientRect().height);
+    }
+  }, []);
+
   useEffect(() => {
     closeMenu();
     setActiveDropdown(null);
   }, [pathname, closeMenu]);
+
+  useEffect(() => {
+    measureHeader();
+    window.addEventListener("resize", measureHeader);
+    return () => window.removeEventListener("resize", measureHeader);
+  }, [measureHeader]);
+
+  useEffect(() => {
+    measureHeader();
+  }, [open, measureHeader]);
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
@@ -153,28 +170,31 @@ export default function Navbar() {
   };
 
   return (
-    <header className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/95 backdrop-blur-xl">
+    <header
+      ref={headerRef}
+      className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/95 backdrop-blur-xl"
+    >
       {/* Top utility bar */}
       <div className="border-b border-white/5 bg-slate-950 text-white">
-        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-2 sm:px-6 lg:px-8">
-          <div className="flex min-w-0 flex-1 items-center gap-3 text-[11px] sm:gap-5 sm:text-xs">
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-2 px-3 py-1.5 sm:gap-4 sm:px-6 sm:py-2 lg:px-8">
+          <div className="flex min-w-0 flex-1 items-center gap-2 text-[10px] sm:gap-5 sm:text-xs">
             <div className="flex min-w-0 items-center gap-1.5 sm:gap-2">
               <Phone
-                size={13}
-                className="shrink-0 text-[#C9A227]"
+                size={12}
+                className="shrink-0 text-[#C9A227] sm:h-[13px] sm:w-[13px]"
                 strokeWidth={2.25}
               />
-              <div className="flex min-w-0 flex-wrap items-center gap-x-1.5 gap-y-0.5">
+              <div className="flex min-w-0 items-center gap-x-1">
                 {contactPhones.map((phone, index) => (
                   <span key={phone.href} className="inline-flex items-center">
                     {index > 0 && (
-                      <span className="mr-1.5 hidden text-white/35 sm:inline">
+                      <span className="mr-1 hidden text-white/35 sm:inline">
                         ,
                       </span>
                     )}
                     <a
                       href={phone.href}
-                      className={`font-medium tracking-wide text-white/85 transition-colors hover:text-[#E6C687] ${
+                      className={`truncate font-medium tracking-wide text-white/85 transition-colors hover:text-[#E6C687] ${
                         index > 0 ? "hidden sm:inline" : ""
                       }`}
                     >
@@ -202,24 +222,27 @@ export default function Navbar() {
               <span className="truncate">sales@eliteestates.com</span>
             </a>
           </div>
-          <div className="flex shrink-0 items-center gap-1 sm:gap-1.5">
-            {socialLinks.map(({ href, label, Icon }) => (
+
+          <div className="flex shrink-0 items-center gap-0.5 sm:gap-1.5">
+            {socialLinks.map(({ href, label, Icon }, index) => (
               <a
                 key={label}
                 href={href}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={label}
-                className="flex h-7 w-7 items-center justify-center rounded-md text-white/70 transition-all duration-200 hover:-translate-y-0.5 hover:bg-white/10 hover:text-[#E6C687]"
+                className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-md text-white/70 transition-all duration-200 hover:bg-white/10 hover:text-[#E6C687] sm:h-7 sm:w-7 ${
+                  index >= 4 ? "hidden min-[400px]:flex" : ""
+                }`}
               >
-                <Icon size={13} />
+                <Icon className="h-3 w-3 sm:h-[13px] sm:w-[13px]" />
               </a>
             ))}
           </div>
         </div>
       </div>
 
-      <div className="mx-auto flex min-h-[60px] max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:min-h-[64px] sm:px-6 lg:px-8">
+      <div className="mx-auto flex min-h-[56px] max-w-7xl items-center justify-between gap-3 px-3 py-2.5 sm:min-h-[64px] sm:gap-4 sm:px-6 sm:py-3 lg:px-8">
         {/* Logo */}
         <Link
           href="/"
@@ -227,12 +250,12 @@ export default function Navbar() {
           className="group relative flex shrink-0 items-center py-1 focus:outline-none"
         >
           <div className="absolute -inset-1.5 -z-10 rounded-2xl bg-gradient-to-r from-[#B8863D]/25 via-[#D4AF37]/15 to-transparent opacity-70 blur-md transition-all duration-300 group-hover:opacity-100" />
-          <span className="text-xl font-black tracking-tight text-slate-900 sm:text-2xl">
+          <span className="text-lg font-black tracking-tight text-slate-900 sm:text-2xl">
             Nest<span className="text-[#B8863D]">Vista</span>
           </span>
         </Link>
 
-        {/* Desktop nav — lg+ only (tablets use mobile menu) */}
+        {/* Desktop nav — lg+ only */}
         <nav className="hidden flex-1 items-center justify-center gap-1 lg:flex xl:gap-2">
           <Link
             href="/"
@@ -313,52 +336,60 @@ export default function Navbar() {
         </div>
 
         {/* Mobile / tablet actions */}
-        <div className="flex shrink-0 items-center gap-2 lg:hidden">
+        <div className="flex shrink-0 items-center gap-1.5 sm:gap-2 lg:hidden">
           <a
             href="tel:+919876543210"
-            className="flex h-11 w-11 items-center justify-center rounded-xl border border-slate-200 bg-[#FAF7F2] text-[#B8863D] transition active:scale-95"
+            className="flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-[#FAF7F2] text-[#B8863D] transition active:scale-95 sm:h-11 sm:w-11"
             aria-label="Call us"
           >
-            <Phone size={20} />
+            <Phone size={18} className="sm:h-5 sm:w-5" />
           </a>
 
           <button
             type="button"
             onClick={() => setOpen((prev) => !prev)}
-            className="flex h-11 w-11 items-center justify-center rounded-xl border border-slate-200 text-slate-800 transition hover:bg-slate-50 active:scale-95"
+            className="flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 text-slate-800 transition hover:bg-slate-50 active:scale-95 sm:h-11 sm:w-11"
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
+            aria-controls="mobile-nav-drawer"
           >
-            {open ? <X size={24} /> : <Menu size={24} />}
+            {open ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>
       </div>
 
       {/* Mobile backdrop */}
       <div
-        className={`fixed inset-0 top-[96px] z-40 bg-black/40 transition-opacity duration-300 sm:top-[100px] lg:hidden ${
+        className={`fixed inset-x-0 bottom-0 z-40 bg-black/40 transition-opacity duration-300 lg:hidden ${
           open ? "opacity-100" : "pointer-events-none opacity-0"
         }`}
+        style={{ top: headerHeight }}
         onClick={closeMenu}
         aria-hidden="true"
       />
 
-      {/* Mobile drawer */}
+      {/* Mobile drawer — fixed below header, fully scrollable */}
       <div
-        className={`relative z-50 overflow-hidden border-t border-slate-100 bg-white transition-all duration-300 lg:hidden ${
+        id="mobile-nav-drawer"
+        className={`fixed inset-x-0 z-50 flex flex-col border-t border-slate-100 bg-white shadow-xl transition-all duration-300 ease-out lg:hidden ${
           open
-            ? "max-h-[calc(100dvh-96px)] opacity-100 sm:max-h-[calc(100dvh-100px)]"
-            : "max-h-0 opacity-0"
+            ? "visible translate-y-0 opacity-100"
+            : "invisible pointer-events-none -translate-y-2 opacity-0"
         }`}
+        style={{
+          top: headerHeight,
+          maxHeight: `calc(100dvh - ${headerHeight}px)`,
+        }}
+        aria-hidden={!open}
       >
         <nav
-          className="flex max-h-[calc(100dvh-96px)] flex-col gap-2 overflow-y-auto px-4 py-4 sm:max-h-[calc(100dvh-100px)] sm:gap-2.5 sm:px-6 sm:py-5"
+          className="flex min-h-0 flex-1 flex-col gap-1.5 overflow-y-auto overscroll-contain px-3 py-3 sm:gap-2 sm:px-6 sm:py-4"
           data-lenis-prevent
         >
           <Link
             href="/"
             onClick={closeMenu}
-            className="rounded-xl px-4 py-3 text-base font-bold text-slate-900 transition hover:bg-slate-50 hover:text-[#B8863D]"
+            className="rounded-xl px-3 py-2.5 text-[15px] font-bold text-slate-900 transition hover:bg-slate-50 hover:text-[#B8863D] sm:px-4 sm:py-3 sm:text-base"
           >
             Home
           </Link>
@@ -368,35 +399,41 @@ export default function Navbar() {
             return (
               <div
                 key={group.title}
-                className="overflow-hidden rounded-xl border border-slate-100 bg-[#FAF7F2]/50"
+                className="rounded-xl border border-slate-100 bg-[#FAF7F2]/50"
               >
                 <button
                   type="button"
                   onClick={() => toggleMobileGroup(group.title)}
-                  className="flex w-full items-center justify-between px-4 py-3.5 text-sm font-bold uppercase tracking-wider text-slate-800"
+                  className="flex w-full items-center justify-between gap-2 px-3 py-3 text-left text-xs font-bold uppercase tracking-wider text-slate-800 sm:px-4 sm:py-3.5 sm:text-sm"
                   aria-expanded={isExpanded}
                 >
                   <span>{group.title}</span>
                   <ChevronDown
                     size={18}
-                    className={`text-[#B8863D] transition-transform duration-200 ${
+                    className={`shrink-0 text-[#B8863D] transition-transform duration-200 ${
                       isExpanded ? "rotate-180" : ""
                     }`}
                   />
                 </button>
 
-                <div className={isExpanded ? "block" : "hidden"}>
-                  <div className="grid gap-1 border-t border-slate-200/60 px-2 pt-1.5">
-                    {group.items.map((item) => (
-                      <Link
-                        key={item.href}
-                        href={item.href}
-                        onClick={closeMenu}
-                        className="rounded-lg px-4 py-3 text-base font-medium text-slate-600 transition hover:bg-white hover:text-[#B8863D]"
-                      >
-                        {item.label}
-                      </Link>
-                    ))}
+                <div
+                  className={`grid transition-[grid-template-rows] duration-300 ease-out ${
+                    isExpanded ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+                  }`}
+                >
+                  <div className="min-h-0 overflow-hidden">
+                    <div className="grid gap-0.5 border-t border-slate-200/60 px-1.5 pb-2 pt-1 sm:px-2 sm:pb-2.5 sm:pt-1.5">
+                      {group.items.map((item) => (
+                        <Link
+                          key={item.href}
+                          href={item.href}
+                          onClick={closeMenu}
+                          className="rounded-lg px-3 py-2.5 text-sm font-medium text-slate-600 transition hover:bg-white hover:text-[#B8863D] active:bg-white sm:px-4 sm:py-3 sm:text-base"
+                        >
+                          {item.label}
+                        </Link>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -408,23 +445,23 @@ export default function Navbar() {
               key={link.href}
               href={link.href}
               onClick={closeMenu}
-              className="rounded-xl px-4 py-3 text-base font-bold text-slate-900 transition hover:bg-slate-50 hover:text-[#B8863D]"
+              className="rounded-xl px-3 py-2.5 text-[15px] font-bold text-slate-900 transition hover:bg-slate-50 hover:text-[#B8863D] sm:px-4 sm:py-3 sm:text-base"
             >
               {link.label}
             </Link>
           ))}
-
-          <div className="sticky bottom-0 mt-2 border-t border-slate-100 bg-white pt-4 pb-2">
-            <a
-              href="tel:+919876543210"
-              onClick={closeMenu}
-              className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#B8863D] px-4 py-3.5 text-base font-semibold text-white shadow-sm transition hover:bg-[#a07433] active:scale-[0.98]"
-            >
-              <PhoneCall size={18} />
-              Call +91 98765 43210
-            </a>
-          </div>
         </nav>
+
+        <div className="shrink-0 border-t border-slate-100 bg-white px-3 py-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] sm:px-6 sm:py-4">
+          <a
+            href="tel:+919876543210"
+            onClick={closeMenu}
+            className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#B8863D] px-4 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-[#a07433] active:scale-[0.98] sm:py-3.5 sm:text-base"
+          >
+            <PhoneCall size={18} />
+            Call +91 98765 43210
+          </a>
+        </div>
       </div>
     </header>
   );
