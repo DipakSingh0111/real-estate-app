@@ -85,7 +85,7 @@ export default async function PropertiesPage({
         style={{ backgroundImage: "url('/images/land_01.avif')" }}
       >
         <div className="absolute inset-0 bg-black/40" />
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 text-center relative z-10">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 text-center relative z-10 sm:py-12">
           <h1 className="font-heading text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl">
             {pageTitle}
           </h1>
@@ -138,7 +138,7 @@ export default async function PropertiesPage({
             ))}
           </div>
         ) : (
-          <div className="py-20 text-center">
+          <div className="py-8 text-center">
             <p className="text-base font-semibold text-stone-800">
               No properties found
             </p>

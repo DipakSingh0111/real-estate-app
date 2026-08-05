@@ -47,7 +47,7 @@ export default async function BlogDetailPage({
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/30" />
         </div>
 
-        <div className="relative mx-auto max-w-4xl px-4 py-16 text-center sm:px-6 sm:py-20 lg:px-8">
+        <div className="relative mx-auto max-w-4xl px-4 py-8 text-center sm:px-6 sm:py-12 lg:px-8">
           <span className="inline-flex rounded-lg bg-[#B8863D] px-2.5 py-1 text-[11px] font-bold uppercase tracking-wide text-white">
             {post.category}
           </span>
@@ -83,7 +83,10 @@ export default async function BlogDetailPage({
               Home
             </Link>
             <ChevronsRight size={14} />
-            <Link href="/blog" className="transition-colors hover:text-[#B8863D]">
+            <Link
+              href="/blog"
+              className="transition-colors hover:text-[#B8863D]"
+            >
               Blog
             </Link>
             <ChevronsRight size={14} />

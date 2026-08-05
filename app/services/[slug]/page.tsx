@@ -51,7 +51,7 @@ export default async function ServiceDetailPage({
         />
         <div className="absolute inset-0 bg-black/35" />
 
-        <div className="relative mx-auto flex min-h-[200px] max-w-7xl flex-col items-center justify-center px-6 py-20 text-center sm:py-24 lg:px-8 lg:py-20">
+        <div className="relative mx-auto flex min-h-[160px] max-w-7xl flex-col items-center justify-center px-6 py-8 text-center sm:py-12 lg:px-8 lg:py-12">
           <div className="max-w-3xl">
             <h1 className="font-heading text-3xl font-extrabold text-white sm:text-4xl lg:text-5xl">
               {service.title}
@@ -70,11 +70,16 @@ export default async function ServiceDetailPage({
               Home
             </Link>
             <ChevronsRight size={14} />
-            <Link href="/services" className="hover:text-white font-bold text-lg">
+            <Link
+              href="/services"
+              className="hover:text-white font-bold text-lg"
+            >
               Services
             </Link>
             <ChevronsRight size={14} />
-            <span className="font-bold text-lg text-white font-heading text-center ">{service.title}</span>
+            <span className="font-bold text-lg text-white font-heading text-center ">
+              {service.title}
+            </span>
           </nav>
         </div>
       </section>

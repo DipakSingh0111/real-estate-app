@@ -52,9 +52,9 @@ export default function AwardsGrid({ awards, years }: AwardsGridProps) {
   ];
 
   return (
-    <section className="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8 lg:pb-24">
-      <div className="mt-7 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
-        <h2 className="max-w-md font-heading text-[1.65rem] font-normal leading-[1.25] text-stone-900 sm:text-[1.85rem]">
+    <section className="mx-auto max-w-7xl px-4 pb-6 sm:px-6 lg:px-8 lg:pb-10">
+      <div className="mt-2 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+        <h2 className="max-w-md font-heading text-[1.35rem] font-semibold leading-[1.2] text-stone-900 sm:text-[1.55rem]">
           Awards that mark how we work.
         </h2>
 
@@ -79,14 +79,14 @@ export default function AwardsGrid({ awards, years }: AwardsGridProps) {
         </div>
       </div>
 
-      <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-7 lg:grid-cols-3 lg:gap-8">
+      <div className="mt-3 grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3 lg:gap-5">
         {filtered.map((award) => (
           <AwardCard key={award.id} award={award} />
         ))}
       </div>
 
       {filtered.length === 0 && (
-        <p className="py-20 text-center text-sm text-stone-500">
+        <p className="py-8 text-center text-sm text-stone-500">
           No awards found for this year.
         </p>
       )}

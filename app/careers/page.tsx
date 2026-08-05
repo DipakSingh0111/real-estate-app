@@ -108,7 +108,7 @@ export default function CareerPage() {
         {/* Dark Overlay */}
         <div className="absolute inset-0 bg-black/60" />
 
-        <div className="relative mx-auto max-w-7xl px-6 py-16 sm:py-24 lg:px-8 flex flex-col items-center justify-center text-center">
+        <div className="hero-inner flex flex-col items-center justify-center text-center">
           {/* Main Title */}
           <h1 className="font-heading text-3xl font-extrabold uppercase tracking-wide text-white sm:text-4xl lg:text-5xl">
             CAREERS

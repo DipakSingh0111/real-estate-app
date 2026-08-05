@@ -17,7 +17,7 @@ export default function ProjectsPage() {
         style={{ backgroundImage: "url('/images/land_01.avif')" }}
       >
         <div className="absolute inset-0 bg-black/40" />
-        <div className="mx-auto max-w-7xl px-4 py-20 text-center relative z-10 sm:px-6 lg:px-8">
+        <div className="hero-inner text-center relative z-10">
           <h1 className="font-heading text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl">
             {pageTitle}
           </h1>

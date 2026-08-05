@@ -6,20 +6,108 @@
   body {
     font-family: var(--font-body), "DM Sans", sans-serif;
   }
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     font-family: var(--font-heading), "Cormorant Garamond", Georgia, serif;
     letter-spacing: -0.02em;
+  }
+  /* Typography hierarchy */
+  h1 {
+    @apply text-4xl sm:text-5xl lg:text-6xl font-heading font-extrabold leading-tight mb-4;
+  }
+  h2 {
+    @apply text-3xl sm:text-4xl font-heading font-bold leading-tight mb-3;
+  }
+  h3 {
+    @apply text-2xl sm:text-3xl font-heading font-semibold leading-snug mb-2.5;
+  }
+  h4 {
+    @apply text-xl font-heading font-semibold mb-2;
+  }
+  h5 {
+    @apply text-lg font-heading font-medium mb-2;
+  }
+  h6 {
+    @apply text-sm font-heading font-medium mb-1.5;
+  }
+
+  .subheading {
+    @apply text-lg text-slate-700 font-medium leading-snug;
+  }
+
+  .lead {
+    @apply text-base sm:text-lg text-slate-600 leading-relaxed;
+  }
+
+  p {
+    @apply text-sm sm:text-base text-slate-600 leading-relaxed mb-4;
+  }
+
+  small {
+    @apply text-xs text-slate-500;
+  }
+  /* Standardize button sizing across the app */
+  button,
+  a.btn {
+    @apply inline-flex items-center justify-center rounded-md text-sm font-medium;
+    padding: 0.5rem 1rem !important;
+    font-size: 0.875rem !important; /* same as text-sm */
+    line-height: 1 !important;
+  }
+  /* Stronger hover animations for buttons */
+  button,
+  a.btn {
+    @apply transition-transform duration-200 ease-out;
+    will-change: transform, box-shadow;
+  }
+  button:hover,
+  a.btn:hover {
+    transform: translateY(-4px) scale(1.03);
+    box-shadow: 0 12px 30px rgba(15, 23, 42, 0.12);
+  }
+  button:active,
+  a.btn:active {
+    transform: translateY(0) scale(0.995);
+    transition-duration: 75ms;
+  }
+}
+
+/* Enable native smooth scrolling as a fallback */
+html {
+  scroll-behavior: smooth;
+}
+
+@layer components {
+  /* Reusable hero inner container for consistent slim heroes */
+  .hero-inner {
+    @apply relative mx-auto max-w-7xl px-6 py-3 sm:py-5 lg:px-8;
+  }
+}
+
+/* Increase section padding for a more premium feel */
+@layer base {
+  section {
+    @apply py-12 lg:py-20;
+  }
+
+  /* Utility class for sections to ensure consistent inner padding */
+  .section {
+    @apply px-6 lg:px-8 py-12 lg:py-20;
   }
 }
 
 .font-heading {
-  font-family: var(--font-heading), "Cormorant Garamond", Georgia, serif !important;
+  font-family: var(--font-heading), "Cormorant Garamond", Georgia, serif;
 }
 .font-body {
-  font-family: var(--font-body), "DM Sans", sans-serif !important;
+  font-family: var(--font-body), "DM Sans", sans-serif;
 }
 .font-mono {
-  font-family: var(--font-mono), "IBM Plex Mono", monospace !important;
+  font-family: var(--font-mono), "IBM Plex Mono", monospace;
 }
 
 .scrollbar-hide {

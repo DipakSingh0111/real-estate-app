@@ -55,7 +55,7 @@ export default function Hero({ cities }: HeroProps) {
   return (
     <div className="relative w-full overflow-hidden">
       {/* HERO SECTION */}
-      <section className="relative flex min-h-[440px] items-center justify-center pt-14 pb-14 sm:min-h-[500px] lg:min-h-[500px]">
+      <section className="relative flex min-h-[280px] items-center justify-center pt-8 pb-8 sm:min-h-[340px] lg:min-h-[500px]">
         {/* Background Image Carousel with Overlay */}
         <div className="absolute inset-0 overflow-hidden">
           <AnimatePresence mode="wait">

@@ -87,7 +87,7 @@ export default function AboutUs() {
             {/* Action CTA Button */}
             <div className="pt-1">
               <Link
-                href="/about"
+                href="/about-us"
                 className="inline-flex items-center justify-center rounded-lg bg-[#C89234] px-5 py-2.5 text-xs font-semibold text-white shadow-sm transition-all hover:bg-[#b07e28] active:scale-95"
               >
                 Learn More

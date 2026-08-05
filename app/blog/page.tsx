@@ -23,7 +23,7 @@ export default function BlogPage() {
         />
         <div className="absolute inset-0 bg-black/60" />
 
-        <div className="relative mx-auto flex max-w-7xl flex-col items-center justify-center px-6 py-16 text-center sm:py-20 lg:px-8">
+        <div className="relative mx-auto flex max-w-7xl flex-col items-center justify-center px-6 py-8 text-center sm:py-12 lg:px-8">
           <h1 className="font-heading mt-4 text-3xl font-extrabold uppercase tracking-wide text-white sm:text-4xl lg:text-5xl">
             Blog & Insights
           </h1>
