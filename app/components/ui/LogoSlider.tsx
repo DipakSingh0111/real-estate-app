@@ -2,7 +2,6 @@
 
 import { useRef } from "react";
 import Image from "next/image";
-import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const logos = [
   { name: "DLF", src: "/images/dlf.jpg" },
@@ -54,7 +53,7 @@ const LogoSlider = () => {
               className="z-10 inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-slate-300 bg-slate-100 text-slate-900 shadow-lg transition-all duration-300 hover:border-[#B8863D] hover:bg-[#F7F2E6] active:scale-95 cursor-pointer ring-1 ring-slate-200"
               aria-label="Scroll left"
             >
-              <span className="text-3xl font-black leading-none">←</span>
+              <span className="text-1xl font-black leading-none">←</span>
             </button>
 
             {/* Logos Carousel - Exact 6 Items Visible on Desktop */}
@@ -91,7 +90,7 @@ const LogoSlider = () => {
               className="z-10 inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-slate-300 bg-slate-100 text-slate-900 shadow-lg transition-all duration-300 hover:border-[#B8863D] hover:bg-[#F7F2E6] active:scale-95 cursor-pointer ring-1 ring-slate-200"
               aria-label="Scroll right"
             >
-              <span className="text-3xl font-black leading-none">→</span>
+              <span className="text-1xl font-black leading-none">→</span>
             </button>
           </div>
         </div>
