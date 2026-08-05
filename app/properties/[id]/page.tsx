@@ -231,11 +231,11 @@ export default async function PropertyDetailPage({
                           </span>
                         )}
                       </div>
-                      <p className="font-heading mt-1 text-3xl font-extrabold sm:text-4xl">
+                      <p className="font-heading mt-1 text-3xl  sm:text-4xl" style={{ color: "#f0d9a8" }}>
                         {property.priceLabel}
                       </p>
                       {property.areaSqft && (
-                        <p className="mt-1 text-sm text-white/70">
+                        <p className="mt-1 text-sm text-white">
                           ₹
                           {Math.round(
                             property.price / property.areaSqft,
