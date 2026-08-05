@@ -1,4 +1,5 @@
 import React from "react";
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
@@ -7,7 +8,9 @@ import type { Property } from "@/types/property";
 import PropertyCard from "@/app/components/PropertyCard";
 import PropertyGallery from "@/app/components/PropertyGallery";
 import ContactForm from "@/app/components/ContactForm";
+import PropertyMobileActions from "@/app/components/PropertyMobileActions";
 import {
+  ArrowUpRight,
   ChevronRight,
   Home,
   MapPin,
@@ -20,12 +23,41 @@ import {
   Compass,
   Layers,
   Tag,
+  Phone,
+  MessageCircle,
+  UserRound,
+  Calculator,
 } from "lucide-react";
 
 const properties = propertiesData.Properties as Property[];
 
 export async function generateStaticParams() {
   return properties.map((p) => ({ id: p.id }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}): Promise<Metadata> {
+  const { id } = await params;
+  const property = properties.find((item) => item.id === id);
+
+  if (!property) return {};
+
+  const description = property.description.slice(0, 155);
+  const image = property.images?.[0];
+
+  return {
+    title: `${property.title} | NestVista`,
+    description,
+    openGraph: {
+      title: property.title,
+      description,
+      images: image ? [{ url: image, alt: property.title }] : [],
+      type: "website",
+    },
+  };
 }
 
 export default async function PropertyDetailPage({
@@ -36,6 +68,13 @@ export default async function PropertyDetailPage({
   const { id } = await params;
   const property = properties.find((p) => p.id === id);
   if (!property) notFound();
+
+  const agentPhone = property.agent.phone;
+  const whatsappPhone = agentPhone.replace(/\D/g, "");
+  const whatsappMessage = encodeURIComponent(
+    `Hi ${property.agent.name}, I'm interested in ${property.title} (${property.id}). Please share more details.`,
+  );
+  const whatsappHref = `https://wa.me/${whatsappPhone}?text=${whatsappMessage}`;
 
   const related = properties
     .filter(
@@ -76,7 +115,12 @@ export default async function PropertyDetailPage({
       value: property.bhk ? `${property.bhk} BHK` : "N/A",
     },
     { label: "RERA ID", value: property.reraId || "N/A" },
-    { label: "Possession", value: property.possession },
+    {
+      label: "Price per sq.ft",
+      value: property.areaSqft
+        ? `₹${Math.round(property.price / property.areaSqft).toLocaleString("en-IN")}`
+        : "N/A",
+    },
   ];
 
   const stats = [
@@ -97,7 +141,7 @@ export default async function PropertyDetailPage({
   }[];
 
   return (
-    <main className=" bg-[#F8F5F0]">
+    <div className="bg-[#F8F5F0] pb-20 lg:pb-0">
       <section className="relative overflow-hidden">
         <div className="absolute inset-0">
           <Image
@@ -106,31 +150,58 @@ export default async function PropertyDetailPage({
             fill
             className="object-cover"
           />
-          <div className="absolute inset-0 bg-black/70" />
+          <div className="absolute inset-0 bg-slate-950/70" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(2,6,23,0.52)_100%)]" />
+          <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-slate-950/45 to-transparent" />
         </div>
 
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-3 py-24 text-center">
-          <h1 className="mt-6 text-3xl font-extrabold uppercase tracking-[0.08em] text-white sm:text-5xl lg:text-4xl">
+        <div className="relative mx-auto flex max-w-5xl flex-col items-center px-4 py-12 text-center sm:px-6 sm:py-16 lg:px-8 lg:py-20">
+          <div className="flex flex-wrap items-center justify-center gap-2">
+              <span className="rounded-full border border-white/15 bg-white/10 px-3 py-1 text-[11px] font-semibold text-white backdrop-blur">
+                {property.type}
+              </span>
+              <span className="rounded-full bg-[#B8863D] px-3 py-1 text-[11px] font-semibold text-white">
+                For {property.listingType}
+              </span>
+          </div>
+
+          <h1 className="mt-4 max-w-4xl font-heading text-3xl font-bold leading-tight text-white drop-shadow-md sm:text-4xl lg:text-5xl">
             {property.title}
           </h1>
-          <div className="mt-6 flex flex-wrap items-center justify-center gap-3 text-sm text-white/80">
+
+          <p className="mt-3 flex items-center justify-center gap-2 text-sm text-white/75 sm:text-base">
+            <MapPin size={16} className="shrink-0 text-[#E6C687]" />
+            {property.locality}, {property.city}, {property.state}
+          </p>
+
+          <nav
+            aria-label="Breadcrumb"
+            className="mt-7 flex max-w-full items-center gap-1.5 rounded-full border border-white/10 bg-slate-950/30 px-4 py-2 text-[11px] text-white/65 shadow-lg backdrop-blur-md sm:mt-8 sm:text-xs"
+          >
             <Link
               href="/"
-              className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-white transition hover:bg-white/15"
+              className="inline-flex shrink-0 items-center gap-1.5 transition hover:text-[#E6C687]"
             >
-              <Home size={16} />
+              <Home size={13} />
               Home
             </Link>
-            <span className="inline-flex items-center gap-2">
-              <ChevronRight size={12} />
-              <span>{property.title}</span>
+            <ChevronRight size={12} className="shrink-0 text-white/30" />
+            <Link
+              href="/properties"
+              className="shrink-0 transition hover:text-[#E6C687]"
+            >
+              Properties
+            </Link>
+            <ChevronRight size={12} className="shrink-0 text-white/30" />
+            <span className="max-w-[130px] truncate text-white/90 sm:max-w-xs">
+              {property.title}
             </span>
-          </div>
+          </nav>
         </div>
       </section>
 
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8">
-        <div className="grid grid-cols-1 gap-6 lg:grid-cols-[1fr_380px]">
+      <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 sm:py-8 lg:px-8">
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-[minmax(0,1fr)_380px] lg:gap-8">
           {/* LEFT: Image + Description + Amenities */}
           <div className="space-y-5">
             <PropertyGallery
@@ -139,45 +210,27 @@ export default async function PropertyDetailPage({
               type={property.type}
               listingType={property.listingType}
             />
-            {/* Title*/}
+            {/* Price and key facts */}
             <div className="overflow-hidden rounded-2xl border border-slate-100 bg-white shadow-sm">
               <div className="relative bg-gradient-to-br from-[#322f2a] via-[#4a4338] to-[#d9b778] px-6 py-6 text-white sm:px-8 sm:py-7">
                 <div className="absolute -right-8 -top-8 h-32 w-32 rounded-full bg-white/5" />
                 <div className="absolute -bottom-6 -left-6 h-24 w-24 rounded-full bg-white/5" />
                 <div className="relative">
-                  <div className="mb-4 flex flex-wrap gap-2">
-                    <span className="rounded-full bg-white/15 px-3 py-1 text-[11px] font-semibold backdrop-blur-sm">
-                      {property.type}
-                    </span>
-                    <span
-                      className={`rounded-full px-3 py-1 text-[11px] font-semibold ${
-                        property.listingType === "Sale"
-                          ? "bg-emerald-500/80"
-                          : "bg-blue-500/80"
-                      }`}
-                    >
-                      For {property.listingType}
-                    </span>
-                    {property.rating > 0 && (
-                      <span className="rounded-full bg-white/15 px-3 py-1 text-[11px] font-semibold backdrop-blur-sm">
-                        ★ {property.rating}
-                      </span>
-                    )}
-                  </div>
-
-                  <h2 className="font-heading text-xl font-bold leading-snug sm:text-2xl">
-                    {property.title}
-                  </h2>
-                  <div className="mt-2 flex items-center gap-1.5 text-sm text-white/80">
-                    <MapPin size={14} className="shrink-0" />
-                    {property.locality}, {property.city}
-                  </div>
-
-                  <div className="mt-5 flex flex-wrap items-end justify-between gap-4 border-t border-white/20 pt-5">
+                  <div className="flex flex-wrap items-end justify-between gap-5">
                     <div>
-                      <p className="text-[11px] font-semibold uppercase tracking-widest text-white/60">
-                        Asking Price
-                      </p>
+                      <div className="flex items-center gap-2">
+                        <p className="text-[11px] font-semibold uppercase tracking-widest text-white/60">
+                          Asking Price
+                        </p>
+                        {property.rating > 0 && (
+                          <span
+                            aria-label={`Rated ${property.rating} out of 5`}
+                            className="rounded-full bg-white/10 px-2 py-0.5 text-[10px] font-semibold text-[#f0d9a8]"
+                          >
+                            ★ {property.rating}
+                          </span>
+                        )}
+                      </div>
                       <p className="font-heading mt-1 text-3xl font-extrabold sm:text-4xl">
                         {property.priceLabel}
                       </p>
@@ -347,12 +400,76 @@ export default async function PropertyDetailPage({
               </div>
             </div>
           </div>
-          {/* RIGHT: Sticky Sidebar — Contact Form */}
-          <div>
-            <div className="sticky top-6">
-              <ContactForm />
+          {/* RIGHT: Agent, actions and enquiry */}
+          <aside className="min-w-0">
+            <div className="space-y-4 lg:sticky lg:top-28">
+              <div className="overflow-hidden rounded-2xl border border-slate-200/80 bg-white p-5 shadow-sm">
+                <div className="flex items-center gap-3">
+                  <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-amber-50 text-[#B8863D]">
+                    <UserRound size={22} />
+                  </span>
+                  <div className="min-w-0">
+                    <p className="text-[10px] font-bold uppercase tracking-widest text-[#B8863D]">
+                      Property advisor
+                    </p>
+                    <h2 className="truncate text-base font-bold text-slate-900">
+                      {property.agent.name}
+                    </h2>
+                    <p className="truncate text-xs text-slate-500">
+                      {property.agent.agency}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="mt-4 grid grid-cols-2 gap-2">
+                  <a
+                    href={`tel:${agentPhone}`}
+                    className="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-200 px-3 py-2.5 text-sm font-bold text-slate-700 transition hover:border-[#B8863D] hover:text-[#B8863D]"
+                  >
+                    <Phone size={16} />
+                    Call
+                  </a>
+                  <a
+                    href={whatsappHref}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2 rounded-xl bg-emerald-600 px-3 py-2.5 text-sm font-bold text-white transition hover:bg-emerald-700"
+                  >
+                    <MessageCircle size={16} />
+                    WhatsApp
+                  </a>
+                </div>
+              </div>
+
+              <ContactForm
+                propertyTitle={property.title}
+                agentPhone={agentPhone}
+              />
+
+              {property.listingType === "Sale" && (
+                <Link
+                  href="/tools/emi-calculator"
+                  className="group flex items-center gap-3 rounded-2xl border border-[#B8863D]/25 bg-amber-50/70 p-4 transition hover:border-[#B8863D]/50 hover:bg-amber-50"
+                >
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white text-[#B8863D] shadow-sm">
+                    <Calculator size={18} />
+                  </span>
+                  <span className="min-w-0 flex-1">
+                    <span className="block text-sm font-bold text-slate-900">
+                      Estimate your EMI
+                    </span>
+                    <span className="block text-xs text-slate-500">
+                      Plan your monthly payment
+                    </span>
+                  </span>
+                  <ArrowUpRight
+                    size={17}
+                    className="text-[#B8863D] transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                  />
+                </Link>
+              )}
             </div>
-          </div>
+          </aside>
         </div>
         {/* Related Properties */}
         {related.length > 0 && (
@@ -373,6 +490,11 @@ export default async function PropertyDetailPage({
           </div>
         )}
       </div>
-    </main>
+
+      <PropertyMobileActions
+        agentPhone={agentPhone}
+        propertyTitle={property.title}
+      />
+    </div>
   );
 }

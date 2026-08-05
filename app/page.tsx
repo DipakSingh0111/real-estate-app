@@ -1,6 +1,8 @@
 "use client";
 
 import Link from "next/link";
+import { motion, useReducedMotion, type Variants } from "framer-motion";
+import type { ReactNode } from "react";
 
 import propertiesData from "../data/properties.json";
 import Hero from "./components/Hero";
@@ -21,12 +23,54 @@ import BookSiteVisit from "./components/ui/BookSiteVisit";
 const properties = propertiesData.Properties as Property[];
 const testimonials = propertiesData.testimonials as Testimonials[];
 
+function RevealSection({
+  children,
+  delay = 0,
+}: {
+  children: ReactNode;
+  delay?: number;
+}) {
+  const reduceMotion = useReducedMotion();
+
+  return (
+    <motion.div
+      initial={reduceMotion ? false : { opacity: 0, y: 30 }}
+      whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.08 }}
+      transition={{ duration: 0.65, delay, ease: [0.22, 1, 0.36, 1] }}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
 export default function HomePage() {
+  const reduceMotion = useReducedMotion();
   const cities = [...new Set(properties.map((p) => p.city))].sort();
 
   const featured = properties
     .filter((property) => property.featured)
     .slice(0, 4);
+
+  const cardGridVariants: Variants = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: reduceMotion ? 0 : 0.1,
+        delayChildren: reduceMotion ? 0 : 0.08,
+      },
+    },
+  };
+
+  const cardVariants: Variants = {
+    hidden: reduceMotion ? {} : { opacity: 0, y: 24, scale: 0.98 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] },
+    },
+  };
 
   return (
     <>
@@ -35,7 +79,13 @@ export default function HomePage() {
       {/* Featured Properties */}
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-6 pt-2 pb-6 mt-4">
         {/* Section Header */}
-        <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+        <motion.div
+          initial={reduceMotion ? false : { opacity: 0, y: 22 }}
+          whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.6 }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between"
+        >
           <div className="space-y-2">
             {/* Main Title with Volkhov Font */}
             <h2 className="mt-2 font-heading text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
@@ -54,15 +104,25 @@ export default function HomePage() {
           <Link
             href="/properties"
             className="group hidden items-center gap-2 text-sm font-semibold text-slate-900 transition-colors hover:text-cyan-600 sm:inline-flex"
-          ></Link>
-        </div>
+          >
+            View all properties →
+          </Link>
+        </motion.div>
 
         {/* Property Grid (4 Cards per row) */}
-        <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <motion.div
+          variants={cardGridVariants}
+          initial={reduceMotion ? false : "hidden"}
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.12 }}
+          className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4"
+        >
           {featured.map((property) => (
-            <PropertyCard key={property.id} property={property} />
+            <motion.div key={property.id} variants={cardVariants}>
+              <PropertyCard property={property} />
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         {/* Mobile Action Link */}
         <div className="mt-8 text-center sm:hidden">
@@ -75,30 +135,52 @@ export default function HomePage() {
         </div>
       </section>
       {/* About */}
-      <WhoWeServe />
+      <RevealSection>
+        <WhoWeServe />
+      </RevealSection>
       {/* Browse by City */}
-      <BrowseByCity />
+      <RevealSection>
+        <BrowseByCity />
+      </RevealSection>
       {/* Latest Projects */}
-      <LatestProjects />
+      <RevealSection>
+        <LatestProjects />
+      </RevealSection>
 
       {/* Property Services */}
-      <PropertyServices />
+      <RevealSection>
+        <PropertyServices />
+      </RevealSection>
       {/* InvestmentOpportunities */}
-      <Properties />
+      <RevealSection>
+        <Properties />
+      </RevealSection>
       {/* Testimonials */}
       {/* `PropertyProcess */}
-      <PropertyProcess />
+      <RevealSection>
+        <PropertyProcess />
+      </RevealSection>
       {/* Blogs */}
-      <BlogInsights />
+      <RevealSection>
+        <BlogInsights />
+      </RevealSection>
 
       {/* FAQ */}
-      <FaqSection />
+      <RevealSection>
+        <FaqSection />
+      </RevealSection>
       {/* Book Site Visit */}
-      <BookSiteVisit />
+      <RevealSection>
+        <BookSiteVisit />
+      </RevealSection>
       {/* Testimonials */}
-      <Testimonial testimonials={testimonials} />
+      <RevealSection>
+        <Testimonial testimonials={testimonials} />
+      </RevealSection>
       {/* Clients */}
-      <LogoSlider />
+      <RevealSection>
+        <LogoSlider />
+      </RevealSection>
     </>
   );
 }

@@ -55,7 +55,7 @@ export default function Hero({ cities }: HeroProps) {
   return (
     <div className="relative w-full overflow-hidden">
       {/* HERO SECTION */}
-      <section className="relative flex min-h-[280px] items-center justify-center pt-8 pb-8 sm:min-h-[340px] lg:min-h-[500px]">
+      <section className="relative flex min-h-[420px] items-center py-10 max-[359px]:min-h-[390px] max-[359px]:py-8 sm:min-h-[460px] sm:py-12 lg:min-h-[500px] lg:py-14">
         {/* Background Image Carousel with Overlay */}
         <div className="absolute inset-0 overflow-hidden">
           <AnimatePresence mode="wait">
@@ -65,12 +65,13 @@ export default function Hero({ cities }: HeroProps) {
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.98 }}
               transition={{ duration: 0.9, ease: [0.25, 0.1, 0.25, 1] }}
-              className="absolute inset-0 bg-cover bg-center"
+              className="absolute inset-0 bg-cover bg-[position:62%_center] sm:bg-center"
               style={{ backgroundImage: `url(${heroImages[activeSlide]})` }}
             />
           </AnimatePresence>
-          <div className="absolute inset-0 bg-slate-950/20" />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-950/65 via-slate-950/35 to-slate-950/10" />
+          <div className="absolute inset-0 bg-slate-950/30 sm:bg-slate-950/20" />
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-950/80 via-slate-950/55 to-slate-950/20 sm:from-slate-950/70 sm:via-slate-950/40 sm:to-slate-950/10" />
+          <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-slate-950/35 to-transparent sm:hidden" />
         </div>
 
         {/* Content Box */}
@@ -78,21 +79,24 @@ export default function Hero({ cities }: HeroProps) {
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="relative z-10 mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-5 font-hero-body"
+          className="relative z-10 mx-auto w-full max-w-7xl px-4 font-hero-body sm:px-6 lg:px-5"
         >
-          <div className="max-w-2xl space-y-5 text-left">
+          <div className="max-w-[36rem] space-y-4 text-left sm:max-w-2xl sm:space-y-5">
             {/* Badge */}
             <motion.div variants={itemVariants}>
-              <span className="inline-flex items-center gap-2 rounded-full border border-[#B8863D]/40 bg-[#B8863D]/15 px-2 py-1.5 text-xs font-semibold uppercase tracking-widest text-[#E6C687] backdrop-blur-md">
-                <Sparkles size={14} className="animate-pulse text-[#E6C687]" />
-                #1 {headers.heading}
+              <span className="inline-flex max-w-full items-center gap-1.5 rounded-full border border-[#B8863D]/40 bg-slate-950/25 px-2.5 py-1.5 text-[10px] font-semibold uppercase tracking-[0.14em] text-[#E6C687] backdrop-blur-md sm:gap-2 sm:text-xs sm:tracking-widest">
+                <Sparkles
+                  size={13}
+                  className="shrink-0 animate-pulse text-[#E6C687] sm:h-3.5 sm:w-3.5"
+                />
+                <span className="truncate">#1 {headers.heading}</span>
               </span>
             </motion.div>
 
             {/* Main Heading with Premium Playfair Display font */}
             <motion.h1
               variants={itemVariants}
-              className="font-hero-heading text-3xl font-bold leading-[1.15] tracking-tight text-white drop-shadow-lg sm:text-5xl lg:text-6xl"
+              className="max-w-[18ch] font-hero-heading text-[2rem] font-bold leading-[1.12] tracking-tight text-white drop-shadow-lg max-[359px]:text-[1.75rem] sm:max-w-none sm:text-5xl lg:text-6xl"
             >
               {headers.title}{" "}
               <span className="bg-gradient-to-r from-[#F3E5AB] via-[#D4AF37] to-[#B8863D] bg-clip-text italic text-transparent">
@@ -104,7 +108,7 @@ export default function Hero({ cities }: HeroProps) {
             {/* Sub-description */}
             <motion.p
               variants={itemVariants}
-              className="max-w-xl text-sm font-normal leading-relaxed text-white/95 drop-shadow-md sm:text-base"
+              className="max-w-[34rem] text-[13px] font-normal leading-6 text-white/90 drop-shadow-md max-[359px]:leading-5 sm:text-base sm:leading-relaxed sm:text-white/95"
             >
               {headers.description}
             </motion.p>
@@ -112,21 +116,21 @@ export default function Hero({ cities }: HeroProps) {
             {/* Action Buttons */}
             <motion.div
               variants={itemVariants}
-              className="mt-7 flex flex-col gap-3.5 sm:flex-row"
+              className="mt-6 grid w-full max-w-sm grid-cols-1 gap-2.5 min-[420px]:grid-cols-2 sm:mt-7 sm:flex sm:max-w-none sm:flex-row sm:gap-3.5"
             >
               <Link
                 href="/properties"
-                className="group inline-flex items-center justify-center gap-2 rounded-xl bg-[#B8863D] px-6 py-3.5 text-sm font-semibold text-white shadow-lg transition-all duration-300 hover:scale-[1.02] hover:bg-[#a07433] hover:shadow-[#B8863D]/25 active:scale-95"
+                className="group inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-[#B8863D] px-4 py-3 text-center text-sm font-semibold text-white shadow-lg transition-all duration-300 hover:scale-[1.02] hover:bg-[#a07433] hover:shadow-[#B8863D]/25 active:scale-95 sm:min-h-0 sm:w-auto sm:px-6 sm:py-3.5"
               >
-                Explore Properties
+                <span className="whitespace-nowrap">Explore Properties</span>
                 <ArrowRight
                   size={18}
-                  className="transition-transform duration-300 group-hover:translate-x-1"
+                  className="shrink-0 transition-transform duration-300 group-hover:translate-x-1"
                 />
               </Link>
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center rounded-xl border border-white/20 bg-white/10 px-6 py-3.5 text-sm font-semibold text-white backdrop-blur-md transition-all duration-300 hover:bg-white/20 hover:scale-[1.02] active:scale-95"
+                className="inline-flex min-h-12 w-full items-center justify-center rounded-xl border border-white/25 bg-white/10 px-4 py-3 text-sm font-semibold text-white backdrop-blur-md transition-all duration-300 hover:scale-[1.02] hover:bg-white/20 active:scale-95 sm:min-h-0 sm:w-auto sm:px-6 sm:py-3.5"
               >
                 Contact Us
               </Link>
@@ -135,17 +139,17 @@ export default function Hero({ cities }: HeroProps) {
         </motion.div>
 
         {/* Slide Pagination Dots */}
-        <div className="absolute bottom-4 left-0 right-0 z-20 flex justify-center gap-2">
+        <div className="absolute inset-x-0 bottom-3 z-20 flex justify-center gap-2 sm:bottom-4">
           {heroImages.map((image, index) => (
             <button
               key={image}
               type="button"
               onClick={() => setActiveSlide(index)}
               suppressHydrationWarning
-              className={`h-2 rounded-full transition-all duration-500 ease-out cursor-pointer ${
+              className={`h-1.5 rounded-full transition-all duration-500 ease-out sm:h-2 ${
                 index === activeSlide
-                  ? "w-8 bg-[#D4AF37]"
-                  : "w-2 bg-white/40 hover:bg-white/80"
+                  ? "w-7 bg-[#D4AF37] sm:w-8"
+                  : "w-1.5 bg-white/50 hover:bg-white/80 sm:w-2"
               }`}
               aria-label={`Slide ${index + 1}`}
             />
