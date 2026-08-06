@@ -1,5 +1,4 @@
 import React from "react";
-import Link from "next/link";
 import {
   Eye,
   Target,
@@ -9,9 +8,8 @@ import {
   Building2,
   FileCheck,
   Heart,
-  Home,
-  ChevronsRight,
 } from "lucide-react";
+import AboutPageBanner from "@/app/components/ui/AboutPageBanner";
 
 const coreValues = [
   {
@@ -78,49 +76,14 @@ const commitments = [
 export default function VisionMissionPage() {
   return (
     <main className="bg-[#FAF7F2] text-slate-900">
-      {/* Hero Section*/}
-      <section className="relative text-white border-b border-stone-800 overflow-hidden">
-        {/* Background Image */}
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage:
-              "url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1600&auto=format&fit=crop')",
-          }}
-        />
-        {/* Dark Overlay */}
-        <div className="absolute inset-0 bg-black/60" />
-
-        <div className="hero-inner flex flex-col items-center justify-center text-center">
-          {/* Main Title (Centered & Uppercase) */}
-          <h1 className="font-heading text-3xl font-extrabold uppercase tracking-wide text-white sm:text-4xl lg:text-5xl">
-            VISION & MISSION
-          </h1>
-
-          {/* 📍 Breadcrumb (Below Title, Center Aligned) */}
-          <nav
-            aria-label="Breadcrumb"
-            className="mt-3 flex items-center justify-center gap-1.5 text-sm font-medium text-white flex-wrap"
-          >
-            <Link
-              href="/"
-              className="flex items-center gap-1.5 transition-colors hover:text-[#e53935]"
-            >
-              <Home size={15} className="mb-0.5" />
-              <span>Home</span>
-            </Link>
-            <ChevronsRight size={14} className="text-white/70" />
-            <Link
-              href="/aboutus"
-              className="transition-colors hover:text-[#e53935]"
-            >
-              About Us
-            </Link>
-            <ChevronsRight size={14} className="text-white/70" />
-            <span className="text-[#e53935]">Vision & Mission</span>
-          </nav>
-        </div>
-      </section>
+      <AboutPageBanner
+        title="Vision & Mission"
+        description="Our purpose is to make every property decision transparent, informed, and focused on long-term value."
+        breadcrumbs={[
+          { label: "About Us", href: "/about-us" },
+          { label: "Vision & Mission" },
+        ]}
+      />
 
       {/* Vision & Mission */}
       <section className="mx-auto max-w-7xl px-6 py-10 lg:px-8 lg:py-14">

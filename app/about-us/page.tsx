@@ -1,6 +1,5 @@
-import Link from "next/link";
 import data from "../../data/properties.json";
-import { CheckCircle2, Home, ChevronsRight } from "lucide-react";
+import AboutPageBanner from "@/app/components/ui/AboutPageBanner";
 
 const values = data.aboutValues;
 
@@ -14,39 +13,11 @@ const features = [
 export default function AboutPage() {
   return (
     <main className="bg-[#FAF7F2] text-slate-900">
-      {/* Hero Section  */}
-      <section className="relative text-white border-b border-stone-800 overflow-hidden">
-        {/* Background Image */}
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: "url('/images/about_0.avif')",
-          }}
-        />
-        {/* Dark Overlay */}
-        <div className="absolute inset-0 bg-black/60" />
-
-        <div className="hero-inner flex flex-col items-center justify-center text-center">
-          <h1 className="font-heading text-3xl font-extrabold uppercase tracking-wide text-white sm:text-4xl lg:text-5xl">
-            ABOUT-US
-          </h1>
-
-          <nav
-            aria-label="Breadcrumb"
-            className="mt-3 flex items-center justify-center gap-1.5 text-sm font-medium text-white"
-          >
-            <Link
-              href="/"
-              className="flex items-center gap-1.5 transition-colors hover:text-[#e53935]"
-            >
-              <Home size={15} className="mb-0.5" />
-              <span>Home</span>
-            </Link>
-            <ChevronsRight size={14} className="text-white/70" />
-            <span className="text-[#e53935]">About-Us</span>
-          </nav>
-        </div>
-      </section>
+      <AboutPageBanner
+        title="Our Story"
+        description="Building trusted property journeys through verified opportunities, honest guidance, and relationships that last."
+        breadcrumbs={[{ label: "About Us" }]}
+      />
 
       {/* ── Our Story Section (Left Image | Right Text) ── */}
       <section className="mx-auto max-w-7xl px-6 py-12 lg:px-8 lg:py-16">

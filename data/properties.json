@@ -1,8 +1,32 @@
 {
-  "Properties": [
+  "header": {
+    "heading": "Discover premium homes",
+    "title": "Real estate,",
+    "title_one": "handled with",
+    "title_two": "distinction.",
+    "description": "Find curated homes and investments - designed for comfort and long-term value. Our team of seasoned agents ensures a seamless buying, selling, or renting experience.",
+    "stats": [
+      {
+        "id": 1,
+        "label": "Cities covered",
+        "value": "20+"
+      },
+      {
+        "id": 2,
+        "label": "Trusted agents",
+        "value": "50+"
+      },
+      {
+        "id": 3,
+        "label": "Years experience",
+        "value": "15+"
+      }
+    ]
+  },
+  "properties": [
     {
       "id": "gn-2001",
-      "title": "Vasant Vihar Luxury Residency. ",
+      "title": "Vasant Vihar Luxury Residency.",
       "type": "Builder Floor",
       "listingType": "Sale",
       "bhk": 4,
@@ -67,9 +91,9 @@
       ],
       "images": [
         "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=1600",
-         "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=1600",
-          "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=1600",
-           "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=1600"
+        "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=1600",
+        "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=1600",
+        "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=1600"
       ],
       "agent": {
         "name": "Vikram Singh",
@@ -96,7 +120,7 @@
       "possession": "Under Construction",
       "reraId": "UPRERAPRJ15243",
       "rating": 4.4,
-      "description": "Spacious 2BHK in Noida's sports city corridor with massive green open areas and golf course views. designed for families seeking a healthy lifestyle and premium amenities. ",
+      "description": "Spacious 2BHK in Noida's sports city corridor with massive green open areas and golf course views. designed for families seeking a healthy lifestyle and premium amenities.",
       "amenities": [
         "Golf Course",
         "Gymnasium",
@@ -142,7 +166,8 @@
         "Modular Kitchen",
         "Power Backup"
       ],
-      "images": ["/images/studio.jpg",
+      "images": [
+        "/images/studio.jpg",
         "/images/studio.jpg",
         "/images/studio.jpg",
         "/images/studio.jpg"
@@ -293,7 +318,8 @@
         "Street Lights",
         "Drainage System"
       ],
-      "images": ["/images/land_01.avif",
+      "images": [
+        "/images/land_01.avif",
         "/images/land_01.avif",
         "/images/land_01.avif",
         "/images/land_01.avif"
@@ -407,7 +433,8 @@
         "Central Air Conditioning",
         "Visitor Parking"
       ],
-      "images": ["/images/comercial.jpg",
+      "images": [
+        "/images/comercial.jpg",
         "/images/comercial.jpg",
         "/images/comercial.jpg",
         "/images/comercial.jpg"
@@ -474,10 +501,16 @@
       "facing": "North Facing",
       "possession": "Ready to Move",
       "reraId": "UPRERAPRJ22190",
-      "rating": 4.0,
+      "rating": 4,
       "description": "Affordable 2BHK flat with balconies opening to views of Hindon Elevated Road and ample natural light. Ideal for young professionals and couples seeking a comfortable living experience.",
-      "amenities": ["Gated Security", "Power Backup", "Park", "Clubhouse"],
-      "images": ["/images/05.avif",
+      "amenities": [
+        "Gated Security",
+        "Power Backup",
+        "Park",
+        "Clubhouse"
+      ],
+      "images": [
+        "/images/05.avif",
         "/images/05.avif",
         "/images/05.avif",
         "/images/05.avif"
@@ -582,7 +615,7 @@
       "facing": "North-East Facing",
       "possession": "Ready to Move",
       "reraId": "HRERA-GGM-770-2022",
-      "rating": 5.0,
+      "rating": 5,
       "description": "Exclusive penthouse with panoramic skyline views, private terrace garden, plunge pool, and personalized concierge. Perfect for discerning buyers seeking a luxurious lifestyle in Gurgaon.",
       "amenities": [
         "Plunge Pool",
@@ -628,12 +661,12 @@
         "24x7 Security",
         "Clubhouse"
       ],
-      "images": ["/images/land_02.avif",
+      "images": [
+        "/images/land_02.avif",
         "/images/land_02.avif",
         "/images/land_02.avif",
         "/images/land_02.avif"
       ],
-
       "agent": {
         "name": "Pooja Verma",
         "phone": "+91 98710 33221",
@@ -744,9 +777,9 @@
       ],
       "images": [
         "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1600",
-         "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=1600",
-          "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=1600",
-           "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=1600"
+        "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=1600",
+        "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=1600",
+        "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=1600"
       ],
       "agent": {
         "name": "Vikram Singh",
@@ -780,7 +813,12 @@
         "Water Supply",
         "Paved Roads"
       ],
-      "images": ["/images/land_03.avif","/images/land_03.avif","/images/land_03.avif","/images/land_03.avif"],
+      "images": [
+        "/images/land_03.avif",
+        "/images/land_03.avif",
+        "/images/land_03.avif",
+        "/images/land_03.avif"
+      ],
       "agent": {
         "name": "Suresh Gupta",
         "phone": "+91 98990 11445",
@@ -815,9 +853,9 @@
       ],
       "images": [
         "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=1600",
-         "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=1600",
-          "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=1600",
-           "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=1600"
+        "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=1600",
+        "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=1600",
+        "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=1600"
       ],
       "agent": {
         "name": "Amit Kumar",
@@ -853,9 +891,9 @@
       ],
       "images": [
         "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=1600",
-         "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=1600", 
-          "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=1600",
-           "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=1600"
+        "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=1600",
+        "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=1600",
+        "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=1600"
       ],
       "agent": {
         "name": "Pooja Verma",
@@ -883,12 +921,17 @@
       "reraId": "UPRERAPRJ33211",
       "rating": 4.1,
       "description": "2BHK family apartment inside integrated township with dedicated parking, green belts, and local market. Ideal for families seeking a comfortable and convenient lifestyle.",
-      "amenities": ["Park", "24x7 Security", "Power Backup", "Gymnasium"],
+      "amenities": [
+        "Park",
+        "24x7 Security",
+        "Power Backup",
+        "Gymnasium"
+      ],
       "images": [
         "https://images.unsplash.com/photo-1493809842364-78817add7ffb?q=80&w=1600",
-         "https://images.unsplash.com/photo-1493809842364-78817add7ffb?q=80&w=1600",
-          "https://images.unsplash.com/photo-1493809842364-78817add7ffb?q=80&w=1600",
-           "https://images.unsplash.com/photo-1493809842364-78817add7ffb?q=80&w=1600"
+        "https://images.unsplash.com/photo-1493809842364-78817add7ffb?q=80&w=1600",
+        "https://images.unsplash.com/photo-1493809842364-78817add7ffb?q=80&w=1600",
+        "https://images.unsplash.com/photo-1493809842364-78817add7ffb?q=80&w=1600"
       ],
       "agent": {
         "name": "Rajesh Tyagi",
@@ -924,9 +967,9 @@
       ],
       "images": [
         "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1600",
-         "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1600",
-          "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1600",
-           "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1600"
+        "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1600",
+        "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1600",
+        "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1600"
       ],
       "agent": {
         "name": "Manish Sharma",
@@ -954,12 +997,17 @@
       "reraId": "UPRERAPRJ77821",
       "rating": 4.3,
       "description": "Well-connected 2BHK apartment near Noida-Greater Noida Expressway with easy access to Sector 137 Metro Station. Ideal for families seeking a comfortable and convenient lifestyle.",
-      "amenities": ["Swimming Pool", "Gymnasium", "Clubhouse", "24x7 Security"],
+      "amenities": [
+        "Swimming Pool",
+        "Gymnasium",
+        "Clubhouse",
+        "24x7 Security"
+      ],
       "images": [
         "https://images.unsplash.com/photo-1493809842364-78817add7ffb?q=80&w=1600",
-         "https://images.unsplash.com/photo-1493809842364-78817add7ffb?q=80&w=1600",
-          "https://images.unsplash.com/photo-1493809842364-78817add7ffb?q=80&w=1600",
-           "https://images.unsplash.com/photo-1493809842364-78817add7ffb?q=80&w=1600"
+        "https://images.unsplash.com/photo-1493809842364-78817add7ffb?q=80&w=1600",
+        "https://images.unsplash.com/photo-1493809842364-78817add7ffb?q=80&w=1600",
+        "https://images.unsplash.com/photo-1493809842364-78817add7ffb?q=80&w=1600"
       ],
       "agent": {
         "name": "Pooja Verma",
@@ -969,100 +1017,144 @@
       "featured": false
     }
   ],
-  "header": {
-    "heading": "Discover premium homes",
-    "title": "Real estate,",
-    "title_one": "handled with",
-    "title_two": "distinction.",
-    "description": "Find curated homes and investments — designed for comfort and long-term value. Our team of seasoned agents ensures a seamless buying, selling, or renting experience.",
-    "stats": [
-      { "id": 1, "label": "Cities covered", "value": "20+" },
-      { "id": 2, "label": "Trusted agents", "value": "50+" },
-      { "id": 3, "label": "Years experience", "value": "15+" }
-    ]
-  },
-  "aboutValues": [
+  "team": [
     {
-      "title": "Luxury Living",
-      "label": "Market excellence",
-      "number": "15+",
-      "description": "Curated premium homes with thoughtful design."
+      "slug": "aarav-sharma",
+      "name": "Aarav Sharma",
+      "role": "Founder & CEO",
+      "bio": "Pioneering real estate strategy with 15+ years of experience across luxury residential and commercial markets in India.",
+      "about": "Aarav founded NestVista with a clear vision - make premium property decisions simpler, more transparent, and genuinely client-first. Over 15 years, he has advised families and investors across Delhi NCR, Mumbai, and Bengaluru, building a reputation for sharp market sense and long-term relationships.",
+      "image": "/images/ceo.avif",
+      "experience": "15+ Years",
+      "tag": "Leadership",
+      "email": "aarav@nestvista.com",
+      "phone": "+91 98765 43210",
+      "specialties": [
+        "Luxury residential strategy",
+        "Commercial investment planning",
+        "Market expansion & partnerships",
+        "High-net-worth client advisory"
+      ],
+      "socials": {
+        "linkedin": "#",
+        "twitter": "#",
+        "instagram": "#"
+      }
     },
     {
-      "title": "Trusted Expertise",
-      "label": "Seasoned advisors",
-      "number": "50+",
-      "description": "Experienced agents across major cities."
+      "slug": "priya-malhotra",
+      "name": "Priya Malhotra",
+      "role": "Chief Operations Officer",
+      "bio": "Streamlining property transactions and client relations with a decade of operational excellence in premium real estate.",
+      "about": "Priya leads NestVista's day-to-day operations - from listing quality checks to closing coordination. She ensures every handover feels seamless, every site visit is well prepared, and every client update arrives on time.",
+      "image": "/images/team_01.avif",
+      "experience": "10+ Years",
+      "tag": "Operations",
+      "email": "priya@nestvista.com",
+      "phone": "+91 98765 43211",
+      "specialties": [
+        "Transaction management",
+        "Process standardization",
+        "Vendor & partner coordination",
+        "Client experience design"
+      ],
+      "socials": {
+        "linkedin": "#",
+        "twitter": "#",
+        "instagram": "#"
+      }
     },
     {
-      "title": "Client First",
-      "label": "Personal service",
-      "number": "850+",
-      "description": "High-touch service for each client."
+      "slug": "kabir-verma",
+      "name": "Kabir Verma",
+      "role": "Head of Sales",
+      "bio": "Closing high-value deals with a client-first approach, specializing in luxury villas and premium apartment portfolios.",
+      "about": "Kabir brings energy and empathy to every negotiation. Whether a first-time buyer or a seasoned investor, he focuses on matching lifestyle goals with the right inventory - never forcing a sale that doesn't fit.",
+      "image": "/images/team_02.avif",
+      "experience": "12+ Years",
+      "tag": "Sales",
+      "email": "kabir@nestvista.com",
+      "phone": "+91 98765 43212",
+      "specialties": [
+        "Luxury villa sales",
+        "Premium apartment portfolios",
+        "Negotiation & deal closure",
+        "Buyer consultation"
+      ],
+      "socials": {
+        "linkedin": "#",
+        "twitter": "#",
+        "instagram": "#"
+      }
     },
     {
-      "title": "Prime Locations",
-      "label": "City presence",
-      "number": "20+",
-      "description": "Properties in sought-after neighborhoods."
-    }
-  ],
-  "testimonials": [
-    {
-      "id": 1,
-      "quote": "Found our dream home quickly and with great care.",
-      "name": "Rita Sharma",
-      "detail": "Bought a 3BHK in Mumbai",
-      "rating": 5
+      "slug": "meera-nair",
+      "name": "Meera Nair",
+      "role": "Senior Property Consultant",
+      "bio": "Guiding clients through every step of their property journey with deep market insights across Mumbai and Pune.",
+      "about": "Meera is the trusted guide for clients who want clarity before they commit. She breaks down locality trends, possession timelines, and lifestyle trade-offs so buyers feel confident - not rushed.",
+      "image": "/images/team_03.avif",
+      "experience": "8+ Years",
+      "tag": "Consulting",
+      "email": "meera@nestvista.com",
+      "phone": "+91 98765 43213",
+      "specialties": [
+        "Locality & market research",
+        "Homebuyer consultation",
+        "Property shortlisting",
+        "Site visit planning"
+      ],
+      "socials": {
+        "linkedin": "#",
+        "twitter": "#",
+        "instagram": "#"
+      }
     },
     {
-      "id": 2,
-      "quote": "Excellent advisory and smooth closing.",
-      "name": "Amit Rao",
-      "detail": "Investor, Delhi",
-      "rating": 5
+      "slug": "rohan-kapoor",
+      "name": "Rohan Kapoor",
+      "role": "Investment Advisor",
+      "bio": "Delivering data-driven investment strategies that maximize ROI for HNI clients in India's top real estate markets.",
+      "about": "Rohan helps investors look beyond listing prices - into yield potential, rental demand, and exit strategy. His advice is grounded in numbers, but always explained in plain language.",
+      "image": "/images/team_05.avif",
+      "experience": "9+ Years",
+      "tag": "Investment",
+      "email": "rohan@nestvista.com",
+      "phone": "+91 98765 43214",
+      "specialties": [
+        "ROI & yield analysis",
+        "Portfolio diversification",
+        "Rental demand forecasting",
+        "HNI investment advisory"
+      ],
+      "socials": {
+        "linkedin": "#",
+        "twitter": "#",
+        "instagram": "#"
+      }
     },
     {
-      "id": 3,
-      "quote": "Professional team and attentive service.",
-      "name": "Sunita Mehra",
-      "detail": "Tenant, Bengaluru",
-      "rating": 4
-    },
-    {
-      "id": 4,
-      "quote": "The agent made the entire process seamless and transparent.",
-      "name": "Rahul Verma",
-      "detail": "Buyer, Gurugram",
-      "rating": 5
-    },
-    {
-      "id": 5,
-      "quote": "Quick responses and great negotiation support.",
-      "name": "Pooja Desai",
-      "detail": "Seller, Pune",
-      "rating": 5
-    },
-    {
-      "id": 6,
-      "quote": "Highly professional — recommended for investors.",
-      "name": "Karthik Iyer",
-      "detail": "Investor, Chennai",
-      "rating": 5
-    },
-    {
-      "id": 7,
-      "quote": "Transparent process and no surprises at closing.",
-      "name": "Leena Gupta",
-      "detail": "Buyer, Hyderabad",
-      "rating": 4
-    },
-    {
-      "id": 8,
-      "quote": "Helped me find a tenant in under a week — fantastic.",
-      "name": "Vikram Singh",
-      "detail": "Landlord, Kolkata",
-      "rating": 5
+      "slug": "ananya-iyer",
+      "name": "Ananya Iyer",
+      "role": "Marketing Director",
+      "bio": "Crafting compelling brand narratives and digital campaigns that connect premium properties with the right buyers.",
+      "about": "Ananya shapes how NestVista shows up online and offline - from launch campaigns to listing storytelling. She believes great marketing should feel premium without becoming noisy.",
+      "image": "/images/team_4.avif",
+      "experience": "7+ Years",
+      "tag": "Marketing",
+      "email": "ananya@nestvista.com",
+      "phone": "+91 98765 43215",
+      "specialties": [
+        "Brand storytelling",
+        "Digital campaigns",
+        "Property launch marketing",
+        "Content & creative strategy"
+      ],
+      "socials": {
+        "linkedin": "#",
+        "twitter": "#",
+        "instagram": "#"
+      }
     }
   ],
   "projects": [
@@ -1147,6 +1239,728 @@
       "description": "Stylish suites close to cafes and nightlife in Indiranagar."
     }
   ],
+  "launchProjects": [
+    {
+      "id": 1,
+      "title": "DLF The Arbour",
+      "category": "For Sale",
+      "status": "New Launch",
+      "possessionDate": "Booking Open",
+      "price": "₹3.5 Cr",
+      "beds": 3,
+      "baths": 3,
+      "location": "Sector 63, Gurugram",
+      "image": "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&q=80",
+      "slug": "dlf-the-arbour",
+      "builder": "DLF",
+      "city": "Gurugram",
+      "description": "DLF The Arbour is a premium for sale project in Sector 63, Gurugram. Featuring 3 BHK configurations with modern amenities, thoughtfully planned layouts, and strong connectivity across Delhi NCR.",
+      "amenities": [
+        "Clubhouse",
+        "Swimming Pool",
+        "24x7 Security",
+        "Landscaped Gardens",
+        "Power Backup",
+        "Covered Parking"
+      ],
+      "highlights": [
+        "3 BHK residences",
+        "Booking Open",
+        "Starting ₹3.5 Cr",
+        "Sector 63, Gurugram"
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Godrej Meridien",
+      "category": "For Sale",
+      "status": "New Launch",
+      "possessionDate": "Booking Open",
+      "price": "₹1.8 Cr",
+      "beds": 3,
+      "baths": 2,
+      "location": "Sector 106, Gurugram",
+      "image": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80",
+      "slug": "godrej-meridien",
+      "builder": "Godrej",
+      "city": "Gurugram",
+      "description": "Godrej Meridien is a premium for sale project in Sector 106, Gurugram. Featuring 3 BHK configurations with modern amenities, thoughtfully planned layouts, and strong connectivity across Delhi NCR.",
+      "amenities": [
+        "Clubhouse",
+        "Swimming Pool",
+        "24x7 Security",
+        "Landscaped Gardens",
+        "Power Backup",
+        "Covered Parking"
+      ],
+      "highlights": [
+        "3 BHK residences",
+        "Booking Open",
+        "Starting ₹1.8 Cr",
+        "Sector 106, Gurugram"
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Sobha City Vista",
+      "category": "For Sale",
+      "status": "New Launch",
+      "possessionDate": "Booking Open",
+      "price": "₹2.1 Cr",
+      "beds": 4,
+      "baths": 3,
+      "location": "Sector 108, Gurugram",
+      "image": "https://images.unsplash.com/photo-1613977257363-707ba9348227?w=800&q=80",
+      "slug": "sobha-city-vista",
+      "builder": "Sobha",
+      "city": "Gurugram",
+      "description": "Sobha City Vista is a premium for sale project in Sector 108, Gurugram. Featuring 4 BHK configurations with modern amenities, thoughtfully planned layouts, and strong connectivity across Delhi NCR.",
+      "amenities": [
+        "Clubhouse",
+        "Swimming Pool",
+        "24x7 Security",
+        "Landscaped Gardens",
+        "Power Backup",
+        "Covered Parking"
+      ],
+      "highlights": [
+        "4 BHK residences",
+        "Booking Open",
+        "Starting ₹2.1 Cr",
+        "Sector 108, Gurugram"
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Lodha Bellavista",
+      "category": "For Sale",
+      "status": "New Launch",
+      "possessionDate": "Booking Open",
+      "price": "₹95 Lakh",
+      "beds": 2,
+      "baths": 2,
+      "location": "Sector 150, Noida",
+      "image": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80",
+      "slug": "lodha-bellavista",
+      "builder": "Lodha",
+      "city": "Noida",
+      "description": "Lodha Bellavista is a premium for sale project in Sector 150, Noida. Featuring 2 BHK configurations with modern amenities, thoughtfully planned layouts, and strong connectivity across Delhi NCR.",
+      "amenities": [
+        "Clubhouse",
+        "Swimming Pool",
+        "24x7 Security",
+        "Landscaped Gardens",
+        "Power Backup",
+        "Covered Parking"
+      ],
+      "highlights": [
+        "2 BHK residences",
+        "Booking Open",
+        "Starting ₹95 Lakh",
+        "Sector 150, Noida"
+      ]
+    },
+    {
+      "id": 5,
+      "title": "ATS Homekraft Pious Hideaways",
+      "category": "For Sale",
+      "status": "New Launch",
+      "possessionDate": "Booking Open",
+      "price": "₹78 Lakh",
+      "beds": 2,
+      "baths": 2,
+      "location": "Sector 1, Noida Extension",
+      "image": "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&q=80",
+      "slug": "ats-homekraft-pious-hideaways",
+      "builder": "ATS",
+      "city": "Greater Noida",
+      "description": "ATS Homekraft Pious Hideaways is a premium for sale project in Sector 1, Noida Extension. Featuring 2 BHK configurations with modern amenities, thoughtfully planned layouts, and strong connectivity across Delhi NCR.",
+      "amenities": [
+        "Clubhouse",
+        "Swimming Pool",
+        "24x7 Security",
+        "Landscaped Gardens",
+        "Power Backup",
+        "Covered Parking"
+      ],
+      "highlights": [
+        "2 BHK residences",
+        "Booking Open",
+        "Starting ₹78 Lakh",
+        "Sector 1, Noida Extension"
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Tata Eureka Park",
+      "category": "For Rent",
+      "status": "New Launch",
+      "possessionDate": "Booking Open",
+      "price": "₹32,000/mo",
+      "beds": 3,
+      "baths": 2,
+      "location": "Sector 150, Noida",
+      "image": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80",
+      "slug": "tata-eureka-park",
+      "builder": "Tata",
+      "city": "Noida",
+      "description": "Tata Eureka Park is a premium for rent project in Sector 150, Noida. Featuring 3 BHK configurations with modern amenities, thoughtfully planned layouts, and strong connectivity across Delhi NCR.",
+      "amenities": [
+        "Clubhouse",
+        "Swimming Pool",
+        "24x7 Security",
+        "Landscaped Gardens",
+        "Power Backup",
+        "Covered Parking"
+      ],
+      "highlights": [
+        "3 BHK residences",
+        "Booking Open",
+        "Starting ₹32,000/mo",
+        "Sector 150, Noida"
+      ]
+    },
+    {
+      "id": 11,
+      "title": "DLF Camellias",
+      "category": "For Sale",
+      "status": "Ready to Move",
+      "possessionDate": "Immediate Possession",
+      "price": "₹12 Cr",
+      "beds": 5,
+      "baths": 5,
+      "location": "DLF Phase 5, Gurugram",
+      "image": "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=800&q=80",
+      "slug": "dlf-camellias",
+      "builder": "DLF",
+      "city": "Gurugram",
+      "description": "DLF Camellias is a premium for sale project in DLF Phase 5, Gurugram. Featuring 5 BHK configurations with modern amenities, thoughtfully planned layouts, and strong connectivity across Delhi NCR.",
+      "amenities": [
+        "Clubhouse",
+        "Swimming Pool",
+        "24x7 Security",
+        "Landscaped Gardens",
+        "Power Backup",
+        "Covered Parking"
+      ],
+      "highlights": [
+        "5 BHK residences",
+        "Immediate Possession",
+        "Starting ₹12 Cr",
+        "DLF Phase 5, Gurugram"
+      ]
+    },
+    {
+      "id": 12,
+      "title": "Surajkund Royal Villas",
+      "category": "For Sale",
+      "status": "Ready to Move",
+      "possessionDate": "Immediate Possession",
+      "price": "₹4.5 Cr",
+      "beds": 5,
+      "baths": 4,
+      "location": "Surajkund Road, Faridabad",
+      "image": "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=800&q=80",
+      "slug": "surajkund-royal-villas",
+      "builder": "Surajkund",
+      "city": "Faridabad",
+      "description": "Surajkund Royal Villas is a premium for sale project in Surajkund Road, Faridabad. Featuring 5 BHK configurations with modern amenities, thoughtfully planned layouts, and strong connectivity across Delhi NCR.",
+      "amenities": [
+        "Clubhouse",
+        "Swimming Pool",
+        "24x7 Security",
+        "Landscaped Gardens",
+        "Power Backup",
+        "Covered Parking"
+      ],
+      "highlights": [
+        "5 BHK residences",
+        "Immediate Possession",
+        "Starting ₹4.5 Cr",
+        "Surajkund Road, Faridabad"
+      ]
+    },
+    {
+      "id": 13,
+      "title": "Vasant Vihar Luxury Floor",
+      "category": "For Sale",
+      "status": "Ready to Move",
+      "possessionDate": "Immediate Possession",
+      "price": "₹8.5 Cr",
+      "beds": 4,
+      "baths": 3,
+      "location": "Vasant Vihar, Delhi",
+      "image": "https://images.unsplash.com/photo-1605146769289-440113cc3d00?w=800&q=80",
+      "slug": "vasant-vihar-luxury-floor",
+      "builder": "Vasant",
+      "city": "Delhi",
+      "description": "Vasant Vihar Luxury Floor is a premium for sale project in Vasant Vihar, Delhi. Featuring 4 BHK configurations with modern amenities, thoughtfully planned layouts, and strong connectivity across Delhi NCR.",
+      "amenities": [
+        "Clubhouse",
+        "Swimming Pool",
+        "24x7 Security",
+        "Landscaped Gardens",
+        "Power Backup",
+        "Covered Parking"
+      ],
+      "highlights": [
+        "4 BHK residences",
+        "Immediate Possession",
+        "Starting ₹8.5 Cr",
+        "Vasant Vihar, Delhi"
+      ]
+    },
+    {
+      "id": 14,
+      "title": "Greater Kailash Executive Suite",
+      "category": "For Rent",
+      "status": "Ready to Move",
+      "possessionDate": "Immediate Possession",
+      "price": "₹1.5 Lakh/mo",
+      "beds": 3,
+      "baths": 3,
+      "location": "Greater Kailash 1, Delhi",
+      "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80",
+      "slug": "greater-kailash-executive-suite",
+      "builder": "Greater",
+      "city": "Delhi",
+      "description": "Greater Kailash Executive Suite is a premium for rent project in Greater Kailash 1, Delhi. Featuring 3 BHK configurations with modern amenities, thoughtfully planned layouts, and strong connectivity across Delhi NCR.",
+      "amenities": [
+        "Clubhouse",
+        "Swimming Pool",
+        "24x7 Security",
+        "Landscaped Gardens",
+        "Power Backup",
+        "Covered Parking"
+      ],
+      "highlights": [
+        "3 BHK residences",
+        "Immediate Possession",
+        "Starting ₹1.5 Lakh/mo",
+        "Greater Kailash 1, Delhi"
+      ]
+    },
+    {
+      "id": 15,
+      "title": "Gaur City 2 Homes",
+      "category": "For Sale",
+      "status": "Ready to Move",
+      "possessionDate": "Immediate Possession",
+      "price": "₹82 Lakh",
+      "beds": 3,
+      "baths": 2,
+      "location": "Noida Extension, Greater Noida",
+      "image": "https://images.unsplash.com/photo-1515263487990-61b07816b324?w=800&q=80",
+      "slug": "gaur-city-2-homes",
+      "builder": "Gaur",
+      "city": "Greater Noida",
+      "description": "Gaur City 2 Homes is a premium for sale project in Noida Extension, Greater Noida. Featuring 3 BHK configurations with modern amenities, thoughtfully planned layouts, and strong connectivity across Delhi NCR.",
+      "amenities": [
+        "Clubhouse",
+        "Swimming Pool",
+        "24x7 Security",
+        "Landscaped Gardens",
+        "Power Backup",
+        "Covered Parking"
+      ],
+      "highlights": [
+        "3 BHK residences",
+        "Immediate Possession",
+        "Starting ₹82 Lakh",
+        "Noida Extension, Greater Noida"
+      ]
+    },
+    {
+      "id": 16,
+      "title": "Sohna Road Sky Towers",
+      "category": "For Rent",
+      "status": "Ready to Move",
+      "possessionDate": "Immediate Possession",
+      "price": "₹35,000/mo",
+      "beds": 2,
+      "baths": 2,
+      "location": "Sohna Road, Gurugram",
+      "image": "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&q=80",
+      "slug": "sohna-road-sky-towers",
+      "builder": "Sohna",
+      "city": "Gurugram",
+      "description": "Sohna Road Sky Towers is a premium for rent project in Sohna Road, Gurugram. Featuring 2 BHK configurations with modern amenities, thoughtfully planned layouts, and strong connectivity across Delhi NCR.",
+      "amenities": [
+        "Clubhouse",
+        "Swimming Pool",
+        "24x7 Security",
+        "Landscaped Gardens",
+        "Power Backup",
+        "Covered Parking"
+      ],
+      "highlights": [
+        "2 BHK residences",
+        "Immediate Possession",
+        "Starting ₹35,000/mo",
+        "Sohna Road, Gurugram"
+      ]
+    },
+    {
+      "id": 21,
+      "title": "Mahindra Luminare",
+      "category": "For Sale",
+      "status": "Under Construction",
+      "possessionDate": "Possession Dec 2026",
+      "price": "₹2.8 Cr",
+      "beds": 3,
+      "baths": 3,
+      "location": "Sector 59, Gurugram",
+      "image": "https://images.unsplash.com/photo-1512915922686-57c11dde9b6b?w=800&q=80",
+      "slug": "mahindra-luminare",
+      "builder": "Mahindra",
+      "city": "Gurugram",
+      "description": "Mahindra Luminare is a premium for sale project in Sector 59, Gurugram. Featuring 3 BHK configurations with modern amenities, thoughtfully planned layouts, and strong connectivity across Delhi NCR.",
+      "amenities": [
+        "Clubhouse",
+        "Swimming Pool",
+        "24x7 Security",
+        "Landscaped Gardens",
+        "Power Backup",
+        "Covered Parking"
+      ],
+      "highlights": [
+        "3 BHK residences",
+        "Possession Dec 2026",
+        "Starting ₹2.8 Cr",
+        "Sector 59, Gurugram"
+      ]
+    },
+    {
+      "id": 22,
+      "title": "Adani Samsara Vilasa",
+      "category": "For Sale",
+      "status": "Under Construction",
+      "possessionDate": "Possession Jun 2027",
+      "price": "₹3.2 Cr",
+      "beds": 4,
+      "baths": 4,
+      "location": "Sector 63, Gurugram",
+      "image": "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?w=800&q=80",
+      "slug": "adani-samsara-vilasa",
+      "builder": "Adani",
+      "city": "Gurugram",
+      "description": "Adani Samsara Vilasa is a premium for sale project in Sector 63, Gurugram. Featuring 4 BHK configurations with modern amenities, thoughtfully planned layouts, and strong connectivity across Delhi NCR.",
+      "amenities": [
+        "Clubhouse",
+        "Swimming Pool",
+        "24x7 Security",
+        "Landscaped Gardens",
+        "Power Backup",
+        "Covered Parking"
+      ],
+      "highlights": [
+        "4 BHK residences",
+        "Possession Jun 2027",
+        "Starting ₹3.2 Cr",
+        "Sector 63, Gurugram"
+      ]
+    },
+    {
+      "id": 23,
+      "title": "Noida Sector 75 Expressway Suite",
+      "category": "For Sale",
+      "status": "Under Construction",
+      "possessionDate": "Possession Mar 2027",
+      "price": "₹1.25 Cr",
+      "beds": 3,
+      "baths": 2,
+      "location": "Sector 75, Noida",
+      "image": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80",
+      "slug": "noida-sector-75-expressway-suite",
+      "builder": "Noida",
+      "city": "Noida",
+      "description": "Noida Sector 75 Expressway Suite is a premium for sale project in Sector 75, Noida. Featuring 3 BHK configurations with modern amenities, thoughtfully planned layouts, and strong connectivity across Delhi NCR.",
+      "amenities": [
+        "Clubhouse",
+        "Swimming Pool",
+        "24x7 Security",
+        "Landscaped Gardens",
+        "Power Backup",
+        "Covered Parking"
+      ],
+      "highlights": [
+        "3 BHK residences",
+        "Possession Mar 2027",
+        "Starting ₹1.25 Cr",
+        "Sector 75, Noida"
+      ]
+    },
+    {
+      "id": 24,
+      "title": "Greenfields Villa Enclave",
+      "category": "For Sale",
+      "status": "Under Construction",
+      "possessionDate": "Possession Oct 2026",
+      "price": "₹2.8 Cr",
+      "beds": 4,
+      "baths": 3,
+      "location": "Sector 43, Faridabad",
+      "image": "https://images.unsplash.com/photo-1613977257363-707ba9348227?w=800&q=80",
+      "slug": "greenfields-villa-enclave",
+      "builder": "Greenfields",
+      "city": "Faridabad",
+      "description": "Greenfields Villa Enclave is a premium for sale project in Sector 43, Faridabad. Featuring 4 BHK configurations with modern amenities, thoughtfully planned layouts, and strong connectivity across Delhi NCR.",
+      "amenities": [
+        "Clubhouse",
+        "Swimming Pool",
+        "24x7 Security",
+        "Landscaped Gardens",
+        "Power Backup",
+        "Covered Parking"
+      ],
+      "highlights": [
+        "4 BHK residences",
+        "Possession Oct 2026",
+        "Starting ₹2.8 Cr",
+        "Sector 43, Faridabad"
+      ]
+    },
+    {
+      "id": 25,
+      "title": "Defence Colony Premium Floor",
+      "category": "For Rent",
+      "status": "Under Construction",
+      "possessionDate": "Possession Sep 2026",
+      "price": "₹1.2 Lakh/mo",
+      "beds": 3,
+      "baths": 3,
+      "location": "Defence Colony, Delhi",
+      "image": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80",
+      "slug": "defence-colony-premium-floor",
+      "builder": "Defence",
+      "city": "Delhi",
+      "description": "Defence Colony Premium Floor is a premium for rent project in Defence Colony, Delhi. Featuring 3 BHK configurations with modern amenities, thoughtfully planned layouts, and strong connectivity across Delhi NCR.",
+      "amenities": [
+        "Clubhouse",
+        "Swimming Pool",
+        "24x7 Security",
+        "Landscaped Gardens",
+        "Power Backup",
+        "Covered Parking"
+      ],
+      "highlights": [
+        "3 BHK residences",
+        "Possession Sep 2026",
+        "Starting ₹1.2 Lakh/mo",
+        "Defence Colony, Delhi"
+      ]
+    }
+  ],
+  "blogs": [
+    {
+      "id": "1",
+      "title": "Top 10 Localities to Buy a Home in Delhi NCR in 2026",
+      "slug": "top-localities-buy-home-delhi-ncr-2026",
+      "excerpt": "From Dwarka Expressway to Noida Sector 150, discover the fastest-growing residential zones with best ROI.",
+      "category": "Location Guide",
+      "image": "https://images.unsplash.com/photo-1560184897-ae75f418493e?q=80&w=800&auto=format&fit=crop",
+      "date": "Jul 20, 2026",
+      "readTime": "5 min read",
+      "featured": true,
+      "author": "Elite Estates Research Team",
+      "content": [
+        "Delhi NCR continues to be one of India's most dynamic real estate markets in 2026. With metro expansion, expressway connectivity, and new commercial hubs, several localities are emerging as top picks for homebuyers and investors alike.",
+        "Dwarka Expressway and New Gurgaon remain strong choices for families seeking modern infrastructure and proximity to business districts. Noida Sector 150 and Greater Noida West offer larger floor plans at competitive price points, making them ideal for first-time buyers.",
+        "South Delhi localities like Vasant Vihar and Saket command premium pricing but deliver unmatched lifestyle benefits and consistent appreciation. For investors focused on rental yield, Noida Sector 62 and Golf Course Extension Road in Gurgaon continue to perform well.",
+        "Before finalizing a locality, evaluate connectivity, upcoming infrastructure projects, builder reputation, and resale liquidity. Our advisors recommend shortlisting 2-3 areas based on your budget and visiting each during peak and off-peak hours to assess livability."
+      ]
+    },
+    {
+      "id": "2",
+      "title": "Villa vs Builder Floor: Which is a Better Investment in 2026?",
+      "slug": "villa-vs-builder-floor-investment-2026",
+      "excerpt": "A detailed comparison of villas and builder floors on price, appreciation, rental yield, and lifestyle.",
+      "category": "Investment Tips",
+      "image": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=800&auto=format&fit=crop",
+      "date": "Jul 15, 2026",
+      "readTime": "4 min read",
+      "author": "Elite Estates Advisory",
+      "content": [
+        "Choosing between a villa and a builder floor is one of the most common dilemmas for buyers in Delhi NCR's premium segment. Both offer privacy and space, but they differ significantly in cost, maintenance, and investment returns.",
+        "Builder floors typically offer better price per sq.ft in established colonies like Vasant Vihar, Greater Kailash, and South Extension. They are easier to rent out and generally have higher liquidity when it's time to sell.",
+        "Villas, on the other hand, provide larger land ownership, more customization freedom, and stronger long-term appreciation in gated communities. However, they come with higher maintenance costs and longer sale cycles.",
+        "For pure investment purposes, builder floors in prime South Delhi localities often deliver 3-5% annual rental yield with faster resale. Villas suit end-users who prioritize lifestyle, privacy, and multi-generational living over immediate returns."
+      ]
+    },
+    {
+      "id": "3",
+      "title": "Commercial Office Spaces: Why Investors Are Rushing to Noida & Gurgaon",
+      "slug": "commercial-office-spaces-noida-gurgaon-2026",
+      "excerpt": "Grade-A office spaces in Noida Sector 62 and Cyber City Gurgaon are delivering 12-16% rental yields.",
+      "category": "Commercial Real Estate",
+      "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=800&auto=format&fit=crop",
+      "date": "Jul 08, 2026",
+      "readTime": "6 min read",
+      "author": "Elite Estates Commercial Desk",
+      "content": [
+        "Commercial real estate in Noida and Gurgaon has seen a remarkable resurgence in 2026, driven by IT/ITES expansion, co-working demand, and MNC back-office relocations from expensive global markets.",
+        "Grade-A office spaces in Noida Sector 62, Express Trade Towers, and Cyber City Gurgaon are commanding rents of ₹80-120 per sq.ft per month, translating to gross rental yields of 12-16% for well-located assets.",
+        "Unlike residential property, commercial leases are typically longer (5-9 years), include annual escalation clauses, and are backed by corporate tenants with stronger payment track records.",
+        "Key due diligence includes checking OC/CC status, tenant profile, lock-in period, and maintenance charges. Fractional ownership and REIT exposure are also gaining traction among retail investors seeking passive commercial income."
+      ]
+    },
+    {
+      "id": "4",
+      "title": "Plot vs Apartment: What Should First-Time Buyers Choose?",
+      "slug": "plot-vs-apartment-first-time-buyers",
+      "excerpt": "Understand the pros and cons of buying a plot versus a ready apartment - from construction cost to resale value.",
+      "category": "Buyer's Guide",
+      "image": "https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=800&auto=format&fit=crop",
+      "date": "Jul 01, 2026",
+      "readTime": "5 min read",
+      "author": "Elite Estates Buyer Advisory",
+      "content": [
+        "For first-time homebuyers, the plot versus apartment decision often comes down to budget, timeline, and risk appetite. Each option has distinct advantages that suit different life stages and financial goals.",
+        "Ready apartments offer immediate possession, bundled amenities, and easier home loan approval. They are ideal for buyers who need to move in within 1-2 years and prefer a hassle-free, community-based lifestyle.",
+        "Plots provide land appreciation, design flexibility, and potentially lower entry cost in emerging corridors like Yamuna Expressway and Sohna Road. However, they require construction management, longer timelines, and careful title verification.",
+        "Our recommendation: if you're buying for self-use with a stable income, a RERA-registered ready or near-ready apartment is the safer bet. If you have a 5+ year horizon and can manage construction, a plotted development in a growth corridor can deliver superior returns."
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "id": "1",
+      "category": "Buying",
+      "question": "What documents are required to buy a property in India?",
+      "answer": "Essential documents include the Sale Deed, Title Deed, Encumbrance Certificate (EC), Building Approval Plan, Occupancy Certificate (OC), and Khata Certificate. Always ensure RERA registration details are verified."
+    },
+    {
+      "id": "2",
+      "category": "Buying",
+      "question": "How do I check if a property is RERA approved?",
+      "answer": "You can verify RERA approval by visiting the official state RERA portal (e.g., UP-RERA, MahaRERA) and searching for the developer or project's unique RERA Registration Number."
+    },
+    {
+      "id": "3",
+      "category": "Selling",
+      "question": "How is the market value of my property calculated?",
+      "answer": "Property valuation depends on location, connectivity, amenities, age of construction, demand-supply trends, and recent transaction prices of similar properties in your locality."
+    },
+    {
+      "id": "4",
+      "category": "Selling",
+      "question": "What is Capital Gains Tax on property sale?",
+      "answer": "If you sell a property held for more than 24 months, Long Term Capital Gains (LTCG) tax applies. You can save tax by investing gains into another residential property under Section 54 or Capital Gains Bonds under Section 54EC."
+    },
+    {
+      "id": "5",
+      "category": "Renting",
+      "question": "What is the standard tenure for a rental agreement?",
+      "answer": "The standard lease agreement tenure is typically 11 months to avoid mandatory registration requirements under state stamp duty laws. It can be renewed upon mutual agreement."
+    },
+    {
+      "id": "6",
+      "category": "Legal",
+      "question": "What is the difference between carpet area and super built-up area?",
+      "answer": "Carpet area is the actual usable net floor space inside the walls. Super built-up area includes carpet area plus common spaces like lobbies, staircases, elevators, and corridors."
+    }
+  ],
+  "testimonials": [
+    {
+      "id": 1,
+      "quote": "Found our dream home quickly and with great care.",
+      "name": "Rita Sharma",
+      "detail": "Bought a 3BHK in Mumbai",
+      "rating": 5
+    },
+    {
+      "id": 2,
+      "quote": "Excellent advisory and smooth closing.",
+      "name": "Amit Rao",
+      "detail": "Investor, Delhi",
+      "rating": 5
+    },
+    {
+      "id": 3,
+      "quote": "Professional team and attentive service.",
+      "name": "Sunita Mehra",
+      "detail": "Tenant, Bengaluru",
+      "rating": 4
+    },
+    {
+      "id": 4,
+      "quote": "The agent made the entire process seamless and transparent.",
+      "name": "Rahul Verma",
+      "detail": "Buyer, Gurugram",
+      "rating": 5
+    },
+    {
+      "id": 5,
+      "quote": "Quick responses and great negotiation support.",
+      "name": "Pooja Desai",
+      "detail": "Seller, Pune",
+      "rating": 5
+    },
+    {
+      "id": 6,
+      "quote": "Highly professional - recommended for investors.",
+      "name": "Karthik Iyer",
+      "detail": "Investor, Chennai",
+      "rating": 5
+    },
+    {
+      "id": 7,
+      "quote": "Transparent process and no surprises at closing.",
+      "name": "Leena Gupta",
+      "detail": "Buyer, Hyderabad",
+      "rating": 4
+    },
+    {
+      "id": 8,
+      "quote": "Helped me find a tenant in under a week - fantastic.",
+      "name": "Vikram Singh",
+      "detail": "Landlord, Kolkata",
+      "rating": 5
+    }
+  ],
+  "aboutValues": [
+    {
+      "title": "Luxury Living",
+      "label": "Market excellence",
+      "number": "15+",
+      "description": "Curated premium homes with thoughtful design."
+    },
+    {
+      "title": "Trusted Expertise",
+      "label": "Seasoned advisors",
+      "number": "50+",
+      "description": "Experienced agents across major cities."
+    },
+    {
+      "title": "Client First",
+      "label": "Personal service",
+      "number": "850+",
+      "description": "High-touch service for each client."
+    },
+    {
+      "title": "Prime Locations",
+      "label": "City presence",
+      "number": "20+",
+      "description": "Properties in sought-after neighborhoods."
+    }
+  ],
+  "aboutStats": [
+    {
+      "value": "16+",
+      "label": "Years of",
+      "subLabel": "Experience"
+    },
+    {
+      "value": "2,400+",
+      "label": "Happy",
+      "subLabel": "Customers"
+    },
+    {
+      "value": "20+",
+      "label": "Cities",
+      "subLabel": "We Serve"
+    }
+  ],
   "propertyServices": [
     {
       "id": 1,
@@ -1197,82 +2011,6 @@
       "icon": "Sofa"
     }
   ],
-  "blogs": [
-    {
-      "id": "1",
-      "title": "Top 10 Localities to Buy a Home in Delhi NCR in 2026",
-      "slug": "top-localities-buy-home-delhi-ncr-2026",
-      "excerpt": "From Dwarka Expressway to Noida Sector 150, discover the fastest-growing residential zones with best ROI.",
-      "category": "Location Guide",
-      "image": "https://images.unsplash.com/photo-1560184897-ae75f418493e?q=80&w=800&auto=format&fit=crop",
-      "date": "Jul 20, 2026",
-      "readTime": "5 min read",
-      "featured": true,
-      "author": "Elite Estates Research Team",
-      "content": [
-        "Delhi NCR continues to be one of India's most dynamic real estate markets in 2026. With metro expansion, expressway connectivity, and new commercial hubs, several localities are emerging as top picks for homebuyers and investors alike.",
-        "Dwarka Expressway and New Gurgaon remain strong choices for families seeking modern infrastructure and proximity to business districts. Noida Sector 150 and Greater Noida West offer larger floor plans at competitive price points, making them ideal for first-time buyers.",
-        "South Delhi localities like Vasant Vihar and Saket command premium pricing but deliver unmatched lifestyle benefits and consistent appreciation. For investors focused on rental yield, Noida Sector 62 and Golf Course Extension Road in Gurgaon continue to perform well.",
-        "Before finalizing a locality, evaluate connectivity, upcoming infrastructure projects, builder reputation, and resale liquidity. Our advisors recommend shortlisting 2–3 areas based on your budget and visiting each during peak and off-peak hours to assess livability."
-      ]
-    },
-    {
-      "id": "2",
-      "title": "Villa vs Builder Floor: Which is a Better Investment in 2026?",
-      "slug": "villa-vs-builder-floor-investment-2026",
-      "excerpt": "A detailed comparison of villas and builder floors on price, appreciation, rental yield, and lifestyle.",
-      "category": "Investment Tips",
-      "image": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=800&auto=format&fit=crop",
-      "date": "Jul 15, 2026",
-      "readTime": "4 min read",
-      "author": "Elite Estates Advisory",
-      "content": [
-        "Choosing between a villa and a builder floor is one of the most common dilemmas for buyers in Delhi NCR's premium segment. Both offer privacy and space, but they differ significantly in cost, maintenance, and investment returns.",
-        "Builder floors typically offer better price per sq.ft in established colonies like Vasant Vihar, Greater Kailash, and South Extension. They are easier to rent out and generally have higher liquidity when it's time to sell.",
-        "Villas, on the other hand, provide larger land ownership, more customization freedom, and stronger long-term appreciation in gated communities. However, they come with higher maintenance costs and longer sale cycles.",
-        "For pure investment purposes, builder floors in prime South Delhi localities often deliver 3–5% annual rental yield with faster resale. Villas suit end-users who prioritize lifestyle, privacy, and multi-generational living over immediate returns."
-      ]
-    },
-    {
-      "id": "3",
-      "title": "Commercial Office Spaces: Why Investors Are Rushing to Noida & Gurgaon",
-      "slug": "commercial-office-spaces-noida-gurgaon-2026",
-      "excerpt": "Grade-A office spaces in Noida Sector 62 and Cyber City Gurgaon are delivering 12–16% rental yields.",
-      "category": "Commercial Real Estate",
-      "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=800&auto=format&fit=crop",
-      "date": "Jul 08, 2026",
-      "readTime": "6 min read",
-      "author": "Elite Estates Commercial Desk",
-      "content": [
-        "Commercial real estate in Noida and Gurgaon has seen a remarkable resurgence in 2026, driven by IT/ITES expansion, co-working demand, and MNC back-office relocations from expensive global markets.",
-        "Grade-A office spaces in Noida Sector 62, Express Trade Towers, and Cyber City Gurgaon are commanding rents of ₹80–120 per sq.ft per month, translating to gross rental yields of 12–16% for well-located assets.",
-        "Unlike residential property, commercial leases are typically longer (5–9 years), include annual escalation clauses, and are backed by corporate tenants with stronger payment track records.",
-        "Key due diligence includes checking OC/CC status, tenant profile, lock-in period, and maintenance charges. Fractional ownership and REIT exposure are also gaining traction among retail investors seeking passive commercial income."
-      ]
-    },
-    {
-      "id": "4",
-      "title": "Plot vs Apartment: What Should First-Time Buyers Choose?",
-      "slug": "plot-vs-apartment-first-time-buyers",
-      "excerpt": "Understand the pros and cons of buying a plot versus a ready apartment — from construction cost to resale value.",
-      "category": "Buyer's Guide",
-      "image": "https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=800&auto=format&fit=crop",
-      "date": "Jul 01, 2026",
-      "readTime": "5 min read",
-      "author": "Elite Estates Buyer Advisory",
-      "content": [
-        "For first-time homebuyers, the plot versus apartment decision often comes down to budget, timeline, and risk appetite. Each option has distinct advantages that suit different life stages and financial goals.",
-        "Ready apartments offer immediate possession, bundled amenities, and easier home loan approval. They are ideal for buyers who need to move in within 1–2 years and prefer a hassle-free, community-based lifestyle.",
-        "Plots provide land appreciation, design flexibility, and potentially lower entry cost in emerging corridors like Yamuna Expressway and Sohna Road. However, they require construction management, longer timelines, and careful title verification.",
-        "Our recommendation: if you're buying for self-use with a stable income, a RERA-registered ready or near-ready apartment is the safer bet. If you have a 5+ year horizon and can manage construction, a plotted development in a growth corridor can deliver superior returns."
-      ]
-    }
-  ],
-  "aboutStats": [
-    { "value": "16+", "label": "Years of", "subLabel": "Experience" },
-    { "value": "2,400+", "label": "Happy", "subLabel": "Customers" },
-    { "value": "20+", "label": "Cities", "subLabel": "We Serve" }
-  ],
   "propertyProcess": [
     {
       "id": 1,
@@ -1310,258 +2048,46 @@
       "icon": "Key"
     }
   ],
-  "faqs": [
-    {
-      "id": "1",
-      "category": "Buying",
-      "question": "What documents are required to buy a property in India?",
-      "answer": "Essential documents include the Sale Deed, Title Deed, Encumbrance Certificate (EC), Building Approval Plan, Occupancy Certificate (OC), and Khata Certificate. Always ensure RERA registration details are verified."
-    },
-    {
-      "id": "2",
-      "category": "Buying",
-      "question": "How do I check if a property is RERA approved?",
-      "answer": "You can verify RERA approval by visiting the official state RERA portal (e.g., UP-RERA, MahaRERA) and searching for the developer or project's unique RERA Registration Number."
-    },
-    {
-      "id": "3",
-      "category": "Selling",
-      "question": "How is the market value of my property calculated?",
-      "answer": "Property valuation depends on location, connectivity, amenities, age of construction, demand-supply trends, and recent transaction prices of similar properties in your locality."
-    },
-    {
-      "id": "4",
-      "category": "Selling",
-      "question": "What is Capital Gains Tax on property sale?",
-      "answer": "If you sell a property held for more than 24 months, Long Term Capital Gains (LTCG) tax applies. You can save tax by investing gains into another residential property under Section 54 or Capital Gains Bonds under Section 54EC."
-    },
-    {
-      "id": "5",
-      "category": "Renting",
-      "question": "What is the standard tenure for a rental agreement?",
-      "answer": "The standard lease agreement tenure is typically 11 months to avoid mandatory registration requirements under state stamp duty laws. It can be renewed upon mutual agreement."
-    },
-    {
-      "id": "6",
-      "category": "Legal",
-      "question": "What is the difference between carpet area and super built-up area?",
-      "answer": "Carpet area is the actual usable net floor space inside the walls. Super built-up area includes carpet area plus common spaces like lobbies, staircases, elevators, and corridors."
-    }
-  ],
-  "projectSection": [
-    {
-      "id": 1,
-      "title": "DLF The Arbour",
-      "category": "For Sale",
-      "status": "New Launch",
-      "possessionDate": "Booking Open",
-      "price": "₹3.5 Cr",
-      "beds": 3,
-      "baths": 3,
-      "location": "Sector 63, Gurugram",
-      "image": "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&q=80"
-    },
-    {
-      "id": 2,
-      "title": "Godrej Meridien",
-      "category": "For Sale",
-      "status": "New Launch",
-      "possessionDate": "Booking Open",
-      "price": "₹1.8 Cr",
-      "beds": 3,
-      "baths": 2,
-      "location": "Sector 106, Gurugram",
-      "image": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80"
-    },
-    {
-      "id": 3,
-      "title": "Sobha City Vista",
-      "category": "For Sale",
-      "status": "New Launch",
-      "possessionDate": "Booking Open",
-      "price": "₹2.1 Cr",
-      "beds": 4,
-      "baths": 3,
-      "location": "Sector 108, Gurugram",
-      "image": "https://images.unsplash.com/photo-1613977257363-707ba9348227?w=800&q=80"
-    },
-    {
-      "id": 4,
-      "title": "Lodha Bellavista",
-      "category": "For Sale",
-      "status": "New Launch",
-      "possessionDate": "Booking Open",
-      "price": "₹95 Lakh",
-      "beds": 2,
-      "baths": 2,
-      "location": "Sector 150, Noida",
-      "image": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80"
-    },
-    {
-      "id": 5,
-      "title": "ATS Homekraft Pious Hideaways",
-      "category": "For Sale",
-      "status": "New Launch",
-      "possessionDate": "Booking Open",
-      "price": "₹78 Lakh",
-      "beds": 2,
-      "baths": 2,
-      "location": "Sector 1, Noida Extension",
-      "image": "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&q=80"
-    },
-    {
-      "id": 6,
-      "title": "Tata Eureka Park",
-      "category": "For Rent",
-      "status": "New Launch",
-      "possessionDate": "Booking Open",
-      "price": "₹32,000/mo",
-      "beds": 3,
-      "baths": 2,
-      "location": "Sector 150, Noida",
-      "image": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80"
-    },
-    {
-      "id": 11,
-      "title": "DLF Camellias",
-      "category": "For Sale",
-      "status": "Ready to Move",
-      "possessionDate": "Immediate Possession",
-      "price": "₹12 Cr",
-      "beds": 5,
-      "baths": 5,
-      "location": "DLF Phase 5, Gurugram",
-      "image": "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=800&q=80"
-    },
-    {
-      "id": 12,
-      "title": "Surajkund Royal Villas",
-      "category": "For Sale",
-      "status": "Ready to Move",
-      "possessionDate": "Immediate Possession",
-      "price": "₹4.5 Cr",
-      "beds": 5,
-      "baths": 4,
-      "location": "Surajkund Road, Faridabad",
-      "image": "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=800&q=80"
-    },
-    {
-      "id": 13,
-      "title": "Vasant Vihar Luxury Floor",
-      "category": "For Sale",
-      "status": "Ready to Move",
-      "possessionDate": "Immediate Possession",
-      "price": "₹8.5 Cr",
-      "beds": 4,
-      "baths": 3,
-      "location": "Vasant Vihar, Delhi",
-      "image": "https://images.unsplash.com/photo-1605146769289-440113cc3d00?w=800&q=80"
-    },
-    {
-      "id": 14,
-      "title": "Greater Kailash Executive Suite",
-      "category": "For Rent",
-      "status": "Ready to Move",
-      "possessionDate": "Immediate Possession",
-      "price": "₹1.5 Lakh/mo",
-      "beds": 3,
-      "baths": 3,
-      "location": "Greater Kailash 1, Delhi",
-      "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80"
-    },
-    {
-      "id": 15,
-      "title": "Gaur City 2 Homes",
-      "category": "For Sale",
-      "status": "Ready to Move",
-      "possessionDate": "Immediate Possession",
-      "price": "₹82 Lakh",
-      "beds": 3,
-      "baths": 2,
-      "location": "Noida Extension, Greater Noida",
-      "image": "https://images.unsplash.com/photo-1515263487990-61b07816b324?w=800&q=80"
-    },
-    {
-      "id": 16,
-      "title": "Sohna Road Sky Towers",
-      "category": "For Rent",
-      "status": "Ready to Move",
-      "possessionDate": "Immediate Possession",
-      "price": "₹35,000/mo",
-      "beds": 2,
-      "baths": 2,
-      "location": "Sohna Road, Gurugram",
-      "image": "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&q=80"
-    },
-    {
-      "id": 21,
-      "title": "Mahindra Luminare",
-      "category": "For Sale",
-      "status": "Under Construction",
-      "possessionDate": "Possession Dec 2026",
-      "price": "₹2.8 Cr",
-      "beds": 3,
-      "baths": 3,
-      "location": "Sector 59, Gurugram",
-      "image": "https://images.unsplash.com/photo-1512915922686-57c11dde9b6b?w=800&q=80"
-    },
-    {
-      "id": 22,
-      "title": "Adani Samsara Vilasa",
-      "category": "For Sale",
-      "status": "Under Construction",
-      "possessionDate": "Possession Jun 2027",
-      "price": "₹3.2 Cr",
-      "beds": 4,
-      "baths": 4,
-      "location": "Sector 63, Gurugram",
-      "image": "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?w=800&q=80"
-    },
-    {
-      "id": 23,
-      "title": "Noida Sector 75 Expressway Suite",
-      "category": "For Sale",
-      "status": "Under Construction",
-      "possessionDate": "Possession Mar 2027",
-      "price": "₹1.25 Cr",
-      "beds": 3,
-      "baths": 2,
-      "location": "Sector 75, Noida",
-      "image": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80"
-    },
-    {
-      "id": 24,
-      "title": "Greenfields Villa Enclave",
-      "category": "For Sale",
-      "status": "Under Construction",
-      "possessionDate": "Possession Oct 2026",
-      "price": "₹2.8 Cr",
-      "beds": 4,
-      "baths": 3,
-      "location": "Sector 43, Faridabad",
-      "image": "https://images.unsplash.com/photo-1613977257363-707ba9348227?w=800&q=80"
-    },
-    {
-      "id": 25,
-      "title": "Defence Colony Premium Floor",
-      "category": "For Rent",
-      "status": "Under Construction",
-      "possessionDate": "Possession Sep 2026",
-      "price": "₹1.2 Lakh/mo",
-      "beds": 3,
-      "baths": 3,
-      "location": "Defence Colony, Delhi",
-      "image": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80"
-    }
-  ],
   "officeInventory": [
-    { "unit": "SC-16A-1", "area": "110,000 Sq. Ft", "condition": "Warmshell" },
-    { "unit": "SC-16A-2", "area": "55,000 Sq. Ft", "condition": "Warmshell" },
-    { "unit": "SC-16A-3", "area": "40,000 Sq. Ft", "condition": "Warmshell" },
-    { "unit": "SC-16A-4", "area": "30,000 Sq. Ft", "condition": "Warmshell" },
-    { "unit": "SC-16A-5", "area": "15,000 Sq. Ft", "condition": "Warmshell" },
-    { "unit": "SC-16A-6", "area": "10,000 Sq. Ft", "condition": "Warmshell" },
-    { "unit": "SC-16A-7", "area": "7,800 Sq. Ft", "condition": "Warmshell" },
-    { "unit": "SC-16A-8", "area": "2,500 Sq. Ft", "condition": "Warmshell" }
+    {
+      "unit": "SC-16A-1",
+      "area": "110,000 Sq. Ft",
+      "condition": "Warmshell"
+    },
+    {
+      "unit": "SC-16A-2",
+      "area": "55,000 Sq. Ft",
+      "condition": "Warmshell"
+    },
+    {
+      "unit": "SC-16A-3",
+      "area": "40,000 Sq. Ft",
+      "condition": "Warmshell"
+    },
+    {
+      "unit": "SC-16A-4",
+      "area": "30,000 Sq. Ft",
+      "condition": "Warmshell"
+    },
+    {
+      "unit": "SC-16A-5",
+      "area": "15,000 Sq. Ft",
+      "condition": "Warmshell"
+    },
+    {
+      "unit": "SC-16A-6",
+      "area": "10,000 Sq. Ft",
+      "condition": "Warmshell"
+    },
+    {
+      "unit": "SC-16A-7",
+      "area": "7,800 Sq. Ft",
+      "condition": "Warmshell"
+    },
+    {
+      "unit": "SC-16A-8",
+      "area": "2,500 Sq. Ft",
+      "condition": "Warmshell"
+    }
   ]
 }

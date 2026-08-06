@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
-import Link from "next/link";
 import propertiesData from "../../data/properties.json";
 import PropertyCard from "../components/PropertyCard";
 import PropertyListingFilters from "../components/PropertyListingFilters";
 import Pagination from "../components/ui/Pagination";
+import PageBreadcrumb from "@/app/components/ui/PageBreadcrumb";
 import type { Property, PropertiesPageProps } from "@/types/property";
 
 export const dynamic = "force-dynamic";
 
-const properties = (propertiesData?.Properties || []) as Property[];
+const properties = (propertiesData?.properties || []) as Property[];
 const PER_PAGE = 8;
 
 export const metadata: Metadata = {
@@ -30,6 +30,7 @@ export default async function PropertiesPage({
   searchParams,
 }: PropertiesPageProps) {
   const params = await searchParams;
+
 
   const cityQuery = params.city?.trim() || "";
   const typeQuery = params.type?.trim() || "";
@@ -89,28 +90,12 @@ export default async function PropertiesPage({
           <h1 className="font-heading text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl">
             {pageTitle}
           </h1>
-          <nav
-            aria-label="Breadcrumb"
-            className="mt-6 flex flex-wrap items-center justify-center gap-2 text-sm text-white/80"
-          >
-            <Link href="/" className="transition hover:text-white">
-              Home
-            </Link>
-            <span>/</span>
-            <Link href="/properties" className="font-medium text-white">
-              Properties
-            </Link>
-            {breadcrumbFilters.length > 0 &&
-              breadcrumbFilters.map((filter, index) => (
-                <span
-                  key={`${filter}-${index}`}
-                  className="flex items-center gap-2"
-                >
-                  <span>/</span>
-                  <span className="font-medium text-white">{filter}</span>
-                </span>
-              ))}
-          </nav>
+          <PageBreadcrumb
+            items={[
+              { label: "Properties", href: "/properties" },
+              ...breadcrumbFilters.map((f) => ({ label: f })),
+            ]}
+          />
         </div>
       </div>
 

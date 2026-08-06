@@ -73,13 +73,7 @@ export default function PropertyCard({
               {property.priceLabel}
               {priceSuffix}
             </span>
-            <span className="inline-flex items-center gap-1 text-sm font-semibold text-stone-700 transition-colors group-hover:text-[#C89234]">
-              View details
-              <ArrowRight
-                size={14}
-                className="transition-transform group-hover:translate-x-0.5"
-              />
-            </span>
+            
           </div>
         </div>
       </Link>

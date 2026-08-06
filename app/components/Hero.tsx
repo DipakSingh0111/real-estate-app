@@ -9,7 +9,7 @@ import type { HeroProps } from "@/types/property";
 
 const headers = data.header;
 
-const heroImages = data.Properties.filter(
+const heroImages = data.properties.filter(
   (property) => property.images && property.images.length > 0,
 )
   .slice(0, 5)

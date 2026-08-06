@@ -1,8 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import {
-  Home,
-  ChevronsRight,
   ArrowRight,
   CheckCircle2,
   Landmark,
@@ -13,6 +11,7 @@ import {
   Sofa,
 } from "lucide-react";
 import { services } from "@/lib/services";
+import PageBreadcrumb from "@/app/components/ui/PageBreadcrumb";
 
 const icons = {
   Landmark,
@@ -40,20 +39,7 @@ export default function ServicesPage() {
           <h1 className="font-heading mt-4 text-3xl font-extrabold uppercase tracking-wide text-white sm:text-4xl lg:text-5xl">
             Our Services
           </h1>
-          <nav
-            aria-label="Breadcrumb"
-            className="mt-5 flex flex-wrap items-center justify-center gap-1.5 text-sm text-white"
-          >
-            <Link
-              href="/"
-              className="flex items-center gap-1.5 hover:text-[#f0d9a8]"
-            >
-              <Home size={15} />
-              Home
-            </Link>
-            <ChevronsRight size={14} className="text-white/50" />
-            <span className="text-[#C89234]">Services</span>
-          </nav>
+          <PageBreadcrumb items={[{ label: "Services" }]} />
         </div>
       </section>
 

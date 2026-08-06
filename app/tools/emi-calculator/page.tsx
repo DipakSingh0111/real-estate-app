@@ -1,8 +1,8 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import Link from "next/link";
-import { IndianRupee, Percent, Calendar, Home } from "lucide-react";
+import { IndianRupee, Percent, Calendar } from "lucide-react";
+import PageBreadcrumb from "@/app/components/ui/PageBreadcrumb";
 
 export default function EMICalculatorPage() {
   const [loanAmount, setLoanAmount] = useState(5000000);
@@ -48,18 +48,9 @@ export default function EMICalculatorPage() {
             EMI CALCULATOR
           </h1>
 
-          {/* Breadcrumb Links */}
-          <div className="mt-3 flex items-center gap-2 text-sm font-medium text-white">
-            <Link
-              href="/"
-              className="flex items-center gap-1.5 hover:text-red-500 transition-colors"
-            >
-              <Home size={15} />
-              <span>Home</span>
-            </Link>
-            <span className="text-slate-400">»</span>
-            <span className="text-red-500 font-semibold">Calculator</span>
-          </div>
+          <PageBreadcrumb
+            items={[{ label: "Tools" }, { label: "EMI Calculator" }]}
+          />
         </div>
       </section>
 

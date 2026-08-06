@@ -50,26 +50,22 @@
   small {
     @apply text-xs text-slate-500;
   }
-  /* Standardize button sizing across the app */
-  button,
+  /* Opt-in button styling: components keep control of their own layout */
+  button.btn,
   a.btn {
-    @apply inline-flex items-center justify-center rounded-md text-sm font-medium;
-    padding: 0.5rem 1rem !important;
-    font-size: 0.875rem !important; /* same as text-sm */
-    line-height: 1 !important;
+    @apply inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium leading-none;
   }
-  /* Stronger hover animations for buttons */
-  button,
+  button.btn,
   a.btn {
     @apply transition-transform duration-200 ease-out;
     will-change: transform, box-shadow;
   }
-  button:hover,
+  button.btn:hover,
   a.btn:hover {
     transform: translateY(-4px) scale(1.03);
     box-shadow: 0 12px 30px rgba(15, 23, 42, 0.12);
   }
-  button:active,
+  button.btn:active,
   a.btn:active {
     transform: translateY(0) scale(0.995);
     transition-duration: 75ms;

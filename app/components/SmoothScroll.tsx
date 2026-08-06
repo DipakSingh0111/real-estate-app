@@ -3,7 +3,6 @@
 import { useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { ReactLenis, useLenis } from "lenis/react";
-import "lenis/dist/lenis.css";
 
 function ScrollToTopOnNavigate() {
   const pathname = usePathname();
@@ -12,7 +11,6 @@ function ScrollToTopOnNavigate() {
   useEffect(() => {
     lenis?.scrollTo(0, { immediate: true });
   }, [pathname, lenis]);
-
   return null;
 }
 

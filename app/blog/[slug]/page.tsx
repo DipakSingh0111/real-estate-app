@@ -7,11 +7,10 @@ import BlogCard from "@/app/components/BlogCard";
 import {
   Calendar,
   Clock,
-  Home,
-  ChevronsRight,
   ArrowLeft,
   User,
 } from "lucide-react";
+import PageBreadcrumb from "@/app/components/ui/PageBreadcrumb";
 
 const blogs = data.blogs as BlogPost[];
 
@@ -71,29 +70,13 @@ export default async function BlogDetailPage({
             )}
           </div>
 
-          <nav
-            aria-label="Breadcrumb"
-            className="mt-6 flex flex-wrap items-center justify-center gap-1.5 text-sm text-white/70"
-          >
-            <Link
-              href="/"
-              className="inline-flex items-center gap-1 transition-colors hover:text-[#B8863D]"
-            >
-              <Home size={14} />
-              Home
-            </Link>
-            <ChevronsRight size={14} />
-            <Link
-              href="/blog"
-              className="transition-colors hover:text-[#B8863D]"
-            >
-              Blog
-            </Link>
-            <ChevronsRight size={14} />
-            <span className="line-clamp-1 max-w-[180px] text-white sm:max-w-xs">
-              {post.title}
-            </span>
-          </nav>
+          <PageBreadcrumb
+            variant="pill"
+            items={[
+              { label: "Blog", href: "/blog" },
+              { label: post.title },
+            ]}
+          />
         </div>
       </section>
 

@@ -1,6 +1,5 @@
 import React from "react";
-import Link from "next/link";
-import { Home, ChevronsRight } from "lucide-react";
+import PageBreadcrumb from "@/app/components/ui/PageBreadcrumb";
 
 const page = () => {
   return (
@@ -22,20 +21,7 @@ const page = () => {
             Terms & Conditions
           </h1>
 
-          <nav
-            aria-label="Breadcrumb"
-            className="mt-3 flex items-center justify-center gap-1.5 text-sm font-medium text-white"
-          >
-            <Link
-              href="/"
-              className="flex items-center gap-1.5 transition-colors hover:text-[#e53935]"
-            >
-              <Home size={15} className="mb-0.5" />
-              <span>Home</span>
-            </Link>
-            <ChevronsRight size={14} className="text-white/70" />
-            <span className="text-[#e53935]">Terms&Conditions</span>
-          </nav>
+          <PageBreadcrumb items={[{ label: "Terms & Conditions" }]} />
         </div>
       </section>
       <div className="mx-auto max-w-7xl px-6 py-8 lg:px-8 lg:py-10">

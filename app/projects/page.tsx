@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import data from "../../data/properties.json";
+import PageBreadcrumb from "@/app/components/ui/PageBreadcrumb";
 
 export const metadata = {
   title: "Projects — Real Estate",
@@ -13,24 +14,15 @@ export default function ProjectsPage() {
   return (
     <main className="min-h-screen bg-white">
       <div
-        className="relative bg-cover bg-center bg-no-repeat w-full"
+        className="relative bg-cover bg-center bg-no-repeat w-full h-64"
         style={{ backgroundImage: "url('/images/land_01.avif')" }}
       >
         <div className="absolute inset-0 bg-black/40" />
-        <div className="hero-inner text-center relative z-10">
-          <h1 className="font-heading text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl">
+        <div className="hero-inner text-center relative z-10 ">
+          <h1 className="mt-10 font-heading text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl">
             {pageTitle}
           </h1>
-          <nav
-            aria-label="Breadcrumb"
-            className="mt-6 flex items-center justify-center gap-2 text-sm text-white/80"
-          >
-            <Link href="/" className="transition hover:text-white">
-              Home
-            </Link>
-            <span>/</span>
-            <span className="font-medium text-white">Projects</span>
-          </nav>
+          <PageBreadcrumb items={[{ label: "Projects" }]} />
         </div>
       </div>
 

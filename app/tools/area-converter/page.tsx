@@ -1,9 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
-import { Home, ChevronsRight, ArrowLeftRight } from "lucide-react";
-import {} from "lucide-react";
+import { ArrowLeftRight } from "lucide-react";
+import PageBreadcrumb from "@/app/components/ui/PageBreadcrumb";
 
 const units = [
   { label: "Square Feet (sq ft)", key: "sqft", toSqft: 1 },
@@ -61,21 +60,9 @@ export default function AreaConverterPage() {
             Area - Converter
           </h1>
 
-          {/* 📍 Breadcrumb (Below Title, Center Aligned) */}
-          <nav
-            aria-label="Breadcrumb"
-            className="mt-3 flex items-center justify-center gap-1.5 text-sm font-medium text-white flex-wrap"
-          >
-            <Link
-              href="/"
-              className="flex items-center gap-1.5 transition-colors hover:text-[#e53935]"
-            >
-              <Home size={15} className="mb-0.5" />
-              <span>Home</span>
-            </Link>
-            <ChevronsRight size={14} className="text-white/70" />
-            <span className="text-[#e53935]">Area - Converter</span>
-          </nav>
+          <PageBreadcrumb
+            items={[{ label: "Tools" }, { label: "Area Converter" }]}
+          />
         </div>
       </section>
 

@@ -9,7 +9,7 @@ import { motion, type Variants } from "framer-motion";
 import propertiesData from "../../../data/properties.json";
 import type { Property } from "@/types/property";
 
-const properties = (propertiesData?.Properties || []) as Property[];
+const properties = (propertiesData?.properties || []) as Property[];
 
 // city images
 const cityImages: Record<string, string> = {

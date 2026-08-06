@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import Link from "next/link";
 import {
   TrendingUp,
   Award,
@@ -9,14 +8,12 @@ import {
   MapPin,
   Briefcase,
   ArrowRight,
-  Mail,
   Clock,
   Building2,
   HeartHandshake,
   ShieldCheck,
-  Home,
-  ChevronsRight,
 } from "lucide-react";
+import AboutPageBanner from "@/app/components/ui/AboutPageBanner";
 
 const jobOpenings = [
   {
@@ -95,56 +92,14 @@ const perks = [
 export default function CareerPage() {
   return (
     <main className="bg-[#FAF7F2] text-slate-900">
-      {/*  Hero Section */}
-      <section className="relative text-white border-b border-stone-800 overflow-hidden">
-        {/* Background Image */}
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage:
-              "url('https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1600&auto=format&fit=crop')",
-          }}
-        />
-        {/* Dark Overlay */}
-        <div className="absolute inset-0 bg-black/60" />
-
-        <div className="hero-inner flex flex-col items-center justify-center text-center">
-          {/* Main Title */}
-          <h1 className="font-heading text-3xl font-extrabold uppercase tracking-wide text-white sm:text-4xl lg:text-5xl">
-            CAREERS
-          </h1>
-          <nav
-            aria-label="Breadcrumb"
-            className="mt-3 flex items-center justify-center gap-1.5 text-sm font-medium text-white flex-wrap"
-          >
-            <Link
-              href="/"
-              className="flex items-center gap-1.5 transition-colors hover:text-[#e53935]"
-            >
-              <Home size={15} className="mb-0.5" />
-              <span>Home</span>
-            </Link>
-            <ChevronsRight size={14} className="text-white/70" />
-            <span className="text-[#e53935]">Careers</span>
-          </nav>
-
-          {/* Action CTA Buttons */}
-          {/* <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
-            <a
-              href="#openings"
-              className="inline-flex items-center gap-2 rounded-xl bg-[#C89234] px-5 py-2.5 text-xs sm:text-sm font-semibold text-white transition hover:bg-[#b07e28] active:scale-95"
-            >
-              View Openings <ArrowRight size={15} />
-            </a>
-            <a
-              href="mailto:hr@realestatecompany.in"
-              className="inline-flex items-center gap-2 rounded-xl border border-white/20 bg-white/10 px-5 py-2.5 text-xs sm:text-sm font-semibold text-white backdrop-blur-xs transition hover:bg-white/20"
-            >
-              <Mail size={14} /> hr@realestatecompany.in
-            </a>
-          </div> */}
-        </div>
-      </section>
+      <AboutPageBanner
+        title="Careers"
+        description="Build your career with a growing real estate team that rewards expertise, initiative, and client-first thinking."
+        breadcrumbs={[
+          { label: "About Us", href: "/about-us" },
+          { label: "Careers" },
+        ]}
+      />
 
       {/* Why Join Us */}
       <section className="mx-auto max-w-7xl px-6 py-10 lg:px-8 lg:py-14">

@@ -1,5 +1,4 @@
-import Link from "next/link";
-import { Home, ChevronsRight } from "lucide-react";
+import PageBreadcrumb from "@/app/components/ui/PageBreadcrumb";
 
 const tips = [
   {
@@ -70,21 +69,9 @@ export default function InvestmentTipsPage() {
             INVESTMENT TIPS
           </h1>
 
-          {/* 📍 Breadcrumb (Below Title, Center Aligned) */}
-          <nav
-            aria-label="Breadcrumb"
-            className="mt-3 flex items-center justify-center gap-1.5 text-sm font-medium text-white flex-wrap"
-          >
-            <Link
-              href="/"
-              className="flex items-center gap-1.5 transition-colors hover:text-[#e53935]"
-            >
-              <Home size={15} className="mb-0.5" />
-              <span>Home</span>
-            </Link>
-            <ChevronsRight size={14} className="text-white/70" />
-            <span className="text-[#e53935]">Investment Tips</span>
-          </nav>
+          <PageBreadcrumb
+            items={[{ label: "Tools" }, { label: "Investment Tips" }]}
+          />
         </div>
       </section>
       {/* Content Section */}

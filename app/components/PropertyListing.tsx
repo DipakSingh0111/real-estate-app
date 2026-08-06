@@ -28,7 +28,7 @@ function PropertyListContent() {
     const rawData = propertiesData as any;
     let list: PropertyListingItem[] = Array.isArray(rawData)
       ? rawData
-      : rawData.Properties || rawData.properties || [];
+      : rawData.properties || rawData.Properties || [];
 
     return list.filter((item) => {
       // 1. CITY FILTER

@@ -24,7 +24,7 @@ export default function PropertiesManager() {
   const rawList = useMemo(() => {
     const data = propertiesData as any;
     if (Array.isArray(data)) return data;
-    return data?.Properties || data?.properties || data?.data || [];
+    return data?.properties || data?.Properties || data?.data || [];
   }, []);
 
   // Dynamic Unique City List

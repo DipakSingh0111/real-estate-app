@@ -74,10 +74,10 @@ export default function FaqSection() {
                   <button
                     onClick={() => toggleFaq(faq.id)}
                     suppressHydrationWarning
-                    className="flex w-full items-center justify-between p-4 sm:p-5 text-left transition hover:bg-stone-50/50 cursor-pointer"
+                    className="flex w-full items-center justify-between gap-3 p-4 sm:p-5 text-left transition-colors hover:bg-stone-50 cursor-pointer"
                     aria-expanded={isOpen}
                   >
-                    <span className="text-xs sm:text-sm font-bold text-stone-900 pr-3">
+                    <span className="min-w-0 flex-1 break-words text-xs sm:text-sm font-bold leading-snug text-stone-900">
                       {faq.question}
                     </span>
                     <ChevronDown

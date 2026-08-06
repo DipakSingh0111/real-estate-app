@@ -8,9 +8,10 @@ import {
   FaInstagram,
   FaLinkedinIn,
   FaXTwitter,
+  FaWhatsapp,
 } from "react-icons/fa6";
 
-const properties = propertiesData.Properties as Property[];
+const properties = propertiesData.properties as Property[];
 
 export default function Footer() {
   const cities = [...new Set(properties.map((p) => p.city))].sort();
@@ -41,7 +42,7 @@ export default function Footer() {
             </div>
             {/* Social */}
             <div className="mt-5 flex gap-3">
-              {[FaFacebookF, FaInstagram, FaXTwitter, FaLinkedinIn].map(
+              {[FaFacebookF, FaInstagram, FaXTwitter, FaLinkedinIn, FaWhatsapp].map(
                 (Icon, index) => (
                   <a
                     key={index}
@@ -79,7 +80,7 @@ export default function Footer() {
             </h3>
             <ul className="space-y-3 text-ink/60">
               {[
-                { label: "About Us", href: "/aboutus" },
+                { label: "About Us", href: "/about-us" },
                 { label: "Properties", href: "/properties" },
                 { label: "Our Team", href: "/ourteam" },
                 { label: "Blog", href: "/blog" },
@@ -137,10 +138,12 @@ export default function Footer() {
                 </p>
               </div>
               <div className="flex items-center gap-3">
-                <span className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg bg-brass/10">
+                <a href="tel:+919876543210" className="flex items-center gap-2.5 bg-[#FAF7F2] px-4 py-2 text-sm font-bold text-slate-800">
+                <span className="flex h-9 w-9 flex-shrink-0 items-center justify-center">
                   <Phone size={15} className="text-brass-dark" />
                 </span>
                 +91 98765 43210
+                </a>
               </div>
               <div className="flex items-center gap-3">
                 <span className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg bg-brass/10">
@@ -149,6 +152,7 @@ export default function Footer() {
                 hello@elitestates.com
               </div>
             </div>
+            {/*  href="tel:+919876543210" */}
             {/* Newsletter */}
             <div className="mt-6">
               <p className="mb-3 text-sm text-ink/70">

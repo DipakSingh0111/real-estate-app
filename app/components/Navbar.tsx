@@ -255,7 +255,7 @@ export default function Navbar() {
           </span>
         </Link>
 
-        {/* Desktop nav — lg+ only */}
+        {/* Desktop nav  */}
         <nav className="hidden flex-1 items-center justify-center gap-1 lg:flex xl:gap-2">
           <Link
             href="/"
@@ -353,7 +353,7 @@ export default function Navbar() {
             aria-expanded={open}
             aria-controls="mobile-nav-drawer"
           >
-            {open ? <X size={22} /> : <Menu size={22} />}
+            {open ? <X size={35} /> : <Menu size={35} />}
           </button>
         </div>
       </div>
@@ -368,7 +368,7 @@ export default function Navbar() {
         aria-hidden="true"
       />
 
-      {/* Mobile drawer — fixed below header, fully scrollable */}
+      {/* Mobile navigation drawer */}
       <div
         id="mobile-nav-drawer"
         className={`fixed inset-x-0 z-50 flex flex-col border-t border-slate-100 bg-white shadow-xl transition-all duration-300 ease-out lg:hidden ${
@@ -409,7 +409,7 @@ export default function Navbar() {
                 >
                   <span>{group.title}</span>
                   <ChevronDown
-                    size={18}
+                    size={35}
                     className={`shrink-0 text-[#B8863D] transition-transform duration-200 ${
                       isExpanded ? "rotate-180" : ""
                     }`}

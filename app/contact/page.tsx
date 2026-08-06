@@ -1,14 +1,12 @@
-import Link from "next/link";
 import {
   Mail,
   MapPin,
   Phone,
   Clock,
-  Home,
-  ChevronsRight,
   MessageSquare,
   Headphones,
 } from "lucide-react";
+import PageBreadcrumb from "@/app/components/ui/PageBreadcrumb";
 
 const contactInfo = [
   {
@@ -56,20 +54,7 @@ export default function ContactPage() {
             Contact Us
           </h1>
 
-          <nav
-            aria-label="Breadcrumb"
-            className="mt-5 flex flex-wrap items-center justify-center gap-1.5 text-sm font-medium text-white"
-          >
-            <Link
-              href="/"
-              className="flex items-center gap-1.5 transition-colors hover:text-[#f0d9a8]"
-            >
-              <Home size={15} />
-              Home
-            </Link>
-            <ChevronsRight size={14} className="text-white/50" />
-            <span className="text-[#C89234]">Contact</span>
-          </nav>
+          <PageBreadcrumb items={[{ label: "Contact" }]} />
         </div>
       </section>
 

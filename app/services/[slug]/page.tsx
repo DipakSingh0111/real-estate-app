@@ -2,8 +2,6 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import {
-  Home,
-  ChevronsRight,
   ArrowLeft,
   ArrowRight,
   CheckCircle2,
@@ -15,6 +13,7 @@ import {
   Sofa,
 } from "lucide-react";
 import { services, getServiceBySlug } from "@/lib/services";
+import PageBreadcrumb from "@/app/components/ui/PageBreadcrumb";
 
 const icons = {
   Landmark,
@@ -58,29 +57,13 @@ export default async function ServiceDetailPage({
             </h1>
           </div>
 
-          <nav
-            aria-label="Breadcrumb"
-            className="mt-8 inline-flex flex-wrap items-center justify-center gap-1.5 text-sm text-white/80"
-          >
-            <Link
-              href="/"
-              className="inline-flex font-bold text-lg items-center gap-1 hover:text-white"
-            >
-              <Home size={14} />
-              Home
-            </Link>
-            <ChevronsRight size={14} />
-            <Link
-              href="/services"
-              className="hover:text-white font-bold text-lg"
-            >
-              Services
-            </Link>
-            <ChevronsRight size={14} />
-            <span className="font-bold text-lg text-white font-heading text-center ">
-              {service.title}
-            </span>
-          </nav>
+          <PageBreadcrumb
+            variant="pill"
+            items={[
+              { label: "Services", href: "/services" },
+              { label: service.title },
+            ]}
+          />
         </div>
       </section>
 

@@ -1,8 +1,7 @@
-import Link from "next/link";
-import { Home, ChevronsRight, TrendingUp } from "lucide-react";
 import data from "../../data/properties.json";
 import type { BlogPost } from "@/types/blog";
 import BlogCard from "@/app/components/BlogCard";
+import PageBreadcrumb from "@/app/components/ui/PageBreadcrumb";
 
 const blogs = data.blogs as BlogPost[];
 
@@ -28,20 +27,7 @@ export default function BlogPage() {
             Blog & Insights
           </h1>
 
-          <nav
-            aria-label="Breadcrumb"
-            className="mt-5 flex flex-wrap items-center justify-center gap-1.5 text-sm font-medium text-white"
-          >
-            <Link
-              href="/"
-              className="flex items-center gap-1.5 transition-colors hover:text-[#B8863D]"
-            >
-              <Home size={15} />
-              Home
-            </Link>
-            <ChevronsRight size={14} className="text-white/60" />
-            <span className="text-[#B8863D]">Blog</span>
-          </nav>
+          <PageBreadcrumb items={[{ label: "Blog" }]} />
         </div>
       </section>
 

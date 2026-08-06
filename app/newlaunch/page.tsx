@@ -4,8 +4,9 @@ import { useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import { MapPin, Bed, Bath, Home, ChevronsRight } from "lucide-react";
+import { MapPin } from "lucide-react";
 import propertiesData from "@/data/properties.json";
+import PageBreadcrumb from "@/app/components/ui/PageBreadcrumb";
 import {
   NewLaunchCategoryFilter,
   NewLaunchProjectStatus,
@@ -54,7 +55,7 @@ function NewLaunchContent() {
     else setSelectedStatus("New Launch");
   }, [statusParam]);
 
-  const rawData: any[] = (propertiesData as any)?.projectSection || [];
+  const rawData: any[] = (propertiesData as any)?.launchProjects || [];
 
   const filteredData = rawData.filter((item) => {
     const statusMatch = (() => {
@@ -97,20 +98,12 @@ function NewLaunchContent() {
             NEW LAUNCH PROJECTS
           </h1>
 
-          
-          <nav
-            aria-label="Breadcrumb"
-            className="mt-3 flex items-center justify-center gap-1.5 text-sm font-medium text-white flex-wrap"
-          >
-            <Link
-              href="/"
-              className="flex items-center gap-1.5 transition-colors hover:text-[#e53935]"
-            >
-              <Home size={15} className="mb-0.5" />
-              <span>Home</span>
-            </Link>
-            /<span className="text-white">{selectedStatus}</span>
-          </nav>
+          <PageBreadcrumb
+            items={[
+              { label: "Projects", href: "/projects" },
+              { label: selectedStatus },
+            ]}
+          />
         </div>
       </section>
       {/* Content */}
@@ -131,8 +124,9 @@ function NewLaunchContent() {
         {filteredData.length > 0 ? (
           <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {filteredData.map((item: any, idx: number) => (
-              <div
-                key={item.id || idx}
+              <Link
+                key={item.slug || item.id || idx}
+                href={`/projects/${item.slug}`}
                 className="group flex flex-col overflow-hidden rounded-2xl border border-slate-100 bg-white transition-all duration-300 hover:border-[#B8860B]/30 hover:shadow-lg"
               >
                 {/* Image */}
@@ -158,7 +152,7 @@ function NewLaunchContent() {
                 {/* Info */}
                 <div className="flex flex-1 flex-col justify-between p-4">
                   <div>
-                    <h3 className="line-clamp-1 text-sm font-bold text-slate-900 group-hover:text-[#B8860B] transition-colors">
+                    <h3 className="line-clamp-1 text-sm font-bold text-slate-900 transition-colors group-hover:text-[#B8860B]">
                       {item.title}
                     </h3>
                     <div className="mt-1 flex items-center gap-1 text-[11px] text-slate-500">
@@ -177,10 +171,12 @@ function NewLaunchContent() {
                     <p className="text-sm font-extrabold text-slate-900">
                       {item.price}
                     </p>
-                   
+                    <span className="text-[11px] font-semibold text-[#B8860B] opacity-0 transition group-hover:opacity-100">
+                      View details →
+                    </span>
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         ) : (

@@ -11,8 +11,6 @@ import ContactForm from "@/app/components/ContactForm";
 import PropertyMobileActions from "@/app/components/PropertyMobileActions";
 import {
   ArrowUpRight,
-  ChevronRight,
-  Home,
   MapPin,
   BedDouble,
   Maximize2,
@@ -28,8 +26,9 @@ import {
   UserRound,
   Calculator,
 } from "lucide-react";
+import PageBreadcrumb from "@/app/components/ui/PageBreadcrumb";
 
-const properties = propertiesData.Properties as Property[];
+const properties = propertiesData.properties as Property[];
 
 export async function generateStaticParams() {
   return properties.map((p) => ({ id: p.id }));
@@ -174,29 +173,21 @@ export default async function PropertyDetailPage({
             {property.locality}, {property.city}, {property.state}
           </p>
 
-          <nav
-            aria-label="Breadcrumb"
-            className="mt-7 flex max-w-full items-center gap-1.5 rounded-full border border-white/10 bg-slate-950/30 px-4 py-2 text-[11px] text-white/65 shadow-lg backdrop-blur-md sm:mt-8 sm:text-xs"
-          >
-            <Link
-              href="/"
-              className="inline-flex shrink-0 items-center gap-1.5 transition hover:text-[#E6C687]"
-            >
-              <Home size={13} />
-              Home
-            </Link>
-            <ChevronRight size={12} className="shrink-0 text-white/30" />
-            <Link
-              href="/properties"
-              className="shrink-0 transition hover:text-[#E6C687]"
-            >
-              Properties
-            </Link>
-            <ChevronRight size={12} className="shrink-0 text-white/30" />
-            <span className="max-w-[130px] truncate text-white/90 sm:max-w-xs">
-              {property.title}
-            </span>
-          </nav>
+          <PageBreadcrumb
+            variant="pill"
+            items={[
+              { label: "Properties", href: "/properties" },
+              {
+                label:
+                  property.listingType === "Rent" ? "For Rent" : "For Sale",
+                href:
+                  property.listingType === "Rent"
+                    ? "/properties?listingType=Rent"
+                    : "/properties?listingType=Sale",
+              },
+              { label: property.title },
+            ]}
+          />
         </div>
       </section>
 

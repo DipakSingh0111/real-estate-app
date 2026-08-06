@@ -20,7 +20,7 @@ import BlogInsights from "./components/BlogInsights";
 import PropertyProcess from "./components/ui/PropertyProcess";
 import FaqSection from "./components/ui/FaqSection";
 import BookSiteVisit from "./components/ui/BookSiteVisit";
-const properties = propertiesData.Properties as Property[];
+const properties = propertiesData.properties as Property[];
 const testimonials = propertiesData.testimonials as Testimonials[];
 
 function RevealSection({

@@ -104,14 +104,20 @@ export interface newLunchingProject {
 export interface ProjectItem {
   id: number;
   title: string;
+  slug: string;
   category: "For Sale" | "For Rent";
   status: "New Launch" | "Ready to Move" | "Under Construction";
-  possessionDate?: string; // e.g. "Immediate" or "Dec 2026"
+  possessionDate?: string;
   price: string;
   beds: number;
   baths: number;
   location: string;
+  city?: string;
+  builder?: string;
   image: string;
+  description?: string;
+  amenities?: string[];
+  highlights?: string[];
 }
 //
 export type ProjectStatus = "new" | "progress" | "ready";
@@ -154,12 +160,17 @@ export interface HeroProps {
 }
 
 export interface TeamMember {
+  slug: string;
   name: string;
   role: string;
   tag: string;
   image: string;
   experience: string;
   bio: string;
+  about?: string;
+  specialties?: string[];
+  email?: string;
+  phone?: string;
   socials?: {
     linkedin?: string;
     twitter?: string;
@@ -239,6 +250,28 @@ export interface LatestProject {
   parking: number;
   image: string;
   description: string;
+}
+
+export interface UnifiedProjectDetail {
+  id: number | string;
+  title: string;
+  slug: string;
+  builder: string;
+  location: string;
+  city: string;
+  status: string;
+  price: string;
+  image: string;
+  description: string;
+  beds: number | null;
+  baths: number | null;
+  area?: string;
+  parking?: number;
+  category?: string;
+  possessionDate?: string;
+  amenities: string[];
+  highlights: string[];
+  source: "projects" | "launchProjects";
 }
 
 export interface PaginationProps {
