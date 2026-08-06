@@ -49,7 +49,7 @@ export default function PropertyGallery({
         )}
       </div>
 
-      {/* Horizontally scrollable thumbnails retain every available image. */}
+      {/* Horizontally scrollable */}
       {galleryImages.length > 1 && (
       <div className="mt-2.5 flex gap-2 overflow-x-auto pb-0.5 sm:mt-3">
         {galleryImages.map((image, index) => {

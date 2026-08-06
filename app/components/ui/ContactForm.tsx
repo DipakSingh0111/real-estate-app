@@ -2,6 +2,8 @@
 
 import { FormEvent, useState } from "react";
 import { ArrowRight, CheckCircle2, MessageSquareText } from "lucide-react";
+import Button from "./Button";
+import { FormField, Input, Textarea } from "./FormField";
 
 interface ContactFormProps {
   propertyTitle?: string;
@@ -62,14 +64,8 @@ export default function ContactForm({
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-4 p-5">
-        <div>
-          <label
-            htmlFor="enquiry-name"
-            className="block text-xs font-semibold text-slate-700"
-          >
-            Name
-          </label>
-          <input
+        <FormField htmlFor="enquiry-name" label="Name">
+          <Input
             id="enquiry-name"
             name="name"
             type="text"
@@ -78,18 +74,11 @@ export default function ContactForm({
             value={name}
             onChange={(e) => setName(e.target.value)}
             placeholder="Your full name"
-            className="mt-1.5 w-full rounded-xl border border-slate-200 bg-slate-50 px-3.5 py-2.5 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-[#B8863D] focus:bg-white focus:ring-2 focus:ring-[#B8863D]/10"
           />
-        </div>
+        </FormField>
 
-        <div>
-          <label
-            htmlFor="enquiry-phone"
-            className="block text-xs font-semibold text-slate-700"
-          >
-            Phone Number
-          </label>
-          <input
+        <FormField htmlFor="enquiry-phone" label="Phone Number">
+          <Input
             id="enquiry-phone"
             name="phone"
             type="tel"
@@ -99,18 +88,11 @@ export default function ContactForm({
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
             placeholder="+91 98765 43210"
-            className="mt-1.5 w-full rounded-xl border border-slate-200 bg-slate-50 px-3.5 py-2.5 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-[#B8863D] focus:bg-white focus:ring-2 focus:ring-[#B8863D]/10"
           />
-        </div>
+        </FormField>
 
-        <div>
-          <label
-            htmlFor="enquiry-email"
-            className="block text-xs font-semibold text-slate-700"
-          >
-            Email <span className="font-normal text-slate-400">(optional)</span>
-          </label>
-          <input
+        <FormField htmlFor="enquiry-email" label="Email" optional>
+          <Input
             id="enquiry-email"
             name="email"
             type="email"
@@ -118,37 +100,31 @@ export default function ContactForm({
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="you@example.com"
-            className="mt-1.5 w-full rounded-xl border border-slate-200 bg-slate-50 px-3.5 py-2.5 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-[#B8863D] focus:bg-white focus:ring-2 focus:ring-[#B8863D]/10"
           />
-        </div>
+        </FormField>
 
-        <div>
-          <label
-            htmlFor="enquiry-message"
-            className="block text-xs font-semibold text-slate-700"
-          >
-            Message
-          </label>
-          <textarea
+        <FormField htmlFor="enquiry-message" label="Message">
+          <Textarea
             id="enquiry-message"
             name="message"
             required
             value={message}
             onChange={(e) => setMessage(e.target.value)}
-            className="mt-1.5 min-h-24 w-full resize-y rounded-xl border border-slate-200 bg-slate-50 px-3.5 py-2.5 text-sm leading-relaxed text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-[#B8863D] focus:bg-white focus:ring-2 focus:ring-[#B8863D]/10"
           />
-        </div>
+        </FormField>
 
-        <button
+        <Button
           type="submit"
-          className="group flex w-full items-center justify-center gap-2 rounded-xl bg-[#B8863D] px-4 py-3 text-sm font-bold text-white shadow-sm transition hover:bg-[#A37430] active:scale-[0.98]"
+          size="lg"
+          fullWidth
+          className="group"
         >
           Send enquiry
           <ArrowRight
             size={17}
             className="transition-transform group-hover:translate-x-0.5"
           />
-        </button>
+        </Button>
 
         <p className="text-center text-[11px] leading-relaxed text-slate-400">
           Your enquiry opens securely in WhatsApp for faster assistance.

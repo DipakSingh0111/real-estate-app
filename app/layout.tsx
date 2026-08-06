@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, DM_Sans, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
-import SmoothScroll from "./components/SmoothScroll";
+import Navbar from "./components/ui/Navbar";
+import Footer from "./components/ui/Footer";
+import SmoothScroll from "./components/ui/SmoothScroll";
 
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],

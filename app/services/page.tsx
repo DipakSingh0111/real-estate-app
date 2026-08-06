@@ -11,7 +11,7 @@ import {
   Sofa,
 } from "lucide-react";
 import { services } from "@/lib/services";
-import PageBreadcrumb from "@/app/components/ui/PageBreadcrumb";
+import PageBanner from "@/app/components/ui/PageBanner";
 
 const icons = {
   Landmark,
@@ -25,23 +25,12 @@ const icons = {
 export default function ServicesPage() {
   return (
     <main className="min-h-screen bg-[#FAF7F2] text-stone-900">
-      {/* Hero */}
-      <section className="relative overflow-hidden border-b border-stone-800 text-white">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage:
-              "url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1600&auto=format&fit=crop')",
-          }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/55 to-black/70" />
-        <div className="relative mx-auto flex max-w-7xl flex-col items-center justify-center px-6 py-8 text-center sm:py-12 lg:px-8">
-          <h1 className="font-heading mt-4 text-3xl font-extrabold uppercase tracking-wide text-white sm:text-4xl lg:text-5xl">
-            Our Services
-          </h1>
-          <PageBreadcrumb items={[{ label: "Services" }]} />
-        </div>
-      </section>
+      <PageBanner
+        preTitle="How We Help"
+        title="Our Services"
+        description="End-to-end property support — from shortlisting and visits to documentation and closing."
+        breadcrumbs={[{ label: "Services" }]}
+      />
 
       {/* Services grid */}
       <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">

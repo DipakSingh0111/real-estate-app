@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import propertiesData from "@/data/properties.json";
+import propertiesData from "@/lib/data";
+import PageBanner from "@/app/components/ui/PageBanner";
 
 export const metadata: Metadata = {
   title: "Office Space Inventory for Rent / Lease — Real Estate",
@@ -13,15 +14,18 @@ const officeInventory = ((propertiesData as any).officeInventory || []) as {
 
 export default function RentPage() {
   return (
-    <main className="min-h-screen bg-[#F8F5F2] py-12">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <div className="mb-10 text-center">
-          <h1 className="text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl">
-            Office Space Inventory For{" "}
-            <span className="text-[#EF4444]">Rent / Lease</span>
-          </h1>
-        </div>
+    <main className="min-h-screen bg-[#F8F5F2]">
+      <PageBanner
+        preTitle="Commercial Spaces"
+        title="Office Space for Rent / Lease"
+        description="Browse available office units with clear area details and current condition."
+        breadcrumbs={[
+          { label: "Properties", href: "/properties" },
+          { label: "Rent / Lease" },
+        ]}
+      />
 
+      <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="overflow-hidden rounded-3xl bg-white shadow-sm">
           <table className="min-w-full border-separate border-spacing-0">
             <thead className="bg-black text-white">

@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
-import data from "../../data/properties.json";
+import data from "@/lib/data";
 
 const stats = (data?.aboutStats || []) as {
   value: string;

@@ -9,58 +9,31 @@ import {
   Headphones,
   TrendingUp,
 } from "lucide-react";
-import AboutPageBanner from "@/app/components/ui/AboutPageBanner";
+import PageBanner from "@/app/components/ui/PageBanner";
+import data from "@/lib/data";
 
-const features = [
-  {
-    icon: CheckCircle2,
-    title: "Verified Properties",
-    desc: "Every listing goes through a thorough legal check and physical site inspection before it reaches you.",
-    color: "bg-emerald-50 text-emerald-600",
-  },
-  {
-    icon: ShieldCheck,
-    title: "Best Price Guarantee",
-    desc: "We work directly with builders — no middlemen, no hidden markup. What you see is what you pay.",
-    color: "bg-amber-50 text-amber-600",
-  },
-  {
-    icon: UserCheck,
-    title: "Dedicated Advisor",
-    desc: "You get one point of contact from search to possession. Someone who actually knows your requirements.",
-    color: "bg-blue-50 text-blue-600",
-  },
-  {
-    icon: MapPin,
-    title: "Prime Locations",
-    desc: "We only list properties in areas with strong connectivity, infrastructure growth, and rental demand.",
-    color: "bg-rose-50 text-rose-600",
-  },
-  {
-    icon: Scale,
-    title: "Legal Assistance",
-    desc: "From sale agreement to registry — our legal team handles all paperwork so you don't have to worry.",
-    color: "bg-purple-50 text-purple-600",
-  },
-  {
-    icon: Eye,
-    title: "Full Transparency",
-    desc: "No surprise charges. Every cost is explained upfront — builder price, stamp duty, registration fees.",
-    color: "bg-cyan-50 text-cyan-600",
-  },
-  {
-    icon: TrendingUp,
-    title: "Investment Advisory",
-    desc: "Our advisors help you pick properties with the best appreciation potential and rental yield.",
-    color: "bg-indigo-50 text-indigo-600",
-  },
-  {
-    icon: Headphones,
-    title: "Post-Sale Support",
-    desc: "We stay with you even after the deal closes — possession follow-up, interiors, tenant management.",
-    color: "bg-orange-50 text-orange-600",
-  },
-];
+const iconMap = {
+  CheckCircle2,
+  ShieldCheck,
+  UserCheck,
+  MapPin,
+  Scale,
+  Eye,
+  Headphones,
+  TrendingUp,
+};
+
+const features = (
+  data.whyFeatures as Array<{
+    icon: string;
+    title: string;
+    desc: string;
+    color: string;
+  }>
+).map((item) => ({
+  ...item,
+  icon: iconMap[item.icon as keyof typeof iconMap] || CheckCircle2,
+}));
 
 const process = [
   {
@@ -88,7 +61,8 @@ const process = [
 export default function WhyChooseUs() {
   return (
     <main className="bg-[#FAF7F2] text-slate-900">
-      <AboutPageBanner
+      <PageBanner
+        preTitle="The NestVista Difference"
         title="Why Choose Us"
         description="Verified listings, transparent advice, and end-to-end support designed around your property goals."
         breadcrumbs={[

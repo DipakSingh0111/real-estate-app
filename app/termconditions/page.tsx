@@ -1,34 +1,19 @@
 import React from "react";
-import PageBreadcrumb from "@/app/components/ui/PageBreadcrumb";
+import PageBanner from "@/app/components/ui/PageBanner";
 
 const page = () => {
   return (
     <main className="bg-[#FAF7F2] text-slate-900">
-      {/* Hero Section  */}
-      <section className="relative text-white border-b border-stone-800 overflow-hidden">
-        {/* Background Image */}
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: "url('/images/about_0.avif')",
-          }}
-        />
-        {/* Dark Overlay */}
-        <div className="absolute inset-0 bg-black/60" />
-
-        <div className="relative mx-auto max-w-7xl px-6 py-16 sm:py-24 lg:px-8 flex flex-col items-center justify-center text-center">
-          <h1 className="font-heading text-3xl font-extrabold uppercase tracking-wide text-white sm:text-4xl lg:text-5xl">
-            Terms & Conditions
-          </h1>
-
-          <PageBreadcrumb items={[{ label: "Terms & Conditions" }]} />
-        </div>
-      </section>
+      <PageBanner
+        preTitle="Legal"
+        title="Terms & Conditions"
+        description="Please review these terms carefully before using our website and property services."
+        breadcrumbs={[{ label: "Terms & Conditions" }]}
+      />
       <div className="mx-auto max-w-7xl px-6 py-8 lg:px-8 lg:py-10">
         <h1 className="font-heading mt-2 text-2xl font-bold text-slate-900 sm:text-3xl">
           Terms and Conditions
         </h1>
-        {/* Terms and conditions ke liye bna rhe hai  */}
         <p className="mt-4 text-slate-700 text-justify">
           Welcome to our real estate website! By accessing or using our website,
           you agree to comply with and be bound by the following terms and
@@ -61,7 +46,6 @@ const page = () => {
           About the Website
         </h1>
         <p className="mt-4 text-slate-700 text-justify">
-          {" "}
           Our real estate website is a platform that connects buyers, sellers,
           and renters of properties. We provide a user-friendly interface to
           browse property listings, view detailed information, and contact

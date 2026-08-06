@@ -13,42 +13,26 @@ import {
   HeartHandshake,
   ShieldCheck,
 } from "lucide-react";
-import AboutPageBanner from "@/app/components/ui/AboutPageBanner";
+import PageBanner from "@/app/components/ui/PageBanner";
+import data from "@/lib/data";
 
-const jobOpenings = [
-  {
-    id: 1,
-    title: "Senior Real Estate Consultant",
-    location: "Noida / Delhi NCR",
-    type: "Full Time",
-    experience: "3–6 Years",
-    desc: "Handle premium residential and commercial property sales, build client relationships, and close high-value deals across Delhi NCR.",
-  },
-  {
-    id: 2,
-    title: "Property Sales Executive",
-    location: "Gurugram",
-    type: "Full Time",
-    experience: "1–3 Years",
-    desc: "Generate leads, conduct site visits, and assist clients in finding the right property. Freshers with strong communication skills are welcome.",
-  },
-  {
-    id: 3,
-    title: "Legal & Compliance Manager",
-    location: "Head Office, Noida",
-    type: "Full Time",
-    experience: "4–8 Years",
-    desc: "Oversee property documentation, RERA compliance, sale agreements, and registry processes for all listed properties.",
-  },
-  {
-    id: 4,
-    title: "Digital Marketing Executive",
-    location: "Noida (Hybrid)",
-    type: "Full Time",
-    experience: "2–4 Years",
-    desc: "Run performance campaigns, manage social media, and generate quality leads for our property listings across platforms.",
-  },
-];
+const jobOpenings = data.careerJobOpenings as Array<{
+  id: number;
+  title: string;
+  location: string;
+  type: string;
+  experience: string;
+  desc: string;
+}>;
+
+const careerIcons = {
+  TrendingUp,
+  Award,
+  GraduationCap,
+  HeartHandshake,
+  ShieldCheck,
+  Building2,
+};
 
 const perks = [
   {
@@ -92,13 +76,11 @@ const perks = [
 export default function CareerPage() {
   return (
     <main className="bg-[#FAF7F2] text-slate-900">
-      <AboutPageBanner
+      <PageBanner
+        preTitle="Grow With Us"
         title="Careers"
         description="Build your career with a growing real estate team that rewards expertise, initiative, and client-first thinking."
-        breadcrumbs={[
-          { label: "About Us", href: "/about-us" },
-          { label: "Careers" },
-        ]}
+        breadcrumbs={[{ label: "Careers" }]}
       />
 
       {/* Why Join Us */}

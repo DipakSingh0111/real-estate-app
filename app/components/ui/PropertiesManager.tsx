@@ -11,7 +11,7 @@ import {
   Calendar,
 } from "lucide-react";
 
-import propertiesData from "@/data/properties.json";
+import propertiesData from "@/lib/data";
 
 const FALLBACK_IMAGE = "/placeholder.jpg";
 

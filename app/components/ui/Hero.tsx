@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { ArrowRight, Sparkles } from "lucide-react";
 import { motion, AnimatePresence, type Variants } from "framer-motion";
-import data from "../../data/properties.json";
+import data from "@/lib/data";
 import type { HeroProps } from "@/types/property";
 
 const headers = data.header;

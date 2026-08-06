@@ -4,19 +4,19 @@ import Link from "next/link";
 import { motion, useReducedMotion, type Variants } from "framer-motion";
 import type { ReactNode } from "react";
 
-import propertiesData from "../data/properties.json";
-import Hero from "./components/Hero";
-import PropertyCard from "./components/PropertyCard";
-import WhoWeServe from "./components/about";
-import Testimonial from "./components/Testimonial";
-import LatestProjects from "./components/ui/latestProject";
+import propertiesData from "@/lib/data";
+import Hero from "./components/ui/Hero";
+import PropertyCard from "./components/ui/PropertyCard";
+import WhoWeServe from "./components/ui/WhoWeServe";
+import Testimonial from "./components/ui/Testimonial";
+import LatestProjects from "./components/ui/LatestProjects";
 import LogoSlider from "./components/ui/LogoSlider";
 
 import type { Property, Testimonials } from "@/types/property";
 import BrowseByCity from "./components/ui/BrowseByCity";
 import PropertyServices from "./components/ui/PropertyServices";
 import Properties from "./components/ui/Properties";
-import BlogInsights from "./components/BlogInsights";
+import BlogInsights from "./components/ui/BlogInsights";
 import PropertyProcess from "./components/ui/PropertyProcess";
 import FaqSection from "./components/ui/FaqSection";
 import BookSiteVisit from "./components/ui/BookSiteVisit";

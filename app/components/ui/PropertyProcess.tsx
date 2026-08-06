@@ -9,7 +9,7 @@ import {
   Key,
   ArrowRight,
 } from "lucide-react";
-import data from "../../../data/properties.json";
+import data from "@/lib/data";
 
 const icons: Record<string, React.ElementType> = {
   MessageSquare, Search, MapPin, FileText, Key,

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { ArrowUpRight, TrendingUp } from "lucide-react";
-import data from "../../data/properties.json";
+import data from "@/lib/data";
 import type { BlogPost } from "@/types/blog";
 import BlogCard from "./BlogCard";
 

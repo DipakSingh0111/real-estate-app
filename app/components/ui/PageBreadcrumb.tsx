@@ -8,7 +8,6 @@ export type BreadcrumbItem = {
 
 type PageBreadcrumbProps = {
   items: BreadcrumbItem[];
-  /** Soft pill */
   variant?: "plain" | "pill";
   className?: string;
 };

@@ -3,12 +3,12 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import propertiesData from "@/data/properties.json";
+import propertiesData from "@/lib/data";
 import type { Property } from "@/types/property";
-import PropertyCard from "@/app/components/PropertyCard";
-import PropertyGallery from "@/app/components/PropertyGallery";
-import ContactForm from "@/app/components/ContactForm";
-import PropertyMobileActions from "@/app/components/PropertyMobileActions";
+import PropertyCard from "@/app/components/ui/PropertyCard";
+import PropertyGallery from "@/app/components/ui/PropertyGallery";
+import ContactForm from "@/app/components/ui/ContactForm";
+import PropertyMobileActions from "@/app/components/ui/PropertyMobileActions";
 import {
   ArrowUpRight,
   MapPin,
@@ -154,21 +154,18 @@ export default async function PropertyDetailPage({
           <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-slate-950/45 to-transparent" />
         </div>
 
-        <div className="relative mx-auto flex max-w-5xl flex-col items-center px-4 py-12 text-center sm:px-6 sm:py-16 lg:px-8 lg:py-20">
+        <div className="relative mx-auto flex h-[250px] max-w-5xl flex-col items-center justify-center px-4 text-center sm:h-[280px] sm:px-6 lg:px-8">
           <div className="flex flex-wrap items-center justify-center gap-2">
-              <span className="rounded-full border border-white/15 bg-white/10 px-3 py-1 text-[11px] font-semibold text-white backdrop-blur">
-                {property.type}
-              </span>
-              <span className="rounded-full bg-[#B8863D] px-3 py-1 text-[11px] font-semibold text-white">
-                For {property.listingType}
-              </span>
+            <span className="rounded-full border border-white/15 bg-white/10 px-3 py-1 text-[11px] font-semibold text-white backdrop-blur">
+              {property.type}
+            </span>
           </div>
 
-          <h1 className="mt-4 max-w-4xl font-heading text-3xl font-bold leading-tight text-white drop-shadow-md sm:text-4xl lg:text-5xl">
+          <h1 className="mt-2 line-clamp-2 max-w-4xl font-heading text-3xl font-bold leading-tight text-white drop-shadow-md sm:text-4xl">
             {property.title}
           </h1>
 
-          <p className="mt-3 flex items-center justify-center gap-2 text-sm text-white/75 sm:text-base">
+          <p className="mt-1 line-clamp-1 flex items-center justify-center gap-2 text-sm text-white/75 sm:text-base">
             <MapPin size={16} className="shrink-0 text-[#E6C687]" />
             {property.locality}, {property.city}, {property.state}
           </p>
@@ -177,14 +174,6 @@ export default async function PropertyDetailPage({
             variant="pill"
             items={[
               { label: "Properties", href: "/properties" },
-              {
-                label:
-                  property.listingType === "Rent" ? "For Rent" : "For Sale",
-                href:
-                  property.listingType === "Rent"
-                    ? "/properties?listingType=Rent"
-                    : "/properties?listingType=Sale",
-              },
               { label: property.title },
             ]}
           />
@@ -192,7 +181,13 @@ export default async function PropertyDetailPage({
       </section>
 
       <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 sm:py-8 lg:px-8">
-        <div className="grid grid-cols-1 gap-6 lg:grid-cols-[minmax(0,1fr)_380px] lg:gap-8">
+        <div className="max-[359px]:hidden text-3xl font-bold">
+          {property.title}{" "}
+        </div>
+        <p className=" text-gray-500 mt-2 font-bold text-1xl ">
+          {property.locality}, {property.city}, {property.state}
+        </p>
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-[minmax(0,1fr)_380px] mt-2 lg:gap-8">
           {/* LEFT: Image + Description + Amenities */}
           <div className="space-y-5">
             <PropertyGallery
@@ -222,7 +217,10 @@ export default async function PropertyDetailPage({
                           </span>
                         )}
                       </div>
-                      <p className="font-heading mt-1 text-3xl  sm:text-4xl" style={{ color: "#f0d9a8" }}>
+                      <p
+                        className="font-heading mt-1 text-3xl  sm:text-4xl"
+                        style={{ color: "#f0d9a8" }}
+                      >
                         {property.priceLabel}
                       </p>
                       {property.areaSqft && (
@@ -247,7 +245,7 @@ export default async function PropertyDetailPage({
                             >
                               <Icon size={16} className="text-[#f0d9a8]" />
                               <div>
-                                <p className="text-[10px] text-white">
+                                <p className="text-[13px] font-bold">
                                   {stat.label}
                                 </p>
                                 <p className="text-sm font-bold">

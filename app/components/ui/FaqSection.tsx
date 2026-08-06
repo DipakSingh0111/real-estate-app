@@ -4,7 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, HelpCircle, Search } from "lucide-react";
 
-import data from "../../../data/properties.json";
+import data from "@/lib/data";
 import type { FAQItem } from "@/types/property";
 
 const faqData = (data?.faqs || []) as FAQItem[];

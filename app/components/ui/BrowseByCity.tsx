@@ -6,7 +6,7 @@ import Link from "next/link";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { motion, type Variants } from "framer-motion";
 
-import propertiesData from "../../../data/properties.json";
+import propertiesData from "@/lib/data";
 import type { Property } from "@/types/property";
 
 const properties = (propertiesData?.properties || []) as Property[];

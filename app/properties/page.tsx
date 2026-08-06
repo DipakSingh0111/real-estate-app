@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
-import propertiesData from "../../data/properties.json";
-import PropertyCard from "../components/PropertyCard";
-import PropertyListingFilters from "../components/PropertyListingFilters";
+import propertiesData from "@/lib/data";
+import PropertyCard from "../components/ui/PropertyCard";
+import PropertyListingFilters from "../components/ui/PropertyListingFilters";
 import Pagination from "../components/ui/Pagination";
-import PageBreadcrumb from "@/app/components/ui/PageBreadcrumb";
+import PageBanner from "@/app/components/ui/PageBanner";
 import type { Property, PropertiesPageProps } from "@/types/property";
 
 export const dynamic = "force-dynamic";
@@ -30,7 +30,6 @@ export default async function PropertiesPage({
   searchParams,
 }: PropertiesPageProps) {
   const params = await searchParams;
-
 
   const cityQuery = params.city?.trim() || "";
   const typeQuery = params.type?.trim() || "";
@@ -80,35 +79,26 @@ export default async function PropertiesPage({
 
   return (
     <main className="min-h-screen bg-white">
-      {/* Hero — full-bleed */}
-      <div
-        className="relative bg-cover bg-center bg-no-repeat w-full"
-        style={{ backgroundImage: "url('/images/land_01.avif')" }}
-      >
-        <div className="absolute inset-0 bg-black/40" />
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 text-center relative z-10 sm:py-12">
-          <h1 className="font-heading text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl">
-            {pageTitle}
-          </h1>
-          <PageBreadcrumb
-            items={[
-              { label: "Properties", href: "/properties" },
-              ...breadcrumbFilters.map((f) => ({ label: f })),
-            ]}
-          />
-        </div>
-      </div>
+      <PageBanner
+        preTitle="Explore Homes"
+        title={pageTitle}
+        description={pageSubtitle}
+        breadcrumbs={[
+          { label: "Properties", href: "/properties" },
+          ...breadcrumbFilters.map((f) => ({ label: f })),
+        ]}
+      />
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Filters */}
-        <Suspense fallback={<div className="h-16 border-y border-stone-200" />}>
+        {/* <Suspense fallback={<div className="h-16 border-y border-stone-200" />}>
           <PropertyListingFilters
             cities={cities}
             resultCount={filteredProperties.length}
             activeListing={listingQuery}
             activeCity={cityQuery}
           />
-        </Suspense>
+        </Suspense> */}
 
         {/* Grid */}
         {paginated.length > 0 ? (

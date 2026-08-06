@@ -1,9 +1,9 @@
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import data from "../../../data/properties.json";
+import data from "@/lib/data";
 import type { BlogPost } from "@/types/blog";
-import BlogCard from "@/app/components/BlogCard";
+import BlogCard from "@/app/components/ui/BlogCard";
 import {
   Calendar,
   Clock,
@@ -46,14 +46,14 @@ export default async function BlogDetailPage({
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/30" />
         </div>
 
-        <div className="relative mx-auto max-w-4xl px-4 py-8 text-center sm:px-6 sm:py-12 lg:px-8">
+        <div className="relative mx-auto flex h-[250px] max-w-4xl flex-col items-center justify-center px-4 text-center sm:h-[280px] sm:px-6 lg:px-8">
           <span className="inline-flex rounded-lg bg-[#B8863D] px-2.5 py-1 text-[11px] font-bold uppercase tracking-wide text-white">
             {post.category}
           </span>
-          <h1 className="font-heading mt-4 text-2xl font-bold leading-tight text-white sm:text-3xl lg:text-4xl">
+          <h1 className="mt-2 line-clamp-2 font-heading text-2xl font-bold leading-tight text-white sm:text-3xl">
             {post.title}
           </h1>
-          <div className="mt-5 flex flex-wrap items-center justify-center gap-4 text-xs text-white/80 sm:text-sm">
+          <div className="mt-2 flex flex-wrap items-center justify-center gap-3 text-xs text-white/80 sm:text-sm">
             <span className="inline-flex items-center gap-1.5">
               <Calendar size={14} className="text-[#f0d9a8]" />
               {post.date}

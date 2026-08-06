@@ -15,7 +15,7 @@ import {
   getTeamMemberBySlug,
   teamMembers,
 } from "@/lib/team";
-import AboutPageBanner from "@/app/components/ui/AboutPageBanner";
+import PageBanner from "@/app/components/ui/PageBanner";
 
 export async function generateStaticParams() {
   return teamMembers.map((member) => ({ slug: member.slug }));
@@ -52,7 +52,8 @@ export default async function TeamMemberDetailPage({
 
   return (
     <div className=" bg-[#FAF7F2] text-slate-900">
-      <AboutPageBanner
+      <PageBanner
+        preTitle="Meet Our Team"
         title={member.name}
         description={`${member.role} with ${member.experience} of experience, helping clients make confident property decisions.`}
         breadcrumbs={[

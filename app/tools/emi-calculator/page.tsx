@@ -2,7 +2,7 @@
 
 import { useState, useMemo } from "react";
 import { IndianRupee, Percent, Calendar } from "lucide-react";
-import PageBreadcrumb from "@/app/components/ui/PageBreadcrumb";
+import PageBanner from "@/app/components/ui/PageBanner";
 
 export default function EMICalculatorPage() {
   const [loanAmount, setLoanAmount] = useState(5000000);
@@ -30,29 +30,15 @@ export default function EMICalculatorPage() {
 
   return (
     <main className="bg-[#FAF7F2] min-h-screen">
-      {/* EXACT HERO SECTION FROM YOUR IMAGE */}
-      <section className="relative h-48 sm:h-64 text-white overflow-hidden flex items-center justify-center">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage:
-              "url('https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1600&auto=format&fit=crop')",
-          }}
-        />
-        {/* Dark Overlay */}
-        <div className="absolute inset-0 bg-black/70" />
-
-        <div className="relative z-10 text-center flex flex-col items-center justify-center px-4">
-          {/* Main Title */}
-          <h1 className="text-3xl sm:text-5xl font-extrabold uppercase tracking-wider text-white">
-            EMI CALCULATOR
-          </h1>
-
-          <PageBreadcrumb
-            items={[{ label: "Tools" }, { label: "EMI Calculator" }]}
-          />
-        </div>
-      </section>
+      <PageBanner
+        preTitle="Home Loan Tools"
+        title="EMI Calculator"
+        description="Estimate monthly EMI, total interest, and repayment quickly before finalising a purchase."
+        breadcrumbs={[
+          { label: "Tools" },
+          { label: "EMI Calculator" },
+        ]}
+      />
 
       {/* CALCULATOR MAIN CONTENT */}
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-10">

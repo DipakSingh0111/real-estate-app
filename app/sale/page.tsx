@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import PropertyListing from "../components/PropertyListing";
+import PropertyListing from "../components/ui/PropertyListing";
 
 export const metadata: Metadata = {
   title: "Properties for Sale — Real Estate",

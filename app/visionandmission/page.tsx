@@ -9,46 +9,29 @@ import {
   FileCheck,
   Heart,
 } from "lucide-react";
-import AboutPageBanner from "@/app/components/ui/AboutPageBanner";
+import PageBanner from "@/app/components/ui/PageBanner";
+import data from "@/lib/data";
 
-const coreValues = [
-  {
-    icon: ShieldCheck,
-    title: "Trust & Transparency",
-    desc: "We never hide costs, commissions, or legal issues. Every client deserves the full picture before signing anything.",
-    color: "bg-emerald-50 text-emerald-600",
-  },
-  {
-    icon: Heart,
-    title: "Client First, Always",
-    desc: "We measure success by how well our clients sleep after closing a deal — not by how many deals we close.",
-    color: "bg-rose-50 text-rose-600",
-  },
-  {
-    icon: TrendingUp,
-    title: "Long-Term Value",
-    desc: "We guide clients toward properties that appreciate over time — not just what looks good on paper today.",
-    color: "bg-amber-50 text-amber-600",
-  },
-  {
-    icon: FileCheck,
-    title: "Legal Integrity",
-    desc: "Every property we list is RERA verified. We handle documentation with zero shortcuts.",
-    color: "bg-blue-50 text-blue-600",
-  },
-  {
-    icon: Users,
-    title: "Inclusive Access",
-    desc: "Whether you're a first-time buyer or a seasoned investor — we give everyone the same quality of service.",
-    color: "bg-purple-50 text-purple-600",
-  },
-  {
-    icon: Building2,
-    title: "Market Expertise",
-    desc: "15+ years on the ground means we know which localities are growing, which builders deliver, and what's overpriced.",
-    color: "bg-cyan-50 text-cyan-600",
-  },
-];
+const iconMap = {
+  ShieldCheck,
+  Heart,
+  TrendingUp,
+  FileCheck,
+  Users,
+  Building2,
+};
+
+const coreValues = (
+  data.visionCoreValues as Array<{
+    icon: string;
+    title: string;
+    desc: string;
+    color: string;
+  }>
+).map((item) => ({
+  ...item,
+  icon: iconMap[item.icon as keyof typeof iconMap] || ShieldCheck,
+}));
 
 const commitments = [
   {
@@ -76,7 +59,8 @@ const commitments = [
 export default function VisionMissionPage() {
   return (
     <main className="bg-[#FAF7F2] text-slate-900">
-      <AboutPageBanner
+      <PageBanner
+        preTitle="Our Purpose"
         title="Vision & Mission"
         description="Our purpose is to make every property decision transparent, informed, and focused on long-term value."
         breadcrumbs={[

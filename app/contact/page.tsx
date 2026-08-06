@@ -1,62 +1,30 @@
-import {
-  Mail,
+import { Mail, MapPin, Phone, Clock, MessageSquare } from "lucide-react";
+import PageBanner from "@/app/components/ui/PageBanner";
+import data from "@/lib/data";
+
+const iconMap = {
   MapPin,
   Phone,
+  Mail,
   Clock,
-  MessageSquare,
-  Headphones,
-} from "lucide-react";
-import PageBreadcrumb from "@/app/components/ui/PageBreadcrumb";
+};
 
-const contactInfo = [
-  {
-    icon: MapPin,
-    title: "Our Office",
-    lines: ["Tower B, Sector 62", "Noida, Uttar Pradesh 201309"],
-    color: "bg-amber-50 text-[#C89234]",
-  },
-  {
-    icon: Phone,
-    title: "Phone Number",
-    lines: ["+91 87366 74937", "Mon–Sat, 9 AM – 7 PM"],
-    color: "bg-emerald-50 text-emerald-600",
-  },
-  {
-    icon: Mail,
-    title: "Email Address",
-    lines: ["support@eliteestates.com", "sales@eliteestates.com"],
-    color: "bg-blue-50 text-blue-600",
-  },
-  {
-    icon: Clock,
-    title: "Working Hours",
-    lines: ["Monday – Saturday: 9 AM – 7 PM", "Sunday: Closed"],
-    color: "bg-purple-50 text-purple-600",
-  },
-];
+const contactInfo = data.contactInfo as Array<{
+  icon: string;
+  title: string;
+  lines: string[];
+  color: string;
+}>;
 
 export default function ContactPage() {
   return (
     <main className="min-h-screen bg-[#FAF7F2] text-stone-900">
-      {/* Hero */}
-      <section className="relative overflow-hidden border-b border-stone-800 text-white">
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage:
-              "url('https://images.unsplash.com/photo-1423666639041-f56000c27a9a?q=80&w=1600&auto=format&fit=crop')",
-          }}
-        />
-        <div className="absolute inset-0 bg-black/65" />
-
-        <div className="relative mx-auto flex max-w-7xl flex-col items-center justify-center px-6 py-8 text-center sm:py-12 lg:px-8">
-          <h1 className="font-heading mt-4 text-3xl font-extrabold uppercase tracking-wide text-white sm:text-4xl lg:text-5xl">
-            Contact Us
-          </h1>
-
-          <PageBreadcrumb items={[{ label: "Contact" }]} />
-        </div>
-      </section>
+      <PageBanner
+        preTitle="Get In Touch"
+        title="Contact Us"
+        description="Share your requirement and our advisors will help you shortlist the right homes faster."
+        breadcrumbs={[{ label: "Contact" }]}
+      />
 
       {/* Quick contact cards */}
       <section className="relative z-10 -mt-8 mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
@@ -68,11 +36,6 @@ export default function ContactPage() {
                 key={item.title}
                 className="rounded-2xl border border-stone-200/80 bg-white p-5 shadow-sm transition hover:border-[#C89234]/30 hover:shadow-md"
               >
-                <div
-                  className={`flex h-10 w-10 items-center justify-center rounded-xl ${item.color}`}
-                >
-                  <Icon size={18} />
-                </div>
                 <h3 className="mt-3 text-sm font-bold text-stone-900">
                   {item.title}
                 </h3>

@@ -1,7 +1,7 @@
-import data from "../../data/properties.json";
+import data from "@/lib/data";
 import type { BlogPost } from "@/types/blog";
-import BlogCard from "@/app/components/BlogCard";
-import PageBreadcrumb from "@/app/components/ui/PageBreadcrumb";
+import BlogCard from "@/app/components/ui/BlogCard";
+import PageBanner from "@/app/components/ui/PageBanner";
 
 const blogs = data.blogs as BlogPost[];
 
@@ -11,25 +11,12 @@ export default function BlogPage() {
 
   return (
     <main className="min-h-screen bg-[#FAF7F1] text-stone-900">
-      {/* Hero */}
-      <section className="relative overflow-hidden border-b border-stone-800 text-white">
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage:
-              "url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1600&auto=format&fit=crop')",
-          }}
-        />
-        <div className="absolute inset-0 bg-black/60" />
-
-        <div className="relative mx-auto flex max-w-7xl flex-col items-center justify-center px-6 py-8 text-center sm:py-12 lg:px-8">
-          <h1 className="font-heading mt-4 text-3xl font-extrabold uppercase tracking-wide text-white sm:text-4xl lg:text-5xl">
-            Blog & Insights
-          </h1>
-
-          <PageBreadcrumb items={[{ label: "Blog" }]} />
-        </div>
-      </section>
+      <PageBanner
+        preTitle="Market Insights"
+        title="Blog & Insights"
+        description="Practical guides and local market notes to help you buy, rent, or invest with confidence."
+        breadcrumbs={[{ label: "Blog" }]}
+      />
 
       {/* Articles */}
       <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-14">

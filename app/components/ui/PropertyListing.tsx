@@ -3,7 +3,7 @@
 import { useSearchParams } from "next/navigation";
 import { useMemo, Suspense } from "react";
 import Image from "next/image";
-import propertiesData from "@/data/properties.json";
+import propertiesData from "@/lib/data";
 import type { PropertyListingItem } from "@/types/property";
 
 function PropertyListContent() {

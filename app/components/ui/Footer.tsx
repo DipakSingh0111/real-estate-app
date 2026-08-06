@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import propertiesData from "../../data/properties.json";
+import propertiesData from "@/lib/data";
 import type { Property } from "@/types/property";
 import { MapPin, Phone, Mail, ArrowRight } from "lucide-react";
 import {

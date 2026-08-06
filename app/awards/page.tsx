@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import AwardsGrid from "../components/AwardsGrid";
+import AwardsGrid from "../components/ui/AwardsGrid";
 import { awardStats, awards, awardYears } from "@/lib/awards";
-import AboutPageBanner from "@/app/components/ui/AboutPageBanner";
+import PageBanner from "@/app/components/ui/PageBanner";
 
 export const metadata: Metadata = {
   title: "Awards & Recognition — NestVista",
@@ -12,7 +12,8 @@ export const metadata: Metadata = {
 export default function AwardsPage() {
   return (
     <main className=" bg-[#FAF9F6]">
-      <AboutPageBanner
+      <PageBanner
+        preTitle="Our Achievements"
         title="Awards & Recognition"
         description="Honors earned for trusted advisory, outstanding client service, and excellence across premium real estate."
         breadcrumbs={[

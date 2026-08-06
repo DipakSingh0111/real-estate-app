@@ -13,7 +13,7 @@ import {
   Sofa,
 } from "lucide-react";
 import { services, getServiceBySlug } from "@/lib/services";
-import PageBreadcrumb from "@/app/components/ui/PageBreadcrumb";
+import PageBanner from "@/app/components/ui/PageBanner";
 
 const icons = {
   Landmark,
@@ -42,30 +42,15 @@ export default async function ServiceDetailPage({
 
   return (
     <main className="min-h-screen bg-[#FAF7F2] text-stone-900">
-      {/* Hero */}
-      <section className="relative overflow-hidden border-b border-stone-800 text-white">
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url('${service.heroImage}')` }}
-        />
-        <div className="absolute inset-0 bg-black/35" />
-
-        <div className="relative mx-auto flex min-h-[160px] max-w-7xl flex-col items-center justify-center px-6 py-8 text-center sm:py-12 lg:px-8 lg:py-12">
-          <div className="max-w-3xl">
-            <h1 className="font-heading text-3xl font-extrabold text-white sm:text-4xl lg:text-5xl">
-              {service.title}
-            </h1>
-          </div>
-
-          <PageBreadcrumb
-            variant="pill"
-            items={[
-              { label: "Services", href: "/services" },
-              { label: service.title },
-            ]}
-          />
-        </div>
-      </section>
+      <PageBanner
+        preTitle="Service Detail"
+        title={service.title}
+        description={service.shortDescription}
+        breadcrumbs={[
+          { label: "Services", href: "/services" },
+          { label: service.title },
+        ]}
+      />
 
       {/* Content */}
       <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-14">
