@@ -10,7 +10,7 @@ import {
   ShieldCheck,
   Sofa,
 } from "lucide-react";
-import { services } from "@/lib/services";
+import { getPageBanner, services } from "@/lib/getRealEstateData";
 import PageBanner from "@/app/components/ui/PageBanner";
 
 const icons = {
@@ -23,14 +23,11 @@ const icons = {
 };
 
 export default function ServicesPage() {
+  const banner = getPageBanner("services");
+
   return (
     <main className="min-h-screen bg-[#FAF7F2] text-stone-900">
-      <PageBanner
-        preTitle="How We Help"
-        title="Our Services"
-        description="End-to-end property support — from shortlisting and visits to documentation and closing."
-        breadcrumbs={[{ label: "Services" }]}
-      />
+      <PageBanner {...banner} />
 
       {/* Services grid */}
       <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { ArrowLeftRight } from "lucide-react";
 import PageBanner from "@/app/components/ui/PageBanner";
+import { getPageBanner } from "@/lib/getRealEstateData";
 
 const units = [
   { label: "Square Feet (sq ft)", key: "sqft", toSqft: 1 },
@@ -15,6 +16,7 @@ const units = [
 ];
 
 export default function AreaConverterPage() {
+  const banner = getPageBanner("area-converter");
   const [value, setValue] = useState<string>("1000");
   const [fromUnit, setFromUnit] = useState("sqft");
   const [toUnit, setToUnit] = useState("sqm");
@@ -41,15 +43,7 @@ export default function AreaConverterPage() {
 
   return (
     <main className="bg-[#FAF7F2] min-h-screen">
-      <PageBanner
-        preTitle="Quick Converter"
-        title="Area Converter"
-        description="Convert between sq ft, sq m, yards, acres, and common local land units instantly."
-        breadcrumbs={[
-          { label: "Tools" },
-          { label: "Area Converter" },
-        ]}
-      />
+      <PageBanner {...banner} />
 
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-10">
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">

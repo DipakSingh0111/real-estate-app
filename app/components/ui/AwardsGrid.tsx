@@ -54,7 +54,7 @@ export default function AwardsGrid({ awards, years }: AwardsGridProps) {
   return (
     <section className="mx-auto max-w-7xl px-4 pb-6 sm:px-6 lg:px-8 lg:pb-10">
       <div className="mt-2 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-        <h2 className="max-w-md font-heading text-[1.35rem] font-semibold leading-[1.2] text-stone-900 sm:text-[1.55rem]">
+        <h2 className="max-w-md font-semibold sm:text-[1.55rem] font-body text-[#808a4c">
           Awards that mark how we work.
         </h2>
 

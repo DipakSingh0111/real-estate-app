@@ -3,13 +3,15 @@
 import { useRef, useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ChevronLeft, ChevronRight } from "lucide-react";
 import { motion, type Variants } from "framer-motion";
 
-import propertiesData from "@/lib/data";
-import type { Property } from "@/types/property";
+import {
+  getRealEstatePageData,
+  type HomePageData,
+} from "@/lib/getRealEstateData";
 
-const properties = (propertiesData?.properties || []) as Property[];
+const properties =
+  getRealEstatePageData<HomePageData>("home").CitiesWeServe?.resolvedData ?? [];
 
 // city images
 const cityImages: Record<string, string> = {

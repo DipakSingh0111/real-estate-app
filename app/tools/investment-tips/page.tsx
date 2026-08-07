@@ -1,7 +1,21 @@
 import PageBanner from "@/app/components/ui/PageBanner";
-import data from "@/lib/data";
+import {
+  getPageBanner,
+  getRealEstatePageData,
+} from "@/lib/getRealEstateData";
 
-const tips = data.investmentTips as Array<{
+const tips =
+  ((getRealEstatePageData("investment-tips").InvestmentTips as
+    | {
+        tips?: Array<{
+          id: number;
+          color: string;
+          title: string;
+          desc: string;
+          points: string[];
+        }>;
+      }
+    | undefined)?.tips ?? []) as Array<{
   id: number;
   color: string;
   title: string;
@@ -10,17 +24,11 @@ const tips = data.investmentTips as Array<{
 }>;
 
 export default function InvestmentTipsPage() {
+  const banner = getPageBanner("investment-tips");
+
   return (
     <main className="bg-[#FAF7F2] min-h-screen text-slate-900">
-      <PageBanner
-        preTitle="Smart Investing"
-        title="Investment Tips"
-        description="Practical notes to help you compare corridors, ticket sizes, and long-term value before you commit."
-        breadcrumbs={[
-          { label: "Tools", href: "/tools/emi-calculator" },
-          { label: "Investment Tips" },
-        ]}
-      />
+      <PageBanner {...banner} />
 
       {/* Content Section */}
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 lg:py-14">

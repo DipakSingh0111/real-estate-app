@@ -14,9 +14,9 @@ export default function ContactForm({
   propertyTitle = "this property",
   agentPhone = "+919876543210",
 }: ContactFormProps) {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
+  const [name, setName] = useState(" ");
+  const [email, setEmail] = useState(" ");
+  const [phone, setPhone] = useState(" ");
   const [message, setMessage] = useState(
     `I'm interested in ${propertyTitle}. Please contact me with more details.`,
   );
@@ -55,7 +55,9 @@ export default function ContactForm({
             <MessageSquareText size={19} />
           </span>
           <div>
-            <h2 className="font-heading text-xl font-bold">Request a callback</h2>
+            <h2 className="font-heading text-xl font-bold">
+              Request a callback
+            </h2>
             <p className="mt-0.5 text-xs text-white/65">
               Get pricing and availability details
             </p>
@@ -113,12 +115,7 @@ export default function ContactForm({
           />
         </FormField>
 
-        <Button
-          type="submit"
-          size="lg"
-          fullWidth
-          className="group"
-        >
+        <Button type="submit" size="lg" fullWidth className="group">
           Send enquiry
           <ArrowRight
             size={17}

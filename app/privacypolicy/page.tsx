@@ -1,15 +1,13 @@
 import React from "react";
 import PageBanner from "@/app/components/ui/PageBanner";
+import { getPageBanner } from "@/lib/getRealEstateData";
 
 const page = () => {
+  const banner = getPageBanner("privacy");
+
   return (
     <main className="bg-[#FAF7F2] text-slate-900">
-      <PageBanner
-        preTitle="Legal"
-        title="Privacy Policy"
-        description="How we collect, use, and protect your information when you interact with NestVista."
-        breadcrumbs={[{ label: "Privacy Policy" }]}
-      />
+      <PageBanner {...banner} />
       <div className="mx-auto max-w-7xl px-6 py-8 lg:px-8 lg:py-10">
         <h1 className="font-heading mt-2 text-2xl font-bold text-slate-900 sm:text-3xl">
           Privacy & Policy

@@ -1,22 +1,24 @@
-import data from "@/lib/data";
+import {
+  getPageBanner,
+  getRealEstatePageData,
+} from "@/lib/getRealEstateData";
 import type { BlogPost } from "@/types/blog";
 import BlogCard from "@/app/components/ui/BlogCard";
 import PageBanner from "@/app/components/ui/PageBanner";
 
-const blogs = data.blogs as BlogPost[];
+const blogs =
+  (getRealEstatePageData("blog").BlogListing as
+    | { resolvedData?: BlogPost[] }
+    | undefined)?.resolvedData ?? [];
 
 export default function BlogPage() {
+  const banner = getPageBanner("blog");
   const featured = blogs.find((b) => b.featured) ?? blogs[0];
   const rest = blogs.filter((b) => b.id !== featured?.id);
 
   return (
     <main className="min-h-screen bg-[#FAF7F1] text-stone-900">
-      <PageBanner
-        preTitle="Market Insights"
-        title="Blog & Insights"
-        description="Practical guides and local market notes to help you buy, rent, or invest with confidence."
-        breadcrumbs={[{ label: "Blog" }]}
-      />
+      <PageBanner {...banner} />
 
       {/* Articles */}
       <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-14">

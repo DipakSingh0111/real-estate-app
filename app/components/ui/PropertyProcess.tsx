@@ -9,13 +9,22 @@ import {
   Key,
   ArrowRight,
 } from "lucide-react";
-import data from "@/lib/data";
+import { getRealEstatePageData } from "@/lib/getRealEstateData";
 
 const icons: Record<string, React.ElementType> = {
   MessageSquare, Search, MapPin, FileText, Key,
 };
 
-const stepsData = (data?.propertyProcess || []) as {
+const stepsData =
+  ((getRealEstatePageData("home").PropertyProcess as
+    | { steps?: Array<{
+        id: number;
+        number: string;
+        title: string;
+        description: string;
+        icon: string;
+      }> }
+    | undefined)?.steps ?? []) as {
   id: number; number: string; title: string; description: string; icon: string;
 }[];
 

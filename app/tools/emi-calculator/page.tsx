@@ -3,8 +3,10 @@
 import { useState, useMemo } from "react";
 import { IndianRupee, Percent, Calendar } from "lucide-react";
 import PageBanner from "@/app/components/ui/PageBanner";
+import { getPageBanner } from "@/lib/getRealEstateData";
 
 export default function EMICalculatorPage() {
+  const banner = getPageBanner("emi-calculator");
   const [loanAmount, setLoanAmount] = useState(5000000);
   const [interestRate, setInterestRate] = useState(8.5);
   const [tenure, setTenure] = useState(20);
@@ -30,15 +32,7 @@ export default function EMICalculatorPage() {
 
   return (
     <main className="bg-[#FAF7F2] min-h-screen">
-      <PageBanner
-        preTitle="Home Loan Tools"
-        title="EMI Calculator"
-        description="Estimate monthly EMI, total interest, and repayment quickly before finalising a purchase."
-        breadcrumbs={[
-          { label: "Tools" },
-          { label: "EMI Calculator" },
-        ]}
-      />
+      <PageBanner {...banner} />
 
       {/* CALCULATOR MAIN CONTENT */}
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-10">

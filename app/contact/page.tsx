@@ -1,6 +1,9 @@
 import { Mail, MapPin, Phone, Clock, MessageSquare } from "lucide-react";
 import PageBanner from "@/app/components/ui/PageBanner";
-import data from "@/lib/data";
+import {
+  getPageBanner,
+  getRealEstatePageData,
+} from "@/lib/getRealEstateData";
 
 const iconMap = {
   MapPin,
@@ -9,7 +12,18 @@ const iconMap = {
   Clock,
 };
 
-const contactInfo = data.contactInfo as Array<{
+const contactInfo = ((
+  getRealEstatePageData("contact").ContactDetails as
+    | {
+        items?: Array<{
+          icon: string;
+          title: string;
+          lines: string[];
+          color: string;
+        }>;
+      }
+    | undefined
+)?.items ?? []) as Array<{
   icon: string;
   title: string;
   lines: string[];
@@ -17,14 +31,11 @@ const contactInfo = data.contactInfo as Array<{
 }>;
 
 export default function ContactPage() {
+  const banner = getPageBanner("contact");
+
   return (
     <main className="min-h-screen bg-[#FAF7F2] text-stone-900">
-      <PageBanner
-        preTitle="Get In Touch"
-        title="Contact Us"
-        description="Share your requirement and our advisors will help you shortlist the right homes faster."
-        breadcrumbs={[{ label: "Contact" }]}
-      />
+      <PageBanner {...banner} />
 
       {/* Quick contact cards */}
       <section className="relative z-10 -mt-8 mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
@@ -54,7 +65,7 @@ export default function ContactPage() {
       </section>
 
       {/* Form + info */}
-      <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
+      <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-4">
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-5 lg:gap-10">
           {/* Left — info panel */}
           <div className="lg:col-span-2">

@@ -10,7 +10,10 @@ import {
   TrendingUp,
 } from "lucide-react";
 import PageBanner from "@/app/components/ui/PageBanner";
-import data from "@/lib/data";
+import {
+  getPageBanner,
+  getRealEstatePageData,
+} from "@/lib/getRealEstateData";
 
 const iconMap = {
   CheckCircle2,
@@ -24,7 +27,16 @@ const iconMap = {
 };
 
 const features = (
-  data.whyFeatures as Array<{
+  ((getRealEstatePageData("why-choose-us").WhyChooseUs as
+    | {
+        features?: Array<{
+          icon: string;
+          title: string;
+          desc: string;
+          color: string;
+        }>;
+      }
+    | undefined)?.features ?? []) as Array<{
     icon: string;
     title: string;
     desc: string;
@@ -59,17 +71,11 @@ const process = [
 ];
 
 export default function WhyChooseUs() {
+  const banner = getPageBanner("why-choose-us");
+
   return (
     <main className="bg-[#FAF7F2] text-slate-900">
-      <PageBanner
-        preTitle="The NestVista Difference"
-        title="Why Choose Us"
-        description="Verified listings, transparent advice, and end-to-end support designed around your property goals."
-        breadcrumbs={[
-          { label: "About Us", href: "/about-us" },
-          { label: "Why Choose Us" },
-        ]}
-      />
+      <PageBanner {...banner} />
 
       {/* Features */}
       <section className="mx-auto max-w-7xl px-6 py-10 lg:px-8 lg:py-14">

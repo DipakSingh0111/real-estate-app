@@ -1,73 +1,28 @@
 import React from "react";
-import {
-  Eye,
-  Target,
-  ShieldCheck,
-  TrendingUp,
-  Users,
-  Building2,
-  FileCheck,
-  Heart,
-} from "lucide-react";
+import { Eye, Target } from "lucide-react";
 import PageBanner from "@/app/components/ui/PageBanner";
-import data from "@/lib/data";
+import {
+  getPageBanner,
+  getRealEstatePageData,
+} from "@/lib/getRealEstateData";
 
-const iconMap = {
-  ShieldCheck,
-  Heart,
-  TrendingUp,
-  FileCheck,
-  Users,
-  Building2,
-};
-
-const coreValues = (
-  data.visionCoreValues as Array<{
-    icon: string;
-    title: string;
-    desc: string;
-    color: string;
-  }>
-).map((item) => ({
-  ...item,
-  icon: iconMap[item.icon as keyof typeof iconMap] || ShieldCheck,
-}));
-
-const commitments = [
-  {
-    number: "01",
-    title: "Only verified listings",
-    desc: "We don't list a property until it passes our legal and physical inspection checklist.",
-  },
-  {
-    number: "02",
-    title: "No pressure selling",
-    desc: "Our advisors are trained to guide, not push. We'd rather lose a deal than give bad advice.",
-  },
-  {
-    number: "03",
-    title: "Post-sale accountability",
-    desc: "We follow up on possession timelines, builder delays, and help you escalate if needed.",
-  },
-  {
-    number: "04",
-    title: "Honest market insights",
-    desc: "We tell you when a property is overpriced — even if it means you don't buy through us.",
-  },
-];
+const commitments =
+  ((getRealEstatePageData("mission").MissionPillars as
+    | {
+        commitments?: Array<{
+          number: string;
+          title: string;
+          desc: string;
+        }>;
+      }
+    | undefined)?.commitments ?? []);
 
 export default function VisionMissionPage() {
+  const banner = getPageBanner("mission");
+
   return (
     <main className="bg-[#FAF7F2] text-slate-900">
-      <PageBanner
-        preTitle="Our Purpose"
-        title="Vision & Mission"
-        description="Our purpose is to make every property decision transparent, informed, and focused on long-term value."
-        breadcrumbs={[
-          { label: "About Us", href: "/about-us" },
-          { label: "Vision & Mission" },
-        ]}
-      />
+      <PageBanner {...banner} />
 
       {/* Vision & Mission */}
       <section className="mx-auto max-w-7xl px-6 py-10 lg:px-8 lg:py-14">

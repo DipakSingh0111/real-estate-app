@@ -13,7 +13,11 @@ import {
   TrendingUp,
   Sofa,
 } from "lucide-react";
-import { services } from "@/lib/services";
+import {
+  getRealEstatePageData,
+  type HomePageData,
+  type ServiceItem,
+} from "@/lib/getRealEstateData";
 
 const icons = {
   Building2,
@@ -25,7 +29,7 @@ const icons = {
   Sofa,
 };
 
-function ServiceCard({ service }: { service: (typeof services)[0] }) {
+function ServiceCard({ service }: { service: ServiceItem }) {
   const Icon = icons[service.icon as keyof typeof icons] ?? Building2;
 
   return (
@@ -83,6 +87,10 @@ function ServiceCard({ service }: { service: (typeof services)[0] }) {
 }
 
 export default function PropertyServices() {
+  const services =
+    getRealEstatePageData<HomePageData>("home").PropertyServices
+      ?.items ?? [];
+
   return (
     <section className="overflow-hidden bg-[#FAF7F2] py-5 lg:py-7">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">

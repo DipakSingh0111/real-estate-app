@@ -2,7 +2,10 @@ import Card from "@/app/components/ui/Card";
 import PageBanner from "@/app/components/ui/PageBanner";
 import PageContainer from "@/app/components/ui/PageContainer";
 import SectionHeader from "@/app/components/ui/SectionHeader";
-import type { AboutPageData } from "@/lib/getRealEstateData";
+import {
+  getPageBanner,
+  type AboutPageData,
+} from "@/lib/getRealEstateData";
 
 type AboutContentProps = {
   data: AboutPageData;
@@ -14,6 +17,7 @@ type AboutContentProps = {
  * and never treats variant IDs as React component names.
  */
 export default function AboutContent({ data }: AboutContentProps) {
+  const banner = getPageBanner("about");
   const features = data.AboutStory?.features ?? [];
   const values = data.AboutValues?.values ?? [];
   const stats =
@@ -23,12 +27,7 @@ export default function AboutContent({ data }: AboutContentProps) {
 
   return (
     <main className="bg-[#FAF7F2] text-slate-900">
-      <PageBanner
-        preTitle="About NestVista"
-        title="Our Story"
-        description="Building trusted property journeys through verified opportunities, honest guidance, and relationships that last."
-        breadcrumbs={[{ label: "About Us" }]}
-      />
+      <PageBanner {...banner} />
 
       <PageContainer as="section" className="py-12 lg:py-16">
         <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-12">

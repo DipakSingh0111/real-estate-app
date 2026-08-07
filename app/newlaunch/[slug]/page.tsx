@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation";
-import { allUnifiedProjects } from "@/lib/data";
+import { allUnifiedProjects } from "@/lib/getRealEstateData";
 
 export async function generateStaticParams() {
   return allUnifiedProjects.map((project) => ({ slug: project.slug }));

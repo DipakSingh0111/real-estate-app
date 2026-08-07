@@ -4,11 +4,15 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
-import { team } from "@/lib/data";
-import type { TeamMember } from "@/types/property";
+import {
+  getRealEstatePageData,
+  type TeamPageData,
+} from "@/lib/getRealEstateData";
 
 export default function OurTeam() {
-  const members = team as TeamMember[];
+  const members =
+    getRealEstatePageData<TeamPageData>("our-team").TeamGrid
+      ?.resolvedData ?? [];
 
   return (
     <section className="bg-white py-8 lg:py-12">

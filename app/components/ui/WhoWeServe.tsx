@@ -4,9 +4,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
-import data from "@/lib/data";
+import {
+  getRealEstatePageData,
+  type HomePageData,
+} from "@/lib/getRealEstateData";
 
-const stats = (data?.aboutStats || []) as {
+const stats =
+  (getRealEstatePageData<HomePageData>("home").About
+    ?.resolvedStats ?? []) as {
   value: string;
   label: string;
   subLabel: string;

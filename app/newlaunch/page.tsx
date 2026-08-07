@@ -2,7 +2,11 @@
 
 import { useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
-import propertiesData from "@/lib/data";
+import {
+  getPageBanner,
+  getRealEstatePageData,
+  type NewLaunchPageData,
+} from "@/lib/getRealEstateData";
 import PageBanner from "@/app/components/ui/PageBanner";
 import EmptyState from "@/app/components/ui/EmptyState";
 import PageContainer from "@/app/components/ui/PageContainer";
@@ -39,7 +43,9 @@ function NewLaunchContent() {
     else setSelectedStatus("New Launch");
   }, [statusParam]);
 
-  const rawData: any[] = (propertiesData as any)?.launchProjects || [];
+  const rawData =
+    getRealEstatePageData<NewLaunchPageData>("new-launch")
+      .LaunchProjectCatalog?.resolvedData ?? [];
 
   const filteredData = rawData.filter((item) => {
     const statusMatch = (() => {
@@ -59,14 +65,14 @@ function NewLaunchContent() {
     return statusMatch && categoryMatch;
   });
 
+  const banner = getPageBanner("new-launch");
+
   return (
     <main className="bg-[#FAF7F2] text-slate-900">
       <PageBanner
-        preTitle="Fresh Inventory"
-        title="New Launch Projects"
-        description="Discover newly launched and upcoming residences with transparent pricing and guided site visits."
+        {...banner}
         breadcrumbs={[
-          { label: "Projects", href: "/projects" },
+          ...(banner.breadcrumbs.slice(0, -1) || []),
           { label: selectedStatus },
         ]}
       />

@@ -4,13 +4,17 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { motion, type Variants } from "framer-motion";
 
-import data from "@/lib/data";
-import type { LatestProject } from "@/types/property";
+import {
+  getRealEstatePageData,
+  type HomePageData,
+} from "@/lib/getRealEstateData";
 import PageContainer from "./PageContainer";
 import ProjectCard from "./ProjectCard";
 import SectionHeader from "./SectionHeader";
 
-const projects = (data?.projects || []) as LatestProject[];
+const projects =
+  getRealEstatePageData<HomePageData>("home").LatestProjects
+    ?.items ?? [];
 
 const containerVariants: Variants = {
   hidden: { opacity: 0 },

@@ -1,15 +1,13 @@
 import React from "react";
 import PageBanner from "@/app/components/ui/PageBanner";
+import { getPageBanner } from "@/lib/getRealEstateData";
 
 const page = () => {
+  const banner = getPageBanner("terms");
+
   return (
     <main className="bg-[#FAF7F2] text-slate-900">
-      <PageBanner
-        preTitle="Legal"
-        title="Terms & Conditions"
-        description="Please review these terms carefully before using our website and property services."
-        breadcrumbs={[{ label: "Terms & Conditions" }]}
-      />
+      <PageBanner {...banner} />
       <div className="mx-auto max-w-7xl px-6 py-8 lg:px-8 lg:py-10">
         <h1 className="font-heading mt-2 text-2xl font-bold text-slate-900 sm:text-3xl">
           Terms and Conditions

@@ -12,97 +12,87 @@ import {
   FaInstagram,
   FaYoutube,
 } from "react-icons/fa6";
+import { getRealEstateSharedData } from "@/lib/getRealEstateData";
 
-const contactPhones = [
-  { label: "+91 98765 43210", href: "tel:+919876543210" },
-  { label: "+91 87366 74937", href: "tel:+918736674937" },
-];
+type NavItem = { label: string; href: string };
+type NavGroup = { title: string; items: NavItem[] };
 
-const socialLinks = [
-  {
-    href: "https://www.facebook.com/",
-    label: "Facebook",
-    Icon: FaFacebookF,
-  },
-  {
-    href: "https://wa.me/919876543210",
-    label: "WhatsApp",
-    Icon: FaWhatsapp,
-  },
-  {
-    href: "https://www.linkedin.com/",
-    label: "LinkedIn",
-    Icon: FaLinkedinIn,
-  },
-  {
-    href: "https://www.instagram.com/",
-    label: "Instagram",
-    Icon: FaInstagram,
-  },
-  {
-    href: "https://www.youtube.com/",
-    label: "YouTube",
-    Icon: FaYoutube,
-  },
-  {
-    href: "https://amazon.in",
-    label: "Amazon",
-    Icon: FaAmazon,
-  },
-];
+type HeaderData = {
+  logo?: string;
+  home?: NavItem;
+  groups?: NavGroup[];
+  links?: NavItem[];
+  buttons?: NavItem[];
+};
 
-const navGroups = [
-  {
-    title: "About",
-    items: [
-      { href: "/about-us", label: "About Us" },
-      { href: "/ourteam", label: "Our Team" },
-      { href: "/awards", label: "Awards" },
-      { href: "/whychooseus", label: "Why Choose Us" },
-      { href: "/visionandmission", label: "Vision and Mission" },
-    ],
-  },
-  {
-    title: "Properties",
-    items: [
-      { href: "/properties?type=apartment", label: "Apartment" },
-      { href: "/properties?type=villa", label: "Villa" },
-      { href: "/properties?type=builder-floor", label: "Builder Floor" },
-      { href: "/properties?type=commercial", label: "Commercial Office" },
-      { href: "/properties?type=studio", label: "Studio" },
-      { href: "/properties?type=plot", label: "Plot/Land" },
-    ],
-  },
-  {
-    title: "Location",
-    items: [
-      { href: "/properties?city=delhi", label: "Delhi" },
-      { href: "/properties?city=noida", label: "Noida" },
-      { href: "/properties?city=gurgaon", label: "Gurgaon" },
-      { href: "/properties?city=greater-noida", label: "Greater Noida" },
-      { href: "/properties?city=faridabad", label: "Faridabad" },
-      { href: "/properties?city=ghaziabad", label: "Ghaziabad" },
-    ],
-  },
-  {
-    title: "Projects",
-    items: [
-      { href: "/newlaunch?status=new-launch", label: "New Launches" },
-      { href: "/newlaunch?status=ready-to-move", label: "Ready to Move" },
-      {
-        href: "/newlaunch?status=under-construction",
-        label: "Under Construction",
-      },
-    ],
-  },
-];
+type TopbarData = {
+  phones?: string[];
+  email?: string;
+  socialLinks?: Array<{ label?: string; href?: string }>;
+};
 
-const topLinks = [
-  { href: "/services", label: "Services" },
-  { href: "/careers", label: "Careers" },
-  { href: "/blog", label: "Blog" },
-  { href: "/contact", label: "Contact" },
-];
+const shared = getRealEstateSharedData<{
+  Header?: HeaderData;
+  Topbar?: TopbarData;
+}>();
+
+const header = shared.Header ?? {};
+const topbar = shared.Topbar ?? {};
+
+const logoText = header.logo ?? "NestVista";
+const homeLink = header.home ?? { label: "Home", href: "/" };
+const navGroups = header.groups ?? [];
+const topLinks = header.links ?? [];
+
+function toTelHref(phone: string) {
+  return `tel:${phone.replace(/[^\d+]/g, "")}`;
+}
+
+const contactPhones = (topbar.phones ?? []).map((phone) => ({
+  label: phone,
+  href: toTelHref(phone),
+}));
+
+const primaryPhone = contactPhones[0];
+const email = topbar.email ?? "";
+
+const socialIconMap = {
+  facebook: FaFacebookF,
+  whatsapp: FaWhatsapp,
+  linkedin: FaLinkedinIn,
+  instagram: FaInstagram,
+  youtube: FaYoutube,
+  amazon: FaAmazon,
+} as const;
+
+const socialLinks = (topbar.socialLinks ?? [])
+  .map((link) => {
+    const key = (link.label ?? "").toLowerCase() as keyof typeof socialIconMap;
+    const Icon = socialIconMap[key];
+    if (!Icon || !link.href) return null;
+    return {
+      href: link.href,
+      label: link.label ?? key,
+      Icon,
+    };
+  })
+  .filter(Boolean) as Array<{
+  href: string;
+  label: string;
+  Icon: (typeof socialIconMap)[keyof typeof socialIconMap];
+}>;
+
+function BrandMark({ text }: { text: string }) {
+  if (text.endsWith("Vista")) {
+    return (
+      <>
+        {text.slice(0, -5)}
+        <span className="text-[#B8863D]">Vista</span>
+      </>
+    );
+  }
+  return text;
+}
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -178,49 +168,54 @@ export default function Navbar() {
       <div className="border-b border-white/5 bg-slate-950 text-white">
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-2 px-3 py-1.5 sm:gap-4 sm:px-6 sm:py-2 lg:px-8">
           <div className="flex min-w-0 flex-1 items-center gap-2 text-[10px] sm:gap-5 sm:text-xs">
-            <div className="flex min-w-0 items-center gap-1.5 sm:gap-2">
-              <Phone
-                size={12}
-                className="shrink-0 text-[#C9A227] sm:h-[13px] sm:w-[13px]"
-                strokeWidth={2.25}
-              />
-              <div className="flex min-w-0 items-center gap-x-1">
-                {contactPhones.map((phone, index) => (
-                  <span key={phone.href} className="inline-flex items-center">
-                    {index > 0 && (
-                      <span className="mr-1 hidden text-white/35 sm:inline">
-                        ,
-                      </span>
-                    )}
-                    <a
-                      href={phone.href}
-                      className={`truncate font-medium tracking-wide text-white/85 transition-colors hover:text-[#E6C687] ${
-                        index > 0 ? "hidden sm:inline" : ""
-                      }`}
-                    >
-                      {phone.label}
-                    </a>
-                  </span>
-                ))}
+            {contactPhones.length > 0 && (
+              <div className="flex min-w-0 items-center gap-1.5 sm:gap-2">
+                <Phone
+                  size={12}
+                  className="shrink-0 text-[#C9A227] sm:h-[13px] sm:w-[13px]"
+                  strokeWidth={2.25}
+                />
+                <div className="flex min-w-0 items-center gap-x-1">
+                  {contactPhones.map((phone, index) => (
+                    <span key={phone.href} className="inline-flex items-center">
+                      {index > 0 && (
+                        <span className="mr-1 hidden text-white/35 sm:inline">
+                          ,
+                        </span>
+                      )}
+                      <a
+                        href={phone.href}
+                        className={`truncate font-medium tracking-wide text-white/85 transition-colors hover:text-[#E6C687] ${
+                          index > 0 ? "hidden sm:inline" : ""
+                        }`}
+                      >
+                        {phone.label}
+                      </a>
+                    </span>
+                  ))}
+                </div>
               </div>
-            </div>
+            )}
 
-            <span
-              className="hidden h-3 w-px bg-white/15 md:block"
-              aria-hidden="true"
-            />
-
-            <a
-              href="mailto:sales@eliteestates.com"
-              className="hidden min-w-0 items-center gap-2 font-medium tracking-wide text-white/85 transition-colors hover:text-[#E6C687] md:inline-flex"
-            >
-              <Mail
-                size={13}
-                className="shrink-0 text-[#C9A227]"
-                strokeWidth={2.25}
-              />
-              <span className="truncate">sales@eliteestates.com</span>
-            </a>
+            {email && (
+              <>
+                <span
+                  className="hidden h-3 w-px bg-white/15 md:block"
+                  aria-hidden="true"
+                />
+                <a
+                  href={`mailto:${email}`}
+                  className="hidden min-w-0 items-center gap-2 font-medium tracking-wide text-white/85 transition-colors hover:text-[#E6C687] md:inline-flex"
+                >
+                  <Mail
+                    size={13}
+                    className="shrink-0 text-[#C9A227]"
+                    strokeWidth={2.25}
+                  />
+                  <span className="truncate">{email}</span>
+                </a>
+              </>
+            )}
           </div>
 
           <div className="flex shrink-0 items-center gap-0.5 sm:gap-1.5">
@@ -245,23 +240,23 @@ export default function Navbar() {
       <div className="mx-auto flex min-h-[56px] max-w-7xl items-center justify-between gap-3 px-3 py-2.5 sm:min-h-[64px] sm:gap-4 sm:px-6 sm:py-3 lg:px-8">
         {/* Logo */}
         <Link
-          href="/"
+          href={homeLink.href}
           onClick={closeMenu}
           className="group relative flex shrink-0 items-center py-1 focus:outline-none"
         >
           <div className="absolute -inset-1.5 -z-10 rounded-2xl bg-gradient-to-r from-[#B8863D]/25 via-[#D4AF37]/15 to-transparent opacity-70 blur-md transition-all duration-300 group-hover:opacity-100" />
           <span className="text-lg font-black tracking-tight text-slate-900 sm:text-2xl">
-            Nest<span className="text-[#B8863D]">Vista</span>
+            <BrandMark text={logoText} />
           </span>
         </Link>
 
         {/* Desktop nav  */}
         <nav className="hidden flex-1 items-center justify-center gap-1 lg:flex xl:gap-2">
           <Link
-            href="/"
+            href={homeLink.href}
             className="group relative rounded-full px-3 py-2.5 text-sm font-medium text-slate-700 transition-colors hover:text-[#B8863D]"
           >
-            Home
+            {homeLink.label}
             <span className="absolute inset-x-2 bottom-0.5 h-[2px] scale-x-0 bg-[#B8863D] transition-transform duration-300 group-hover:scale-x-100" />
           </Link>
 
@@ -322,28 +317,32 @@ export default function Navbar() {
         </nav>
 
         {/* Desktop call button */}
-        <div className="hidden shrink-0 items-center lg:flex">
-          <a
-            href="tel:+919876543210"
-            className="group flex items-center gap-2.5 rounded-full border border-slate-200/80 bg-[#FAF7F2] px-4 py-2 text-sm font-bold text-slate-800 transition hover:border-[#B8863D] hover:bg-[#B8863D] hover:text-white"
-          >
-            <div className="flex h-7 w-7 items-center justify-center rounded-full bg-[#B8863D] text-white transition group-hover:bg-white group-hover:text-[#B8863D]">
-              <Phone size={14} />
-            </div>
-            <span className="hidden xl:inline">+91 98765 43210</span>
-            <span className="xl:hidden">Call Us</span>
-          </a>
-        </div>
+        {primaryPhone && (
+          <div className="hidden shrink-0 items-center lg:flex">
+            <a
+              href={primaryPhone.href}
+              className="group flex items-center gap-2.5 rounded-full border border-slate-200/80 bg-[#FAF7F2] px-4 py-2 text-sm font-bold text-slate-800 transition hover:border-[#B8863D] hover:bg-[#B8863D] hover:text-white"
+            >
+              <div className="flex h-7 w-7 items-center justify-center rounded-full bg-[#B8863D] text-white transition group-hover:bg-white group-hover:text-[#B8863D]">
+                <Phone size={14} />
+              </div>
+              <span className="hidden xl:inline">{primaryPhone.label}</span>
+              <span className="xl:hidden">Call Us</span>
+            </a>
+          </div>
+        )}
 
         {/* Mobile / tablet actions */}
         <div className="flex shrink-0 items-center gap-1.5 sm:gap-2 lg:hidden">
-          <a
-            href="tel:+919876543210"
-            className="flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-[#FAF7F2] text-[#B8863D] transition active:scale-95 sm:h-11 sm:w-11"
-            aria-label="Call us"
-          >
-            <Phone size={18} className="sm:h-5 sm:w-5" />
-          </a>
+          {primaryPhone && (
+            <a
+              href={primaryPhone.href}
+              className="flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-[#FAF7F2] text-[#B8863D] transition active:scale-95 sm:h-11 sm:w-11"
+              aria-label="Call us"
+            >
+              <Phone size={18} className="sm:h-5 sm:w-5" />
+            </a>
+          )}
 
           <button
             type="button"
@@ -387,11 +386,11 @@ export default function Navbar() {
           data-lenis-prevent
         >
           <Link
-            href="/"
+            href={homeLink.href}
             onClick={closeMenu}
             className="rounded-xl px-3 py-2.5 text-[15px] font-bold text-slate-900 transition hover:bg-slate-50 hover:text-[#B8863D] sm:px-4 sm:py-3 sm:text-base"
           >
-            Home
+            {homeLink.label}
           </Link>
 
           {navGroups.map((group) => {
@@ -452,16 +451,18 @@ export default function Navbar() {
           ))}
         </nav>
 
-        <div className="shrink-0 border-t border-slate-100 bg-white px-3 py-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] sm:px-6 sm:py-4">
-          <a
-            href="tel:+919876543210"
-            onClick={closeMenu}
-            className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#B8863D] px-4 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-[#a07433] active:scale-[0.98] sm:py-3.5 sm:text-base"
-          >
-            <PhoneCall size={18} />
-            Call +91 98765 43210
-          </a>
-        </div>
+        {primaryPhone && (
+          <div className="shrink-0 border-t border-slate-100 bg-white px-3 py-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] sm:px-6 sm:py-4">
+            <a
+              href={primaryPhone.href}
+              onClick={closeMenu}
+              className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#B8863D] px-4 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-[#a07433] active:scale-[0.98] sm:py-3.5 sm:text-base"
+            >
+              <PhoneCall size={18} />
+              Call {primaryPhone.label}
+            </a>
+          </div>
+        )}
       </div>
     </header>
   );

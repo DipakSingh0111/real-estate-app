@@ -1,6 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
-import propertiesData from "@/lib/data";
+import {
+  getRealEstatePageData,
+  type PropertiesPageData,
+} from "@/lib/getRealEstateData";
 import type { Property } from "@/types/property";
 import { MapPin, Phone, Mail, ArrowRight } from "lucide-react";
 import {
@@ -11,7 +14,9 @@ import {
   FaWhatsapp,
 } from "react-icons/fa6";
 
-const properties = propertiesData.properties as Property[];
+const properties =
+  getRealEstatePageData<PropertiesPageData>("properties")
+    .PropertyCatalog?.resolvedData ?? [];
 
 export default function Footer() {
   const cities = [...new Set(properties.map((p) => p.city))].sort();

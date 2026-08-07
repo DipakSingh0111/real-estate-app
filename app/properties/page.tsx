@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
-import propertiesData from "@/lib/data";
+import {
+  getPageBanner,
+  getRealEstatePageData,
+  type PropertiesPageData,
+} from "@/lib/getRealEstateData";
 import PropertyCard from "../components/ui/PropertyCard";
 import PropertyListingFilters from "../components/ui/PropertyListingFilters";
 import Pagination from "../components/ui/Pagination";
@@ -9,7 +13,9 @@ import type { Property, PropertiesPageProps } from "@/types/property";
 
 export const dynamic = "force-dynamic";
 
-const properties = (propertiesData?.properties || []) as Property[];
+const properties =
+  getRealEstatePageData<PropertiesPageData>("properties")
+    .PropertyCatalog?.resolvedData ?? [];
 const PER_PAGE = 8;
 
 export const metadata: Metadata = {
@@ -77,14 +83,19 @@ export default async function PropertiesPage({
     bhkQuery ? `${bhkQuery} BHK` : null,
   ].filter(Boolean) as string[];
 
+  const banner = getPageBanner("properties");
+
   return (
     <main className="min-h-screen bg-white">
       <PageBanner
-        preTitle="Explore Homes"
+        preTitle={banner.preTitle}
         title={pageTitle}
-        description={pageSubtitle}
+        description={pageSubtitle || banner.description}
         breadcrumbs={[
-          { label: "Properties", href: "/properties" },
+          {
+            label: banner.breadcrumbs[0]?.label ?? "Properties",
+            href: "/properties",
+          },
           ...breadcrumbFilters.map((f) => ({ label: f })),
         ]}
       />

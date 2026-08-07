@@ -1,29 +1,33 @@
 import type { Metadata } from "next";
-import propertiesData from "@/lib/data";
+import {
+  getPageBanner,
+  getRealEstatePageData,
+} from "@/lib/getRealEstateData";
 import PageBanner from "@/app/components/ui/PageBanner";
 
 export const metadata: Metadata = {
   title: "Office Space Inventory for Rent / Lease — Real Estate",
 };
 
-const officeInventory = ((propertiesData as any).officeInventory || []) as {
+const officeInventory =
+  ((getRealEstatePageData("rent").RentalListing as
+    | { officeInventory?: Array<{
+        unit: string;
+        area: string;
+        condition: string;
+      }> }
+    | undefined)?.officeInventory ?? []) as {
   unit: string;
   area: string;
   condition: string;
 }[];
 
 export default function RentPage() {
+  const banner = getPageBanner("rent");
+
   return (
     <main className="min-h-screen bg-[#F8F5F2]">
-      <PageBanner
-        preTitle="Commercial Spaces"
-        title="Office Space for Rent / Lease"
-        description="Browse available office units with clear area details and current condition."
-        breadcrumbs={[
-          { label: "Properties", href: "/properties" },
-          { label: "Rent / Lease" },
-        ]}
-      />
+      <PageBanner {...banner} />
 
       <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="overflow-hidden rounded-3xl bg-white shadow-sm">

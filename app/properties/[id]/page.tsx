@@ -3,7 +3,10 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import propertiesData from "@/lib/data";
+import {
+  getRealEstatePageData,
+  type PropertyDetailPageData,
+} from "@/lib/getRealEstateData";
 import type { Property } from "@/types/property";
 import PropertyCard from "@/app/components/ui/PropertyCard";
 import PropertyGallery from "@/app/components/ui/PropertyGallery";
@@ -28,7 +31,9 @@ import {
 } from "lucide-react";
 import PageBreadcrumb from "@/app/components/ui/PageBreadcrumb";
 
-const properties = propertiesData.properties as Property[];
+const properties =
+  getRealEstatePageData<PropertyDetailPageData>("property-detail")
+    .PropertyOverview?.resolvedData ?? [];
 
 export async function generateStaticParams() {
   return properties.map((p) => ({ id: p.id }));

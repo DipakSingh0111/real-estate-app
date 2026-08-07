@@ -3,8 +3,15 @@
 import { useSearchParams } from "next/navigation";
 import { useMemo, Suspense } from "react";
 import Image from "next/image";
-import propertiesData from "@/lib/data";
+import {
+  getRealEstatePageData,
+  type PropertiesPageData,
+} from "@/lib/getRealEstateData";
 import type { PropertyListingItem } from "@/types/property";
+
+const propertyCatalog =
+  getRealEstatePageData<PropertiesPageData>("properties")
+    .PropertyCatalog?.resolvedData ?? [];
 
 function PropertyListContent() {
   const searchParams = useSearchParams();
@@ -25,10 +32,7 @@ function PropertyListContent() {
   };
 
   const filteredProperties = useMemo(() => {
-    const rawData = propertiesData as any;
-    let list: PropertyListingItem[] = Array.isArray(rawData)
-      ? rawData
-      : rawData.properties || rawData.Properties || [];
+    const list = propertyCatalog as PropertyListingItem[];
 
     return list.filter((item) => {
       // 1. CITY FILTER

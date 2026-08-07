@@ -12,7 +12,7 @@ import {
   ShieldCheck,
   Sofa,
 } from "lucide-react";
-import { services, getServiceBySlug } from "@/lib/services";
+import { services, getPageBanner, getServiceBySlug } from "@/lib/getRealEstateData";
 import PageBanner from "@/app/components/ui/PageBanner";
 
 const icons = {
@@ -39,17 +39,15 @@ export default async function ServiceDetailPage({
 
   const Icon = icons[service.icon as keyof typeof icons] ?? Landmark;
   const others = services.filter((s) => s.slug !== slug).slice(0, 3);
+  const banner = getPageBanner("service-detail");
 
   return (
     <main className="min-h-screen bg-[#FAF7F2] text-stone-900">
       <PageBanner
-        preTitle="Service Detail"
+        preTitle={banner.preTitle}
         title={service.title}
         description={service.shortDescription}
-        breadcrumbs={[
-          { label: "Services", href: "/services" },
-          { label: service.title },
-        ]}
+        breadcrumbs={[...banner.breadcrumbs, { label: service.title }]}
       />
 
       {/* Content */}

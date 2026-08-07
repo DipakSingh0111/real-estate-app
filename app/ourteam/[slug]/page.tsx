@@ -12,13 +12,14 @@ import {
 import { FaLinkedinIn, FaTwitter, FaInstagram } from "react-icons/fa";
 import {
   getOtherTeamMembers,
+  getPageBanner,
   getTeamMemberBySlug,
-  teamMembers,
-} from "@/lib/team";
+  team,
+} from "@/lib/getRealEstateData";
 import PageBanner from "@/app/components/ui/PageBanner";
 
 export async function generateStaticParams() {
-  return teamMembers.map((member) => ({ slug: member.slug }));
+  return team.map((member) => ({ slug: member.slug }));
 }
 
 export async function generateMetadata({
@@ -49,18 +50,15 @@ export default async function TeamMemberDetailPage({
   const phoneHref = member.phone
     ? `tel:${member.phone.replace(/\s/g, "")}`
     : undefined;
+  const banner = getPageBanner("team-detail");
 
   return (
     <div className=" bg-[#FAF7F2] text-slate-900">
       <PageBanner
-        preTitle="Meet Our Team"
+        preTitle={banner.preTitle}
         title={member.name}
         description={`${member.role} with ${member.experience} of experience, helping clients make confident property decisions.`}
-        breadcrumbs={[
-          { label: "About Us", href: "/about-us" },
-          { label: "Our Team", href: "/ourteam" },
-          { label: member.name },
-        ]}
+        breadcrumbs={[...banner.breadcrumbs, { label: member.name }]}
       />
 
       {/* Content */}

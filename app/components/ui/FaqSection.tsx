@@ -4,10 +4,13 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, HelpCircle, Search } from "lucide-react";
 
-import data from "@/lib/data";
+import { getRealEstatePageData } from "@/lib/getRealEstateData";
 import type { FAQItem } from "@/types/property";
 
-const faqData = (data?.faqs || []) as FAQItem[];
+const faqData =
+  ((getRealEstatePageData("home").FAQ as
+    | { items?: FAQItem[] }
+    | undefined)?.items ?? []);
 
 const categories = ["All", "Buying", "Selling", "Renting", "Legal"] as const;
 

@@ -1,18 +1,18 @@
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import data from "@/lib/data";
+import { getRealEstatePageData } from "@/lib/getRealEstateData";
 import type { BlogPost } from "@/types/blog";
 import BlogCard from "@/app/components/ui/BlogCard";
-import {
-  Calendar,
-  Clock,
-  ArrowLeft,
-  User,
-} from "lucide-react";
+import { Calendar, Clock, ArrowLeft, User } from "lucide-react";
 import PageBreadcrumb from "@/app/components/ui/PageBreadcrumb";
 
-const blogs = data.blogs as BlogPost[];
+const blogs =
+  (
+    getRealEstatePageData("blog-detail").BlogDetail as
+      | { resolvedData?: BlogPost[] }
+      | undefined
+  )?.resolvedData ?? [];
 
 export async function generateStaticParams() {
   return blogs.map((post) => ({ slug: post.slug }));
@@ -47,9 +47,6 @@ export default async function BlogDetailPage({
         </div>
 
         <div className="relative mx-auto flex h-[250px] max-w-4xl flex-col items-center justify-center px-4 text-center sm:h-[280px] sm:px-6 lg:px-8">
-          <span className="inline-flex rounded-lg bg-[#B8863D] px-2.5 py-1 text-[11px] font-bold uppercase tracking-wide text-white">
-            {post.category}
-          </span>
           <h1 className="mt-2 line-clamp-2 font-heading text-2xl font-bold leading-tight text-white sm:text-3xl">
             {post.title}
           </h1>
@@ -72,10 +69,7 @@ export default async function BlogDetailPage({
 
           <PageBreadcrumb
             variant="pill"
-            items={[
-              { label: "Blog", href: "/blog" },
-              { label: post.title },
-            ]}
+            items={[{ label: "Blog", href: "/blog" }, { label: post.title }]}
           />
         </div>
       </section>

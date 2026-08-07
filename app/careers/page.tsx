@@ -14,9 +14,22 @@ import {
   ShieldCheck,
 } from "lucide-react";
 import PageBanner from "@/app/components/ui/PageBanner";
-import data from "@/lib/data";
+import {
+  getPageBanner,
+  getRealEstatePageData,
+} from "@/lib/getRealEstateData";
 
-const jobOpenings = data.careerJobOpenings as Array<{
+const jobOpenings =
+  ((getRealEstatePageData("careers").OpenPositions as
+    | { resolvedData?: Array<{
+        id: number;
+        title: string;
+        location: string;
+        type: string;
+        experience: string;
+        desc: string;
+      }> }
+    | undefined)?.resolvedData ?? []) as Array<{
   id: number;
   title: string;
   location: string;
@@ -74,14 +87,11 @@ const perks = [
 ];
 
 export default function CareerPage() {
+  const banner = getPageBanner("careers");
+
   return (
     <main className="bg-[#FAF7F2] text-slate-900">
-      <PageBanner
-        preTitle="Grow With Us"
-        title="Careers"
-        description="Build your career with a growing real estate team that rewards expertise, initiative, and client-first thinking."
-        breadcrumbs={[{ label: "Careers" }]}
-      />
+      <PageBanner {...banner} />
 
       {/* Why Join Us */}
       <section className="mx-auto max-w-7xl px-6 py-10 lg:px-8 lg:py-14">

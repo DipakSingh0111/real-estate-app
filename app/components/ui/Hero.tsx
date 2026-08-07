@@ -4,12 +4,22 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { ArrowRight, Sparkles } from "lucide-react";
 import { motion, AnimatePresence, type Variants } from "framer-motion";
-import data from "@/lib/data";
+import {
+  getRealEstatePageData,
+  type HomePageData,
+} from "@/lib/getRealEstateData";
 import type { HeroProps } from "@/types/property";
 
-const headers = data.header;
+const homeData = getRealEstatePageData<HomePageData>("home");
+const headers = homeData.Banner as {
+  heading: string;
+  title: string;
+  title_one: string;
+  title_two: string;
+  description: string;
+};
 
-const heroImages = data.properties.filter(
+const heroImages = (homeData.Featured?.resolvedData ?? []).filter(
   (property) => property.images && property.images.length > 0,
 )
   .slice(0, 5)

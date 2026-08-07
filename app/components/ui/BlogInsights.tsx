@@ -2,11 +2,14 @@
 
 import Link from "next/link";
 import { ArrowUpRight, TrendingUp } from "lucide-react";
-import data from "@/lib/data";
+import { getRealEstatePageData } from "@/lib/getRealEstateData";
 import type { BlogPost } from "@/types/blog";
 import BlogCard from "./BlogCard";
 
-const blogsData = data.blogs as BlogPost[];
+const blogsData =
+  ((getRealEstatePageData("home").Blog as
+    | { items?: BlogPost[] }
+    | undefined)?.items ?? []);
 
 export default function BlogInsights({
   showViewAll = true,

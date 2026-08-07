@@ -19,7 +19,7 @@ import {
   getRelatedUnifiedProjects,
   getStatusListingHref,
   getUnifiedProjectBySlug,
-} from "@/lib/data";
+} from "@/lib/getRealEstateData";
 
 export async function generateStaticParams() {
   return allUnifiedProjects.map((project) => ({ slug: project.slug }));

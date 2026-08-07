@@ -4,7 +4,10 @@ import Link from "next/link";
 import { motion, useReducedMotion, type Variants } from "framer-motion";
 import type { ReactNode } from "react";
 
-import propertiesData from "@/lib/data";
+import {
+  getRealEstatePageData,
+  type HomePageData,
+} from "@/lib/getRealEstateData";
 import Hero from "./components/ui/Hero";
 import PropertyCard from "./components/ui/PropertyCard";
 import WhoWeServe from "./components/ui/WhoWeServe";
@@ -20,8 +23,9 @@ import BlogInsights from "./components/ui/BlogInsights";
 import PropertyProcess from "./components/ui/PropertyProcess";
 import FaqSection from "./components/ui/FaqSection";
 import BookSiteVisit from "./components/ui/BookSiteVisit";
-const properties = propertiesData.properties as Property[];
-const testimonials = propertiesData.testimonials as Testimonials[];
+const homeData = getRealEstatePageData<HomePageData>("home");
+const properties = (homeData.Featured?.resolvedData ?? []) as Property[];
+const testimonials = (homeData.Testimonial?.items ?? []) as Testimonials[];
 
 function RevealSection({
   children,
