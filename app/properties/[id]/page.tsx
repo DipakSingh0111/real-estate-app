@@ -7,6 +7,7 @@ import {
   getRealEstatePageData,
   type PropertyDetailPageData,
 } from "@/lib/getRealEstateData";
+import { templateImage } from "@/lib/templateImages";
 import type { Property } from "@/types/property";
 import PropertyCard from "@/app/components/ui/PropertyCard";
 import PropertyGallery from "@/app/components/ui/PropertyGallery";
@@ -149,7 +150,7 @@ export default async function PropertyDetailPage({
       <section className="relative overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src={property.images?.[0] || "/images/hero.jpg"}
+            src={property.images?.[0] || templateImage(0)}
             alt={property.title}
             fill
             className="object-cover"

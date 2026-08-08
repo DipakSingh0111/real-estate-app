@@ -6,10 +6,10 @@ import {
   type PropertiesPageData,
 } from "@/lib/getRealEstateData";
 import PropertyCard from "../components/ui/PropertyCard";
-import PropertyListingFilters from "../components/ui/PropertyListingFilters";
+// import PropertyListingFilters from "../components/ui/PropertyListingFilters";
 import Pagination from "../components/ui/Pagination";
 import PageBanner from "@/app/components/ui/PageBanner";
-import type { Property, PropertiesPageProps } from "@/types/property";
+import type { PropertiesPageProps } from "@/types/property";
 
 export const dynamic = "force-dynamic";
 

@@ -19,9 +19,8 @@ const headers = homeData.Banner as {
   description: string;
 };
 
-const heroImages = (homeData.Featured?.resolvedData ?? []).filter(
-  (property) => property.images && property.images.length > 0,
-)
+const heroImages = (homeData.Featured?.resolvedData ?? [])
+  .filter((property) => property.images && property.images.length > 0)
   .slice(0, 5)
   .map((property) => property.images[0]);
 
@@ -106,7 +105,7 @@ export default function Hero({ cities }: HeroProps) {
             {/* Main Heading with Premium Playfair Display font */}
             <motion.h1
               variants={itemVariants}
-              className="max-w-[18ch] font-hero-heading text-[2rem] font-bold leading-[1.12] tracking-tight text-white drop-shadow-lg max-[359px]:text-[1.75rem] sm:max-w-none sm:text-5xl lg:text-6xl"
+              className="max-w-[18ch] font-hero-heading text-[6rem] font-bold leading-[1.12] tracking-tight text-white drop-shadow-lg max-[359px]:text-[1.75rem] sm:max-w-none sm:text-5xl lg:text-6xl"
             >
               {headers.title}{" "}
               <span className="bg-gradient-to-r from-[#F3E5AB] via-[#D4AF37] to-[#B8863D] bg-clip-text italic text-transparent">
@@ -147,7 +146,6 @@ export default function Hero({ cities }: HeroProps) {
             </motion.div>
           </div>
         </motion.div>
-
       </section>
     </div>
   );

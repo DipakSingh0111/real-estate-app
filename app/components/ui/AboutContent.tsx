@@ -6,6 +6,7 @@ import {
   getPageBanner,
   type AboutPageData,
 } from "@/lib/getRealEstateData";
+import { templateImage } from "@/lib/templateImages";
 
 type AboutContentProps = {
   data: AboutPageData;
@@ -33,7 +34,7 @@ export default function AboutContent({ data }: AboutContentProps) {
         <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-12">
           <div className="relative h-[350px] w-full overflow-hidden rounded-2xl border border-stone-200 shadow-lg sm:h-[450px]">
             <img
-              src="/images/serve_1.jpg"
+              src={templateImage(12)}
               alt="Our Story Real Estate"
               className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
             />

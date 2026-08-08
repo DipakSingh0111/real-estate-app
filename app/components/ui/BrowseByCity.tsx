@@ -9,42 +9,33 @@ import {
   getRealEstatePageData,
   type HomePageData,
 } from "@/lib/getRealEstateData";
+import { templateImage } from "@/lib/templateImages";
 
 const properties =
   getRealEstatePageData<HomePageData>("home").CitiesWeServe?.resolvedData ?? [];
 
-// city images
-const cityImages: Record<string, string> = {
-  Delhi:
-    "https://images.unsplash.com/photo-1587474260584-136574528ed5?w=600&q=80",
-  "New Delhi":
-    "https://images.unsplash.com/photo-1587474260584-136574528ed5?w=600&q=80",
-  Gurgaon:
-    "https://images.unsplash.com/photo-1596176530529-78163a4f7af2?w=600&q=80",
-  Gurugram:
-    "https://images.unsplash.com/photo-1596176530529-78163a4f7af2?w=600&q=80",
-  Noida:
-    "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600&q=80",
-  "Greater Noida":
-    "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80",
-  Ghaziabad:
-    "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=600&q=80",
-  Faridabad:
-    "https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=600&q=80",
-  Mumbai:
-    "https://images.unsplash.com/photo-1570168007204-dfb528c6958f?w=600&q=80",
-  Bengaluru:
-    "https://images.unsplash.com/photo-1596176530529-78163a4f7af2?w=600&q=80",
-  Chennai:
-    "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=600&q=80",
-  Hyderabad:
-    "https://images.unsplash.com/photo-1605379399642-870262d3d051?w=600&q=80",
-  Kolkata:
-    "https://images.unsplash.com/photo-1558431382-27e303142255?w=600&q=80",
-  Pune: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=600&q=80",
-};
+const cityNames = [
+  "Delhi",
+  "New Delhi",
+  "Gurgaon",
+  "Gurugram",
+  "Noida",
+  "Greater Noida",
+  "Ghaziabad",
+  "Faridabad",
+  "Mumbai",
+  "Bengaluru",
+  "Chennai",
+  "Hyderabad",
+  "Kolkata",
+  "Pune",
+] as const;
 
-const defaultCityImage = "/placeholder.jpg";
+const cityImages: Record<string, string> = Object.fromEntries(
+  cityNames.map((name, index) => [name, templateImage(index)]),
+);
+
+const defaultCityImage = templateImage(0);
 
 const containerVariants: Variants = {
   hidden: { opacity: 0 },

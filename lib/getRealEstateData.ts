@@ -13,14 +13,14 @@ export type JsonRecord = Record<string, unknown>;
 export type TemplateComponentRef = {
   /** Becomes the output object key. */
   key: string;
-  /** Content variant ID, never a React component name. */
+  /** Content variant */
   component: string;
 };
 
 export type TemplatePageConfig = {
   expand?: string;
   components?: TemplateComponentRef[];
-};
+}; 
 
 export type TemplateConfig = {
   shared?: Record<string, string>;

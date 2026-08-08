@@ -251,7 +251,7 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop nav  */}
-        <nav className="hidden flex-1 items-center justify-center gap-1 lg:flex xl:gap-2">
+        <nav className="hidden flex-1 items-center justify-center gap-1 lg:flex">
           <Link
             href={homeLink.href}
             className="group relative rounded-full px-3 py-2.5 text-sm font-medium text-slate-700 transition-colors hover:text-[#B8863D]"

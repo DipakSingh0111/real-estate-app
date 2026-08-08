@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import type { Opportunity } from "@/types/property";
+import { templateImage } from "@/lib/templateImages";
 
 const opportunitiesData: Opportunity[] = [
   {
@@ -22,8 +23,7 @@ const opportunitiesData: Opportunity[] = [
     expectedROI: "16.2%",
     tenure: "5 Yrs",
     fundedPercentage: 68,
-    imageUrl:
-      "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=400&q=80",
+    imageUrl: templateImage(0),
     isHot: true,
   },
   {
@@ -35,8 +35,7 @@ const opportunitiesData: Opportunity[] = [
     expectedROI: "13.8%",
     tenure: "3 Yrs",
     fundedPercentage: 45,
-    imageUrl:
-      "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=400&q=80",
+    imageUrl: templateImage(1),
   },
   {
     id: 3,
@@ -47,8 +46,7 @@ const opportunitiesData: Opportunity[] = [
     expectedROI: "15.0%",
     tenure: "4 Yrs",
     fundedPercentage: 82,
-    imageUrl:
-      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=400&q=80",
+    imageUrl: templateImage(2),
   },
   {
     id: 4,
@@ -59,8 +57,7 @@ const opportunitiesData: Opportunity[] = [
     expectedROI: "14.5%",
     tenure: "3 Yrs",
     fundedPercentage: 60,
-    imageUrl:
-      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=400&q=80",
+    imageUrl: templateImage(3),
     isHot: true,
   },
   {
@@ -72,8 +69,7 @@ const opportunitiesData: Opportunity[] = [
     expectedROI: "11.5%",
     tenure: "2 Yrs",
     fundedPercentage: 35,
-    imageUrl:
-      "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=400&q=80",
+    imageUrl: templateImage(4),
   },
   {
     id: 6,
@@ -84,8 +80,7 @@ const opportunitiesData: Opportunity[] = [
     expectedROI: "18.0%",
     tenure: "5 Yrs",
     fundedPercentage: 55,
-    imageUrl:
-      "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=400&q=80",
+    imageUrl: templateImage(5),
     isHot: true,
   },
   {
@@ -97,8 +92,7 @@ const opportunitiesData: Opportunity[] = [
     expectedROI: "20.0%",
     tenure: "7 Yrs",
     fundedPercentage: 28,
-    imageUrl:
-      "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=400&q=80",
+    imageUrl: templateImage(6),
   },
   {
     id: 8,
@@ -109,8 +103,7 @@ const opportunitiesData: Opportunity[] = [
     expectedROI: "12.5%",
     tenure: "3 Yrs",
     fundedPercentage: 72,
-    imageUrl:
-      "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=400&q=80",
+    imageUrl: templateImage(7),
     isHot: true,
   },
 ];

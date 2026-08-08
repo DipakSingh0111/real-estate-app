@@ -4,7 +4,7 @@
 
 @layer base {
   body {
-    font-family: var(--font-body), "DM Sans", sans-serif;
+    font-family: var(--font-body), "Inter", "DM Sans", sans-serif;
   }
   h1,
   h2,
@@ -12,7 +12,9 @@
   h4,
   h5,
   h6 {
-    font-family: var(--font-heading), "Cormorant Garamond", Georgia, serif;
+    font-family:
+      var(--font-heading), "Playfair Display", "Cormorant Garamond", Georgia,
+      serif;
     letter-spacing: -0.02em;
   }
   /* Typography hierarchy */
@@ -97,13 +99,28 @@ html {
 }
 
 .font-heading {
-  font-family: var(--font-heading), "Cormorant Garamond", Georgia, serif;
+  font-family:
+    var(--font-heading), "Playfair Display", "Cormorant Garamond", Georgia,
+    serif;
 }
 .font-body {
-  font-family: var(--font-body), "DM Sans", sans-serif;
+  font-family: var(--font-body), "Inter", "DM Sans", sans-serif;
 }
 .font-mono {
   font-family: var(--font-mono), "IBM Plex Mono", monospace;
+}
+.font-display {
+  font-family:
+    var(--font-heading), "Playfair Display", "Cormorant Garamond", Georgia,
+    serif;
+}
+.font-hero-heading {
+  font-family:
+    var(--font-heading), "Playfair Display", "Cormorant Garamond", Georgia,
+    serif;
+}
+.font-hero-body {
+  font-family: var(--font-body), "Inter", "DM Sans", sans-serif;
 }
 
 .scrollbar-hide {

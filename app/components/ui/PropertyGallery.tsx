@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import Image from "next/image";
 import type { PropertyGalleryProps } from "@/types/property";
+import { templateImage } from "@/lib/templateImages";
 
 export default function PropertyGallery({
   images,
@@ -15,7 +16,7 @@ export default function PropertyGallery({
   }, [images]);
 
   const [selectedImage, setSelectedImage] = useState<string>(
-    () => galleryImages[0] || "/images/hero.jpg",
+    () => galleryImages[0] || templateImage(0),
   );
   const activeIndex = Math.max(galleryImages.indexOf(selectedImage), 0);
 

@@ -8,10 +8,10 @@ import {
   getRealEstatePageData,
   type HomePageData,
 } from "@/lib/getRealEstateData";
+import { templateImage } from "@/lib/templateImages";
 
-const stats =
-  (getRealEstatePageData<HomePageData>("home").About
-    ?.resolvedStats ?? []) as {
+const stats = (getRealEstatePageData<HomePageData>("home").About
+  ?.resolvedStats ?? []) as {
   value: string;
   label: string;
   subLabel: string;
@@ -33,7 +33,7 @@ export default function AboutUs() {
             {/* Height reduced using 16/9 aspect ratio */}
             <div className="relative aspect-[16/9] w-full lg:aspect-[16/10]">
               <Image
-                src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1000&q=80"
+                src={templateImage(8)}
                 alt="Luxury Villa with Pool"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
@@ -58,8 +58,8 @@ export default function AboutUs() {
 
             {/* Main Headline in Volkhov Font */}
             <h2 className="font-heading text-2xl font-bold leading-tight text-slate-900 sm:text-3xl">
-              Real estate, <br />
-              handled with distinction.
+              <span className="italic">Real estate,</span> <br />
+              <span className="italic">handled with distinction.</span>
             </h2>
 
             {/* Description Paragraph */}

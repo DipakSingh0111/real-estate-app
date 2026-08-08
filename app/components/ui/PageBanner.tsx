@@ -1,4 +1,5 @@
 import PageBreadcrumb, { type BreadcrumbItem } from "./PageBreadcrumb";
+import { templateImage } from "@/lib/templateImages";
 
 interface PageBannerProps {
   preTitle: string;
@@ -17,7 +18,7 @@ export default function PageBanner({
     <section className="relative isolate overflow-hidden border-b border-slate-800 text-white ">
       <div
         className="absolute inset-0 -z-30 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: "url('/images/about_0.avif')" }}
+        style={{ backgroundImage: `url('${templateImage(10)}')` }}
       />
       <div className="absolute inset-0 -z-20 bg-slate-950/75" />
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_center,rgba(184,134,61,0.16),transparent_52%)]" />

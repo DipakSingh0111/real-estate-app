@@ -4,6 +4,7 @@ import {
   getPageBanner,
   getRealEstatePageData,
 } from "@/lib/getRealEstateData";
+import { templateImage } from "@/lib/templateImages";
 
 const iconMap = {
   MapPin,
@@ -114,8 +115,7 @@ export default function ContactPage() {
               <div
                 className="relative h-48 bg-cover bg-center"
                 style={{
-                  backgroundImage:
-                    "url('https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&w=800&auto=format&fit=crop')",
+                  backgroundImage: `url('${templateImage(15)}')`,
                 }}
               >
                 <div className="absolute inset-0 bg-stone-900/30" />
